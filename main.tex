@@ -1,8 +1,49 @@
-\documentclass{book}
+\documentclass[a4paper, oneside]{report}
 
 \usepackage[german]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\newtheorem{theorem}{Satz}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Korollar}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{warning}[theorem]{Warnung}
+
+\usepackage{subfiles}
 
 \begin{document}
-\chapter{Mengen und Abbildungen}
+
+% \begin{titlepage}
+%    \raggedleft%
+
+%    \rule{1pt}{\textheight}
+%    \hspace{0.05\textwidth}
+%    \parbox[b]{0.75\textwidth}{
+%      {\Huge\bfseries Analysis 1}\\[1.5\baselineskip]
+%      {\large\textit{Vorlesungsnotizen}}\\[4\baselineskip]
+
+%      {\Large{Sebastian Baader}}
+%      \vspace{0.5\textheight}
+%    }
+%    \pagenumbering{gobble}
+% \end{titlepage}
+
+\title{Analysis I}
+\author{Sebastian Baader}
+\date{Herbstsemester 2020}
+\maketitle
+%\pagenumbering{arabic}
+
+\tableofcontents
+
+\subfile{chapter1/chapter1}
 
 \end{document}

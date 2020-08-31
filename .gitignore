@@ -1,4 +1,5 @@
 .auctex-auto
 *.aux
+*.toc
 *.log
 *.synctex.gz
