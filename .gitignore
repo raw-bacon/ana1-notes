@@ -1,4 +1,4 @@
-.auctex-auto
+*.auctex-auto
 *.aux
 *.toc
 *.log
