@@ -1,4 +1,5 @@
 *.auctex-auto
+*.el
 *.out
 *.aux
 *.toc
