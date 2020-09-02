@@ -1,14 +1,24 @@
 \documentclass[a4paper, oneside]{report}
 
+% can cause problems if not set explicitly
 \usepackage[utf8]{inputenc}
+
+% german hyphenation
 \usepackage[german]{babel}
+
+% for including figures with \includegraphics{}
 \usepackage{graphicx}
+
+% common packages used in maths
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+
+% clickable links
 \usepackage{hyperref}
 
+% defining the amsthm environments
 \newtheorem{theorem}{Satz}[chapter]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -19,7 +29,13 @@
 \newtheorem{remark}[theorem]{Bemerkung}
 \newtheorem{warning}[theorem]{Warnung}
 
+% for organising the document into multiple files
 \usepackage{subfiles}
+
+% fixing roman numerals in the table of contents
+\usepackage[titles]{tocloft}
+\renewcommand*\cftchapnumwidth{3em}
+\renewcommand*\cftsecnumwidth{3em}
 
 \begin{document}
 \renewcommand{\thechapter}{\Roman{chapter}}
@@ -35,5 +51,12 @@
 
 \subfile{chapter1/chapter1}
 \subfile{chapter2/chapter2}
+\subfile{chapter3/chapter3}
+\subfile{chapter4/chapter4}
+\subfile{chapter5/chapter5}
+\subfile{chapter6/chapter6}
+\subfile{chapter7/chapter7}
+\subfile{chapter8/chapter8}
+\subfile{chapter9/chapter9}
 
 \end{document}
