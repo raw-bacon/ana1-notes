@@ -38,17 +38,22 @@
 \renewcommand*\cftsecnumwidth{3em}
 
 \begin{document}
+% numbering settings (roman chapters, arabic sections)
 \renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
 
+% titlepage
 \title{Analysis I}
 \author{Sebastian Baader}
 \date{Herbstsemester 2020}
 \maketitle
 
+% introduction
 \subfile{introduction/introduction}
 
 \tableofcontents
 
+% main content
 \subfile{chapter1/chapter1}
 \subfile{chapter2/chapter2}
 \subfile{chapter3/chapter3}
