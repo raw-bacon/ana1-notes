@@ -24,8 +24,8 @@ die Menge der Natürlichen Zahlen.
   $m,n \in \mathbb N$ mit $x = mL$ und $d = nL$. Wir zeigen, dass das zu einem Widerspruch
   führt.
   Wir stellen fest, dass die Längen $x_{1} = d-x$ und $d_{1} = 2x - d$
-  ebenfalls die Seite und Diagonale eines Quadrats bilden, siehe Abbildung
-  \ref{fig:euklid}.
+  ebenfalls die Seite und Diagonale eines Quadrats bilden, siehe
+  Abbildung~\ref{fig:euklid}.
 
   \begin{figure}[htb]
     \centering
@@ -46,7 +46,7 @@ die Menge der Natürlichen Zahlen.
     x_{1} = d-x = (n-m)L \\
     d_{1} = 2x-d = (2m -n)L
   \end{align*}
-  Nach Pythagoras gilt $d^{2} = 2x^{2}$, und somit $d \leq 3/2\cdot x$, da $(3/2)^{2} > 2$.
+  Nach Pythagoras gilt $d^{2} = 2x^{2}$, und somit $d \leq 3/2\cdot x$, da ${(3/2)}^{2} > 2$.
   Daraus folgt, dass
   \[x_{1} = d - x \leq \frac{1}{2} \cdot x.\]
   Iteriere dieses Verfahren und erhalte eine Serie von Quadraten mit Seiten
@@ -71,20 +71,20 @@ das heisst das Verhältnis $a/b$ ist eine \textit{rationale Zahl}.
 Zurück zum Quadrat mit Seite $x$ und Diagonale $d$. Nach Pythagoras
 gilt $d^{2} = 2x^{2}$. Falls $x=mL$ und $d=nL$ gilt,
 dann also
-\[2 = \frac{d^{2}}{x^{2}} = \left( \frac{d}{x}\right)^{2} = \left(\frac{n}{m}\right)^{2},\]
+\[2 = \frac{d^{2}}{x^{2}} = {\left( \frac{d}{x}\right)}^{2} = {\left(\frac{n}{m}\right)}^{2},\]
 und somit
 \[2m^{2} = n^{2}.\]
 Die linke Seite dieser Gleichung ist durch $2$ teilbar. Dies impliziert, dass $n^{2}$, und
 somit auch $n$, durch $2$ teilbar ist. Schreibe nun $n = 2k$. Schreibe $n = 2k$ mit
 $k \in \mathbb N$. Setze ein und erhalte
-$2m^{2} = (2k)^{2} = 4k^{2}$,
+$2m^{2} = {(2k)}^{2} = 4k^{2}$,
 beziehungsweise
 \[m^{2} = 2k^{2}.\]
 Die rechte Seite ist durch $2$ teilbar, also auch $m$.
 Wir schliessen, dass sowohl $n$ als auch $m$ durch $2$ teilbar sind.
 Schreibe noch $m = 2\ell$ mit $\ell \in \mathbb N$. Es gilt also
-\[ 2 = \left(\frac{n}{m}\right)^{2}
-  = \left(\frac{k}{\ell}\right)^{2}.\]
+\[ 2 = {\left(\frac{n}{m}\right)}^{2}
+  = {\left(\frac{k}{\ell}\right)}^{2}.\]
 In anderen Worten sind Zähler und Nenner beide gerade.
 Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$, Dann entsteht ein Widerspruch.
 
@@ -102,11 +102,11 @@ $z^{2} = 2$ eine Lösung hat.
 \end{exercise}
 
 \section{Mengen im Vergleich}
-Wir haben bereits einige Mengen eingeführt, nämlich die \textit{natürlichen Zahlen}
+Wir haben bereits einige Mengen erwähnt, nämlich die \textit{natürlichen Zahlen}
 \[ \mathbb N = \{0, 1, 2, 3, \dots\},\]
 die Menge der \textit{ganzen Zahlen},
 \[ \mathbb Z = \{0, 1, -1, 2, -2, \dots\},\]
-die Menge der \textit{rationalen Zahlen}
+und die Menge der \textit{rationalen Zahlen}
 \[ \mathbb Q = \left\{p/q \mid p, q \in \mathbb Z, \, q > 0\right\}.\]
 Wir wollen eine weitere Menge, die Menge $\mathbb R$ der \textit{reellen Zahlen}
 einführen. Es gelten dann die Inklusionen
@@ -116,7 +116,7 @@ einführen. Es gelten dann die Inklusionen
 \begin{definition}
   Seien $A, B$ zwei Mengen. Eine Abbildung $f: A \to B$ heisst
   % TODO small roman
-  \begin{enumerate}[i)]
+  \begin{enumerate}[(i)]
     \item \textit{injektiv}, falls für alle $a_{2}, a_{1} \in A$
       mit $a_{2} \ne a_{1}$ gilt, dass $f(a_{1}) \neq f(a_{2})$,
     \item \textit{surjektiv}, falls für alle $b \in B$ ein Element
@@ -127,15 +127,15 @@ einführen. Es gelten dann die Inklusionen
 
 \begin{example}\label{ex:inj-surj}
   \leavevmode
-  \begin{enumerate}[i)]
+  \begin{enumerate}[(i)]
     \item Seien $A = B = \{0, 1\}$. Es gibt $4$ Abbildungen $f: A \rightarrow B$:
-      \begin{enumerate}[a)]
+      \begin{enumerate}[(a)]
         \item $0 \mapsto 0$ und $1 \mapsto 0$,
         \item $0 \mapsto 1$ und $1 \mapsto 1$,
         \item $0 \mapsto 0$ und $1 \mapsto 1$,
         \item $0 \mapsto 1$ und $1 \mapsto 0$.
       \end{enumerate}
-      Abbildungen a) und b) sind weder injektiv noch surjektiv. Abbildungen c) und d) sind
+      Abbildungen (a) und (b) sind weder injektiv noch surjektiv. Abbildungen (c) und (d) sind
       beide bijektiv.
     \item Seien $A = B = \mathbb N$. Betrachte die Abbildung
       \begin{align*}
@@ -145,16 +145,21 @@ einführen. Es gelten dann die Inklusionen
       Diese Abbildung ist injektiv, aber nicht surjektiv. Die Abbildung
       \begin{align*}
         g: & \;\mathbb N \rightarrow \mathbb N \\
-           & \; n \mapsto \frac{2n - 1 + (-1)^{n}}{4},
+           & \; n \mapsto \frac{2n - 1 + {(-1)}^{n}}{4},
       \end{align*}
       also die Abbildung die durch $2$ dividiert und dann abrundet, ist nicht injektiv,
-      aber surjektiv.
+      aber surjektiv. Um zu sehen, dass
+      $g(n) = \lfloor{n/2}\rfloor$, betrachte zwei Fälle:
+      \begin{enumerate}[(a)]
+        \item $n = 2k$ ist gerade. Dann ist $g(n) = (4k+1-1)/4 = k$.
+        \item $n = 2k + 1$ ist ungerade. Dann ist $g(n) = (4k + 2 -1 -1)/4 = k$.
+      \end{enumerate}
   \end{enumerate}
 \end{example}
 
 \begin{remark}
   \leavevmode
-  \begin{enumerate}[1)]
+  \begin{enumerate}[(1)]
     \item Bijektive Abbildungen $f: A \to B$ haben eine eindeutige \textit{Umkehrabbildung}
       $f^{-1}: B \to A$. Die Konstruktion dafür ist wie folgt. Sei $b \in B$.
       Da $f$ surjektiv ist, existiert $a \in A$ mit $f(a) = b$. Da $f$
@@ -167,7 +172,8 @@ einführen. Es gelten dann die Inklusionen
         f^{-1} \circ f = \textrm{Id}_{A}, \\
         f \circ f^{-1} = \textrm{Id}_{B},
       \end{align*}
-      ausgesprochen ``$f^{-1}$ verknüpft mit $f$ ist die Identitätsabbildung auf $A$''.
+      in Worten, ``$f^{-1}$ verknüpft mit $f$ ist die Identitätsabbildung auf $A$''
+      und ähnlich, ``$f$ verknüpft mit $f^{-1}$ ist die Identitätsabbildung auf $B$''
     \item Für endliche Mengen $A$ und $B$ gilt: Es existiert eine bijektive Abbildung
       $f: A \to B$, genau dann, wenn $A$ und $B$ gleich viele Elemente haben.
   \end{enumerate}
@@ -175,7 +181,7 @@ einführen. Es gelten dann die Inklusionen
 
 \begin{definition}
   Eine Menge $A$ heisst
-  \begin{enumerate}[i)]
+  \begin{enumerate}[(i)]
     \item \textit{unendlich}, falls eine injektive, nicht surjektive Abbildung
       $f: A \to A$ existiert,
     \item \textit{abzählbar}, falls eine bijektive Abbildung $f: \mathbb N \to A$
@@ -184,7 +190,7 @@ einführen. Es gelten dann die Inklusionen
 \end{definition}
 
 \begin{example}
-  Sei $A = \mathbb N$. Die Abbildung $f$ aus Beispiel \ref{ex:inj-surj} ii) ist injektiv,
+  Sei $A = \mathbb N$. Die Abbildung $f$ aus Beispiel~\ref{ex:inj-surj} (ii) ist injektiv,
   aber nicht surjektiv. Also ist $\mathbb N$ eine unendliche Menge.
 \end{example}
 
