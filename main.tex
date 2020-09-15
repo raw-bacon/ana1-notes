@@ -22,18 +22,18 @@
 \usepackage{enumerate}
 
 % defining the amsthm environments
-\newtheorem{theorem}{Satz}[chapter]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Korollar}
+\newtheorem*{theorem}{Satz}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Korollar}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Bemerkung}
-\newtheorem{warning}[theorem]{Warnung}
-\newtheorem{exercise}[theorem]{Übung}
-\newtheorem{example}[theorem]{Beispiel}
-\newtheorem{examples}[theorem]{Beispiele}
+\newtheorem*{definition}{Definition}
+\newtheorem*{remark}{Bemerkung}
+\newtheorem*{warning}{Warnung}
+\newtheorem*{exercise}{Übung}
+\newtheorem*{example}{Beispiel}
+\newtheorem*{examples}{Beispiele}
 
 % for organising the document into multiple files
 \usepackage{subfiles}
@@ -67,7 +67,5 @@
 \subfile{chapter5/chapter5}
 \subfile{chapter6/chapter6}
 \subfile{chapter7/chapter7}
-\subfile{chapter8/chapter8}
-\subfile{chapter9/chapter9}
 
 \end{document}
