@@ -2,10 +2,14 @@
 \usepackage{tikz}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.5]
   \draw (0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- cycle;
-  % TODO only do this from (1, 0) for 45 degrees clockwise
-  \draw (1, 1) circle (1);
+  \draw[domain=225:270] plot
+  ({cos(\x) + 1}, {sin(\x) + 1});
+
+  \draw (45:{sqrt(2) - 1}) --
+  ({2 - sqrt(2)}, 0);
+
   \draw (0, 0) -- (1, 1);
 \end{tikzpicture}
 \end{document}

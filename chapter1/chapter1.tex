@@ -29,7 +29,14 @@ die Menge der Natürlichen Zahlen.
 
   \begin{figure}[htb]
     \centering
-    \includegraphics{images/euklid-quadrat}
+    \begin{minipage}{0.3\linewidth}
+      \centering
+      \includegraphics{images/euklid-quadrat}
+    \end{minipage}%
+    \begin{minipage}{0.3\linewidth}
+      \centering
+      \includegraphics{images/euklid-quadrat2}
+    \end{minipage}
     \caption{Euklids Konstruktoin}%
     \label{fig:euklid}
   \end{figure}
@@ -56,7 +63,7 @@ Wir haben diese Aussage mit einem sogenannten \textit{Widerspruchsbeweis} bewies
 Hierfür haben wir eine Annahme getroffen, und diese zu einem Widerspruch geführt.
 Dies zeigt, dass unsere Annahme falsch war.
 
-Wir sehen nun eine zeitgenössische Umformulierung dieses Antiken Resultats.
+\subsection*{Zeitgenössische Umformulierung}
 Seien $a,b > 0$ zwei kommensurable Längen. Das heisst, es existieren $L > 0$
 und $m,n \in \mathbb N$ mit $a = mL$, $b= nL$. Dann gilt:
 \[\frac{a}{b} = \frac{mL}{nL} = \frac{m}{n},\]
@@ -93,4 +100,104 @@ $z^{2} = 2$ eine Lösung hat.
 \begin{exercise}
   Die Gleichung $z = \sqrt 2 x + \sqrt 3 y$ hat keine ganze Lösungen ausser $(0,0,0)$.
 \end{exercise}
+
+\section{Mengen im Vergleich}
+Wir haben bereits einige Mengen eingeführt, nämlich die \textit{natürlichen Zahlen}
+\[ \mathbb N = \{0, 1, 2, 3, \dots\},\]
+die Menge der \textit{ganzen Zahlen},
+\[ \mathbb Z = \{0, 1, -1, 2, -2, \dots\},\]
+die Menge der \textit{rationalen Zahlen}
+\[ \mathbb Q = \left\{p/q \mid p, q \in \mathbb Z, \, q > 0\right\}.\]
+Wir wollen eine weitere Menge, die Menge $\mathbb R$ der \textit{reellen Zahlen}
+einführen. Es gelten dann die Inklusionen
+\[\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R.\]
+
+\subsection*{Wichtige Grundbegriffe}
+\begin{definition}
+  Seien $A, B$ zwei Mengen. Eine Abbildung $f: A \to B$ heisst
+  % TODO small roman
+  \begin{enumerate}[i)]
+    \item \textit{injektiv}, falls für alle $a_{2}, a_{1} \in A$
+      mit $a_{2} \ne a_{1}$ gilt, dass $f(a_{1}) \neq f(a_{2})$,
+    \item \textit{surjektiv}, falls für alle $b \in B$ ein Element
+      $a \in A$ existiert mit $f(a) = b$,
+      \item \textit{bijektiv}, falls $f$ sowohl injektiv als auch surjektiv ist.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{ex:inj-surj}
+  \begin{enumerate}[i)]
+    \item Seien $A = B = \{0, 1\}$. Es gibt $4$ Abbildungen $f: A \rightarrow B$:
+      \begin{enumerate}[a)]
+        \item $0 \mapsto 0$ und $1 \mapsto 0$,
+        \item $0 \mapsto 1$ und $1 \mapsto 1$,
+        \item $0 \mapsto 0$ und $1 \mapsto 1$,
+        \item $0 \mapsto 1$ und $1 \mapsto 0$.
+      \end{enumerate}
+      Abbildungen a) und b) sind weder injektiv noch surjektiv. Abbildungen c) und d) sind
+      beide bijektiv.
+    \item Seien $A = B = \mathbb N$. Betrachte die Abbildung
+      \begin{align*}
+        f: & \;\mathbb N \rightarrow \mathbb N \\
+        & \;n \mapsto 2n.
+      \end{align*}
+      Diese Abbildung ist injektiv, aber nicht surjektiv. Die Abbildung
+      \begin{align*}
+        g: & \;\mathbb N \rightarrow \mathbb N \\
+           & \; n \mapsto \frac{2n - 1 + (-1)^{n}}{4},
+      \end{align*}
+      also die Abbildung die durch $2$ dividiert und dann abrundet, ist nicht injektiv,
+      aber surjektiv.
+  \end{enumerate}
+\end{example}
+
+\begin{remark}
+  \begin{enumerate}[1)]
+    \item Bijektive Abbildungen $f: A \to B$ haben eine eindeutige \textit{Umkehrabbildung}
+      $f^{-1}: B \to A$. Die Konstruktion dafür ist wie folgt. Sei $b \in B$.
+      Da $f$ surjektiv ist, existiert $a \in A$ mit $f(a) = b$. Da $f$
+      injektiv ist, ist dieses $a$ eindeutig. Setze $f^{-1}(b) = a$. Es gilt dann
+      \[f^{-1}(f(a)) = a\]
+      für alle $a \in A$, und ebenso
+      \[f(f^{-1}(b))\]
+      für alle $b \in B$. Wir schreiben häufig
+      \begin{align*}
+        f^{-1} \circ f = \textrm{Id}_{A}, \\
+        f \circ f^{-1} = \textrm{Id}_{B},
+      \end{align*}
+      ausgesprochen ``$f^{-1}$ verknüpft mit $f$ ist die Identitätsabbildung auf $A$''.
+    \item Für endliche Mengen $A$ und $B$ gilt: Es existiert eine bijektive Abbildung
+      $f: A \to B$, genau dann, wenn $A$ und $B$ gleich viele Elemente haben.
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  Eine Menge $A$ heisst
+  \begin{enumerate}[i)]
+    \item \textit{unendlich}, falls eine injektive, nicht surjektive Abbildung
+      $f: A \to A$ existiert,
+    \item \textit{abzählbar}, falls eine bijektive Abbildung $f: \mathbb N \to A$
+      existiert.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  Sei $A = \mathbb N$. Die Abbildung $f$ aus Beispiel \ref{ex:inj-surj} ii) ist injektiv,
+  aber nicht surjektiv. Also ist $\mathbb N$ eine unendliche Menge.
+\end{example}
+
+Folgende Proposition zeigt in einem gewissen Sinn, dass es gleich viele Brüche
+wie natürliche Zahlen gibt.
+
+\begin{proposition}
+  Die Menge $\mathbb Q$ der rationalen Zahlen ist abzählbar.
+\end{proposition}
+
+\begin{proof}[Beweisskizze]
+  Wir konstruieren eine bijektive Abbildung $\varphi: \mathbb N \to \mathbb Q$.
+  Definiere hierzu eine Teilmenge $A_{k} \subset \mathbb Q$ durch
+  \[ A_{k} = \left\{p/q \in \mathbb Q \mid |p| + |q| = k \right\}.\]
+  Wir haben $A_{0} = \emptyset$, $A_{1} = \{0/1\}, A_{2} = \{1/1, -1/1, 0/2\}, \dots$.
+  Setze $a_{k} = |A_{k}|$, die Anzahl Elemente in $A_{k}$.
+\end{proof}
 \end{document}
