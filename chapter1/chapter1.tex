@@ -418,5 +418,102 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
 \end{remark}
 
 \section{Gruppen und Körper}
+\begin{definition}
+  Eine \textit{Gruppe} ist eine Menge $G$
+  mit einer \textit{Verknüpfung} $\circ: G \times G \to G$,
+  welche folgende Eigenschaften erfüllt.
+  \begin{enumerate}[(i)]
+    \item Es existiert ein Element $e \in G$, so dass
+      für alle $g \in G$ gilt, dass
+      \[g \circ e = e \circ g = g.\]
+    \item Für alle $g \in G$ existiert ein $h \in G$
+      mit
+      \[g \circ h = h \circ g = e.\]
+    \item Für alle $a,b,c \in G$ gilt
+      \[(a \circ b) \circ c = a \circ (b \circ c).\]
+  \end{enumerate}
+\end{definition}
 
+\begin{notation}
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item Das Element $e$ bezeichnen wir als das \textit{neutrale Element}.
+    \item Wir schreiben häufig $g^{-1}$ für $h$ und nennes $g^{-1}$
+      das zu $g$ \textit{inverse Element}.
+    \item Dieses Gesetz nennt man das \textit{Assoziativgesetz}.
+  \end{enumerate}
+\end{notation}
+
+% TODO prettify
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item Die Gruppe $G = \{e\}$ mit $e \circ e = e$ heisst \textit{triviale Gruppe}.
+    \item Die Menge $\{e, a\}$ mit Multiplikationstabelle
+      \begin{tabular*}{1.0\linewidth}[h]{c|cc}
+        & $e$ & a \\
+        \hline
+        e & e & a \\
+        a & a & e
+      \end{tabular*}
+      bildet eine Gruppe.
+      \item Die Menge $\{e, a, b\}$ mit Multiplikationstabelle
+      \begin{tabular*}{1.0\linewidth}[h]{c|ccc}
+        & $e$ & a & b\\
+        \hline
+        e & e & a & b\\
+        a & a & b & e \\
+        b & b & e & a
+      \end{tabular*}
+      bildet eine Gruppe.
+      Hier kann man $a$ als ebene Drehung um $0$ mit Winkel $2\pi/3$
+      interpretieren.
+      \item $(Z, +)$ ist eine Gruppe.
+      \item $(\mathbb Z, \cdot)$ ist keine Gruppe. Zum Beispiel hat die Zahl
+      $2 \in \mathbb Z$ kein inverses Element.
+      \item $(\mathbb Q, +)$ ist eine Gruppe.
+      \item $(\mathbb Q, \cdot)$ ist keine Gruppe. Zum Beispiel hat $0 \in \mathbb Q$
+      kein inverses Element.
+  \end{itemize}
+\end{examples}
+
+\begin{manualproposition}{3}
+  In jeder Gruppe $G$
+  hat die Gleichung $a \circ x = c$
+  eine eindeutige Lösung $x \in G$. Hier sind $a,c$ vorgegeben.
+\end{manualproposition}
+
+\begin{proof}
+  Wir zeigen Existenz und Eindeutigkeit separat. Wir wissen nach
+  Axiom~(ii), dass $b \in G$ existiert mit $b \circ a = e$.
+  Multiplikation mit $b$ von links auf beiden Seiten liefert
+  $b \circ (a \circ x) = b \circ c$. Axiom~(iii) sagt, dass
+  die linke Seite
+  \[
+    (b \circ a) \circ x = e \circ x = x
+  \]
+  ist. Also ist $x = b \circ c = a^{-1} \circ c$ eine Lösung.
+  Um Eindeutigkeit zu zeigen seien $x_{1}, x_{2} \in G$ mit
+  \[
+    a \circ x_{1} = c = a \circ x_{2}.
+  \]
+  Linksmultiplikation wie oben mit $b$ liefert
+  \[b \circ (a \circ x_{1}) = b \circ (a \circ x_{2}).\]
+  Wir erhalten
+  \[
+    (b \circ a) \circ x_{1} = (b \circ a) \circ x_{2}.
+  \]
+  Sobald wir uns erinnern, dass $b \circ a = e$, schliessen wir,
+  dass $x_{1} = x_{2}$.
+\end{proof}
+
+\begin{specialcases}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Falls $a \circ x = a$ gilt, so ist $x = e$. Dies liefert Eindeutigkeit
+      des neutralen Elements.
+    \item Falls $a \circ x = e$ gilt, so ist $x = a^{-1}$. Dies liefert
+      Eindeutigkeit des inversen Elements.
+  \end{enumerate}
+\end{specialcases}
 \end{document}
