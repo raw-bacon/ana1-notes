@@ -115,7 +115,6 @@ einführen. Es gelten dann die Inklusionen
 \subsection*{Wichtige Grundbegriffe}
 \begin{definition}
   Seien $A, B$ zwei Mengen. Eine Abbildung $f: A \to B$ heisst
-  % TODO small roman
   \begin{enumerate}[(i)]
     \item \textit{injektiv}, falls für alle $a_{2}, a_{1} \in A$
       mit $a_{2} \ne a_{1}$ gilt, dass $f(a_{1}) \neq f(a_{2})$,
@@ -212,7 +211,6 @@ Folgende Proposition zeigt in einem gewissen Sinn, dass es gleich viele Brüche
 wie natürliche Zahlen gibt. Dies ist unser erstes potentiell überraschendes
 Resultat.
 
-% TODO make this numbered
 \begin{manualproposition}{1}
   Die Menge $\mathbb Q$ der rationalen Zahlen ist abzählbar.
 \end{manualproposition}
@@ -259,15 +257,16 @@ der $A_{k}$ ist.
 
 Dieser Beweis zeigt allgemeiner, dass jede Menge, die eine abzählbare Vereinigung
 endlicher Mengen ist, selber abzählbar ist. Man könnte diese Aussage
-für Aufgabe 5 auf Serie 1 verwenden.
+zum Beispiel für Aufgabe 5 auf Serie 1 verwenden.
 
 \begin{question}
   Ist jede unendliche Menge abzählbar?
 \end{question}
 
 Georg Cantor hat ca. 1870 als erste Person die Antwort ``nein'' auf diese Frage
-festgehalten. Dies wurde allerdings erst nach dem Krieg publiziert.
-Wir konstruieren nun eine Menge, die nicht abzählbar ist.
+festgehalten.
+Wir konstruieren nun nach seiner Idee
+eine Menge, die nicht abzählbar ist.
 Dazu betrachten wir die \textit{Potenzmenge} $P(M)$
 einer Menge $M$, definiert als die ``Menge aller Teilmengen von $M$''.
 Ein wenig formaler,
@@ -283,8 +282,9 @@ Ein wenig formaler,
 
 \begin{remark}
   Falls die Menge $M$ selbst $n$ Elemente hat, dann hat ihre
-  Potenzmenge $2^{n}$ Elemente. Hierzu fassen wir jede Teilmenge $A$ von $M$
-  als Funktion
+  Potenzmenge $2^{n}$ Elemente. Um das zu beweisen
+  bilden wir jede Teilmenge $A$ von $M$
+  auf die Funktion
   \begin{align*}
     f_{A}: \;& M \to \{0, 1\} \\
     & x \mapsto
@@ -293,13 +293,13 @@ Ein wenig formaler,
         1, & \mbox{falls } x \in A,
       \end{cases}
   \end{align*}
-  auf.
-  Diese Funktion enthält die selbe Information wie $A$ selbst.
+  ab.
+  Diese Abbildung $A \mapsto f_{A}$ ist eine Bijektion zwischen
+  $P(M)$ und der Menge von Funktionen $f: M \to \{0, 1\}$,
+  und es gibt $2^{n}$
+  solche Funktionen.
 \end{remark}
 
-
-
-% TODO number this
 \begin{manualproposition}{2}[Cantor]
   Sei $M$ eine beliebige Menge.
   Dann existiert keine surjektive Abbildung $\varphi: M \to P(M)$.
@@ -317,7 +317,7 @@ Ein wenig formaler,
   Betrachte nun die Teilmenge $A$ von $M$ aller $x$, die nicht
   in $\varphi(x)$ enthalten sind. In Symbolen,
   \[
-    A = \left\{x \in M \mid x \notin \varphi(x)\right\}
+    A = \left\{x \in M \mid x \notin \varphi(x)\right\}.
   \]
   Die Forderung $x \notin \varphi(x)$ macht Sinn,
   da $\varphi(x)$ selbst eine Teilmenge von $M$ ist.
@@ -396,11 +396,21 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   Dies zeigt die Aussage für $n+ 1$.
 \end{proof}
 
+In Serie 1 sehen wir, dass sogar $C_{n} \geq 3^{n}$ gilt,
+jedenfalls für $n \geq 17$.
+Um dies zu zeigen reicht es aber nicht, zu bemerken,
+dass neben $(K)$ und $()K$ auch $K()$ eine korrekte
+Klammerung ist. Diese könnte nämlich mit $()K$
+übereinstimmen.
+Hierzu brauchen wir die Formel in folgender Bemerkung.
+
 \begin{remark}
   Es gilt
   \[
     C_{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n}.
   \]
+  Die zweite Gleichheit ist eine einfache Rechnung.
+  Wir rechtfertigen die erste Gleichheit.
   Der erste der Binomialkoeffizienten zählt alle $n$-Klammerungen (auch inkorrekte).
   Der zweite Binomialkoeffizient zählt die Anzahl inkorrekter Klammerungen.
   Man kann sich dies folgendermassen skizzenhaft überlegen.
@@ -410,8 +420,7 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   Die Klammerung die wir so erhalten, hat $n+1$ rechte Klammern.
   Weiter kann man diesen Prozess rückgängig machen:
   Jede Klammerung mit $n+1$ rechten Klammern
-  liefert eine inkorrekte Klammerung mit $n$ rechten Klammern
-  durch Umkehren dieses Prozesses.
+  liefert eine inkorrekte Klammerung mit $n$ rechten Klammern.
   Also sind die schlechten $n$-Klammerungen in Bijektion
   mit der Anzahl Klammerungen mit $n+1$ rechten
   (und $n-1$ linken) Klammern.
@@ -425,12 +434,12 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   \begin{enumerate}[(i)]
     \item Es existiert ein Element $e \in G$, so dass
       für alle $g \in G$ gilt, dass
-      \[g \circ e = e \circ g = g.\]
+      $g \circ e = e \circ g = g$.
     \item Für alle $g \in G$ existiert ein $h \in G$
       mit
-      \[g \circ h = h \circ g = e.\]
+      $g \circ h = h \circ g = e$.
     \item Für alle $a,b,c \in G$ gilt
-      \[(a \circ b) \circ c = a \circ (b \circ c).\]
+      $(a \circ b) \circ c = a \circ (b \circ c)$.
   \end{enumerate}
 \end{definition}
 
@@ -438,9 +447,9 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   \leavevmode
   \begin{enumerate}[(i)]
     \item Das Element $e$ bezeichnen wir als das \textit{neutrale Element}.
-    \item Wir schreiben häufig $g^{-1}$ für $h$ und nennes $g^{-1}$
+    \item Wir schreiben häufig $g^{-1}$ für $h$ und nennen $g^{-1}$
       das zu $g$ \textit{inverse Element}.
-    \item Dieses Gesetz nennt man das \textit{Assoziativgesetz}.
+    \item Das Gesetz $(a \circ b) \circ c = a \circ (b \circ c)$ nennt man das \textit{Assoziativgesetz}.
   \end{enumerate}
 \end{notation}
 
@@ -473,8 +482,6 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
         $b$ & $b$ & $e$ & $a$
         \end{tabular}
       \end{table*}
-      \begin{tabular*}{1.0\linewidth}[h]{c|ccc}
-      \end{tabular*}
 
       \noindent
       bildet eine Gruppe.
