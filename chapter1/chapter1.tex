@@ -194,18 +194,229 @@ einführen. Es gelten dann die Inklusionen
   aber nicht surjektiv. Also ist $\mathbb N$ eine unendliche Menge.
 \end{example}
 
+\begin{example}
+  Sei $M$ eine Menge, welche $\mathbb N$ als Teilmenge enthält
+  (zum Beispiel $M = \mathbb Q$).
+  Dann ist $M$ unendlich. Betrachte dazu die Abbildung
+  \begin{align*}
+    f:\;& M \to M \\
+    & x \mapsto
+      \begin{cases}
+        x+1 & \mbox{falls }x \in \mathbb N \subset M, \\
+        x & \mbox{falls }x \in M \setminus \mathbb N
+      \end{cases}
+  \end{align*}
+\end{example}
+
 Folgende Proposition zeigt in einem gewissen Sinn, dass es gleich viele Brüche
-wie natürliche Zahlen gibt.
+wie natürliche Zahlen gibt. Dies ist unser erstes potentiell überraschendes
+Resultat.
 
-\begin{proposition}
+% TODO make this numbered
+\begin{manualproposition}{1}
   Die Menge $\mathbb Q$ der rationalen Zahlen ist abzählbar.
-\end{proposition}
+\end{manualproposition}
 
-\begin{proof}[Beweisskizze]
-  Wir konstruieren eine bijektive Abbildung $\varphi: \mathbb N \to \mathbb Q$.
-  Definiere hierzu eine Teilmenge $A_{k} \subset \mathbb Q$ durch
-  \[ A_{k} = \left\{p/q \in \mathbb Q \mid |p| + |q| = k \right\}.\]
-  Wir haben $A_{0} = \emptyset$, $A_{1} = \{0/1\}, A_{2} = \{1/1, -1/1, 0/2\}, \dots$.
-  Setze $a_{k} = |A_{k}|$, die Anzahl Elemente in $A_{k}$.
+
+\begin{proof}
+  Wir konstruieren eine Bijektion $\varphi: \mathbb N \to \mathbb Q$.
+  Für $k \in \mathbb N$ mit $k \geq 1$ definiere
+  \[
+    A_{k} = \left\{p/q \mid p, q \in \mathbb Z, q \geq 1, p/q \textup{ ist gekürzt},
+    |p| + |q| = k\right\}.
+  \]
+  Alle solchen $A_{k} \subset \mathbb Q$ sind endlich und
+  \[
+    \mathbb Q = \bigcupdot_{k \geq 1} A_{k}
+  \]
+  ist die \textit{disjunkte Vereinigung} dieser Mengen.
+  Wir haben
+  \[
+    A_{1} = \{0/1\}, \; A_{2} = \{\pm 1/1\}, \; A_{3} = \{\pm 1/2, \pm 2/1\}, \dots.
+  \]
+  Sei $a_{k} = |A_{k}|$ die Anzahl Elemente von $A_{k}$.
+  Definiere Teilmengen $B_{k} \subset \mathbb N$ mit $|B_{k}| = a_{k}$.
+  Dazu setze $B_{1} = \{0\}$, und für $k \geq 2$ setze
+  \[
+    B_{k} = \{a_{1} + \cdots + a_{k-1},
+    a_{1} + \cdots + a_{k-1} + 1, \dots,
+    a_{1} + \cdots + a_{k-1} + a_{k} - 1\}.
+  \]
+  Es gilt dann
+  \[
+    B_{1} = \{0\}, \; B_{2} = \{1, 2\}, \; B_{3} = \{3, 4, 5, 6\}, \dots.
+  \]
+Wähle eine Bijektion $\varphi_{k}: B_{k} \to A_{k}$ für alle $k \geq 1$.
+Definiere nun
+\begin{align*}
+  \varphi: \;& \mathbb N \to \mathbb Q \\
+  &n \mapsto \varphi_{k}(n) \mbox{ falls } n \in B_{k}.
+\end{align*}
+Die Abbildung $\varphi$ ist eine Bijektion, da $\mathbb N$ die disjunkte
+Vereinigung der $B_{k}$ und $\mathbb Q$ die disjunkte Vereinigung
+der $A_{k}$ ist.
 \end{proof}
+
+Dieser Beweis zeigt allgemeiner, dass jede Menge, die eine abzählbare Vereinigung
+endlicher Mengen ist, selber abzählbar ist. Man könnte diese Aussage
+für Aufgabe 5 auf Serie 1 verwenden.
+
+\begin{question}
+  Ist jede unendliche Menge abzählbar?
+\end{question}
+
+Georg Cantor hat ca. 1870 als erste Person die Antwort ``nein'' auf diese Frage
+festgehalten. Dies wurde allerdings erst nach dem Krieg publiziert.
+Wir konstruieren nun eine Menge, die nicht abzählbar ist.
+Dazu betrachten wir die \textit{Potenzmenge} $P(M)$
+einer Menge $M$, definiert als die ``Menge aller Teilmengen von $M$''.
+Ein wenig formaler,
+\[P(M) = \left\{A \mid A \subset M\right\}.\]
+
+\begin{example}
+  Sei $M = \{0, 1\}$. Dann ist
+  \[
+    P(M) = \{ \emptyset, \{0\}, \{1\} \{0, 1\}\}.
+  \]
+  Hier bedeutet $\emptyset$ die \textit{leere Menge}.
+\end{example}
+
+\begin{remark}
+  Falls die Menge $M$ selbst $n$ Elemente hat, dann hat ihre
+  Potenzmenge $2^{n}$ Elemente. Hierzu fassen wir jede Teilmenge $A$ von $M$
+  als Funktion
+  \begin{align*}
+    f_{A}: \;& M \to \{0, 1\} \\
+    & x \mapsto
+      \begin{cases}
+        0, & \mbox{falls } x \notin A, \\
+        1, & \mbox{falls } x \in A,
+      \end{cases}
+  \end{align*}
+  auf.
+  Diese Funktion enthält die selbe Information wie $A$ selbst.
+\end{remark}
+
+
+
+% TODO number this
+\begin{manualproposition}{2}[Cantor]
+  Sei $M$ eine beliebige Menge.
+  Dann existiert keine surjektive Abbildung $\varphi: M \to P(M)$.
+  Insbesondere existiert keine Bijektion $\varphi: M \to P(M)$.
+\end{manualproposition}
+
+\begin{corollary}
+  Die Potenzmenge $P(\mathbb N)$ ist nicht abzählbar.
+\end{corollary}
+
+\begin{proof}[Beweis der Proposition]
+  Wir führen einen klassischen Widerspruchsbeweis.
+  Wir nehmen an, es gäbe doch eine solche Surjektion
+  $\varphi: M \to P(M)$.
+  Betrachte nun die Teilmenge $A$ von $M$ aller $x$, die nicht
+  in $\varphi(x)$ enthalten sind. In Symbolen,
+  \[
+    A = \left\{x \in M \mid x \notin \varphi(x)\right\}
+  \]
+  Die Forderung $x \notin \varphi(x)$ macht Sinn,
+  da $\varphi(x)$ selbst eine Teilmenge von $M$ ist.
+  Da $\varphi$ surjektiv ist, muss ein $a \in M$
+  existieren mit $\varphi(a) = A$. Wir fragen nun,
+  ob $a \in A$ ist oder nicht.
+  Wäre $a \in A$, so müsste nach Definition von $A$
+  gelten, dass $a \notin \varphi(a)$. Aber das
+  widerspricht der Definition von $\varphi(a) = A$.
+  Wäre jedoch $a \notin A$, dann wäre die Bedingung
+  $a \notin \varphi(a)$ erfüllt, also $a \in A$.
+  Aber da $A = \varphi(a)$, widerspricht auch dies
+  der Definition von $A$. Somit führen beide Möglichkeiten
+  zu einem Widerspruch. Dies bedeutet, dass unsere
+  ursprüngliche Annahme, dass eine Surjektion
+  $\varphi: M \to P(M)$ existiert, verworfen werden muss:
+  Es kann keine solche Abbildung geben.
+\end{proof}
+
+\subsection*{Einschub: Beweismethoden}
+Ein \textit{Beweis} ist eine ``Deduktion einer Aussage
+aus bereits bewiesenen Aussagen oder Grundaxiomen''.
+Wichtig ist hier, dass die Deduktion logisch korrekt erfolgt.
+Typische Beweismethoden sind
+  \begin{itemize}
+    \item geometrisch, zum Beispiel mit Hilfe von Euklids Axiomen,
+    \item mit Aussagenlogik, zum Beispiel Widerspruchsbeweise,
+    \item kombinatorische, zum Beispiel vollständige Induktion.
+  \end{itemize}
+
+
+Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
+\begin{definition}
+  Die $n$-te \textit{Catalanzahl} $C_{n}$ ist die Anzahl korrekte
+  Klammerungen mit $2n$ Klammern ($n$ linke und $n$ rechte Klammern).
+\end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item
+        $C_{1} = 1$, die einzige Korrekte Klammerung ist $()$.
+    \item
+      $C_{2} = 2$, die Klammerungen $()()$ und $(())$ sind beide korrekt.
+    \item $C_{3} = 5$.
+  \end{itemize}
+\end{examples}
+
+\begin{claim}
+  Die $n$-te Catalanzahl $C_{n}$ erfüllt $C_{n} \geq 2^{n-1}$.
+\end{claim}
+
+\begin{proof}
+  Für die \textit{Induktionsverankerung} testen wir die Aussage für $n = 1$:
+  % TODO hyphenate
+  Tat-sächlich
+  ist $C_{1} \geq 2^{0}$. Die \textit{Induktionsannahme} ist nun,
+  dass die Aussage für ein festes $n \in \mathbb N$ stimmt.
+  Im \textit{Induktionsschritt} leiten wir nun die Aussage für $n + 1$
+  aus der Induktionsannahme her.
+  Hier heisst das, dass wir $C_{n+1} \geq 2^{n}$ aus $C_{n} \geq 2^{n-1}$
+  herleiten wollen. Sei dazu $K$ eine korrekte $n$-Klammerung,
+  das heisst eine korrekte
+  Klammerung mit $n$ linken und $n$ rechten Klammern.
+  Dann sind sowohl $(K)$ als auch $()K$ korrekte $(n+1)$-Klammerungen.
+  Weiter gilt, dass diese beiden Klammerungen verschieden sind:
+  Die erste der beiden Klammerungen beginnt mit zwei geöffneten Klammern,
+  wobei die zweite mit einer geöffneten und einer geschlossenen
+  Klammer beginnt.
+  Weiter gilt, dass für verschiedene
+  korrekte $n$-Klammerungen $K_{1}$ und $K_{2}$
+  auch $()K_{1}, (K_{1}), ()K_{2}, (K_{2})$ verschieden sind (wieso?).
+  Wir können also aus jeder korrekten $n$-Klammerung zwei korrekte
+  $(n+1)$-Klammerungen konstruieren. Somit folgt, dass
+  \[C_{n+1} \geq 2 C_{n} \geq 2 \cdot 2^{n-1} = 2^{n}.\]
+  Dies zeigt die Aussage für $n+ 1$.
+\end{proof}
+
+\begin{remark}
+  Es gilt
+  \[
+    C_{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n}.
+  \]
+  Der erste der Binomialkoeffizienten zählt alle $n$-Klammerungen (auch inkorrekte).
+  Der zweite Binomialkoeffizient zählt die Anzahl inkorrekter Klammerungen.
+  Man kann sich dies folgendermassen skizzenhaft überlegen.
+  Eine inkorrekte Klammerung hat eine erste Position,
+  wo eine rechte Klammer zuviel ist.
+  Drehe alle Klammern hinter dieser Position um.
+  Die Klammerung die wir so erhalten, hat $n+1$ rechte Klammern.
+  Weiter kann man diesen Prozess rückgängig machen:
+  Jede Klammerung mit $n+1$ rechten Klammern
+  liefert eine inkorrekte Klammerung mit $n$ rechten Klammern
+  durch Umkehren dieses Prozesses.
+  Also sind die schlechten $n$-Klammerungen in Bijektion
+  mit der Anzahl Klammerungen mit $n+1$ rechten
+  (und $n-1$ linken) Klammern.
+\end{remark}
+
+\section{Gruppen und Körper}
+
 \end{document}

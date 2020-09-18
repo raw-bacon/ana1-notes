@@ -24,8 +24,14 @@
 % defining the amsthm environments
 \newtheorem*{theorem}{Satz}
 \newtheorem*{proposition}{Proposition}
+\newtheorem{manualpropositioninner}{Proposition}
+\newenvironment{manualproposition}[1]{%
+  \renewcommand\themanualpropositioninner{#1}%
+  \manualpropositioninner%
+}{\endmanualpropositioninner}
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{corollary}{Korollar}
+\newtheorem*{claim}{Behauptung}
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Definition}
@@ -34,6 +40,7 @@
 \newtheorem*{exercise}{Übung}
 \newtheorem*{example}{Beispiel}
 \newtheorem*{examples}{Beispiele}
+\newtheorem*{question}{Frage}
 
 % for organising the document into multiple files
 \usepackage{subfiles}
@@ -42,6 +49,9 @@
 \usepackage[titles]{tocloft}
 \renewcommand*\cftchapnumwidth{3em}
 \renewcommand*\cftsecnumwidth{3em}
+
+% disjoint union
+\usepackage{MnSymbol}
 
 \begin{document}
 % numbering settings (roman chapters, arabic sections)
