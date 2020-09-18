@@ -1,13 +1,14 @@
 \documentclass[a4paper, oneside]{report}
-
-% can cause problems if not set explicitly
 \usepackage[utf8]{inputenc}
+
 
 % german hyphenation
 \usepackage[german]{babel}
 
+
 % for including figures with \includegraphics{}
 \usepackage{graphicx}
+
 
 % common packages used in maths
 \usepackage{amsmath}
@@ -15,16 +16,26 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 
+
+% additional symbols
+% disjoint union
+\usepackage{MnSymbol}
+
+
 % clickable links
 \usepackage{hyperref}
+
 
 % roman enumerates
 \usepackage{enumerate}
 
+
 % defining the amsthm environments
+% italics
 \newtheorem*{theorem}{Satz}
 \newtheorem*{proposition}{Proposition}
 \newtheorem{manualpropositioninner}{Proposition}
+% manually number propositions
 \newenvironment{manualproposition}[1]{%
   \renewcommand\themanualpropositioninner{#1}%
   \manualpropositioninner%
@@ -33,6 +44,7 @@
 \newtheorem*{corollary}{Korollar}
 \newtheorem*{claim}{Behauptung}
 
+% upright
 \theoremstyle{definition}
 \newtheorem*{definition}{Definition}
 \newtheorem*{remark}{Bemerkung}
@@ -44,16 +56,20 @@
 \newtheorem*{notation}{Notation}
 \newtheorem*{specialcases}{Spezialfälle}
 
+
 % for organising the document into multiple files
 \usepackage{subfiles}
+
+
+% for using gray text
+\usepackage{xcolor}
+
 
 % fixing roman numerals in the table of contents
 \usepackage[titles]{tocloft}
 \renewcommand*\cftchapnumwidth{3em}
 \renewcommand*\cftsecnumwidth{3em}
 
-% disjoint union
-\usepackage{MnSymbol}
 
 
 \begin{document}
