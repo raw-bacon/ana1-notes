@@ -6,4 +6,5 @@
 *.log
 *.synctex.gz
 *_region_*
+*/*.pdf
 chapter*/chapter*.pdf
