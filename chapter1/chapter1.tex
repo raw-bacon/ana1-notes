@@ -148,13 +148,13 @@ einführen. Es gelten dann die Inklusionen
       beide bijektiv.
     \item Seien $A = B = \mathbb N$. Betrachte die Abbildung
       \begin{align*}
-        f \colon & \;\mathbb N \rightarrow \mathbb N \\
-        & \;n \mapsto 2n.
+        f \colon \mathbb N &\to \mathbb N \\
+        n &\mapsto 2n.
       \end{align*}
       Diese Abbildung ist injektiv, aber nicht surjektiv. Die Abbildung
       \begin{align*}
-        g \colon & \;\mathbb N \rightarrow \mathbb N \\
-           & \; n \mapsto \frac{2n - 1 + {(-1)}^{n}}{4},
+        g \colon \mathbb N &\to \mathbb N \\
+            n &\mapsto \frac{2n - 1 + {(-1)}^{n}}{4},
       \end{align*}
       also die Abbildung die durch $2$ dividiert und dann abrundet, ist nicht injektiv,
       aber surjektiv. Um zu sehen, dass
@@ -208,8 +208,8 @@ einführen. Es gelten dann die Inklusionen
   (zum Beispiel $M = \mathbb Q$).
   Dann ist $M$ unendlich. Betrachte dazu die Abbildung
   \begin{align*}
-    f \colon M \to M \\
-    & x \mapsto
+    f \colon M &\to M \\
+    x &\mapsto
       \begin{cases}
         x+1 & \mbox{falls }x \in \mathbb N \subset M, \\
         x & \mbox{falls }x \in M \setminus \mathbb N
@@ -257,8 +257,8 @@ Resultat.
 Wähle eine Bijektion $\varphi_{k} \colon B_{k} \to A_{k}$ für alle $k \geq 1$.
 Definiere nun
 \begin{align*}
-  \varphi \colon \;& \mathbb N \to \mathbb Q \\
-  &n \mapsto \varphi_{k}(n) \mbox{ falls } n \in B_{k}.
+  \varphi \colon \mathbb N &\to \mathbb Q \\
+  n &\mapsto \varphi_{k}(n) \mbox{ falls } n \in B_{k}.
 \end{align*}
 Die Abbildung $\varphi$ ist eine Bijektion, da $\mathbb N$ die disjunkte
 Vereinigung der $B_{k}$ und $\mathbb Q$ die disjunkte Vereinigung
@@ -296,8 +296,8 @@ Ein wenig formaler,
   bilden wir jede Teilmenge $A$ von $M$
   auf die Funktion
   \begin{align*}
-    f_{A} \colon \;& M \to \{0, 1\} \\
-    & x \mapsto
+    f_{A} \colon  M &\to \{0, 1\} \\
+     x &\mapsto
       \begin{cases}
         0, & \mbox{falls } x \notin A, \\
         1, & \mbox{falls } x \in A,
@@ -591,24 +591,29 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
       Wir
       führen das in dieser Vorlesung nicht weiter aus.
     \item $K = \{0, 1\}$ mit Verknüpfungstabellen
-      \begin{table*}[h]
+      wie in Tabelle~\ref{tab:01}
+      \begin{table}[h]
         \centering
+        \begin{minipage}{0.25\linewidth}
+          \centering
         \begin{tabular}[h]{ccc}
          $+$ & \color{gray}{$0$} & \color{gray}{ $1$ }\\
         % \hline
         \color{gray}{$0$} & $0$ & $1$ \\
         \color{gray}{$1$} & $1$ & $0$
-        \end{tabular}
-      \end{table*}
-      und
-      \begin{table*}[h]
-        \centering
+        \end{tabular}%
+        \end{minipage}%
+        \begin{minipage}{0.25\linewidth}
+          \centering
         \begin{tabular}[h]{ccc}
           $\cdot$ & \color{gray}{$0$} & \color{gray}{$1$} \\
           \color{gray}{$0$} & $0$ & $0$ \\
           \color{gray}{$1$} & $0$ & $1$
         \end{tabular}
-      \end{table*}
+      \end{minipage}
+      \caption{Verknüpfungstabellen von $\{0, 1\}$}%
+      \label{tab:01}
+      \end{table}
       ist ein Körper (der kleinste).
     \item $(\mathbb Z, + , \cdot)$ ist kein Körper, da nur $\pm 1$ multiplikative
       Inverse haben.
