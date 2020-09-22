@@ -637,7 +637,14 @@ Intuitiv ist ein Schnitt eine ``rechte Hälfte'' von $\mathbb Q$, wobei
 die Grenze
 zwischen den Hälften
 nicht unbedingt bei $0$ ist, und sie auch nicht als Element der
-rechten Hälfte gilt.
+rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics{images/dedekind-schnitt}
+  \caption{Ein Dedekindscher Schnitt}%
+  \label{fig:schnitt}
+\end{figure}
 % TODO bild
 
 \begin{example}
@@ -697,6 +704,7 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
       {\left( \frac{1}{3}\right)}^{n_{k}}
     \right\}.
   \]
+  Es gilt zum Beispiel:
   \begin{enumerate}[(1)]
     \item Sei $B = \emptyset$.
       Wir halten uns an die Konvention ``leere Summe gleich $0$''. Es gilt also
@@ -711,6 +719,105 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
       \end{align*}
       Also ist $D_{\mathbb N} = D_{3/2}$.
   \end{enumerate}
+
+Sei nun $B = \{n_{0}, n_{1}, \dots \} \subset \mathbb N$ beliebig.
+Dann gilt
+\begin{align*}
+  0
+  &\leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} \\
+  &= \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k} \\
+  &= \frac{3}{2}.
+\end{align*}
+Also gilt $D_{0} \supset D_{B} \supset D_{3/2}$.
+Insbesondere ist $D_{B} \neq 0$ und $D_{B} \neq \mathbb Q$, das heisst
+$D_{B}$ ist wirklich ein Schnitt.
+Setze nun
+\[\psi(B) = D_{B} \in \mathbb R.\]
+
+Wir behaupten nun, das $\psi$ injektiv ist. Konkreter, seien
+$B_{1}, B_{2} \in P(\mathbb N)$ mit $B_{1} \neq B_{2}$.
+Wir zeigen, dass $D_{B_{1}} \neq D_{B_{2}}$.
+Schreibe dazu
+\begin{align*}
+  B_{1} &= \{m_{0}, m_{1}, m_{2}, \dots\} \text{ mit } m_{0} < m_{1} < m_{2} < \dots, \\
+  B_{2} &= \{n_{0}, n_{1}, n_{2}, \dots\} \text{ mit } n_{0} < n_{1} < n_{2} < \dots.
+\end{align*}
+Sei $\ell \in \mathbb N$ minimal mit $m_{\ell} \neq n_{\ell}$. So ein $\ell$
+existiert, da $B_{1} \neq B_{2}$. Wir nehmen an, dass $m_{\ell} < n_{\ell}$.
+Beispielsweise, für $B_{1} = \{0, 1, 2\}$ und $B_{2} = \{0, 1, 3, 4, 5\}$ ist
+$\ell = 2$, $m_{2} = 2$ und $n_{2} = 3$.
+Vergleiche die Summen
+\begin{align*}
+  S_{1} &= \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{m_{k}}
+          \geq \sum_{k=0}^{\ell} {\left(\frac{1}{3}\right)}^{m_{k}}
+          = \sum_{k=0}^{\ell-1} {\left(\frac{1}{3}\right)}^{m_{k}} + {\left(\frac{1}{3}\right)}^{m_{\ell}}, \\
+  S_{2} &= \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}}
+          = \sum_{k=0}^{\ell - 1} {\left(\frac{1}{3}\right)}^{n_{k}}
+          + \sum_{k= \ell}^{\infty} {\left(\frac{1}{3}\right)}^{n_{k}}.
+\end{align*}
+Setzen wir
+\begin{align*}
+  X &= \sum_{k=0}^{\ell - 1}{\left(\frac{1}{3}\right)}^{n_{k}}, \\
+  Y &= \sum_{k= \ell}^{\infty} {\left(\frac{1}{3}\right)}^{n_{k}},
+\end{align*}
+so erhalten wir aus $n_{\ell} > m_{\ell}$, dass $n_{\ell} \geq m_{\ell} + 1$.
+Also folgt
+\[Y \leq {\left(\frac{1}{3}\right)}^{m_{\ell}} \cdot \left(
+    \frac{1}{3} + {\left( \frac{1}{3}\right)}^{2} + \dots
+    \right).\]
+Es gilt also
+\begin{align*}
+  S_{1} & \geq X + {\left(\frac{1}{3}\right)}^{m_{\ell}}, \\
+  S_{2} & \leq X + {\left(\frac{1}{3}\right)}^{m_{\ell}}\cdot \frac{1}{2}.
+\end{align*}
+Setze
+\[x = X + \frac{2}{3}\cdot {\left(\frac{1}{3}\right)}^{m_{\ell}} \in \mathbb Q.\]
+Dann ist $x < S_{1}$, also $x \notin D_{B_{1}}$, und $x > S_{2}$, also
+$x \in D_{B_{2}}$. Wir schliessen, dass $\psi(B_{1}) \neq \psi(B_{2})$.
+Also ist $\psi$ injektiv und $\mathbb R$ überabzählbar.
 \end{proof}
+
+\begin{question}
+  Wo kommen all diese Schnitte $D_{B}$ her?
+\end{question}
+
+Es muss irrationale Schnitte $D_{B}$ geben (sonst wären es abzählbar viele).
+Insbesondere muss es Teilmengen $B \subset \mathbb N$ geben, so dass die
+entsprechende Summe
+\[x = \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{n_{k}}\]
+keine rationale Zahl ist.
+Die Menge all dieser Summen heisst \textit{Cantormenge}.
+
+\subsubsection*{Eine Ordnung auf den reellen Zahlen}
+Seien $D, D' \in \mathbb R$ mit $D \neq D'$. Dann gilt entweder
+$D \subset D'$ oder $D' \subset D$ (siehe oben).
+\begin{definition}
+  Wir schreiben $D < D'$ falls $D' \subset D$ und $D' \neq D$.
+\end{definition}
+
+\begin{remark}
+  Falls $D < D'$ (das heisst $D' \subset D$ und $D' \neq D$), dann
+  existiert $y \in \mathbb Q$ mit $y \in D$ und $y \notin D$.
+  Da $D$ kein kleinstes Element enthält,
+  existiert $x \in \mathbb Q$ mit $x < y$ und $x \in D$.
+  % TODO maybe figure
+  Dann gilt $D' \subset D_{x} \subset D$, und all diese
+  Inklusionen sind strikt. Die erste Inklusion ist strikt,
+  da $x < y$. Das war nötig, da $D' = D_{y}$
+  gelten könnte. Wir haben also eine rationale Zahl
+  $x \in \mathbb Q$ gefunden mit
+  $D < D_{x} < D'$.
+  Wir haben somit gezeigt, dass zwischen zwei verschiedenen reellen
+  Zahlen immer eine rationale Zahl liegt.
+  Dies ist überraschend, da die Menge $\mathbb Q$
+  abzählbar ist, aber nicht die Menge $\mathbb R$.
+
+  Kronecker hat aus diesem Grund Dedekinds Arbeit nicht akzeptiert,
+  und Poincaré hat es sogar als Teufelswerk bezeichnet.
+  Aus diesem Skeptizismus ist unter anderem der
+  Konstruktivismus in der Logik entstanden.
+  Dieser hat jedoch nicht mehr viele Vertreter.
+\end{remark}
+
 
 \end{document}
