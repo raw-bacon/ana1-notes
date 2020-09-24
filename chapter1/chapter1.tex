@@ -580,7 +580,7 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
     \item $K = \mathbb Q$ mit der üblichen Addition
       \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}\]
       und üblichen Multiplikation
-      \[ \frac{a}{b} \cdot \frac{ac}{bd}\]
+      \[ \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}\]
       bildet einen Körper mit neutralen Elementen $0/1$ (für $+$) und $1/1$ (für $\cdot$).
       Die Rechengesetze (Assoziativität, Kommutativität und Distributivität) übertragen
       sich von den entsprechenden Gesetzen für die Menge der ganzen Zahlen $\mathbb Z$
@@ -700,7 +700,7 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
   $\psi \colon P(\mathbb N) \to \mathbb R$.
   Daraus folgt dann, dass $\mathbb R$ überabzählbar ist.
 
-  die Konstruktion von $\psi$ ist folgendermassen.
+  Die Konstruktion von $\psi$ ist folgendermassen.
   Sei $B \in P(\mathbb N)$, das heisst $B \subset \mathbb N$.
   Schreibe $B = \{n_{0}, n_{1}, n_{2}, \dots\}$ mit $n_{0} < n_{1} < n_{2} < \dots$.
   Diese Menge könnte auch endlich sein.
@@ -715,7 +715,8 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
     \item Sei $B = \emptyset$.
       Wir halten uns an die Konvention ``leere Summe gleich $0$''. Es gilt also
       $D_{\emptyset} = D_{0}$.
-    \item Sei $B = \mathbb N$, das heisst $B = \{0, 1, 2, \dots\}$. Berechne
+    \item Sei $B = \mathbb N$, das heisst $B = \{0, 1, 2, \dots\}$
+      (also $n_{k} = k$). Berechne
       \begin{align*}
         \sum_{k=0}^{\infty}
         {\left(\frac{1}{3}\right)}^{k}
@@ -730,12 +731,12 @@ Sei nun $B = \{n_{0}, n_{1}, \dots \} \subset \mathbb N$ beliebig.
 Dann gilt
 \begin{align*}
   0
-  &= \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} \\
+  &\leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} \\
   &\leq \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k} \\
   &= \frac{3}{2}.
 \end{align*}
 Also gilt $D_{0} \supset D_{B} \supset D_{3/2}$.
-Insbesondere ist $D_{B} \neq 0$ und $D_{B} \neq \mathbb Q$, das heisst
+Insbesondere ist $D_{B} \neq \emptyset$ und $D_{B} \neq \mathbb Q$, das heisst
 $D_{B}$ ist wirklich ein Schnitt.
 Setze nun
 \[\psi(B) = D_{B} \in \mathbb R.\]
@@ -803,7 +804,7 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
 
 \begin{remark}
   Falls $D < D'$ (das heisst $D' \subset D$ und $D' \neq D$), dann
-  existiert $y \in \mathbb Q$ mit $y \in D$ und $y \notin D$.
+  existiert $y \in \mathbb Q$ mit $y \in D$ und $y \notin D'$.
   Da $D$ kein kleinstes Element enthält,
   existiert $x \in \mathbb Q$ mit $x < y$ und $x \in D$.
   % TODO maybe figure
