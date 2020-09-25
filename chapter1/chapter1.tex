@@ -627,6 +627,17 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
 \end{ausblick}
 
 \section{Konstruktion der reellen Zahlen}
+\begin{goal}
+  Wir konstruieren eine Zahlenmenge $\mathbb R$,
+  die Menge der reellen Zahlen, mit folgender
+  Eigenschaft: Jede stetige Funktion $f \colon \mathbb R \to \mathbb R$,
+  welche negative und positive Werte annimmt, hat eine Nullstelle
+  in $\mathbb R$. Insbesondere soll jede Funktion
+  der Form $f(x)=x^{2}-a$ mit $a>0$ eine Nullstelle in $\mathbb R$
+  haben. Folglich hat in $\mathbb R$ jede positive Zahl
+  $a > 0$ eine Quadratwurzel.
+\end{goal}
+
 Wir konstruieren die reellen Zahlen nach Dedekind, ca. 1872.
 \begin{definition}
   Eine Teilmenge $D \subset \mathbb Q$ heisst
@@ -651,12 +662,12 @@ rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
   \caption{Ein Dedekindscher Schnitt}%
   \label{fig:schnitt}
 \end{figure}
-% TODO bild
 
 \begin{example}
   Sei $x = p/q \in \mathbb Q$. Setze $D_{x} = \left\{y \in \mathbb Q \mid y > x\right\}
   \subset \mathbb Q$.
-  Dann ist $D_{x}$ ein Schnitt.
+  Dann ist $D_{x}$ ein Schnitt. Wir nennen $D_{x}$ einen \textit{rationalen Schnitt},
+  da diese später die rationalen Zahlen in $\mathbb R$ werden.
 \end{example}
 
 \begin{remark}
@@ -678,6 +689,19 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
   Die Menge $\mathbb R$ der \textit{reellen Zahlen} ist definiert als die Menge
   aller Dedekindscher Schnitte $D \subset \mathbb Q$.
 \end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item Sei $p/q \in \mathbb Q$. Dann ist
+      \[ D_{p/q} = \left\{x \in \mathbb Q \mid x> p/q \right\}\]
+      ein rationaler Schnitt. So erhalten wir eine ``Einbettung''
+      $\mathbb Q \to \mathbb R$.
+    \item Nicht alle Schnitte sind rational. Zum Beispiel ist
+      \[D_{\sqrt 2} = \left\{x \in \mathbb Q \mid x^{2} > 2 \text{ oder } x < 0\right\}\]
+      kein rationaler Schnitt.
+  \end{itemize}
+\end{examples}
 
 \begin{manualproposition}{4}[Cantor]\label{prop:real-uncountable}
   Die Menge $\mathbb R$ ist überabzählbar, das heisst unendlich
@@ -795,7 +819,7 @@ entsprechende Summe
 keine rationale Zahl ist.
 Die Menge all dieser Summen heisst \textit{Cantormenge}.
 
-\subsubsection*{Eine Ordnung auf den reellen Zahlen}
+\subsection*{Eine Ordnung auf den reellen Zahlen}
 Seien $D, D' \in \mathbb R$ mit $D \neq D'$. Dann gilt entweder
 $D \subset D'$ oder $D' \subset D$ (siehe oben).
 \begin{definition}
@@ -807,7 +831,6 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
   existiert $y \in \mathbb Q$ mit $y \in D$ und $y \notin D'$.
   Da $D$ kein kleinstes Element enthält,
   existiert $x \in \mathbb Q$ mit $x < y$ und $x \in D$.
-  % TODO maybe figure
   Dann gilt $D' \subset D_{x} \subset D$, und all diese
   Inklusionen sind strikt. Die erste Inklusion ist strikt,
   da $x < y$. Das war nötig, da $D' = D_{y}$
@@ -826,5 +849,119 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
   Dieser hat jedoch nicht mehr viele Vertreter.
 \end{remark}
 
+\subsection*{Addition auf den reellen Zahlen}
+
+\begin{definition}
+Seien $D, D' \in \mathbb R$ Dedekindsche Schnitte.
+Wir Definieren die \textit{Summe} von $D$ und $D'$ als
+\[D + D' = \left\{z \in \mathbb Q \mid \text{ es existieren }
+    x \in D \text{ und } y \in D' \text{ mit } z = x + y\right\}.\]
+\end{definition}
+
+Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
+
+\begin{manuallemma}{1}
+  $\mathbb R$ mit Addition ist eine kommutative Gruppe mit neutralem Element
+  \[D_{0} = \left\{x \in \mathbb Q \mid x > 0\right\}\]
+\end{manuallemma}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item Kommutativität und Assoziativität übertragen sich von der Addition
+      auf $\mathbb Q$.
+    \item $D_{0}$ ist das neutrale Element. Zu prüfen ist
+      für alle $D \in \mathbb R$, dass $D + D_{0} = D$. Wir
+      zeigen beide Inklusionen.
+      \begin{enumerate}[(a)]
+        \item Die Inklusion $D + D_{0} \subset D$ folgt direcht aus
+          der Definition: Wenn wir eine positive Zahl
+          (ein Element von $D_{0}$) zu einem
+          $x \in D$ addieren, erhalten wir eine grössere
+          rationale Zahl als $x$, die dementsprechend auch in $D$ ist.
+        \item Die umgekehrte Inklusion $D + D_{0} \supset D$ zeigen
+          wir wie folgt. Sei $y \in D$. Dann existiert $x \in D$ mit
+          $x < y$, da $x$ nicht das kleinste Element von $D$ ist.
+          Dann gilt $y = x + (y - x) \in D + D_{0}$, da $x \in D$
+          und $0 < y - x \in D_{0}$.
+      \end{enumerate}
+      Aus (a) und (b) folgt $D = D + D_{0}$, also ist $D_{0}$ das
+      neutrale Element von $\mathbb R$.
+    \item Die inversen Elemente müssen wir erst noch konstruieren.
+      Das ist der womöglich schwierigste Schritt in diesem Beweis.
+      Wir definieren
+      \[-D = -(\mathbb Q \setminus D) + D_{0},\]
+      Das ist scheinbar die einfachste Art, dies aufzuschreiben.
+      Für ein wenig Inutition dahinter, siehe
+      Abbildung~\ref{fig:additiv-dedekind}.
+      Hier ist zu beachten, dass das Minus auf der linken Seite
+      anders zu interpretieren ist, als das Minus auf der rechten
+      Seite.
+      Wir behaupten nun, dass $D + (-D) = D_{0}$. Berechne dazu
+        \[D + (-D) = D  + (-(\mathbb Q \setminus D)) + D_{0}.\]
+      Seien $x \in D$, $y \in -(\mathbb Q \setminus D)$, und $z \in D_{0}$.
+      Dann gilt:
+      \begin{enumerate}[(i)]
+        \item $z > 0$,
+        \item $-y \in \mathbb Q \setminus D$, also $y \notin D$.
+          Das heisst $-y < x$, also $x + y > 0$.
+      \end{enumerate}
+      Wir schliessen, dass $x + y + z > 0$, also $x + y + z \in D_{0}$.
+      Das zeigt die Inklusion $D + (-D) \subset D_{0}$. Sei umgekehrt
+      $p/q \in D_{0}$, das heisst $p/q > 0$. Wähle $y \in \mathbb Q$
+      mit $0 < y < p/q$, zum Beispiel $y = p/2q$.
+      Es existiert $x \in D$, so dass $x - y \notin D$:
+      Sei hierzu $x' \in D$ beliebig, und sei $n \in \mathbb N$ maximal
+      so dass $x' -ny \in D$. Dann erfüllt $x = x' - ny$ diese Eigenschaft.
+      Aus $x - y \notin D$ folgt, dass $x- y \in \mathbb Q \setminus D$.
+      Dann ist aber $y - x \in - (\mathbb Q \setminus D)$.
+      Also ist $p/q = x + (y-x) + (p/q - y)$, wobei
+      $x \in D$, $y - x \in -(\mathbb Q \setminus D)$, und $p/q - y \in D_{0}$.
+      Also liegt $p/q$ in $D + -D = D + (-(\mathbb Q \setminus D)) + D_{0}$,
+      also $D + (-D) \supset D_{0}$. Wir haben beide Inklusionen gezeigt,
+      und somit
+      erhalten wir $D + (-D) = D_{0}$. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-additiv-invers1}
+  \end{minipage}%
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-additiv-invers2}
+  \end{minipage}
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-additiv-invers3}
+  \end{minipage}%
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-additiv-invers4}
+  \end{minipage}
+  \caption{Additive Inverse}%
+  \label{fig:additiv-dedekind}
+\end{figure}
+
+\subsection*{Multiplikation auf den reellen Zahlen}
+Dieser Abschnitt verläuft völlig analog zum letzten,
+aber wir müssen mit den Vorzeichen vorsichtig sein.
+\begin{definition}
+Seien
+$D ,D' \in \mathbb R$. Wir nehmen an, dass $D, D' \geq 0$,
+das heisst $D, D' \subset D_{0}$. Dann definieren wir das \textit{Produkt}
+von $D$ und $D'$ als
+\[D \cdot D' = \{z \in \mathbb Q \mid \textup{ es existieren } x \in D,
+  y \in D' \textup{ mit } z = x \cdot y\}.\]
+Falls $D < 0$ und $D' \geq 0$, dann definieren wir
+\[D \cdot D' = -(-D) \cdot D',\]
+falls $D \geq 0$ und $D < 0$, definieren wir ähnlich
+\[D \cdot D' = D \cdot -(-D'),\]
+und falls $D < 0$ und $D' < 0$ definieren wir
+\[D \cdot D' = (-D) \cdot (-D').\]
+\end{definition}
 
 \end{document}
