@@ -33,7 +33,12 @@
 
 % defining the amsthm environments
 % italics
-\newtheorem*{theorem}{Satz}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{manualtheoreminner}{Theorem}
+\newenvironment{manualtheorem}[1]{%
+  \renewcommand\themanualtheoreminner{#1}%
+  \manualtheoreminner%
+}{\endmanualtheoreminner}
 \newtheorem*{proposition}{Proposition}
 \newtheorem{manualpropositioninner}{Proposition}
 % manually number propositions

@@ -949,6 +949,7 @@ Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
 \subsection*{Multiplikation auf den reellen Zahlen}
 Dieser Abschnitt verläuft völlig analog zum letzten,
 aber wir müssen mit den Vorzeichen vorsichtig sein.
+
 \begin{definition}
 Seien
 $D ,D' \in \mathbb R$. Wir nehmen an, dass $D, D' \geq 0$,
@@ -962,6 +963,152 @@ falls $D \geq 0$ und $D < 0$, definieren wir ähnlich
 \[D \cdot D' = D \cdot -(-D'),\]
 und falls $D < 0$ und $D' < 0$ definieren wir
 \[D \cdot D' = (-D) \cdot (-D').\]
+In dieser Definition bezeichnet ``$-D$'' das in obigem Abschnitt
+definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \end{definition}
+
+\begin{manuallemma}{2}
+  Die Menge $\mathbb R \setminus \{D_{0}\}$ mit Multiplikation ist eine
+  kommutative Gruppe mit neutralem Element
+  \[D_{1} = \{x \in \mathbb Q \mid x > 1\}.\]
+\end{manuallemma}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item Die Kommutativität und Assoziativität der Multiplikation
+      übertragen sich von $\mathbb Q$ auf $\mathbb R$.
+    \item Wir müssen zeigen, dass $D_{1}$ tatsächlich das neutrale
+      Element von $\mathbb R$ ist.
+      Sei $D \in \mathbb R$. Zu prüfen ist, dass $D \cdot D_{1} = D$.
+      Wir prüfen dies für $D > 0$. Die anderen Fälle sind nicht
+      schwieriger, da müssen wir einfach an den entsprechenden Stellen
+      ein Minussymbol hinschreiben.
+      Wir zeigen wieder beide Inklusionen.
+      \begin{enumerate}[(a)]
+        \item Die Inklusion $D \cdot D_{1} \subset D$ ist klar nach Definition.
+        \item Sei umgekehrt $y \in D$. Wähle $x \in D$ mit $x < y$ und $x > 0$.
+          Dann ist \[y = x \cdot \frac{y}{x} \in D \cdot D_{1}\] da $y/x > 1$.
+      \end{enumerate}
+      Also ist $D \cdot D_{1} = D$.
+    \item
+      Sei $D \in \mathbb R$ mit $D \neq D_{0}$.
+      Wir konstruieren $D^{-1}$, das multiplikative Inverse von $D$.
+      Wir nehmen auch hier der Einfachheit halber $D > 0$ an,
+      auch hier, um uns nicht zu viele Gedanken über das Platzieren
+      der Minussymbole zu machen. Setze
+      \[D^{-1} = {(D_{0} \setminus D)}^{-1} \cdot D_{1}.\]
+      Auch hier bedeutet das Symbol ${}^{-1}$ links etwas anderes als rechts.
+      Für Intuition dazu betrachte Abbildung~\ref{fig:multiplikativ-dedekind}.
+      Wir testen wieder beide Inklusionen.
+      \begin{enumerate}[(a)]
+        \item Für $x \in D$, $y \in {(D_{0} \setminus D)}^{-1}$, und
+          $z \in D_{1}$ ist $x \cdot y \cdot z > 1$.
+          Wir schliessen, dass $D \cdot D^{-1} \subset D_{1}$.
+        \item Sei $p/q \in D_{1}$, das heisst $p/q > 1$.
+          Wähle $y \in \mathbb Q$ mit $1 < y < p/q$, zum Beispiel
+          \[y = \frac{p + q}{2q}.\]
+          Wähle $x \in D$ mit $x/y \notin D$. Dann gilt:
+          \[\frac{p}{q} = x \cdot \frac{y}{x} \in D \cdot
+          {(D_{0} \setminus D)}^{-1} \cdot D_{1}.\]
+          Da $x/y \notin D$ ist $x / y \in D_{0} \setminus D$,
+          also $y/x \in {(D_{0} \setminus D)}^{-1}$.
+          Wir erhalten die umgekehrte Inklusion $D \cdot D^{-1} \supset D_{1}$.
+      \end{enumerate}
+      Setzen wir (a) und (b) zusammen, erhalten wir $D \cdot D^{-1} = D_{1}$.
+      \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{figure}[htb]
+  \centering
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-multiplikativ-invers1}
+  \end{minipage}%
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-multiplikativ-invers2}
+  \end{minipage}
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-multiplikativ-invers3}
+  \end{minipage}%
+  \begin{minipage}{0.4\linewidth}
+    \centering
+    \includegraphics{images/dedekind-multiplikativ-invers4}
+  \end{minipage}%
+  \caption{Multiplikative Inverse}%
+  \label{fig:multiplikativ-dedekind}
+\end{figure}
+
+\begin{exercise}
+  Überprüfe, dass $D_{\sqrt 2} \cdot D_{\sqrt 2} = D_{2}$.
+\end{exercise}
+
+\begin{remark}[Zur Notation]
+  Ab jetzt schreiben wir $p/q$ anstatt $D_{p/q}$,
+  auch wenn wir $p/q$ als reelle Zahl (also als Schnitt)
+  meinen.
+  Ebenso schreiben wir $\sqrt 2$ statt $D_{\sqrt 2}$.
+  Ausserdem benutzen wir Variablen $x,y,z, \dots$
+  für reelle Zahlen.
+  Das ist ein bisschen gefährlich, da wir immer noch
+  Axiome zu überprüfen haben, bis wir unser Ziel zu Beginn
+  des Abschnitts erreichen. Das sollte jedoch nicht allzu
+  viele Missverständnisse bereiten.
+\end{remark}
+
+\subsection*{Eine Ordnung auf den reellen Zahlen (Reprise)}
+\begin{definition}
+  Seien $D, D' \in \mathbb R$. Wir schreiben $D \leq D'$ falls
+  $D \supset D'$ und $D < D'$ falls $D \supset D'$ und $D \neq D'$.
+\end{definition}
+
+\begin{definition}
+  Ein \textit{geordneter Körper} ist ein Körper $(K, +, \cdot)$
+  zusammen mit einer binären Relation $\leq$, welche folgende
+  Eigenschaften hat.
+  \begin{enumerate}[(i)]
+    \item Für alle $x, y \in K$ gilt $x \leq y$ oder $y \leq x$,
+      und $x = y$ genau dann, wenn $x \leq y$ und $y \leq x$.
+    \item Für alle $x, y, z \in K$ gilt, dass immer wenn
+      $x \leq y$ und $y \leq z$, dann auch $x \leq z$. Diese
+      Eigenschaft nennt man \textit{Transitivität}.
+    \item Für alle $x, y, z \in K$ gilt, dass immer wenn
+      $x \leq y$, dann auch $x + z \leq y + z$.
+    \item Für alle $x, y, z \in K$ gilt, dass immer wenn
+      $x \leq y$ und $0 \leq z$, dann auch $xz \leq yz$.
+  \end{enumerate}
+  Bei den Eigenschaften (iii) und (iv) spricht man von additiver,
+  beziehungsweise multiplikativer \textit{Monotonie}.
+\end{definition}
+
+\begin{example}
+  Die Menge der rationalen Zahlen $\mathbb Q$ mit der üblichen
+  Addition, Multiplikation und Ordnung, ist ein geordneter Körper.
+  Mit der ``üblichen Ordnung'' ist die Relation
+  \[ \frac{a}{b} \leq \frac{c}{d} \Leftrightarrow ad \leq bc\]
+  falls $b, d > 0$, gemeint.
+  Wie die Ordnung auf $\mathbb Z$ zu verstehen ist, überlassen
+  wir den Mengentheoretikern und fassen das als intuitiv genug auf.
+\end{example}
+
+\begin{manualtheorem}{1}
+  Die Menge der reellen Zahlen $\mathbb R$ mit der oben definierten
+  Addition, Multiplikation und Ordnung, ist ein geordneter Körper.
+\end{manualtheorem}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item Nach Lemma 1 und 2 sind $(\mathbb R, +)$ und
+      $(\mathbb R \setminus \{0\}, \cdot)$ kommutative Gruppen.
+    \item Das Distributivgesetz überträgt sich von $\mathbb Q$
+      auf $\mathbb R$.
+    \item Die Ordnungsaxiome (i) bis (iv) sind leicht zu überprüfen.
+      \qedhere
+  \end{itemize}
+\end{proof}
 
 \end{document}
