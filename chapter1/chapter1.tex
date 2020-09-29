@@ -1111,4 +1111,192 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
   \end{itemize}
 \end{proof}
 
+\subsection*{Vollständigkeit der reellen Zahlen}
+Eine sehr wichtige Eigenschaft von $\mathbb{R}$, die
+glücklicherweise direkt aus der Definition folgt,
+ist die Vollständigkeit. Vage gesagt bedeutet das,
+dass $\mathbb{R}$ keine ``Löcher'' hat.
+
+\begin{definition}
+	Sei $X$ 
+	eine geordnete Menge. Dann heisst $X$ \textit{vollständig},
+	falls für alle nichtleeren Teilmengen $A, B \subset X$
+	mit $A < B$ (das heisst für alle $a \in A$ und alle $b \in B$
+	gilt $a < b$) ein Element $c \in X$ mit $A \leq c \leq B$
+	existiert.
+\end{definition}
+
+\begin{claim}
+	Die Menge $\mathbb{R}$ der reellen Zahlen ist vollständig.
+\end{claim}
+
+\begin{proof}
+  Setze
+  \[
+    D = \bigcup_{b \in B} D_b = \left\{x \in \mathbb{Q} \mid x > b\right\}.
+  \]
+  Diese Menge $D$ ist ein Schnitt (wieso?) %TODO
+  \begin{itemize}
+	  \item Es gilt für alle $b \in B$, dass $D \supset D_b$.
+	  \item Es gilt für alle $a \in A$ und $b \in B$, dass
+		  $D_a \supset D_b$.
+  \end{itemize}
+  Daraus folgt, dass 
+	\[
+	   D_a 
+	   \supset 
+	   \bigcup_{b \in B} D_b = D.
+	\]
+  Also repräsentiert der Schnitt $D$ eine reelle Zahl $c$
+  mit den gewünschten Eigenschaften: für alle
+  $D_a \in A$ und alle $D_b \in B$ existiert $D = D_c$
+  mit $D_a \supset D_c \supset D_b$.
+\end{proof}
+
+\begin{remark}
+  In $\mathbb Q$ liegt zwischen jedem Paar von rationalen Zahlen
+  $a/b < c/d$ eine rationale Zahl, zum Beispiel die Zahl
+  \[
+    \frac{a+c}{b+d}.
+  \]
+  Das heisst aber nicht, dass $\mathbb Q$ vollständig ist:
+  Tatsächlich ist $\mathbb{Q}$ nicht vollständig. Betrachte
+  beispielsweise 
+  $B= D_{\sqrt 2} = \left\{x \in \mathbb{Q} \mid x > \sqrt 2 \right\}$
+  und $A = \mathbb{Q} \setminus D_{\sqrt 2}
+  = \left\{x \in \mathbb{Q} \mid x < \sqrt 2\right\}$.
+  Es existiert keine Zahl $c \in \mathbb{Q}$ mit $A \leq c \leq B$,
+  da $\sqrt 2 \notin \mathbb{Q}$.
+\end{remark}
+
+\begin{einschub}
+  Wie gut lässt sich $\sqrt 2$ durch rationale Zahlen
+  approximieren? Es finden sich rationale Zahlen $p/q$ beliebig
+  nahe an $\sqrt 2$ so dass
+  \[
+    \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{q},
+  \]
+  sogar
+  \[
+    \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{2q^2},
+  \]
+  aber nicht so, dass
+  \[
+    \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{5q^2}.
+  \]
+  Man kann das mit \textit{Fordkreisen} veranschaulichen:
+  Es ist nämlich nichts speziell an $\sqrt 2$. Jede reelle Zahl
+  lässt sich so genau approximieren.
+  % TODO Bild
+\end{einschub}
+
+\subsection*{Eindeutigkeit der reellen Zahlen}
+\begin{theorem}[Dedekind]
+  Seien $K_1$ und $K_2$ zwei vollständig geordnete Körper.
+  Dann existiert ein Körperisomorphismus
+  $\varphi\colon K_1 \to K_2$, das heisst
+	   für alle $x, y \in K_1$ ist $\varphi(x+y)
+		  = \varphi(x) + \varphi(y)$,
+		  und $\varphi(xy) = \varphi(x)\varphi(y)$,
+	und $\varphi$ ist bijektiv.
+\end{theorem}
+Wir beweisen dies in dieser Vorlesung nicht.
+Man findet das in vielen Lehrbüchern der Analysis.
+Um die Hauptidee des Beweises selber zu entdecken,
+versuche zu zeigen, dass es nur einen Körperisomorphismus
+$\mathbb{R} \to \mathbb{R}$ gibt.
+
+Was dieses Theorem für uns bedeutet ist, dass wir ab jetzt
+nur noch die Eigenschaften von $\mathbb{R}$, aber nicht
+die Definition verwenden.
+
+\subsection*{Folgerungen aus der Vollständigkeit}
+\subsubsection*{Das Supremumsprinzip}
+\begin{claim}[Supremumsprinzip]
+Sei $A \subset \mathbb{R}$ nach oben beschränkt,
+das heisst es existiert $b \in \mathbb{R}$ so dass
+für alle $a \in A$ gilt, dass $a \leq b$.
+Dann existiert eine eindeutige Zahl $S = \sup A$
+mit folgenden Eigenschaften:
+%TODO notation $A \leq B$ auslagern
+\begin{enumerate}[\normalfont(i)]
+	\item ``$A \leq S$'' (das heisst $S$ ist eine obere Schranke
+		für $A$). Präziser: für alle $a \in A$
+		ist $a \leq S$.
+  \item für alle $y \in \mathbb{R}$ mit $y < S$ gilt,
+	  dass $A \not \leq y$ (das heisst $S$ ist die kleinste
+	  obere Schranke für $A$). Präziser: für alle $y \in \mathbb{R}$
+	  mit $y < S$ existiert $a \in A$ mit $y < a$.
+\end{enumerate}
+\end{claim}
+
+Die Zahl $\sup A$ heisst \textit{Supremum} von $A$. Falls
+$\sup A \in A$, dann heisst diese Zahl auch \textit{Maximum} von $A$,
+notiert $\max A$.
+
+Analog sind die Begriffe \textit{Infimum} ($\inf A$) und
+\textit{Minimum} ($\min A$) für nach unten beschränkte
+Teilmengen von $\mathbb{R}$ definiert.
+ 
+\begin{example}
+  Sei $A = \left\{x \in \mathbb{R} \mid x < \sqrt 2\right\}$.
+  Dann ist $\sup A = \sqrt 2$ kein Maximum, da $\sqrt 2 \notin A$.
+  Hingegen für 
+  $\bar A = \left\{x \in \mathbb{R} \mid x \leq \sqrt 2\right\}$
+  ist $\sup \bar A = \sqrt 2$ ein Maximum.
+
+  Die Menge $B = \left\{x \in \mathbb{Q} \mid x < \sqrt 2\right\}$
+  hat aber kein Supremum in $\mathbb{Q}$, wenn wir das analoge
+  Konzept in diesem 
+  geordneten Körper definieren. 
+\end{example}
+
+\begin{proof}[Beweis der Existenz von $\sup A$]
+  Definiere
+  \[
+	  B = \left\{x \in \mathbb{R} \mid \text{für alle } a \in A
+  \text{ gilt } a < x\right\},
+  \]
+  die Menge aller oberen Schranken von $A$. Es gilt $A < B$
+  nach der Definition von $B$.
+  Nach Vollständigkeit existiert $c \in \mathbb{R}$
+  mit $A \leq c \leq B$.
+  Insbesondere ist $c$ eine obere Schranke für $A$.
+  Wir nehmen nun widerspruchsweise an, es gäbe eine
+  kleinere obere Schranke $y \in \mathbb{R}$ für $A$,
+  das heisst $A \leq y < c \leq B$.
+  Dann gilt
+  \[
+    A < \frac{y + c}{2} < B.
+  \]
+  Nach Definition der Menge $B$ wäre
+  $(y + c)/2 \in B$, was im Widerspruch zu $(y +~c)/2~<~B$ steht.
+  Die Zahl $\sup A = c$ hat also die gewünschten Eigenschaften.
+\end{proof}
+
+\subsubsection*{Das Archimedische Prinzip}
+Das Archimedische Prinzip ist sehr intuitiv, war aber in
+unserer Axiomatisierung nicht vertreten. Wir können
+es aber aus der Vollständigkeit herleiten.
+
+\begin{claim}[Archimedisches Prinzip]
+  Sei $a \in \mathbb{R}$. Dann existiert eine natürliche
+  Zahl $N \in \mathbb{N}$ mit $a < N$.
+\end{claim}
+
+\begin{proof}
+  Sei $a \in \mathbb{R}$ fest. Setze
+  \[
+    A = \left\{n \in \mathbb{N} \mid n \leq a\right\} \subset \mathbb{N}
+    \subset \mathbb{R}.
+  \]
+  Falls $A = \emptyset$, dann setze $N = 1$.
+  Falls $A \neq \emptyset$, dann hat $A$ ein Supremum
+  $S = \sup A \in \mathbb{R}$, da $A$ nach oben 
+  durch $a$ beschränkt ist.
+  Es ist dann $S - 1/2$ keine obere Schranke für $A$. 
+  Also existiert eine Zahl $M \in A$ mit $M > S - 1/2$.
+  Also ist $M + 1 > S$ und somit $N = M + 1 > a$. Diese Zahl ist
+  natürlich, da $N$ als Element von $A$ eine natürliche Zahl ist.
+\end{proof}
 \end{document}

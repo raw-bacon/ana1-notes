@@ -2,4 +2,135 @@
 
 \begin{document}
 \chapter{Folgen und Reihen}
+\begin{definition}
+	Eine \textit{Folge} in $\mathbb{R}$ ist eine Abbildung
+  \begin{align*}
+    a \colon \mathbb{N} & \to \mathbb{R} \\
+    n & \mapsto a_n.
+  \end{align*}
+  Wir notieren das häufig als 
+  $(a_0, a_1, a_2, \dots) = {(a_n)}_{n \in \mathbb{N}}$.
+\end{definition}
+
+Die für uns wichtigste Eigenschaft von Folgen ist deren Konvergenz.
+
+\begin{definition}
+	Eine Folge ${(a_n)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
+	heisst \textit{konvergent} mit Grenzwert
+	$L \in \mathbb{R}$, falls für alle
+	$\varepsilon \in \mathbb{R}$ mit $\varepsilon > 0$
+	eine Zahl $N \in \mathbb{N}$ existiert,
+	so dass für alle $n\in \mathbb{N}$ 
+	mit $n \geq N$ gilt, dass
+	$|a_n - L| \leq \varepsilon$. In diesem Fall schreiben wir
+	\[
+	  \lim_{n \to \infty} a_n = L.
+	\]
+\end{definition}
+
+In anderen Worten bedeutet $\lim_{n \to \infty} a_n = L$, dass
+für vorgegebenes $\varepsilon > 0$
+ab einem gewissen Index die Folge für immer im Intervall
+$[L- \varepsilon, L + \varepsilon]$ liegt.
+
+\begin{examples}
+\begin{enumerate}[(1)]
+	\leavevmode
+  \item Sei $a_n = 1/n$ für $n \geq 1$. Wir behaupten,
+	  dass diese Folge konvergent mit Grenzwert
+	  $0 \in \mathbb{R}$ ist. Dazu sei $\varepsilon > 0$
+	  vorgegeben.
+	  Nach dem Archimedischen Prinzip
+	  existiert $N \in \mathbb{N}$ mit
+	  $N > 1/\varepsilon$.
+	  Dann gilt für alle $n \in \mathbb{N}$ mit $n \geq N$,
+	  dass $n > 1/\varepsilon$, also insbesondere
+	  nach dem zweiten Ordnungsaxiom, dass
+	  $1/n < \varepsilon$.
+	  Folglich ist
+	  \[
+		  |a_n - 0| = \frac{1}{n} < \varepsilon,
+	  \]
+	  also
+	  \[
+		  \lim_{n \to \infty}\frac{1}{n} = 0.
+	  \]
+	  Varianten davon sind
+	  \begin{itemize}
+	    \item $\lim_{n \to \infty} \frac{1}{n^2} = 0$,
+	    \item $\lim_{n \to \infty} \frac{1}{\sqrt n} = 0$,
+	    \item $\lim_{n \to \infty} \frac{1}{n^a} = 0$ für
+		    eine ``vernünftige'' Potenz $a$.
+	  \end{itemize}
+  \item Sei $a_n = \sqrt[n]{n}$. Wir behaupten, dass
+	  \[
+		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
+	  \]
+	  Es gilt, dass 
+	  \[
+		  \sqrt[n]{n} \leq 1 + \sqrt{\frac{2}{n-1}}.
+	  \]
+	  Tatsächlich gilt
+	  \[
+		  n  \leq \left( 1 + \sqrt{\frac{2}{n-2}} \right)^n,
+	  \]
+	  denn Anwenden der binomischen Formel
+	  \[
+		  (a + b)^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b
+		  + \dots + \binom{n}{n-1}ab^{n-1} + \binom{n}{n}b^n
+	  \]
+	  liefert
+	  \[
+		  \left( 1 + \sqrt{\frac{2}{n-1}} \right)^n
+		  = 1 + n \cdot \sqrt{\frac{2}{n-1}}
+		  + \binom{n}{2} \left( \sqrt{\frac{2}{n-1}} \right)^2
+		  + \cdots,
+	  \]
+	  wobei bei ``$\cdots$'' nur positive Terme vorkommen.
+	  Somit gilt für alle $n \geq 1$ die Ungleichung
+	  \[
+		  1 \leq \sqrt[n]{n} \leq 1 + \sqrt{\frac{2}{n-1}}.
+	  \]
+	  Aus
+	  \[
+		  \lim_{n \to \infty} 1 + \sqrt{\frac{2}{n-1}} = 1
+	  \]
+	  folgt nun auch
+	  \[
+		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
+	  \]
+  \item Sei $q \in \mathbb{R}$ mit $q \geq 0$. Dann gilt
+	  \[
+	    \lim_{n \to \infty} q^n = 
+	    \begin{cases}
+		    0, & \text{falls } q < 1, \\
+		    1, & \text{falls } q = 1, \\
+		    +\infty, & \text{falls } q > 1.
+	    \end{cases}
+	  \]
+	Die Notation
+	\[
+	  \lim_{n \to \infty} a_n = + \infty
+	\]
+	heisst, dass für alle $S > 0$ ein Index $N \in \mathbb{N}$
+	existiert, so dass für alle $n \geq N$ gilt, dass
+	$a_n > S$ ist.
+	Der zweite der Fälle ist klar. Für den dritten Fall, 
+	betrachte
+	\[
+		q^n = \left( 1 + (q-1) \right)^n \geq 1 + n(q-1),
+	\]
+	wobei $q-1 > 0$. 
+	Sei $S > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
+	\[
+	  N \geq \frac{S}{q-1}.
+	\]
+	Für alle $n \geq N$ gilt dann $q^n \geq 1 + S > S$.
+	Für den ersten Fall ersetze $q$ durch $1/q$.
+\end{enumerate}
+\end{examples}
+
+
+
+
 \end{document}
