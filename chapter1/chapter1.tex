@@ -907,7 +907,9 @@ Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
           Das heisst $-y < x$, also $x + y > 0$.
       \end{enumerate}
       Wir schliessen, dass $x + y + z > 0$, also $x + y + z \in D_{0}$.
-      Das zeigt die Inklusion $D + (-D) \subset D_{0}$. Sei umgekehrt
+      Das zeigt die Inklusion $D + (-D) \subset D_{0}$. 
+      
+      Sei umgekehrt
       $p/q \in D_{0}$, das heisst $p/q > 0$. Wähle $y \in \mathbb Q$
       mit $0 < y < p/q$, zum Beispiel $y = p/2q$.
       Es existiert $x \in D$, so dass $x - y \notin D$:
@@ -960,7 +962,7 @@ von $D$ und $D'$ als
 Falls $D < 0$ und $D' \geq 0$, dann definieren wir
 \[D \cdot D' = -(-D) \cdot D',\]
 falls $D \geq 0$ und $D' < 0$, definieren wir ähnlich
-\[D \cdot D' = D \cdot -(-D'),\]
+\[D \cdot D' = -(D \cdot (-D')),\]
 und falls $D < 0$ und $D' < 0$ definieren wir
 \[D \cdot D' = (-D) \cdot (-D').\]
 In dieser Definition bezeichnet ``$-D$'' das in obigem Abschnitt
@@ -1009,7 +1011,8 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
           Wähle $y \in \mathbb Q$ mit $1 < y < p/q$, zum Beispiel
           \[y = \frac{p + q}{2q}.\]
           Wähle $x \in D$ mit $x/y \notin D$. Dann gilt:
-          \[\frac{p}{q} = x \cdot \frac{y}{x} \in D \cdot
+          \[\frac{p}{q} = x \cdot \frac{y}{x} \cdot
+            \frac{p/q}{y}\in D \cdot
           {(D_{0} \setminus D)}^{-1} \cdot D_{1}.\]
           Da $x/y \notin D$ ist $x / y \in D_{0} \setminus D$,
           also $y/x \in {(D_{0} \setminus D)}^{-1}$.
