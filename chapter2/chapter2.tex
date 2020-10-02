@@ -66,7 +66,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \[
 		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
 	  \]
-	  Es gilt, dass 
+	  Wir wollen zeigen, dass 
 	  \[
 		  \sqrt[n]{n} \leq 1 + \sqrt{\frac{2}{n-1}}.
 	  \]
@@ -76,26 +76,33 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \]
 	  denn Anwenden der binomischen Formel
 	  \[
-		  (a + b)^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b
-		  + \dots + \binom{n}{n-1}ab^{n-1} + \binom{n}{n}b^n
+		  {(a + b)}^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b
+		  + \cdots + \binom{n}{n-1}ab^{n-1} + \binom{n}{n}b^n
 	  \]
 	  liefert
 	  \[
-		  \left( 1 + \sqrt{\frac{2}{n-1}} \right)^n
+		  {\left( 1 + \sqrt{\frac{2}{n-1}} \right)}^n
 		  = 1 + n \cdot \sqrt{\frac{2}{n-1}}
-		  + \binom{n}{2} \left( \sqrt{\frac{2}{n-1}} \right)^2
+		  + \binom{n}{2} {\left( \sqrt{\frac{2}{n-1}} \right)}^2
 		  + R
 	  \]
 	  mit $R \geq 0$.
+    Wir interessieren uns nur für den 
+    quadratischen Term.
+    Bemerke, dass
+    \[
+      \binom{n}{2}\left( \sqrt{\frac{2}{n-1}} \right)^2
+      = \frac{n(n-1)}{2} \frac{2}{n-1} = n.
+    \]
 	  Somit gilt für alle $n \geq 1$ die Ungleichung
 	  \[
 		  1 \leq \sqrt[n]{n} \leq 1 + \sqrt{\frac{2}{n-1}}.
 	  \]
 	  Aus
 	  \[
-		  \lim_{n \to \infty} 1 + \sqrt{\frac{2}{n-1}} = 1
+		  \lim_{n \to \infty} 1 + \sqrt{\frac{2}{n-1}} = 1,
 	  \]
-	  folgt nun auch
+    was eine Variation vom ersten Beispiel ist folgt nun auch
 	  \[
 		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
 	  \]
