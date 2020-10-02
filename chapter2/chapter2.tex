@@ -2,6 +2,7 @@
 
 \begin{document}
 \chapter{Folgen und Reihen}
+\section{Folgen}
 \begin{definition}
 	Eine \textit{Folge} in $\mathbb{R}$ ist eine Abbildung
   \begin{align*}
@@ -72,7 +73,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \]
 	  Tatsächlich gilt
 	  \[
-		  n  \leq \left( 1 + \sqrt{\frac{2}{n-1}} \right)^n,
+		  n  \leq {\left( 1 + \sqrt{\frac{2}{n-1}} \right)}^n,
 	  \]
 	  denn Anwenden der binomischen Formel
 	  \[
@@ -91,7 +92,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
     quadratischen Term.
     Bemerke, dass
     \[
-      \binom{n}{2}\left( \sqrt{\frac{2}{n-1}} \right)^2
+      \binom{n}{2}{\left( \sqrt{\frac{2}{n-1}} \right)}^2
       = \frac{n(n-1)}{2} \frac{2}{n-1} = n.
     \]
 	  Somit gilt für alle $n \geq 1$ die Ungleichung
@@ -125,7 +126,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	Der zweite der Fälle ist klar. Für den dritten Fall, 
 	betrachte
 	\[
-		q^n = \left( 1 + (q-1) \right)^n \geq 1 + n(q-1),
+		q^n = {\left( 1 + (q-1) \right)}^n \geq 1 + n(q-1),
 	\]
 	wobei $q-1 > 0$. 
 	Sei $S > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
@@ -137,6 +138,354 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 \end{enumerate}
 \end{examples}
 
+\section{Cauchyfolgen}
+\begin{definition}
+Eine Folge 
+${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$ 
+heisst \textit{Cauchfolge}, so dass für alle
+vorgegebenen $\varepsilon$ ein $N \in \mathbb{N}$ existiert,
+so dass für alle $n, m \in \mathbb{N}$ mit $n,m \geq N$ gilt,
+dass $|a_n - a_m| \leq \varepsilon$.
+\end{definition}
+
+In anderen Worten, ab einem gewissen Index sind alle
+Folgenglieder höchstens $\varepsilon$ voneinander 
+entfernt. Die Definition der Konvergenz unterscheidet
+sich dadurch, dass bei Cauchyfolgen kein Grenzwert
+erwähnt wird: nur Folgeglieder werden verglichen.
+
+\begin{manualtheorem}{1}[Konvergenzprinzip
+  von Cauchy, 1789 - 1857]
+Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ 
+  sind äquivalent:
+  \begin{enumerate}[\normalfont(i)]
+    \item Die Folge ${\left( a_n \right)}_{n \in \mathbb{N}}$
+      ist konvergent.
+    \item Die Folge ${\left( a_n \right)}_{n \in \mathbb{N}}$
+      ist eine Cauchyfolge.
+  \end{enumerate}
+\end{manualtheorem}
+
+\begin{proof}
+  Die Implikation (i) $\Rightarrow$ (ii) ist eine Übung.
+  Dazu kann  
+  \[
+    |a_n - a_m| \leq |a_n - L| + |L - a_m|
+  \]
+  verwendet werden. Diese Ungleichung wird auch
+  \emph{Dreiecksungleichung} genannt (das Dreieck
+  ist hier degeneriert, das heisst es liegt
+  auf einer Linie, und die Eckpunkte sind
+  $a_n, a_m$ und $L$.
+
+  Die Umkehrung (ii) $\Rightarrow$ (i) ist etwas schwieriger.
+Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
+  Cauchyfolge.
+  Betrachte für alle $k \in \mathbb{N}$ die Menge
+  \[
+    A_k = \left\{ a_{k}, a_{k+1}, \dots \right\}
+    \subset \mathbb{R}.
+  \]
+  Wir behaupten, dass diese Mengen $A_k$
+  (von oben und unten)
+  beschränkt sind.
+  Zum Beweis betrachte $\varepsilon = 1 > 0$.
+  Dann existiert ein $N \in \mathbb{N}$ mit
+  der Eigenschaft, dass immer wenn
+  $n, m \geq N$, dann folgt
+  $|a_n - a_m| \leq 1$.
+  Setze
+  \[
+  S_k = \max \{|a_k|, |a_{k+1}|, \dots, |a_{N-1}|, |a_N| + 1\}.
+  \]
+  Dann gilt für alle $n \geq k$, dass $|a_k| \leq S_k$.
+  Tatsächlich ist für $n \geq N$ die Ungleichung
+  $|a_n - a_N| \leq \varepsilon = 1$
+  erfüllt, also folgt $|a_n| \leq |a_N| + 1$.
+  Analog existiert eine untere Schranke $I_k$ für 
+  $A_k$.
+  Dies zeigt die Behauptung.
+
+  Nun gilt für alle $k \in \mathbb{N}$, dass
+  $I_k \leq A_k \leq S_k$ (wobei $A_k \subset \mathbb{R}$
+  und $I_k, S_k \in \mathbb{R}$).
+  Wende die Vollständigkeit von $\mathbb{R}$ 
+  auf die beiden Teilmengen
+  $\left\{ I_0, I_1, \dots \right\} $
+  und $\{S_0, S_1, \dots\}$ an: Es existiert
+  $L \in \mathbb{R}$, so dass für alle
+  $k \in \mathbb{N}$ gilt, dass $I_k \leq L \leq S_k$.
+
+  Wir behaupten nun, dass
+  \[
+    \lim_{n \to \infty} a_n = L.
+  \]
+  Um das zu beweisen, müssen wir die formale
+  Definition der Konvergenz anwenden.
+  Sei also $\varepsilon > 0$ vorgegeben.
+  Dann existiert $N \in \mathbb{N}$ 
+  so dass immer wenn $n, m \geq N$, dann auch
+  $|a_n - a_m| \leq \varepsilon$
+  (da ${(a_n)}_{n \in \mathbb{N}}$ eine Cauchyfolge ist).
+  Daraus folgt, dass
+  \[
+    |\sup A_N - \inf A_N| \leq \varepsilon,
+  \]
+  da die nicht-strikte Ungleichung ja für alle
+  Elemente von $A_N$ gilt.
+  Nach Konstruktion gilt $\inf A_N \leq L \leq \sup A_N$.
+  Ausserdem gilt für alle $n \geq N$, dass
+  \[
+    |a_n - L| \leq |S_N - I_N| \leq \varepsilon. \qedhere
+  \]
+\end{proof}
+
+Zusammengefasst haben wir die Folgeglieder
+erst ab einem späten Index betrachtet und
+unter Verwendung der Vollständigkeit (!)
+gezeigt, dass wir einen Grenzwert $L$
+finden können.
+
+
+\begin{claim}[Monotononieprinzip]
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ eine monoton wachsende
+  Folge in $\mathbb{R}$ (das heisst, für alle
+  $n \in \mathbb{N}$ gilt, dass $a_n \leq a_{n+1}$),
+  welche nach oben beschränkt ist.
+  Dann konvergiert ${(a_n)}_{n \in \mathbb{N}}$ mit
+  Grenzwert
+  \[
+    S = \sup \{a_0, a_1, a_2, \dots\}.
+  \]
+\end{claim}
+
+\begin{proof}
+  Da $\{a_0, a_1, a_2, \dots\}$ nach oben beschränkt ist,
+  ist $S \in \mathbb{R}$ definiert und eine reelle Zahl.
+  Wir zeigen nun, dass
+  \[
+    \lim_{n \to \infty} a_n = S
+  \]
+  gilt.
+  Sei dazu $\varepsilon > 0$ vorgegeben. 
+  Dann ist $S - \varepsilon$ keine obere Schranke
+  für $\{a_0, a_1, a_2, \dots\}$,
+  da $S$ ja die kleinste obere Schranke ist.
+  Also existiert $N \in \mathbb{N}$ mit
+  $a_N > S - \varepsilon$.
+  Dann gilt für alle $n \geq N$, dass
+  \[
+    S - \varepsilon < a_N \leq a_n \leq S,
+  \]
+  also $|a_n - S| \leq \varepsilon$.
+\end{proof}
+
+\begin{example}
+  Betrachte die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+  gegeben durch
+   \[
+   a_n = {\left( 1 + \frac{1}{n} \right)}^n.
+   \]
+   Es gilt $a_1 = 2$, $a_2 = 9/4$, $a_3 = 64/27, \dots$.
+   Wir behaupten, dass
+   \begin{enumerate}[(i)]
+     \item ${(a_n)}_{n \in \mathbb{N}}$ monoton wachsend ist,
+     \item für alle $n \in \mathbb{N}$ gilt, dass
+       $a_n \leq 3$.
+   \end{enumerate}
+   Der Beweis dieser Behauptung ist eine Übung auf
+   der Serie 4. Hier machen wir deshalb nur eine Beweisskizze:
+   \begin{enumerate}[(i)]
+     \item Es kann gezeigt werden, dass
+       \[
+         {\left( 1 + \frac{1}{n} \right) }^n \leq
+         \left( 1 + \frac{1}{n+1} \right)^{n+1},
+       \]
+       indem 
+       \begin{align*}
+         \left( 1 - \frac{1}{(n+1)^2} \right)^n &=
+         {\left( \frac{1 + \frac{1}{n+1}}{1 + \frac{1}{n}} \right) } \\& 
+         \geq \frac{1}{1 + \frac{1}{n+1}}\\
+                                                                                   &= 1 - \frac{1}{n+2}
+       \end{align*}
+       berechnet wird.
+     \item
+       Die Ungleichung $(1 + 1/n)^n \leq 3$ ist äquivalent
+       zur Ungleichung $(n + 1)^n \leq 3n^n$.
+       Man kann dann zeigen, dass
+       \[
+         (n+1)^n =
+         \sum_{k=0}^{n} \binom{n}{k}n^k 
+         \leq \left( 1 + \frac{1}{1!}
+         + \frac{1}{2!} + \frac{1}{3!} + \cdots +
+       \frac{1}{n!}\right) \cdot n^n.
+       \]
+   \end{enumerate}
+\end{example}
+
+\begin{remark}
+  Der Grenzwert der Folge oben ist
+  \[
+    \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n = e,
+  \]
+  die \textit{Eulersche Zahl} (die wir noch nicht definiert haben).
+\end{remark}
+
+\subsection*{Teilfolgen}
+Wir bemerken, dass
+\begin{enumerate}[(i)]
+  \item jede konvergente Folge beschränkt ist,
+  \item es beschränkte Folgen gibt, welche nicht konvergieren,
+    zum Beispiel $a_n = (-1)^n$ (wieso?).
+\end{enumerate}
+
+\begin{definition}
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$ 
+  und ${(n_k)}_{k \in \mathbb{N}}$ eine Folge in $\mathbb{N}$,
+  welche streng monoton wachsend ist, das heisst
+  \[
+    n_0 < n_1 < n_2 < \cdots.
+  \]
+  Dann heisst die Folge ${(a_{n_k})}_{k \in \mathbb{N}}$ 
+eine \textit{Teilfolge} von ${(a_n)}_{n \in \mathbb{N}}$.
+\end{definition}
+
+In anderen Worten ist eine Teilfolge einer Folge
+die Folge die man erhält, wenn man Folgeglieder
+wegnimmt, so dass aber noch unendlich viele
+Folgeglieder übrigbleibt.
+
+\begin{manualtheorem}{2}[Bolzano-Weierstrass]
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$,
+  welche von oben und unten beschränkt ist.
+  Dann hat die Folge ${(a_n)}_{n \in \mathbb{N}}$
+  eine konvergente Teilfolge.
+\end{manualtheorem}
+
+\begin{example}
+  Die Folge ${(a_n)}_{n \in \mathbb{N}}$ mit Folgegliedern
+  $a_n = (-1)^n$ hat zwei naheliegende konvergente Teilfolgen,
+  nämlich ${(a_{2k})}_{k \in \mathbb{N}}$ mit Grenzwert $1$,
+  und ${(a_{2k+1})}_{k \in \mathbb{N}}$ mit Grenzwert $-1$ 
+  Es gibt aber noch mehr Folgen von Indizes 
+  $(n_k)_{k \in \mathbb{N}}$, die
+  konvergente Teilfolgen liefern.
+\end{example}
+
+\begin{proof}[Beweis von Theorem 2]
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ beschränkt, das heisst
+  es existieren $x, y \in \mathbb{R}$, so dass für
+  alle $n \in \mathbb{N}$ gilt, dass $x \leq a_k \leq y$.
+  Wir unterscheiden nun zwei Fälle.
+  \begin{enumerate}[1.]
+    \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist endlich.
+      Dann hat die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+      eine konstante Teilfolge
+      ${(a_{n_k})}_{k \in \mathbb{N}}$.
+      Diese ist konvergent.
+    \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist unendlich.
+      Wir konstruieren eine sogenannte Intervallschachtelung.
+      Setze 
+      \[
+        I_0 = [x, y] = \left\{z \in \mathbb{R} 
+        \mid x \leq z \leq y\right\}.
+      \]
+      Wähle $a_{n_0} = a_0 \in I_0$. Halbiere $I_0$, also
+      schreibe
+      \[
+        I_0 = \left[ x, \frac{x+y}{2} \right] 
+        \cup \left[ \frac{x+y}{2}, y \right] .
+      \]
+      Eines dieser beiden Teilintervalle enthält
+      unendlich viele Elemente der Menge
+      $\{a_0, a_1, a_2, \dots\}$. Nenne dieses Intervall
+      $I_1 = [x_1, y_1]$. Wähle $a_{n_1} \in I_1$
+      mit $n_1 > n_0$. Das können wir fordern,
+      da es unendlich viele Folgeglieder in 
+      $I_1$ gibt.
+      Halbiere wie oben $I_1$ und schreibe
+      \[
+        I_1 = \left[ x_1, \frac{x_1 + y_1}{2} \right] 
+        \cup \left[ \frac{x_1 + y_1}{2}, y_1 \right] .
+      \]
+      Wieder enthält eines dieser Intervalle
+      unendlich viele Folgeglieder. Nenne dieses
+      Intervall $I_2 = [x_2, y_2]$. Wähle
+      $a_{n_2} \in I_2$ mit $n_{2} > n_1$.
+      Iteriere dieses Verfahren und erhalte eine
+      Teilfolge $a_{n_0}, a_{n_1}, a_{n_2}, \dots$.
+
+      Wir behaupten, dass ${(a_{n_k})}_{k \in \mathbb{N}}$
+      eine Cauchyfolge (und deshalb konvergent) ist.
+      Zum Beweis berechnen wir die Breite des
+      Intervalls $I_k$. Berechne
+      \[
+        y_k - x_k = \frac{y - x}{2^k}.
+      \]
+      Sei $\varepsilon > 0$ vorgegeben. Wähle
+      $N \in \mathbb{N}$, so dass
+      \[
+        \frac{y-x}{2^N} \leq \varepsilon.
+      \]
+      Dann gilt für alle $k, \ell \geq N$, dass
+      $a_{n_k}, a_{n_\ell} \in I_N$ höchstens
+      $\varepsilon$ voneinander entfernt sind.
+      Konkreter,
+      \[
+        |a_{n_k} - a_{n_\ell}| 
+        \leq \frac{y-x}{2^N} \leq \varepsilon. \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+Zusammengefasst haben wir die Intervalle
+iterativ halbiert, und uns immer für das Intervall
+entschieden, das immer noch unendlich viele
+Folgeglieder enthalten hat.
+Die Fallunterscheidung wäre streng genommen nicht
+nötig gewesen.
+
+\subsection*{Rechenregeln}
+\begin{proposition}
+  Seien ${(a_n)}_{n \in \mathbb{N}}$ und
+  ${(b_n)}_{n \in \mathbb{N}}$ zwei
+  konvergente Folgen mit Grenzwerten
+  \[
+    \lim_{n \to \infty} a_n = a \text{ und }
+    \lim_{n \to \infty} b_n = b.
+  \]
+  Dann gilt:
+  \begin{enumerate}[\normalfont(i)]
+    \item $\lim_{n \to \infty} (a_n + b_n) = a + b$ 
+    \item $\lim_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
+    \item Falls für alle $n \in \mathbb{N}$ gilt,
+      dass $a_n \neq 0$ und auch $a \neq 0$ gilt,
+      dann ist
+      \[
+        \lim_{n \to \infty} \frac{1}{a_n} = \frac{1}{a}.
+      \]
+  \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+Bei (iii) müssen wir tatsächlich annehmen,
+dass $a \neq 0$. Die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+mit Folgegliedern
+\[
+  a_n = \frac{1}{n+1}
+\]
+ist konvergent mit Grenzwert $a = 0$, aber die Folge
+${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
+\end{remark}
+
+\begin{proof}[Beweisskizze]
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item $|(a_n + b_n) - (a + b)| \leq |a_n - a| + |b_n - b|$
+    \item $|a_nb_n - ab| \leq |a_nb_n - a_n b + a_n b - ab |
+      \leq |a_n| |b_n - b| + |b||a_n -a|$. \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 
