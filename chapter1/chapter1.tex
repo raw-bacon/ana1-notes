@@ -4,10 +4,10 @@
 \chapter{Konstruktion der Reellen Zahlen}
 \section{Historische Motivation}
 In der Antike war Mathematik praktisch synonym mit Geometrie. Der Zahlenbegriff war
-direkt an das Konzept der \textit{Länge} gekoppelt.
+direkt an das Konzept der \emph{Länge} gekoppelt.
 
 \begin{definition}[Euklid, 300 vor Christus]
-  Zwei Längen $a,b > 0$ heissen \textit{kommensurabel}, falls eine Länge $L>0$ existiert,
+  Zwei Längen $a,b > 0$ heissen \emph{kommensurabel}, falls eine Länge $L>0$ existiert,
   so wie zwei natürliche Zahlen $m,n \in \mathbb N$, so dass $a = mL$ und $b=nL$.
 \end{definition}
 
@@ -62,7 +62,7 @@ die Menge der Natürlichen Zahlen.
    nicht kommensurabel sein.
 \end{proof}
 
-Wir haben diese Aussage mit einem sogenannten \textit{Widerspruchsbeweis} bewiesen.
+Wir haben diese Aussage mit einem sogenannten \emph{Widerspruchsbeweis} bewiesen.
 Hierfür haben wir eine Annahme getroffen, und diese zu einem Widerspruch geführt.
 Dies zeigt, dass unsere Annahme falsch war.
 
@@ -70,7 +70,7 @@ Dies zeigt, dass unsere Annahme falsch war.
 Seien $a,b > 0$ zwei kommensurable Längen. Das heisst, es existieren $L > 0$
 und $m,n \in \mathbb N$ mit $a = mL$, $b= nL$. Dann gilt:
 \[\frac{a}{b} = \frac{mL}{nL} = \frac{m}{n},\]
-das heisst das Verhältnis $a/b$ ist eine \textit{rationale Zahl}.
+das heisst das Verhältnis $a/b$ ist eine \emph{rationale Zahl}.
 Zurück zum Quadrat mit Seite $x$ und Diagonale $d$. Nach Pythagoras
 gilt $d^{2} = 2x^{2}$. Falls $x=mL$ und $d=nL$ gilt,
 dann also
@@ -100,7 +100,7 @@ Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$, Dann entsteht ein Widerspr
 \end{corollary}
 
 Das Ziel für den Rest dieses Kapitels ist es, eine Zahlenmenge $\mathbb R$ (die Menge
-der \textit{reellen Zahlen}) zu konstruieren, in welcher die Gleichung
+der \emph{reellen Zahlen}) zu konstruieren, in welcher die Gleichung
 $z^{2} = 2$ eine Lösung hat.
 
 \begin{exercise}
@@ -108,29 +108,29 @@ $z^{2} = 2$ eine Lösung hat.
 \end{exercise}
 
 \section{Mengen im Vergleich}
-Wir haben bereits einige Mengen erwähnt, nämlich die \textit{natürlichen Zahlen}
+Wir haben bereits einige Mengen erwähnt, nämlich die \emph{natürlichen Zahlen}
 \[ \mathbb N = \{0, 1, 2, 3, \dots\},\]
-die Menge der \textit{ganzen Zahlen},
+die Menge der \emph{ganzen Zahlen},
 \[ \mathbb Z = \{0, 1, -1, 2, -2, \dots\},\]
-und die Menge der \textit{rationalen Zahlen}
+und die Menge der \emph{rationalen Zahlen}
 \[ \mathbb Q = \left\{p/q \mid p, q \in \mathbb Z, \, q > 0\right\}.\]
-Wir wollen eine weitere Menge, die Menge $\mathbb R$ der \textit{reellen Zahlen}
+Wir wollen eine weitere Menge, die Menge $\mathbb R$ der \emph{reellen Zahlen}
 einführen. Es gelten dann die Inklusionen
 \[\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R.\]
 
 \subsection*{Wichtige Grundbegriffe}
 \begin{definition}
   Seien $A, B$ zwei Mengen.
-  Eine \textit{Abbildung} zwischen $A$ und $B$,
+  Eine \emph{Abbildung} zwischen $A$ und $B$,
   in Symbolen, $f \colon A \to B$, ist eine Zuordnung
   $f(a) \in B$ für jedes $a \in A$.
   Eine Abbildung $f \colon A \to B$ heisst
   \begin{enumerate}[(i)]
-    \item \textit{injektiv}, falls für alle $a_{2}, a_{1} \in A$
+    \item \emph{injektiv}, falls für alle $a_{2}, a_{1} \in A$
       mit $a_{2} \ne a_{1}$ gilt, dass $f(a_{1}) \neq f(a_{2})$,
-    \item \textit{surjektiv}, falls für alle $b \in B$ ein Element
+    \item \emph{surjektiv}, falls für alle $b \in B$ ein Element
       $a \in A$ existiert mit $f(a) = b$,
-      \item \textit{bijektiv}, falls $f$ sowohl injektiv als auch surjektiv ist.
+      \item \emph{bijektiv}, falls $f$ sowohl injektiv als auch surjektiv ist.
   \end{enumerate}
 \end{definition}
 
@@ -169,7 +169,7 @@ einführen. Es gelten dann die Inklusionen
 \begin{remark}
   \leavevmode
   \begin{enumerate}[(1)]
-    \item Bijektive Abbildungen $f \colon A \to B$ haben eine eindeutige \textit{Umkehrabbildung}
+    \item Bijektive Abbildungen $f \colon A \to B$ haben eine eindeutige \emph{Umkehrabbildung}
       $f^{-1} \colon B \to A$. Die Konstruktion dafür ist wie folgt. Sei $b \in B$.
       Da $f$ surjektiv ist, existiert $a \in A$ mit $f(a) = b$. Da $f$
       injektiv ist, ist dieses $a$ eindeutig. Setze $f^{-1}(b) = a$. Es gilt dann
@@ -191,9 +191,9 @@ einführen. Es gelten dann die Inklusionen
 \begin{definition}
   Eine Menge $A$ heisst
   \begin{enumerate}[(i)]
-    \item \textit{unendlich}, falls eine injektive, nicht surjektive Abbildung
+    \item \emph{unendlich}, falls eine injektive, nicht surjektive Abbildung
       $f: A \to A$ existiert,
-    \item \textit{abzählbar}, falls eine bijektive Abbildung $f \colon \mathbb N \to A$
+    \item \emph{abzählbar}, falls eine bijektive Abbildung $f \colon \mathbb N \to A$
       existiert.
   \end{enumerate}
 \end{definition}
@@ -237,7 +237,7 @@ Resultat.
   \[
     \mathbb Q = \bigcupdot_{k \geq 1} A_{k}
   \]
-  ist die \textit{disjunkte Vereinigung} dieser Mengen.
+  ist die \emph{disjunkte Vereinigung} dieser Mengen.
   Wir haben
   \[
     A_{1} = \{0/1\}, \; A_{2} = \{\pm 1/1\}, \; A_{3} = \{\pm 1/2, \pm 2/1\}, \dots.
@@ -277,7 +277,7 @@ Georg Cantor hat ca. 1870 als erste Person die Antwort ``nein'' auf diese Frage
 festgehalten.
 Wir konstruieren nun nach seiner Idee
 eine Menge, die nicht abzählbar ist.
-Dazu betrachten wir die \textit{Potenzmenge} $P(M)$
+Dazu betrachten wir die \emph{Potenzmenge} $P(M)$
 einer Menge $M$, definiert als die ``Menge aller Teilmengen von $M$''.
 Ein wenig formaler,
 \[P(M) = \left\{A \mid A \subset M\right\}.\]
@@ -287,7 +287,7 @@ Ein wenig formaler,
   \[
     P(M) = \{ \emptyset, \{0\}, \{1\}, \{0, 1\}\}.
   \]
-  Hier bedeutet $\emptyset$ die \textit{leere Menge}.
+  Hier bedeutet $\emptyset$ die \emph{leere Menge}.
 \end{example}
 
 \begin{remark}
@@ -348,7 +348,7 @@ Ein wenig formaler,
 \end{proof}
 
 \subsection*{Einschub: Beweismethoden}
-Ein \textit{Beweis} ist eine ``Deduktion einer Aussage
+Ein \emph{Beweis} ist eine ``Deduktion einer Aussage
 aus bereits bewiesenen Aussagen oder Grundaxiomen''.
 Wichtig ist hier, dass die Deduktion logisch korrekt erfolgt.
 Folgende Beweismethoden sind typisch.
@@ -365,7 +365,7 @@ Folgende Beweismethoden sind typisch.
 
 Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
 \begin{definition}
-  Die $n$-te \textit{Catalanzahl} $C_{n}$ ist die Anzahl korrekte
+  Die $n$-te \emph{Catalanzahl} $C_{n}$ ist die Anzahl korrekte
   Klammerungen mit $2n$ Klammern ($n$ linke und $n$ rechte Klammern).
 \end{definition}
 
@@ -385,14 +385,14 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
 \end{claim}
 
 \begin{proof}[Beweis durch vollständige Induktion]
-  Für die \textit{Induktionsverankerung} testen wir die Aussage für $n = 1$:
+  Für die \emph{Induktionsverankerung} testen wir die Aussage für $n = 1$:
   Tatsächlich
   ist $C_{1} \geq 2^{0}$.
 
-  Die \textit{Induktionsannahme} ist nun,
+  Die \emph{Induktionsannahme} ist nun,
   dass die Aussage für ein festes $n \in \mathbb N$ stimmt.
 
-  Im \textit{Induktionsschritt} leiten wir nun die Aussage für $n + 1$
+  Im \emph{Induktionsschritt} leiten wir nun die Aussage für $n + 1$
   aus der Induktionsannahme (für $n$) her.
   Hier heisst das, dass wir $C_{n+1} \geq 2^{n}$ aus $C_{n} \geq 2^{n-1}$
   herleiten wollen. Sei dazu $K$ eine korrekte $n$-Klammerung,
@@ -444,8 +444,8 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
 
 \section{Gruppen und Körper}
 \begin{definition}
-  Eine \textit{Gruppe} ist eine Menge $G$
-  mit einer \textit{Verknüpfung} $\circ \colon G \times G \to G$,
+  Eine \emph{Gruppe} ist eine Menge $G$
+  mit einer \emph{Verknüpfung} $\circ \colon G \times G \to G$,
   welche folgende Eigenschaften erfüllt.
   \begin{enumerate}[(i)]
     \item Es existiert ein Element $e \in G$, so dass
@@ -462,10 +462,10 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
 \begin{notation}
   \leavevmode
   \begin{enumerate}[(i)]
-    \item Das Element $e$ bezeichnen wir als das \textit{neutrale Element}.
+    \item Das Element $e$ bezeichnen wir als das \emph{neutrale Element}.
     \item Wir schreiben häufig $g^{-1}$ für $h$ und nennen $g^{-1}$
-      das zu $g$ \textit{inverse Element}.
-    \item Das Gesetz $(a \circ b) \circ c = a \circ (b \circ c)$ nennt man das \textit{Assoziativgesetz}.
+      das zu $g$ \emph{inverse Element}.
+    \item Das Gesetz $(a \circ b) \circ c = a \circ (b \circ c)$ nennt man das \emph{Assoziativgesetz}.
   \end{enumerate}
 \end{notation}
 
@@ -473,7 +473,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
   \leavevmode
   \begin{itemize}
     \item Die Menge $G = \{e\}$ mit der Operation
-      $e \circ e = e$ ist eine Gruppe (sie heisst \textit{triviale Gruppe}).
+      $e \circ e = e$ ist eine Gruppe (sie heisst \emph{triviale Gruppe}).
     \item Die Menge $\{e, a\}$ mit Verknüpfungstabelle zu finden
       in Tabelle~\ref{tab:ea} bildet eine Gruppe.
       \begin{table}[htb]
@@ -557,7 +557,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
 \subsection*{Körper}
 \begin{definition}
   Eine Menge $K$ mit zwei Verknüpfungen $+, \cdot \colon K \times K \to K$ heisst
-  \textit{Körper}, falls
+  \emph{Körper}, falls
   \begin{enumerate}[(i)]
     \item $(K, +)$ ist eine kommutative Gruppe mit neutralem
       Element $0 \in K$,
@@ -641,7 +641,7 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
 Wir konstruieren die reellen Zahlen nach Dedekind, ca. 1872.
 \begin{definition}
   Eine Teilmenge $D \subset \mathbb Q$ heisst
-  \textit{Dedekindscher Schnitt}, oder kurz \textit{Schnitt},
+  \emph{Dedekindscher Schnitt}, oder kurz \emph{Schnitt},
   falls
   \begin{enumerate}[(1)]
     \item $D \neq \emptyset$, $D \neq \mathbb Q$,
@@ -666,7 +666,7 @@ rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
 \begin{example}
   Sei $x = p/q \in \mathbb Q$. Setze $D_{x} = \left\{y \in \mathbb Q \mid y > x\right\}
   \subset \mathbb Q$.
-  Dann ist $D_{x}$ ein Schnitt. Wir nennen $D_{x}$ einen \textit{rationalen Schnitt},
+  Dann ist $D_{x}$ ein Schnitt. Wir nennen $D_{x}$ einen \emph{rationalen Schnitt},
   da diese später die rationalen Zahlen in $\mathbb R$ werden.
 \end{example}
 
@@ -686,7 +686,7 @@ rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
 Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable} unten.
 
 \begin{definition}
-  Die Menge $\mathbb R$ der \textit{reellen Zahlen} ist definiert als die Menge
+  Die Menge $\mathbb R$ der \emph{reellen Zahlen} ist definiert als die Menge
   aller Dedekindscher Schnitte $D \subset \mathbb Q$.
 \end{definition}
 
@@ -817,7 +817,7 @@ Insbesondere muss es Teilmengen $B \subset \mathbb N$ geben, so dass die
 entsprechende Summe
 \[x = \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{n_{k}}\]
 keine rationale Zahl ist.
-Die Menge all dieser Summen heisst \textit{Cantormenge}.
+Die Menge all dieser Summen heisst \emph{Cantormenge}.
 
 \subsection*{Eine Ordnung auf den reellen Zahlen}
 Seien $D, D' \in \mathbb R$ mit $D \neq D'$. Dann gilt entweder
@@ -853,7 +853,7 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
 
 \begin{definition}
 Seien $D, D' \in \mathbb R$ Dedekindsche Schnitte.
-Wir Definieren die \textit{Summe} von $D$ und $D'$ als
+Wir Definieren die \emph{Summe} von $D$ und $D'$ als
 \[D + D' = \left\{z \in \mathbb Q \mid \text{ es existieren }
     x \in D \text{ und } y \in D' \text{ mit } z = x + y\right\}.\]
 \end{definition}
@@ -955,7 +955,7 @@ aber wir müssen mit den Vorzeichen vorsichtig sein.
 \begin{definition}
 Seien
 $D ,D' \in \mathbb R$. Wir nehmen an, dass $D, D' \geq 0$,
-das heisst $D, D' \subset D_{0}$. Dann definieren wir das \textit{Produkt}
+das heisst $D, D' \subset D_{0}$. Dann definieren wir das \emph{Produkt}
 von $D$ und $D'$ als
 \[D \cdot D' = \{z \in \mathbb Q \mid \textup{ es existieren } x \in D,
   y \in D' \textup{ mit } z = x \cdot y\}.\]
@@ -1069,7 +1069,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \end{definition}
 
 \begin{definition}
-  Ein \textit{geordneter Körper} ist ein Körper $(K, +, \cdot)$
+  Ein \emph{geordneter Körper} ist ein Körper $(K, +, \cdot)$
   zusammen mit einer binären Relation $\leq$, welche folgende
   Eigenschaften hat.
   \begin{enumerate}[(i)]
@@ -1077,14 +1077,14 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
       und $x = y$ genau dann, wenn $x \leq y$ und $y \leq x$.
     \item Für alle $x, y, z \in K$ gilt, dass immer wenn
       $x \leq y$ und $y \leq z$, dann auch $x \leq z$. Diese
-      Eigenschaft nennt man \textit{Transitivität}.
+      Eigenschaft nennt man \emph{Transitivität}.
     \item Für alle $x, y, z \in K$ gilt, dass immer wenn
       $x \leq y$, dann auch $x + z \leq y + z$.
     \item Für alle $x, y, z \in K$ gilt, dass immer wenn
       $x \leq y$ und $0 \leq z$, dann auch $xz \leq yz$.
   \end{enumerate}
   Bei den Eigenschaften (iii) und (iv) spricht man von additiver,
-  beziehungsweise multiplikativer \textit{Monotonie}.
+  beziehungsweise multiplikativer \emph{Monotonie}.
 \end{definition}
 
 \begin{example}
@@ -1122,7 +1122,7 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
 
 \begin{definition}
 	Sei $X$ 
-	eine geordnete Menge. Dann heisst $X$ \textit{vollständig},
+	eine geordnete Menge. Dann heisst $X$ \emph{vollständig},
 	falls für alle nichtleeren Teilmengen $A, B \subset X$
 	mit $A < B$ (das heisst für alle $a \in A$ und alle $b \in B$
 	gilt $a < b$) ein Element $c \in X$ mit $A \leq c \leq B$
@@ -1188,7 +1188,7 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
   \[
     \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{5q^2}.
   \]
-  Man kann das mit \textit{Fordkreisen} veranschaulichen:
+  Man kann das mit \emph{Fordkreisen} veranschaulichen:
   Es ist nämlich nichts speziell an $\sqrt 2$. Jede reelle Zahl
   lässt sich so genau approximieren.
   % TODO Bild
@@ -1234,12 +1234,12 @@ mit folgenden Eigenschaften:
 \end{enumerate}
 \end{claim}
 
-Die Zahl $\sup A$ heisst \textit{Supremum} von $A$. Falls
-$\sup A \in A$, dann heisst diese Zahl auch \textit{Maximum} von $A$,
+Die Zahl $\sup A$ heisst \emph{Supremum} von $A$. Falls
+$\sup A \in A$, dann heisst diese Zahl auch \emph{Maximum} von $A$,
 notiert $\max A$.
 
-Analog sind die Begriffe \textit{Infimum} ($\inf A$) und
-\textit{Minimum} ($\min A$) für nach unten beschränkte
+Analog sind die Begriffe \emph{Infimum} ($\inf A$) und
+\emph{Minimum} ($\min A$) für nach unten beschränkte
 Teilmengen von $\mathbb{R}$ definiert.
  
 \begin{example}
