@@ -155,7 +155,7 @@ sich dadurch, dass bei Cauchyfolgen kein Grenzwert
 erwähnt wird: nur Folgeglieder werden verglichen.
 
 \begin{manualtheorem}{1}[Konvergenzprinzip
-  von Cauchy, 1789 - 1857]
+  von Cauchy, 1789--1857]
 Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ 
   sind äquivalent:
   \begin{enumerate}[\normalfont(i)]
@@ -176,7 +176,7 @@ Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$
   \emph{Dreiecksungleichung} genannt (das Dreieck
   ist hier degeneriert, das heisst es liegt
   auf einer Linie, und die Eckpunkte sind
-  $a_n, a_m$ und $L$.
+  $a_n, a_m$ und $L$).
 
   Die Umkehrung (ii) $\Rightarrow$ (i) ist etwas schwieriger.
 Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
@@ -299,22 +299,22 @@ finden können.
      \item Es kann gezeigt werden, dass
        \[
          {\left( 1 + \frac{1}{n} \right) }^n \leq
-         \left( 1 + \frac{1}{n+1} \right)^{n+1},
+         {\left( 1 + \frac{1}{n+1} \right)}^{n+1},
        \]
        indem 
        \begin{align*}
-         \left( 1 - \frac{1}{(n+1)^2} \right)^n &=
+         {\left( 1 - \frac{1}{{(n+1)}^2} \right)}^n &=
          {\left( \frac{1 + \frac{1}{n+1}}{1 + \frac{1}{n}} \right) } \\& 
          \geq \frac{1}{1 + \frac{1}{n+1}}\\
                                                                                    &= 1 - \frac{1}{n+2}
        \end{align*}
        berechnet wird.
      \item
-       Die Ungleichung $(1 + 1/n)^n \leq 3$ ist äquivalent
-       zur Ungleichung $(n + 1)^n \leq 3n^n$.
+       Die Ungleichung ${(1 + 1/n)}^n \leq 3$ ist äquivalent
+       zur Ungleichung ${(n + 1)}.^n \leq 3n^n$.
        Man kann dann zeigen, dass
        \[
-         (n+1)^n =
+         {(n+1)}^n =
          \sum_{k=0}^{n} \binom{n}{k}n^k 
          \leq \left( 1 + \frac{1}{1!}
          + \frac{1}{2!} + \frac{1}{3!} + \cdots +
@@ -326,7 +326,7 @@ finden können.
 \begin{remark}
   Der Grenzwert der Folge oben ist
   \[
-    \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n = e,
+    \lim_{n \to \infty} {\left( 1 + \frac{1}{n} \right)}^n = e,
   \]
   die \textit{Eulersche Zahl} (die wir noch nicht definiert haben).
 \end{remark}
@@ -336,7 +336,7 @@ Wir bemerken, dass
 \begin{enumerate}[(i)]
   \item jede konvergente Folge beschränkt ist,
   \item es beschränkte Folgen gibt, welche nicht konvergieren,
-    zum Beispiel $a_n = (-1)^n$ (wieso?).
+    zum Beispiel $a_n = {(-1)}^n$ (wieso?).
 \end{enumerate}
 
 \begin{definition}
@@ -364,11 +364,11 @@ Folgeglieder übrigbleibt.
 
 \begin{example}
   Die Folge ${(a_n)}_{n \in \mathbb{N}}$ mit Folgegliedern
-  $a_n = (-1)^n$ hat zwei naheliegende konvergente Teilfolgen,
+  $a_n = {(-1)}^n$ hat zwei naheliegende konvergente Teilfolgen,
   nämlich ${(a_{2k})}_{k \in \mathbb{N}}$ mit Grenzwert $1$,
   und ${(a_{2k+1})}_{k \in \mathbb{N}}$ mit Grenzwert $-1$ 
   Es gibt aber noch mehr Folgen von Indizes 
-  $(n_k)_{k \in \mathbb{N}}$, die
+  ${(n_k)}_{k \in \mathbb{N}}$, die
   konvergente Teilfolgen liefern.
 \end{example}
 
@@ -394,7 +394,7 @@ Folgeglieder übrigbleibt.
       schreibe
       \[
         I_0 = \left[ x, \frac{x+y}{2} \right] 
-        \cup \left[ \frac{x+y}{2}, y \right] .
+        \cup \left[ \frac{x+y}{2}, y \right].
       \]
       Eines dieser beiden Teilintervalle enthält
       unendlich viele Folgeglieder,
@@ -407,7 +407,7 @@ Folgeglieder übrigbleibt.
       Halbiere wie oben $I_1$ und schreibe
       \[
         I_1 = \left[ x_1, \frac{x_1 + y_1}{2} \right] 
-        \cup \left[ \frac{x_1 + y_1}{2}, y_1 \right] .
+        \cup \left[ \frac{x_1 + y_1}{2}, y_1 \right].
       \]
       Wieder enthält eines dieser Intervalle
       unendlich viele Folgeglieder. Nenne dieses
@@ -481,7 +481,8 @@ ${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
   \leavevmode
   \begin{enumerate}[(i)]
     \item $|(a_n + b_n) - (a + b)| \leq |a_n - a| + |b_n - b|$
-    \item $|a_nb_n - ab| \leq |a_nb_n - a_n b + a_n b - ab |
+    \item $|a_n b_n - ab| \leq 
+      {|a_n b_n - a_n b + a_n b - ab |}
       \leq |a_n| |b_n - b| + |b||a_n -a|$. \qedhere
   \end{enumerate}
 \end{proof}
