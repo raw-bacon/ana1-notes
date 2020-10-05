@@ -142,7 +142,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 \begin{definition}
 Eine Folge 
 ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$ 
-heisst \emph{Cauchfolge}, so dass für alle
+heisst \emph{Cauchyfolge}, so dass für alle
 vorgegebenen $\varepsilon$ ein $N \in \mathbb{N}$ existiert,
 so dass für alle $n, m \in \mathbb{N}$ mit $n,m \geq N$ gilt,
 dass $|a_n - a_m| \leq \varepsilon$.
@@ -156,7 +156,7 @@ erwähnt wird: nur Folgeglieder werden verglichen.
 
 \begin{manualtheorem}{1}[Konvergenzprinzip
   von Cauchy, 1789--1857]
-Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ 
+Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
   sind äquivalent:
   \begin{enumerate}[\normalfont(i)]
     \item Die Folge ${\left( a_n \right)}_{n \in \mathbb{N}}$
@@ -236,8 +236,9 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
   Nach Konstruktion gilt $\inf A_N \leq L \leq \sup A_N$.
   Ausserdem gilt für alle $n \geq N$, dass
   \[
-    |a_n - L| \leq |S_N - I_N| \leq \varepsilon. \qedhere
+    |a_n - L| \leq |S_N - I_N| \leq \varepsilon,
   \]
+  da $I_N \leq a_n \leq S_N$.
 \end{proof}
 
 Zusammengefasst haben wir die Folgeglieder
@@ -246,6 +247,8 @@ unter Verwendung der Vollständigkeit (!)
 gezeigt, dass wir einen Grenzwert $L$
 finden können.
 
+Die Beobachtung, dass die Folge $I_0, I_1, I_2, \dots$
+im Beweis oben konvergiert, lässt sich verallgemeinern.
 
 \begin{claim}[Monotononieprinzip]
   Sei ${(a_n)}_{n \in \mathbb{N}}$ eine monoton wachsende
@@ -366,7 +369,7 @@ Folgeglieder übrigbleibt.
   Die Folge ${(a_n)}_{n \in \mathbb{N}}$ mit Folgegliedern
   $a_n = {(-1)}^n$ hat zwei naheliegende konvergente Teilfolgen,
   nämlich ${(a_{2k})}_{k \in \mathbb{N}}$ mit Grenzwert $1$,
-  und ${(a_{2k+1})}_{k \in \mathbb{N}}$ mit Grenzwert $-1$ 
+  und ${(a_{2k+1})}_{k \in \mathbb{N}}$ mit Grenzwert $-1$.
   Es gibt aber noch mehr Folgen von Indizes 
   ${(n_k)}_{k \in \mathbb{N}}$, die
   konvergente Teilfolgen liefern.
@@ -448,7 +451,7 @@ Folgeglieder enthalten hat.
 \begin{proposition}
   Seien ${(a_n)}_{n \in \mathbb{N}}$ und
   ${(b_n)}_{n \in \mathbb{N}}$ zwei
-  konvergente Folgen mit Grenzwerten
+  konvergente Folgen in $\mathbb{R}$ mit Grenzwerten
   \[
     \lim_{n \to \infty} a_n = a \text{ und }
     \lim_{n \to \infty} b_n = b.
