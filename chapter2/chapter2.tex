@@ -247,6 +247,19 @@ unter Verwendung der Vollständigkeit (!)
 gezeigt, dass wir einen Grenzwert $L$
 finden können.
 
+\begin{remark}
+  In $\mathbb{R}$ (und auch
+  in einem allgemeineren Setting)
+  sind folgende Prinzipien äquivalent.
+  \begin{itemize}
+    \item Vollständigkeit,
+    \item das Supremumsprinzip,
+    \item das Konvergenzprinzip von Cauchy.
+  \end{itemize}
+  
+\end{remark}
+
+
 Die Beobachtung, dass die Folge $I_0, I_1, I_2, \dots$
 im Beweis oben konvergiert, lässt sich verallgemeinern.
 
@@ -447,6 +460,45 @@ iterativ halbiert, und uns immer für das Intervall
 entschieden, das immer noch unendlich viele
 Folgeglieder enthalten hat.
 
+\begin{definition}
+  Eine Zahl $\alpha \in \mathbb{R}$ heisst
+  \emph{Häufungspunkt} einer Folge
+  ${(a_{n})}_{n \in \mathbb{N}}$ in $\mathbb{R}$,
+  falls es eine konvergente Folge
+  ${(a_{n_k})}_{k \in \mathbb{N}}$ gibt
+  mit
+  \[
+    \lim_{k \to \infty} a_{n_k} = \alpha.
+  \]
+\end{definition}
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item Bei der Folge $a_n = (-1)^n$ ist die Menge
+      der Häufungspunkte $\{-1, 1\}$.
+    \item Sei $a \colon \mathbb{N} \to \mathbb{Q}$ eine
+      beliebige
+      Bijektion. Dann ist jede reelle Zahl ein Häufungspunkt,
+      das heisst die Menge der Häufungspunkte
+      ist $\mathbb{R}$. Das ist erstaunlich, da abzählbar
+      viele Folgeglieder überabzählbar viele
+      Häufungspunkte hervorrufen. Zum Beweis,
+      dass tatsächlich jede reelle Zahl ein Häufungspunkt
+      ist, sei $\alpha \in \mathbb{R}$. Wähle
+      $n_0 \in \mathbb{N}$ mit $|\alpha - a_{n_0}| \leq 1$.
+      Wähle dann $n_{1} > n_0$ mit $|\alpha - a_{n_1}| \leq 1/2$.
+      Wähle iterativ $n_{k} > n_{k-1}$ mit $|\alpha - a_{n_k}|
+      \leq 1/2^k$. Dies ist möglich, da jedes Intervall der
+      Form
+      $[\alpha - 1/2^k, \alpha + 1/2^k]$ unendlich viele
+      rationale Zahlen enthält. Wir können auch $n_k > n_{k-1}$
+      einrichten, da beider $k$-ten Wahl erst endlich viele
+      rationale Zahlen bereits belegt sind.
+  \end{enumerate}
+\end{example}
+
+
 \subsection*{Rechenregeln}
 \begin{proposition}
   Seien ${(a_n)}_{n \in \mathbb{N}}$ und
@@ -490,4 +542,160 @@ ${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
   \end{enumerate}
 \end{proof}
 
+
+\section{Reihen}
+\begin{definition}
+  Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$.
+  Dann heisst die formale Summe
+  \[
+    \sum_{k=0}^{\infty} a_k = a_0 + a_1 + a_2 + \cdots
+  \]
+  eine \emph{Reihe}. Eine Reihe
+  $
+    \sum_{k=0}^{\infty} a_k
+  $
+  heisst \emph{konvergent} mit Grenzwert $S \in \mathbb{R}$,
+  falls die Folge ${(s_{n})}_{n \in \mathbb{N}}$ der
+  \emph{Partialsummen}
+  \[
+    s_n = \sum_{k=0}^{n} a_k = a_0 + a_1 + \cdots + a_n
+  \]
+  in $\mathbb{R}$ mit Grenzwert $S$ konvergiert, das heisst
+  \[
+    \lim_{n \to \infty} s_n = S
+  \]
+  erfüllt. Wir schreiben in diesem Fall
+  \[
+    \sum_{k=0}^{\infty} a_k = S,
+  \]
+  was zwei Aussagen sind: dass die Folge ${(s_{n})}_{n \in \mathbb{N}}$ der Partialsummen konvergiert, und dass
+  ihr Grenzwert $S$ ist.
+\end{definition}
+
+\subsection*{Die konstante Reihe}
+Sei $c \in \mathbb{R}$ und setze $a_k = c$ für alle 
+$k \in \mathbb{N}$.
+Die zugehörige Reihe ist dann
+ \[
+  \sum_{k=0}^{\infty} c = c + c + c + \cdots.
+\]
+Wir berechnen, dass $s_n = (n+1)c$.
+Falls $c \neq 0$ ist, dann ist die Folge
+${(s_{n})}_{n \in \mathbb{N}}$ (nach dem
+archimedischen Prinzip) unbeschränkt,
+also nicht konvergent. Falls $c = 0$,
+dann ist $s_n = 0$ für alle $n \in \mathbb{N}$,
+und somit
+\[
+  \sum_{k=0}^{\infty} 0 = 0.
+\]
+
+\begin{remark}
+  Sei $\sum_{k=0}^{\infty} a_k$ eine konvergente Reihe.
+  Dann ist insbesondere ${(s_{n})}_{n \in \mathbb{N}}$ 
+  eine Cauchyfolge.
+  Für jedes $\varepsilon > 0$ existiert also ein Index
+  $N \in \mathbb{N}$ mit der Eigenschaft, dass
+  immer wenn $n, m \geq N$, dann ist
+  \[
+    |s_m - s_n| \leq \varepsilon.
+  \]
+  Insbesondere folgt für $m = n + 1$, dass
+  \[
+    |a_{n+1}| = |s_{n+1} - s_n| \leq \varepsilon.
+  \]
+  Wir folgern, dass
+  \[
+    \lim_{n \to \infty}a_n = 0.
+  \]
+  Diese Bedingung heisst  \emph{Cauchy-Bedingung}.
+  Die Cauchy-Bedingung ist zwar notwendig, aber nicht
+  hinreichend für Konvergenz einer Reihe.
+\end{remark}
+
+\subsection*{Die harmonische Reihe}
+Aus der Divergenz der konstanten Reihe folgern wir
+nun die Divergenz der harmonischen Reihe.
+Sei $a_n = 1/n$ für $n \geq 1$. Die Reihe
+$\sum_{k=1}^{\infty} 1/k$ heisst die
+\emph{harmonische Reihe}, ausgeschrieben
+\[
+  \sum_{k=1}^{\infty} \frac{1}{k} = 
+  1 + \frac{1}{2} + \frac{1}{3}
+  + \frac{1}{4}
+  + \frac{1}{5}
+  + \frac{1}{6}
+  + \frac{1}{7}
+  + \frac{1}{8}
+  + \cdots.
+\]
+Bemerke, dass wir die Terme der harmonischen Reihe
+in Gruppen unterteilen können, deren Summe
+jeweils grösser oder gleich $1/2$ ist. Nämlich ist
+zum Beispiel
+\begin{itemize}
+  \item $1/2 \geq 1/2$,
+  \item $1/3 + 1/4 \geq 2\cdot 1/4 = 1/2$,
+  \item $1/5 + 1/6 + 1/7 + 1/8 \geq 4 \cdot 1/8 = 1/2$.
+\end{itemize}
+Allgemeiner gilt:
+\[
+  \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n}
+  \geq 2n \cdot \frac{1}{2n} = \frac{1}{2}.
+\]
+Also ist die Folge der Partialsummen $s_n$ nicht
+beschränkt, und somit die 
+harmonische Reihe 
+$\sum_{k=0}^{\infty} 1/k$ nicht konvergent.
+
+\subsection*{Die geometrische Reihe}
+Sei $q \in \mathbb{R}$. Die Reihe
+\[
+  \sum_{k=0}^{\infty} q^k = 1 + q + q^2 + \cdots
+\]
+heisst \emph{geometrische Reihe}.
+
+
+\begin{claim}
+  Die Folge
+  $\sum_{k=0}^{\infty}$ konvergent ist, genau dann,
+  wenn $|q| < 1$, und in diesem Fall gilt
+  \[
+    \sum_{k=0}^{\infty} q^k = \frac{1}{1-k}
+  \]
+\end{claim}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item Falls $|q| \geq 1$, dann ist $0$ nicht
+      der Grenzwert der Folge ${(q^n)}_{n \in \mathbb{N}}$ 
+      Nach der Cauchy-Bedingung ist die Reihe
+      $\sum_{k=0}^{\infty} q^k$ nicht konvergent.
+    \item Falls $|q|<1$, dann gilt
+      $\lim_{n \to \infty} q^n = 0$. Wir berechnen
+      die Partialsummen
+      \[
+        s_n  \sum_{k=0}^{k} q^k 
+            = 1 + q + q^2 + \cdots + q^n
+      \]
+      indem wir bemerken, dass
+      \[
+        q \cdot s_n - s_n = q^{n+1} - 1.
+      \]
+      Lösen wir nach $s_n$ auf, erhalten wir
+      \[
+        s_n = \frac{q^{n+1} - 1}{q - 1}
+        = \frac{q^{n+1}}{q-1} - \frac{1}{q-1},
+      \]
+      und somit
+      \[
+        \lim_{n \to \infty} s_n = \frac{1}{1-q}. \qedhere
+      \]
+  \end{itemize}
+\end{proof}
+
+
+
 \end{document}
+
