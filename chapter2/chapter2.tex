@@ -695,6 +695,176 @@ heisst \emph{geometrische Reihe}.
   \end{itemize}
 \end{proof}
 
+\subsection*{Folgerungen aus der Konvergenz der
+geometrischen Reihe}
+Aus der Konvergenz der geometrischen Reihe
+$\sum_{k=0}^{\infty} q^k$ für $|q|<1$
+können wir Konvergenz mehrerer interessanter
+Reihen herleiten.
+\begin{enumerate}[(1)]
+  \item Sei $a_n = 1/n^2$ für $n \geq 1$. Wir untersuchen die Reihe
+    \[
+      \sum_{k=1}^{\infty} \frac{1}{k^2}
+    \]
+    indem wir die Partialsummen folgendermassen abschätzen.
+    Zum Beispiel ist
+    \begin{itemize}
+      \item $1/2^2 + 1/3^2 < 2 \cdot 1/2^2$,
+      \item $1/4^2 + 1/5^2 + 1/6^2 + 1/7^2 < 4 \cdot 1/4^2$,
+      \item $1/8^2 + \cdots + 1/15^2 < 8 \cdot 1/8^2$.
+    \end{itemize}
+    Es gilt also für alle $n \in \mathbb{N}$, dass
+    \[
+      s_n \leq 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8}
+      \leq \sum_{k=1}^{\infty} {\left( \frac{1}{2} \right)}^k
+      = \frac{1}{1-1/2} = 2.
+    \]
+    Die Folge ${(s_{n})}_{n \in \mathbb{N}}$ ist also
+    monoton wachsend und nach oben beschränkt, also
+    konvergent. Also ist
+    \[
+      \sum_{k=1}^{\infty} \frac{1}{k^2} = S
+    \]
+    mit $S \leq 2$. Euler hat gezeigt, dass $S = \pi^2/6$.
+  \item Sei $a_n = 1/n^{1 + \alpha}$ mit $\alpha > 0$.
+    Schätze die Partialsummen folgendermassen ab:
+    \begin{itemize}
+      \item $1/2^{1 + \alpha} + 
+        1/3^{1 + \alpha}< 2 \cdot 2 \cdot 1/2^{1+\alpha}
+        = 1/2^\alpha$,
+      \item $1/4^{1 + \alpha} + \cdots + 1/7^{1+ \alpha}
+        < 4 \cdot 1/4^{1 + \alpha} = 1/4^\alpha$,
+      \item $1/8^{1 + \alpha} + \cdots + 1/15^{1 + \alpha}
+        < 8 \cdot 1 /8^{1 + \alpha} = 1/8^{\alpha}$.
+    \end{itemize}
+    Für alle $n \in \mathbb{N}$ gilt also, dass
+    \[
+      s_n \leq 1 + \frac{1}{2^{\alpha}} + \frac{1}{4^{\alpha}}
+      + \frac{1}{8^{\alpha}} + \dots
+      = \sum_{k=0}^{\infty} 
+      {\left( \frac{1}{2^{\alpha}} \right)}^k
+      = \frac{1}{1-1/2^{\alpha}},
+    \]
+    wobei wir die Konvergenz der geometrischen Reihe
+    $\sum_{k=0}^{\infty} q^k$ für $q = 1/2^\alpha < 1$
+    angewendet haben.
+  \item Sei $a_n = 1/n!$ (mit der Konvention $0! = 1$).
+    Die Reihe $\sum_{k=0}^{\infty} 1/k!$ kann man
+    termweise durch eine geometrische Reihe abschätzen:
+    \[
+      \sum_{k=0}^{\infty} \frac{1}{k!} = \frac{1}{0!}
+      + \frac{1}{1!}
+      + \frac{1}{2!}
+      + \frac{1}{3!}
+      + \frac{1}{4!}
+      + \frac{1}{5!}
+      \leq
+      1 + 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8}
+      + \frac{1}{16} + \cdots = 3.
+    \]
+    Die Details hier sind eine Übung auf Serie 4.
+    Wir schliessen, dass die monoton wachsende Folge
+    \[
+      s_n = \sum_{k=0}^{n} \frac{1}{k!}
+    \]
+    konvergiert, mit Grenzwert $S \leq 3$.
+\end{enumerate}
+
+\begin{remark}
+  Der Wert der obigen Reihe ist $e$, die Eulersche Zahl:
+  \[
+    \sum_{k=0}^{\infty} \frac{1}{k!} = \lim_{n \to \infty}
+    {\left( 1+ \frac{1}{n} \right)}^n = e.
+  \]
+  Wir zeigen die erste dieser Gleichungen später.
+\end{remark}
+
+\begin{summary}
+  Alle allgemein anwendbaren Verfahren zur Untersuchung
+  der Konvergenz von Reihen von positiven
+  Termen basieren auf folgenden
+  beiden Strategien.
+  \begin{itemize}
+    \item Um die Konvergenz einer Reihe
+      $\sum_{k=0}^{\infty} a_k$ (mit $a_k > 0$) zu zeigen,
+      schätzen wir diese nach oben durch
+      eine geometrische Reihe ab.
+    \item Um die Divergenz (nicht-Konvergenz) einer
+      solchen Reihe zu zeigen, schätzen wir diese nach unten
+      durch eine konstante Reihe ab.
+  \end{itemize}
+\end{summary}
+
+\begin{question}
+  Was, wenn die Reihe $\sum_{k=0}^{\infty} a_k$ auch
+  negative Summanden $a_k < 0$ enthält?
+\end{question}
+
+\begin{example}
+  Sei $a_n = {(-1)}^n \cdot 1/(n+1)$.
+  Wir fragen uns, ob die Reihe
+  \[
+    \sum_{k=0}^{\infty} {(-1)}^k \frac{1}{k+1}
+  \]
+  konvergiert. Unsere obigen Verfahren scheinen 
+  nicht zu funktionieren (ausser man hat eine
+  gute Idee).
+\end{example}
+
+\begin{claim}[Leibnizkriterium]
+  Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine Folge
+  positiver reller Zahlen mit
+  $a_0 > a_1 > a_2 > \cdots > 0$, eine sogenannte
+  monoton fallende Folge, mit 
+  \[
+    \lim_{n \to \infty}a_n = 0.
+  \]
+  Dann konvergiert die alternierende Reihe
+  \[
+    \sum_{k=0}^{\infty} {(-1)}^k a_k.
+  \]
+\end{claim}
+
+\begin{proof}
+  Betrachte die Partialsummen $s_n = \sum_{k=0}^{n} {(-1)}^k a_k$.
+  Wir stellen fest:
+  \begin{enumerate}[(i)]
+    \item Wir haben $s_0 \geq s_2 \geq s_4 \geq s_6 \geq \cdots$,
+      da $s_{k+2} = s_{2k} - a_{2k+1} + a_{2k+2}$ und
+      $a_{2k+2}<a_{2k+1}$.
+    \item Analog haben wir 
+      $s_1 \leq s_3 \leq s_5 \leq s_7 \leq \cdots$ (die
+      Ungleichungen gehen in die andere Richtung).
+    \item Ausserdem gilt für alle $k \in \mathbb{N}$, dass
+      $s_{2k+1} \leq s_{2k+2}$.
+  \end{enumerate}
+  Aus diesen drei Beobachtungen folgt, dass
+  \[
+    s_1 \leq s_3 \leq s_5 \leq \cdots \leq s_6 \leq s_4 \leq
+    s_2 \leq s_0.
+  \]
+  Sei nun $\varepsilon > 0$ vorgegeben. Wähle 
+  eine ungerade Zahl $N \in \mathbb{N}$ 
+  mit der Eigenschaft, dass wenn immer $n \geq N$, dann
+  ist $|a_n| \leq \varepsilon$. Solch ein $N$ existiert,
+  da wir angenommen haben, dass
+  \[
+    \lim_{n \to \infty} a_n = 0
+  \]
+  (ersetze wenn nötig $N$ durch $N + 1$).
+  Für alle $n \geq N$ gilt dann
+  \[
+    s_N \leq s_n \leq s_{N+1}.
+  \]
+  Ebenso gilt für alle $m \geq N$, dass
+  $s_N \leq s_m \leq s_{N+1}$. Dann ist aber
+  \[
+    |s_n - s_m| \leq |s_N - s_{N+1}| = |a_{N+1}| \leq \varepsilon.
+    \qedhere
+  \]
+\end{proof}
+
+
 
 
 \end{document}
