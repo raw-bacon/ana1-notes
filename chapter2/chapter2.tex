@@ -493,8 +493,12 @@ Folgeglieder enthalten hat.
       Form
       $[\alpha - 1/2^k, \alpha + 1/2^k]$ unendlich viele
       rationale Zahlen enthält. Wir können auch $n_k > n_{k-1}$
-      einrichten, da beider $k$-ten Wahl erst endlich viele
+      einrichten, da bei der $k$-ten Wahl erst endlich viele
       rationale Zahlen bereits belegt sind.
+      Es ist also
+      \[
+        \lim_{k \to \infty} a_{n_k} = \alpha.
+      \]
   \end{enumerate}
 \end{example}
 
@@ -641,7 +645,11 @@ zum Beispiel
 Allgemeiner gilt:
 \[
   \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n}
-  \geq 2n \cdot \frac{1}{2n} = \frac{1}{2}.
+  \geq 2n \cdot \frac{1}{2n} = \frac{1}{2}
+\]
+und somit
+\[
+  s_n \geq \frac{n + 1}{2}.
 \]
 Also ist die Folge der Partialsummen $s_n$ nicht
 beschränkt, und somit die 
@@ -657,8 +665,8 @@ heisst \emph{geometrische Reihe}.
 
 
 \begin{claim}
-  Die Folge
-  $\sum_{k=0}^{\infty}$ konvergent ist, genau dann,
+  Die Reihe
+  $\sum_{k=0}^{\infty} q^k$ ist konvergent, genau dann,
   wenn $|q| < 1$, und in diesem Fall gilt
   \[
     \sum_{k=0}^{\infty} q^k = \frac{1}{1-q}
@@ -669,14 +677,14 @@ heisst \emph{geometrische Reihe}.
   \leavevmode
   \begin{itemize}
     \item Falls $|q| \geq 1$, dann ist $0$ nicht
-      der Grenzwert der Folge ${(q^n)}_{n \in \mathbb{N}}$ 
+      der Grenzwert der Folge ${(q^n)}_{n \in \mathbb{N}}$.
       Nach der Cauchy-Bedingung ist die Reihe
       $\sum_{k=0}^{\infty} q^k$ nicht konvergent.
     \item Falls $|q|<1$, dann gilt
       $\lim_{n \to \infty} q^n = 0$. Wir berechnen
       die Partialsummen
       \[
-        s_n  \sum_{k=0}^{n} q^k 
+        s_n =  \sum_{k=0}^{n} q^k 
             = 1 + q + q^2 + \cdots + q^n
       \]
       indem wir bemerken, dass
@@ -715,8 +723,8 @@ Reihen herleiten.
     \end{itemize}
     Es gilt also für alle $n \in \mathbb{N}$, dass
     \[
-      s_n \leq 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8}
-      \leq \sum_{k=1}^{\infty} {\left( \frac{1}{2} \right)}^k
+      s_n \leq 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots
+      = \sum_{k=0}^{\infty} {\left( \frac{1}{2} \right)}^k
       = \frac{1}{1-1/2} = 2.
     \]
     Die Folge ${(s_{n})}_{n \in \mathbb{N}}$ ist also
@@ -758,6 +766,7 @@ Reihen herleiten.
       + \frac{1}{3!}
       + \frac{1}{4!}
       + \frac{1}{5!}
+      + \cdots
       \leq
       1 + 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8}
       + \frac{1}{16} + \cdots = 3.
