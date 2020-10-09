@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (-0.5, 0) -- (5, 0);
+  \draw (0, -0.5) -- (0, 5);
+  \draw[dashed] (3.5, 0)
+    -- (3.5, 4.5) -- (0, 4.5);
+  \draw[fill=black] 
+    (3.5, 4.5) circle (0.05);
+
+  \node at (3.5, -0.25) {$i$};
+  \node at (-0.25, 4.5) {$j$};
+  \node at (3.75, 4.75) {$a_i b_j$};
+\end{tikzpicture}
+\end{document}

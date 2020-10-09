@@ -1047,9 +1047,193 @@ Reihen herleiten.
   also ist die Reihe
   $\sum_{k=0}^{\infty} a_{\varphi(k)}$ absolut konvergent,
   also konvergent.
+
+  Es bleibt zu zeigen, dass
+  \[
+    \sum_{k=0}^{\infty} a_{\varphi(k)} = \sum_{k=0}^{\infty} a_k,
+  \]
+  also die Grenzwerte übereinstimmen.
+  Für $n \in \mathbb{N}$, setze dazu
+  \[
+    s_n = \sum_{k=0}^{n} a_k, \;\; \widetilde{s_n} =
+    \sum_{k=0}^{n} a_{\varphi(k)}.
+  \]
+  Für $n \geq M$ (das selbe $M$ wie oben),
+  gilt die sehr grobe Abschätzung
+  \begin{align*}
+    |\widetilde{s_n} - s_n| & \leq
+    \sum_{k=M}^{\infty} |a_{\varphi(k)}|
+    + \sum_{k=M}^{\infty} |a_k| \leq 2\varepsilon,
+  \end{align*}
+  wobei wir
+  $\sum_{k=M}^{\infty} |a_{\varphi(k)}| \leq \varepsilon$ 
+  bereits oben abgeschätzt haben,
+  und $\sum_{k=M}^{\infty} |a_k| \leq \varepsilon$ aus
+  $M \geq N$ folgt.
+  Folgich gilt
+  \[
+    \sum_{k=0}^{\infty} a_{\varphi(k)}
+    - \sum_{k=0}^{\infty} a_{k} =
+    \lim_{n \to \infty}(\widetilde{s_n} - s_n) = 0. \qedhere
+  \]
 \end{proof}
 
+\subsection*{Das Cauchyprodukt zweier Reihen}
+Seien $\sum_{k=0}^{\infty} a_k$ und $\sum_{k=0}^{\infty} b_k$ 
+zwei konvergente Reihen mit Grenzwerten
+$\alpha$ und $\beta$ in $\mathbb{R}$.
+Dann konvergiert die Reihe
+$\sum_{k=0}^{\infty} (a_k + b_k)$ mit Grenzwert
+$\alpha + \beta$.
 
+\begin{question}
+  Was ist das Produkt $\left( \sum_{i=0}^{\infty} a_i \right)
+  \cdot \left( \sum_{j=0}^{\infty} b_j \right)$?
+\end{question}
+
+\begin{definition}
+  Das \emph{Cauchyprodukt} der Reihen
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
+  ist die Reihe $\sum_{n=0}^{\infty} c_n$ mit den Summanden
+  \[
+    \sum_{k=0}^{n} a_k b_{n-k}.
+  \]
+  Also ist zum Beispiel
+  \begin{itemize}
+    \item $c_0 = a_0 b_0$,
+    \item $c_1 = a_0 b_1 + a_1 b_0$,
+    \item $c_2 = a_0 b_2 + a_1 b_1 + a_2 b_0$.
+  \end{itemize}
+\end{definition}
+
+\begin{figure}[htb] 
+  \centering
+  \begin{minipage}{0.50\textwidth}
+    \centering
+\includegraphics{chapter2/images/cauchy1}
+  \end{minipage}%
+  \begin{minipage}{0.50\textwidth}
+    \centering
+    \includegraphics{chapter2/images/cauchy2}
+  \end{minipage}%
+  \caption{Das Cauchyprodukt}%
+  \label{fig:cauchy}
+\end{figure}
+
+\begin{example}
+  Sei 
+  \[
+    a_k = b_k = {(-1)}^k \frac{1}{\sqrt{k+1}}.
+  \]
+  Die Reihe
+  \[
+    \sum_{k=0}^{\infty} {(-1)}^k \frac{1}{\sqrt{k+1}}
+  \]
+  konvergiert (nach dem Leibnizkriterium),
+  da die Folge ${(1/\sqrt{k+1})}_{k \in \mathbb{N}}$
+  monoton fallend ist mit Grenzwert null.
+  Wir bestimmen nun den Summanden $c_n$ im
+  Cauchyprodukt
+  $\left( \sum_{i=0}^{\infty} a_i \right) \cdot
+  \left( \sum_{j=0}^{\infty} b_j \right)$.
+  Berechne
+  \begin{align*}
+    c_n & = \sum_{k=0}^{n} {(-1)}^k \frac{1}{\sqrt{k+1}}
+    \cdot {(-1)}^{n-k} \cdot \frac{1}{\sqrt{n-k+1}} \\
+        &=
+    (-1)^n \left(  
+      \frac{1}{\sqrt 1} \cdot \frac{1}{\sqrt{n+1}}
+      + \frac{1}{\sqrt 2} \cdot \frac{1}{\sqrt n}
+      + \frac{1}{\sqrt 3} \cdot \frac{1}{\sqrt{n-1}}
+      + \cdots
+      + \frac{1}{\sqrt{n+1}} \cdot \frac{1}{\sqrt 1}
+    \right).
+  \end{align*}
+\end{example}
+Jeder dieser $n + 1$ Summanden in $c_n$ ist grösser oder
+gleich $1/(n+1)$, denn
+\[
+  \frac{1}{\sqrt{k+1}}\cdot\frac{1}{\sqrt{n-k+1}}
+  \geq \frac{1}{\sqrt{n+1}} \cdot \frac{1}{\sqrt{n+1}}
+  = \frac{1}{n+1}.
+\]
+Also ist $|c_n| \geq 1$ für alle $n \in \mathbb{N}$.
+Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$ 
+keine Nullfolge,
+also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
+
+\begin{manualtheorem}{4}
+  Seien
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
+  absolut konvergent mit Grenzwerten $\alpha$ und $\beta$ 
+  in~$\mathbb{R}$.
+  Dann konvergiert das Cauchyprodukt
+  $\left( \sum_{i=0}^{\infty} a_i \right) \cdot
+  \left( \sum_{j=0}^{\infty} b_j \right)$ mit
+  Grenzwert $\alpha \cdot \beta$.
+\end{manualtheorem}
+
+\begin{proof}
+  Sei $N \in 2\mathbb{N}$ beliebig.
+  Setze
+   \[
+     A = \sum_{i=0}^{\infty} |a_j|, \;\; 
+     B = \sum_{j=0}^{\infty} |b_j|.
+   \]
+   Beachte, dass $A$ nicht unbedingt dasselbe
+   wie $\alpha$ und $B$ nicht unbedingt dasselbe
+   wie $\beta$ ist.
+   Wir behaupten, dass
+   \begin{align*}
+     \sum_{n=N}^{\infty} |c_n| & \leq
+     \left( \sum_{i=N/2}^{\infty} |a_i| \right)
+     \cdot
+     \left( \sum_{j=N}^{\infty} |b_j| \right)
+     +
+     \left( \sum_{i=0}^{\infty} |a_i| \right)
+     \cdot
+     \left(
+     \sum_{j=N/2}^{\infty} |b_j|\right),\\
+   \end{align*}
+   siehe Abbildung~\ref{fig:cauchy-proof}.
+   Es folgt, dass
+   $\sum_{n=N}^{\infty} |c_n| \leq
+   \left( \sum_{i=N/2}^{\infty} |a_i \right) \cdot B
+   + A \cdot
+   \left( \sum_{j=N/2}^{\infty} |b_j| \right).$
+   Aber das zeigt, dass
+   \[
+     \lim_{N \to \infty} \sum_{n=N}^{\infty} |c_n| = 0,
+   \]
+   da
+   \[
+     \lim_{n \to \infty} \sum_{i=N/2}^{\infty} |a_i| =
+     \lim_{n \to \infty} \sum_{j=N/2}^{\infty} |b_j| = 0.
+   \]
+   Also ist die Reihe $\sum_{n=0}^{\infty} c_n$ absolut
+   konvergent.
+
+   Zu zeigen bleibt, dass $\sum_{n=0}^{\infty} c_n = \alpha
+   \cdot \beta$. Dazu schätze ab, dass
+   \[
+     \left| 
+       \sum_{n=0}^{N} c_n -
+       \left( \sum_{i=0}^{N} a_i \right)
+       \cdot
+       \left( \sum_{j=0}^{N} b_j \right)
+     \right|
+   \]
+   
+   
+   
+\end{proof}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics{chapter2/images/cauchy-thm}
+  \caption{Beweis der Konvergenz des Cauchyprodukts}%
+  \label{fig:cauchy-proof}
+\end{figure}
 
 
 \end{document}
