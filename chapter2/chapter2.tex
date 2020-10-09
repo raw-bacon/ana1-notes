@@ -154,7 +154,7 @@ entfernt. Die Definition der Konvergenz unterscheidet
 sich dadurch, dass bei Cauchyfolgen kein Grenzwert
 erwähnt wird: nur Folgeglieder werden verglichen.
 
-\begin{manualtheorem}{1}[Konvergenzprinzip
+\begin{theorem}[Konvergenzprinzip
   von Cauchy, 1789--1857]
 Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
   sind äquivalent:
@@ -164,7 +164,7 @@ Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
     \item Die Folge ${\left( a_n \right)}_{n \in \mathbb{N}}$
       ist eine Cauchyfolge.
   \end{enumerate}
-\end{manualtheorem}
+\end{theorem}
 
 \begin{proof}
   Die Implikation (i) $\Rightarrow$ (ii) ist eine Übung.
@@ -371,12 +371,12 @@ die Folge die man erhält, wenn man Folgeglieder
 wegnimmt, so dass aber noch unendlich viele
 Folgeglieder übrigbleibt.
 
-\begin{manualtheorem}{2}[Bolzano-Weierstrass]
+\begin{theorem}[Bolzano-Weierstrass]\label{thm:bolzano-weierstrass}
   Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$,
   welche von oben und unten beschränkt ist.
   Dann hat die Folge ${(a_n)}_{n \in \mathbb{N}}$
   eine konvergente Teilfolge.
-\end{manualtheorem}
+\end{theorem}
 
 \begin{example}
   Die Folge ${(a_n)}_{n \in \mathbb{N}}$ mit Folgegliedern
@@ -388,7 +388,7 @@ Folgeglieder übrigbleibt.
   konvergente Teilfolgen liefern.
 \end{example}
 
-\begin{proof}[Beweis von Theorem 2]
+\begin{proof}[Beweis von Theorem~\ref{thm:bolzano-weierstrass}]
   Sei ${(a_n)}_{n \in \mathbb{N}}$ beschränkt, das heisst
   es existieren $x, y \in \mathbb{R}$, so dass für
   alle $n \in \mathbb{N}$ gilt, dass $x \leq a_k \leq y$.
@@ -953,10 +953,10 @@ Reihen herleiten.
   $\sum_{n=0}^{\infty} |a_n|$ der Beträge konvergiert.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma*}
   Jede absolut konvergente Reihe in
   $\mathbb{R}$ ist konvergent (aber nicht umgekehrt).
-\end{lemma}
+\end{lemma*}
 
 \begin{example}
   Die Reihe
@@ -995,7 +995,7 @@ Reihen herleiten.
   in $\mathbb{R}$.
 \end{proof}
 
-\begin{manualtheorem}{3}
+\begin{theorem}\label{thm:umordnung}
   Sei $\sum_{k=0}^{\infty} a_k$ absolut konvergent
   und $\varphi \colon \mathbb{N} \to \mathbb{N}$ eine
   beliebige Bijektion.
@@ -1003,7 +1003,7 @@ Reihen herleiten.
   Umordnung
   $\sum_{k=0}^{\infty} a_{\varphi(k)}$, und
   zwar mit demselben Grenzwert.
-\end{manualtheorem}
+\end{theorem}
 
 
 \begin{zusatz}[Riemannscher Umordnungssatz]
@@ -1027,7 +1027,7 @@ Reihen herleiten.
   Iteriere dieses Verfahren.
 \end{proof}
 
-\begin{proof}[Beweis von Theorem 3]
+\begin{proof}[Beweis von Theorem~\ref{thm:umordnung}]
   Sei $\varepsilon > 0$ 
   vorgegeben.
   Wähle $N \in \mathbb{N}$ 
@@ -1162,7 +1162,7 @@ Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$
 keine Nullfolge,
 also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 
-\begin{manualtheorem}{4}
+\begin{theorem}{4}
   Seien
   $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
   absolut konvergent mit Grenzwerten $\alpha$ und $\beta$ 
@@ -1171,7 +1171,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   $\left( \sum_{i=0}^{\infty} a_i \right) \cdot
   \left( \sum_{j=0}^{\infty} b_j \right)$ mit
   Grenzwert $\alpha \cdot \beta$.
-\end{manualtheorem}
+\end{theorem}
 
 \begin{proof}
   Sei $N \in 2\mathbb{N}$ beliebig.

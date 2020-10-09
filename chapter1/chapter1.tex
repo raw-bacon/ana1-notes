@@ -15,9 +15,9 @@ Hier ist
 \[\mathbb N = \{0, 1, 2, 3, 4, \dots\}\]
 die Menge der Natürlichen Zahlen.
 
-\begin{theorem}[Euklid]
+\begin{theorem*}[Euklid]
   Die Seite und Diagonale eines ebenen Quadrats sind nicht kommensurabel.
-\end{theorem}
+\end{theorem*}
 
 \begin{proof}
   Dieser Beweis ist geometrisch, nach Euklid. Wir nehmen an, es gäbe $L > 0$ und
@@ -221,9 +221,9 @@ Folgende Proposition zeigt in einem gewissen Sinn, dass es gleich viele Brüche
 wie natürliche Zahlen gibt. Dies ist unser erstes potentiell überraschendes
 Resultat.
 
-\begin{manualproposition}{1}\label{prop:q-countable}
+\begin{proposition}{1}\label{prop:q-countable}
   Die Menge $\mathbb Q$ der rationalen Zahlen ist abzählbar.
-\end{manualproposition}
+\end{proposition}
 
 
 \begin{proof}
@@ -310,11 +310,11 @@ Ein wenig formaler,
   solche Funktionen.
 \end{remark}
 
-\begin{manualproposition}{2}[Cantor]\label{prop:cantor}
+\begin{proposition}[Cantor]\label{prop:cantor}
   Sei $M$ eine beliebige Menge.
   Dann existiert keine surjektive Abbildung $\varphi \colon M \to P(M)$.
   Insbesondere existiert keine Bijektion $\varphi \colon M \to P(M)$.
-\end{manualproposition}
+\end{proposition}
 
 \begin{corollary}
   Die Potenzmenge $P(\mathbb N)$ ist nicht abzählbar.
@@ -514,11 +514,11 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
   \end{itemize}
 \end{examples}
 
-\begin{manualproposition}{3}
+\begin{proposition}
   In jeder Gruppe $G$
   hat die Gleichung $a \circ x = c$
   eine eindeutige Lösung $x \in G$. Hier sind $a,c$ vorgegeben.
-\end{manualproposition}
+\end{proposition}
 
 \begin{proof}
   Wir zeigen Existenz und Eindeutigkeit separat. Wir wissen nach
@@ -703,10 +703,10 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
   \end{itemize}
 \end{examples}
 
-\begin{manualproposition}{4}[Cantor]\label{prop:real-uncountable}
+\begin{proposition}{4}[Cantor]\label{prop:real-uncountable}
   Die Menge $\mathbb R$ ist überabzählbar, das heisst unendlich
   aber nicht abzählbar.
-\end{manualproposition}
+\end{proposition}
 
 \begin{corollary}
   Es gibt irrationale Schnitte, das heisst Schnitte $D \subset \mathbb Q$,
@@ -860,10 +860,10 @@ Wir Definieren die \emph{Summe} von $D$ und $D'$ als
 
 Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
 
-\begin{manuallemma}{1}
+\begin{lemma}\label{lem:r-plus-gruppe}
   $\mathbb R$ mit Addition ist eine kommutative Gruppe mit neutralem Element
   \[D_{0} = \left\{x \in \mathbb Q \mid x > 0\right\}\]
-\end{manuallemma}
+\end{lemma}
 
 \begin{proof}
   \leavevmode
@@ -969,11 +969,11 @@ In dieser Definition bezeichnet ``$-D$'' das in obigem Abschnitt
 definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \end{definition}
 
-\begin{manuallemma}{2}
+\begin{lemma}\label{lem:r-mal-gruppe}
   Die Menge $\mathbb R \setminus \{D_{0}\}$ mit Multiplikation ist eine
   kommutative Gruppe mit neutralem Element
   \[D_{1} = \{x \in \mathbb Q \mid x > 1\}.\]
-\end{manuallemma}
+\end{lemma}
 
 \begin{proof}
   \leavevmode
@@ -1097,15 +1097,16 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
   wir den Mengentheoretikern und fassen das als intuitiv genug auf.
 \end{example}
 
-\begin{manualtheorem}{1}
+\begin{theorem}
   Die Menge der reellen Zahlen $\mathbb R$ mit der oben definierten
   Addition, Multiplikation und Ordnung, ist ein geordneter Körper.
-\end{manualtheorem}
+\end{theorem}
 
 \begin{proof}
   \leavevmode
   \begin{itemize}
-    \item Nach Lemma 1 und 2 sind $(\mathbb R, +)$ und
+    \item Nach Lemma~\ref{lem:r-plus-gruppe} und 
+      Lemma~\ref{lem:r-mal-gruppe} sind $(\mathbb R, +)$ und
       $(\mathbb R \setminus \{0\}, \cdot)$ kommutative Gruppen.
     \item Das Distributivgesetz überträgt sich von $\mathbb Q$
       auf $\mathbb R$.

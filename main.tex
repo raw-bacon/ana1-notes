@@ -33,25 +33,12 @@
 
 % defining the amsthm environments
 % italics
-\newtheorem*{theorem}{Theorem}
-\newtheorem{manualtheoreminner}{Theorem}
-\newenvironment{manualtheorem}[1]{%
-  \renewcommand\themanualtheoreminner{#1}%
-  \manualtheoreminner%
-}{\endmanualtheoreminner}
-\newtheorem*{proposition}{Proposition}
-\newtheorem{manualpropositioninner}{Proposition}
-% manually number propositions
-\newenvironment{manualproposition}[1]{%
-  \renewcommand\themanualpropositioninner{#1}%
-  \manualpropositioninner%
-}{\endmanualpropositioninner}
-\newtheorem*{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem*{lemma*}{Lemma}
 \newtheorem{manuallemmainner}{Lemma}
-\newenvironment{manuallemma}[1]{%
-  \renewcommand\themanuallemmainner{#1}%
-  \manuallemmainner%
-}{\endmanuallemmainner}
 \newtheorem*{corollary}{Korollar}
 \newtheorem*{claim}{Behauptung}
 \newtheorem*{leibniz}{Leibnizkriterium}
@@ -76,6 +63,10 @@
 \newtheorem*{einschub}{Einschub}
 \newtheorem*{summary}{Zusammenfassung}
 
+% proper numbering (hide chapter number)
+\renewcommand{\thelemma}{\arabic{lemma}}
+\renewcommand{\theproposition}{\arabic{proposition}}
+\renewcommand{\thetheorem}{\arabic{theorem}}
 
 % for organising the document into multiple files
 \usepackage{subfiles}
@@ -114,7 +105,7 @@
 % main content
 \subfile{chapter1/chapter1}
 \subfile{chapter2/chapter2}
-\subfile{chapter3/chapter3}
+% \subfile{chapter3/chapter3}
 % \subfile{chapter4/chapter4}
 % \subfile{chapter5/chapter5}
 % \subfile{chapter6/chapter6}
