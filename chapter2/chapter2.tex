@@ -263,7 +263,7 @@ finden können.
 Die Beobachtung, dass die Folge $I_0, I_1, I_2, \dots$
 im Beweis oben konvergiert, lässt sich verallgemeinern.
 
-\begin{claim}[Monotononieprinzip]
+\begin{monotony}
   Sei ${(a_n)}_{n \in \mathbb{N}}$ eine monoton wachsende
   Folge in $\mathbb{R}$ (das heisst, für alle
   $n \in \mathbb{N}$ gilt, dass $a_n \leq a_{n+1}$),
@@ -273,7 +273,7 @@ im Beweis oben konvergiert, lässt sich verallgemeinern.
   \[
     S = \sup \{a_0, a_1, a_2, \dots\}.
   \]
-\end{claim}
+\end{monotony}
 
 \begin{proof}
   Da $\{a_0, a_1, a_2, \dots\}$ nach oben beschränkt ist,
@@ -820,10 +820,13 @@ Reihen herleiten.
   gute Idee).
 \end{example}
 
-\begin{claim}[Leibnizkriterium]
+\begin{leibniz}
   Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine Folge
   positiver reller Zahlen mit
-  $a_0 > a_1 > a_2 > \cdots > 0$, eine sogenannte
+  \[
+   a_0 > a_1 > a_2 > \cdots > 0,
+  \]
+  eine sogenannte
   monoton fallende Folge, mit 
   \[
     \lim_{n \to \infty}a_n = 0.
@@ -832,7 +835,7 @@ Reihen herleiten.
   \[
     \sum_{k=0}^{\infty} {(-1)}^k a_k.
   \]
-\end{claim}
+\end{leibniz}
 
 \begin{proof}
   Betrachte die Partialsummen $s_n = \sum_{k=0}^{n} {(-1)}^k a_k$.
@@ -872,6 +875,178 @@ Reihen herleiten.
   \]
   Also ist die Folge ${(s_{n})}_{n \in \mathbb{N}}$
   eine Cauchyfolge in $\mathbb{R}$ und somit konvergent.
+\end{proof}
+
+\begin{example}
+  Die Reihe
+  \[
+    \sum_{n=1}^{\infty} {(-1)}^{n+1} \frac{1}{n}
+    = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots
+  \]
+  konvergiert (mit Grenzwert $\log(2)$, siehe später).
+  Es gilt sicher:
+  \[
+    0 < 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4}
+    + \cdots < 1,
+  \]
+  da
+  \begin{itemize}
+    \item $1 - 1/2 > 0$, $1/3 - 1/4 > 0$, \dots
+    \item $-1/2 + 1/3 < 0$, $-1/4 + 1/5 < 0$, \dots.
+  \end{itemize}
+\end{example}
+
+\begin{definition}
+  Sei $\sum_{n=0}^{\infty} a_n$ eine Reihe und
+  $\varphi \colon \mathbb{N} \to \mathbb{N}$ eine
+  Bijektion. Dann nennen wir die Reihe
+  $\sum_{n=0}^{\infty} a_{\varphi(n)}$ eine
+  \emph{Umordnung} der ursprünglichen
+  Reihe $\sum_{n=0}^{\infty} a_n$.
+\end{definition}
+
+\begin{example}
+  Die Reihe
+  \[
+    1 + \frac{1}{3} + \frac{1}{5} - \frac{1}{2}
+    + \frac{1}{7} + \frac{1}{9} - \frac{1}{4}
+    + \frac{1}{11} + \frac{1}{13} - \frac{1}{6}
+    + \cdots,
+  \]
+  die immer zwischen zwei positiven und einem
+  negativen Folgeglied alterniert,
+  ist eine Umordnung der
+  alternierenden harmonischen Reihe
+  $\sum_{n=1}^{\infty} {(-1)}^{n+1}$.
+  Wir stellen fest, dass für alle
+  $k \in 2 \mathbb{N}$ mit $k \geq 2$ gilt,
+  dass
+  \[
+    \frac{1}{2k-1} + \frac{1}{2k+1} - \frac{1}{k} > 0.
+  \]
+  Dies kann man auf verschiedene Arten sehen,
+  aber wir berechnen dazu
+  \[
+    \frac{1}{2k-1} + \frac{1}{2k+1} = \frac{4k}{(2k-1)(2k+1)}
+    = \frac{4k}{4k^2 - 1} > \frac{4k}{4k^2} = \frac{1}{k}.
+  \]
+  Also ist die umgeordnete Reihe
+  \[
+    \sum_{n=0}^{\infty} a_{\varphi(n)} = 
+    1 + \frac{1}{3} + \frac{1}{5} - \frac{1}{2}
+    + \frac{1}{7} + \frac{1}{9} - \frac{1}{4} + \cdots > 1,
+  \]
+  (wobei die Bijektion $\varphi$ nur implizit
+  beschrieben wurde), da
+  $1/3 + 1/5 - 1/2 > 0$ gilt, und $1/7 + 1/9 - 1/4 > 0$,
+  und so weiter.
+  Die Umordnung einer konvergenten Reihe kann also den
+  Grenzwert dieser Reihe ändern,
+  oder sogar Divergenz herbeiführen. Siehe Aufgabe~4
+  auf Serie 5.
+\end{example}
+
+\subsection*{Absolute Konvergenz}
+\begin{definition}
+  Eine Reihe $\sum_{n=0}^{\infty} a_n$ heisst
+  \emph{absolut konvergent}, falls die Reihe
+  $\sum_{n=0}^{\infty} |a_n|$ der Beträge konvergiert.
+\end{definition}
+
+\begin{lemma}
+  Jede absolut konvergente Reihe in
+  $\mathbb{R}$ ist konvergent (aber nicht umgekehrt).
+\end{lemma}
+
+\begin{example}
+  Die Reihe
+  $\sum_{n=1}^{\infty} {(-1)}^{n+1}\frac{1}{n}$ 
+  ist konvergent, aber
+  nicht absolut konvergent, da die harmonische Reihe divergiert.
+\end{example}
+
+
+\begin{proof}[Beweis des Lemmas]
+  Sei $\varepsilon > 0$ vorgegeben. Da
+  $\sum_{n=0}^{\infty} |a_n|$ 
+  konvergiert, existiert $N \in \mathbb{N}$ mit
+  $\sum_{n=N}^{\infty} |a_n| \leq \varepsilon$.
+  Das liegt daran, dass die Folge der
+  Partialsummen monoton (da die Terme nichtnegativ sind)
+  und beschränkt (da konvergent) ist,
+  also existiert ein solches $N$, das
+  \[
+    \sum_{n=N}^{\infty} |a_n| = \sum_{n=0}^{\infty} |a_n|
+    - \sum_{n=0}^{N} |a_n| \leq \varepsilon
+  \]
+  erfüllt. Setze 
+  \[
+    s_n = \sum_{k=0}^{n} a_k
+  \]
+  Seien  nun $n > m \geq N$. Dann gilt
+  \begin{align*}
+    |s_n - s_m| & = \left| \sum_{k=m+1}^{n} a_k \right|\\
+                & \leq \sum_{k=m+1}^{n} |a_k| \\
+                & \leq \sum_{k=N}^{\infty} |a_k| \\
+                & \leq \varepsilon.
+  \end{align*}
+  Also ist $s_n$ eine 
+  Cauchyfolge und deshalb ist $\sum_{k=0}^{\infty} a_n$ konvergent
+  in $\mathbb{R}$.
+\end{proof}
+
+\begin{manualtheorem}{3}
+  Sei $\sum_{k=0}^{\infty} a_k$ absolut konvergent
+  und $\varphi \colon \mathbb{N} \to \mathbb{N}$ eine
+  beliebige Bijektion.
+  Dann konvergiert die
+  Umordnung
+  $\sum_{k=0}^{\infty} a_{\varphi(k)}$, und
+  zwar mit demselben Grenzwert.
+\end{manualtheorem}
+
+
+\begin{zusatz}[Riemannscher Umordnungssatz]
+  Sei $\sum_{k=0}^{\infty} a_k$ konvergent,
+  aber nicht absolut konvergent.
+  Dann existiert zu jeder Zahl
+  $\alpha \in \mathbb{R}$ eine
+  Bijektion $\varphi \colon \mathbb{N} \to \mathbb{N}$,
+  so dass die Reihe $\sum_{k=0}^{\infty} a_{\varphi(k)}$ 
+  mit Grenzwert $\alpha$ konvergiert.
+\end{zusatz}
+
+\begin{proof}[Beweisidee (nicht so wichtig)]
+  Da die Reihe $\sum_{k=0}^{\infty} a_k$ konvergent,
+  aber nicht absolut konvergent ist,
+  divergieren sowohl die positiven als auch die negativen
+  Folgeglieder. Aber die Folge ${(a_{n})}_{n \in \mathbb{N}}$
+  konvergiert gegen null. Addiere also so lange
+  positive Glieder, bis man über $\alpha$ hinausschiesst,
+  und dann negative, bis man wieder unter $\alpha$ kommt.
+  Iteriere dieses Verfahren.
+\end{proof}
+
+\begin{proof}[Beweis von Theorem 3]
+  Sei $\varepsilon > 0$ 
+  vorgegeben.
+  Wähle $N \in \mathbb{N}$ 
+  mit $\sum_{k=N+1}^{\infty} |a_k| \leq \varepsilon$.
+  Wähle $M \in \mathbb{N}$ mit $M > \varphi^{-1}(0),
+  \varphi^{-1}(1), \dots, \varphi^{-1}(N)$.
+  Falls $k \geq M$, dann ist $\varphi(k) \geq N+1$
+  (nach Wahl von $M$).
+  Also folgt
+  \[
+   \sum_{k=M}^{\infty} |a_{\varphi(k)}| 
+   \leq \sum_{k=N+1}^{\infty} |a_k| \leq \varepsilon.
+  \]
+  Die Reihe
+  $\sum_{k=0}^{\infty} |a_{\varphi(k)}|$ ist also
+  nach oben beschränkt,
+  also ist die Reihe
+  $\sum_{k=0}^{\infty} a_{\varphi(k)}$ absolut konvergent,
+  also konvergent.
 \end{proof}
 
 
