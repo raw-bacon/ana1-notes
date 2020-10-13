@@ -1,33 +1,28 @@
+
 \documentclass[tikz]{standalone}
 
 \begin{document}
 \begin{tikzpicture}
+  \clip (-0.5, -0.5) rectangle (5, 5);
+  \draw[fill=gray] (0, 0) rectangle (5.2, 5.2); 
+  \draw[fill=white] (0, 0) rectangle (2, 2);
   \draw (-0.5, 0) -- (5, 0);
   \draw (0, -0.5) -- (0, 5);
   \draw[dashed] (4, 0) -- (0, 4);
-  \foreach \x in {0, ..., 4} {
+  
+  \foreach \x in {0, 0.5, ..., 5} {
+    \foreach \y in {0, 0.5, ..., 5} {
   \draw[fill=black] 
-  (\x, {4 - \x}) circle
-(0.05);
+  (\x, \y) circle
+    (0.05);
+  }
 }
 
-\draw[fill=black]
-  (0, 2) circle (0.05);
-\draw[fill=black]
-  (1, 2) circle (0.05);
-\draw[fill=black]
-  (2, 2) circle (0.05);
-\draw[fill=black]
-  (2, 1) circle (0.05);
-\draw[fill=black]
-  (2, 0) circle (0.05);
-\draw (2, 0) -- (2, 2)
-  -- (0, 2);
-\node at (4, -0.3) {$(N, 0)$};
-\node at (2, -0.3) {$(N/2, 0)$};
 
-\node at (-0.8, 2) {$(N/2, 0)$};
-\node at (-0.6, 4) {$(N, 0)$};
+\draw (0, 4) -- (4, 4) -- (4, 0);
+
+
+
 
 \end{tikzpicture}
 \end{document}

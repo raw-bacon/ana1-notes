@@ -1162,7 +1162,7 @@ Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$
 keine Nullfolge,
 also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 
-\begin{theorem}
+\begin{theorem}\label{thm:cauchy-product}
   Seien
   $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
   absolut konvergent mit Grenzwerten $\alpha$ und $\beta$ 
@@ -1173,59 +1173,119 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   Grenzwert $\alpha \cdot \beta$.
 \end{theorem}
 
-\begin{proof}
-  Sei $N \in 2\mathbb{N}$ beliebig.
-  Setze
-   \[
-     A = \sum_{i=0}^{\infty} |a_i|, \;\; 
-     B = \sum_{j=0}^{\infty} |b_j|.
-   \]
-   Beachte, dass $A$ nicht unbedingt dasselbe
-   wie $\alpha$ und $B$ nicht unbedingt dasselbe
-   wie $\beta$ ist.
-   Wir behaupten, dass
-   \begin{align*}
-     \sum_{n=N}^{\infty} |c_n| & \leq
-     \left( \sum_{i=N/2}^{\infty} |a_i| \right)
-     \cdot
-     \left( \sum_{j=N}^{\infty} |b_j| \right)
-     +
-     \left( \sum_{i=0}^{\infty} |a_i| \right)
-     \cdot
-     \left(
-     \sum_{j=N/2}^{\infty} |b_j|\right),\\
-   \end{align*}
-   siehe Abbildung~\ref{fig:cauchy-proof}.
-   Es folgt, dass
-   $\sum_{n=N}^{\infty} |c_n| \leq
-   \left( \sum_{i=N/2}^{\infty} |a_i \right) \cdot B
-   + A \cdot
-   \left( \sum_{j=N/2}^{\infty} |b_j| \right).$
-   Aber das zeigt, dass
-   \[
-     \lim_{N \to \infty} \sum_{n=N}^{\infty} |c_n| = 0,
-   \]
-   da
-   \[
-     \lim_{n \to \infty} \sum_{i=N/2}^{\infty} |a_i| =
-     \lim_{n \to \infty} \sum_{j=N/2}^{\infty} |b_j| = 0.
-   \]
-   Also ist die Reihe $\sum_{n=0}^{\infty} c_n$ absolut
-   konvergent.
+% \begin{proof}
+%   Sei $N \in 2\mathbb{N}$ beliebig.
+%   Setze
+%    \[
+%      A = \sum_{i=0}^{\infty} |a_i|, \;\; 
+%      B = \sum_{j=0}^{\infty} |b_j|.
+%    \]
+%    Beachte, dass $A$ nicht unbedingt dasselbe
+%    wie $\alpha$ und $B$ nicht unbedingt dasselbe
+%    wie $\beta$ ist.
+%    Wir behaupten, dass
+%    \begin{align*}
+%      \sum_{n=N}^{\infty} |c_n| & \leq
+%      \left( \sum_{i=N/2}^{\infty} |a_i| \right)
+%      \cdot
+%      \left( \sum_{j=N}^{\infty} |b_j| \right)
+%      +
+%      \left( \sum_{i=0}^{\infty} |a_i| \right)
+%      \cdot
+%      \left(
+%      \sum_{j=N/2}^{\infty} |b_j|\right),\\
+%    \end{align*}
+%    siehe Abbildung~\ref{fig:cauchy-proof}.
+%    Es folgt, dass
+%    $\sum_{n=N}^{\infty} |c_n| \leq
+%    \left( \sum_{i=N/2}^{\infty} |a_i \right) \cdot B
+%    + A \cdot
+%    \left( \sum_{j=N/2}^{\infty} |b_j| \right).$
+%    Aber das zeigt, dass
+%    \[
+%      \lim_{N \to \infty} \sum_{n=N}^{\infty} |c_n| = 0,
+%    \]
+%    da
+%    \[
+%      \lim_{n \to \infty} \sum_{i=N/2}^{\infty} |a_i| =
+%      \lim_{n \to \infty} \sum_{j=N/2}^{\infty} |b_j| = 0.
+%    \]
+%    Also ist die Reihe $\sum_{n=0}^{\infty} c_n$ absolut
+%    konvergent.
 
-   Zu zeigen bleibt, dass $\sum_{n=0}^{\infty} c_n = \alpha
-   \cdot \beta$. Man kann mit einem ähnlichen Argument
-   zeigen, dass
-   \[
-     \lim_{N \to \infty}
-     \left| 
-       \sum_{n=0}^{N} c_n -
-       \left( \sum_{i=0}^{N} a_i \right)
-       \cdot
-       \left( \sum_{j=0}^{N} b_j \right)
-     \right| = 0. \qedhere
-   \]
+%    Zu zeigen bleibt, dass $\sum_{n=0}^{\infty} c_n = \alpha
+%    \cdot \beta$. Man kann mit einem ähnlichen Argument
+%    zeigen, dass
+%    \[
+%      \lim_{N \to \infty}
+%      \left| 
+%        \sum_{n=0}^{N} c_n -
+%        \left( \sum_{i=0}^{N} a_i \right)
+%        \cdot
+%        \left( \sum_{j=0}^{N} b_j \right)
+%      \right| = 0. \qedhere
+%    \]
+% \end{proof}
+
+\begin{proof}
+  Setze
+  \[
+    A = \sum_{i=0}^{\infty} |a_i| \text{ und }
+    B = \sum_{j=0}^{\infty} |b_j|.
+  \]
+  Diese Grenzwerte existieren, da die beiden Reihen
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
+  absolut konvergieren. Im allgemeinen stimmen $A$ und $B$
+  aber nicht mit $\alpha$ und $\beta$ überein.
+  Sei $N \in \mathbb{N}$. Wir schätzen ab:
+  \begin{align*}
+    \sum_{n=0}^{N} |c_n| &
+    \leq \left(\sum_{i=0}^{N} |a_i|\right)
+    \cdot \left( \sum_{j=0}^{N} |b_j| \right) \leq A \cdot B
+  \end{align*}
+  wobei
+  \[
+    c_n = \sum_{k=0}^{n} a_k b_{n-k}.
+  \]
+  In Abbildung~\ref{fig:cauchy-proof}
+  sind die Terme links alle
+  Punkte unter der
+  gestrichelten Linie.
+  Also ist die Reihe $\sum_{n=0}^{\infty} c_n$ absolut
+  konvergent.
+
+  Zu zeigen bleibt, dass der Grenzwert der Reihe
+  $\sum_{n=0}^{\infty} c_n$ gerade $\alpha \cdot \beta$ 
+  ist. Berechne dazu
+  \begin{align*}
+    \left| \left( \sum_{i=0}^{N} a_j \right)
+    \left( \sum_{j=0}^{N}\right) - \sum_{n=0}^{N} c_n \right| 
+    & \leq \left(\sum_{i=N/2}^{\infty} |a_i| \right)
+     \left( \sum_{j=0}^{N} |b_j| \right)
+     + \left( \sum_{i=0}^{\infty} |a_i| \right)
+     \left( \sum_{j=N/2}^{\infty} |b_j| \right)\\
+    &= \left( \sum_{i=N/2}^{\infty} |a_i| \right) B
+    + A \left( \sum_{j=N/2}^{\infty} |b_j| \right),
+  \end{align*}
+  siehe Abbildung~\ref{fig:cauchy-proof}: die
+  Terme rechts von der Ungleichung sind alle Punkte
+  im grau markierten Bereich.
+  Aber
+  \[
+    \lim_{N \to \infty} \sum_{i=N/2}^{\infty} |a_i| = 0
+    \text{ und }
+    \lim_{N \to \infty} \sum_{j=N/2}^{\infty} |b_j| = 0,
+  \]
+  also gilt
+  \begin{align*}
+    \sum_{n=0}^{\infty} c_n 
+    & = \lim_{N \to \infty} \sum_{n=0}^{N} c_n \\
+    & = \left( \lim_{N \to \infty}\sum_{i=0}^{N} a_i \right)
+    \left( \lim_{N \to \infty}\sum_{j=0}^{\infty} b_j \right) \\
+    & = \alpha \cdot \beta. && \qedhere
+  \end{align*}
 \end{proof}
+
 
 \begin{figure}[htb]
   \centering
@@ -1234,5 +1294,266 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   \label{fig:cauchy-proof}
 \end{figure}
 
+\section{Die Exponentialfunktion}
+\begin{lemma*}
+  Sei $x \in \mathbb{R}$. Dann ist die Reihe
+  $\sum_{k=0}^{\infty} \frac{x^k}{k!}$ absolut konvergent.
+\end{lemma*}
+
+\begin{proof}
+  Sei zunächst $x \geq 0$. Wähle $N \in \mathbb{N}$ mit
+  $N+ 1 \geq 2x$.
+  Dann gilt für alle $n > N$, dass
+  \begin{align*}
+    \sum_{k=0}^{n} \frac{x^k}{k!}    & 
+    = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \cdots
+    + \frac{x^N}{N!} + \cdots \frac{x^n}{n!} \\ &
+    = 1 + \cdots + \frac{x^N}{N!}
+    \left( 1 + \frac{x}{N+1} + \frac{x^2}{(N+1)(N+2)}
+  + \cdots \frac{x^{n-N}}{(N+1) \cdots n}\right)\\ &
+    \leq 1 + x + \cdots \frac{x^{N-1}}{(N-1)!} + 2 \cdot
+    \frac{x^N}{N!},
+  \end{align*}
+  da
+  \begin{itemize}
+    \item $x/(N+1) \leq 1/2$,
+    \item $x^2/(N+1)(N+2) \leq 1/4$,
+    \item $x^3/(N+1)(N+2)(N+3) \leq 1/8$,
+  \end{itemize}
+  und so weiter.
+  Also ist die Folge der Partialsummen
+  \[
+    s_n(x) = \sum_{k=0}^{n} \frac{x^k}{k!}
+  \]
+  nach oben beschränkt und monoton wachsend ist, da $x \geq 0$.
+  Also ist die Reihe
+  $\sum_{k=0}^{\infty} \frac{x^k}{k!}$ absolut konvergent.
+  Für $x < 0$ bemerken wir,
+  dass die Reihe
+  \[
+    \sum_{k=0}^{\infty} \left| \frac{x^k}{k!} \right|
+    = \sum_{k=0}^{\infty} \frac{|x|^k}{k!}
+  \]
+  konvergiert (siehe oben), also auch die Reihe
+  $\sum_{k=0}^{\infty} x^k$.
+\end{proof}
+
+\begin{definition}
+  Die \emph{Exponentialfunktion} ist die Funktion
+  \begin{align*}
+    \exp \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto \sum_{k=0}^{\infty} \frac{x^k}{k!}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}\label{thm:exp-product-sum}
+  Für alle $x, y \in \mathbb{R}$ gilt
+  \[
+    \exp(x + y) = \exp (x) \cdot \exp (y).
+  \]
+\end{theorem}
+
+\begin{proof}
+  Berechne das Cauchyprodukt
+  der beiden absolut konvergenten Reihen
+  $\exp(x)$ und $\exp(y)$ wie folgt:
+  \begin{align*}
+    \exp(x) \cdot \exp(y) & =
+    \left(\sum_{i=0}^{\infty} \frac{x^i}{i!}\right)
+    \left( \sum_{j=0}^{\infty} \frac{y^j}{j!} \right)\\ &
+    = \sum_{n=0}^{\infty} \sum_{k=0}^{n} \frac{x^k}{k!} 
+    \frac{y^{n-k}}{(n-k)!} \\ &
+    = \sum_{n=0}^{\infty} \frac{(x + y)^n}{n!} \\&
+    = \exp(x + y)
+  \end{align*}
+  nach Theorem~\ref{thm:cauchy-product},
+  da
+  \[
+    (x + y)^n = \sum_{k=0}^{n} \frac{n!}{k!(n-k)!} x^k y^{n-k}.
+    \qedhere
+  \]
+\end{proof}
+
+\begin{eig-exp}
+  \leavevmode
+  \begin{enumerate}[\normalfont(i)]
+    \item $\exp(0) = 1$ und $exp(1) = e$, die Eulersche Zahl
+      (siehe Serie 4%
+      % TODO check if really serie 4
+      ).
+    \item Für $h \geq 0$ gilt $\exp(h) \geq 1 + h$,
+      und für $0 \leq h \leq 1$ gilt  
+      \[
+        1 + h \leq \exp(h) \leq 1 + 2h,
+      \]
+      (siehe Serie 4). %TODO check.
+    \item Für alle $x \in \mathbb{R}$ gilt
+      \[
+        \exp(-x) = \frac{1}{exp(x)}.
+      \]
+      Dazu berechne
+      \[
+        \exp(0) = \exp(x - x) = \exp(x) \cdot \exp(-x)
+      \]
+      nach Theorem~\ref{thm:exp-product-sum}.
+    \item Für alle
+      $n \in \mathbb{N}$ gilt
+      \[
+        \exp(n) = \exp(1 + \cdots + 1) =
+        \left( \exp(1) \right)^n = e^n.
+      \]
+  \end{enumerate}
+\end{eig-exp}
+
+\begin{notation}
+  Wir schreiben von nun an auch
+  \[
+    e^x = \exp(x).
+  \]
+\end{notation}
+
+Wir müssen das so 
+definieren, da die Intuition aus
+Punkt (iv) nicht reicht, um zum Beispiel
+$e^{\sqrt 2}$ zu definieren.
+
+\begin{proposition*}
+  Die Exponentialfunktion $\exp \colon \mathbb{R} \to \mathbb{R}$ 
+  ist positiv, streng monoton wachsend, und surjektiv
+  als Funktion $\mathbb{R} \to \mathbb{R}_{>0}$.
+\end{proposition*}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item \emph{Positivität}. 
+      Für $x \geq 0$ gilt $\exp(x) \geq 1$,
+      und für $x < 0 $ gilt $\exp(-x) = 1/\exp(x)$
+      (siehe Eigenschaft (iii)), also
+      $\exp(x) > 0$.
+    \item \emph{Monotonie}. 
+      Seien $x, < \in \mathbb{R}$ mit $x < y$.
+      Dann gilt:
+      \[
+        \exp(y) = \exp(x + (y - x))
+        = \exp(x) \cdot \exp(y-x)
+        > \exp(x),
+      \]
+      da $\exp(y-x) > 1$.
+    \item \emph{Surjektivität}.
+      Sei $y > 0$. Wir behaupten,
+      dass $x_1, x_2 \in \mathbb{R}$ existieren mit 
+      \[
+        \exp(x_1) < y < \exp(x_2).
+      \]
+      Setze dazu $x_2 = y$. Dann ist
+        $\exp(x_2) \geq 1 + y > y$.
+      Für $x_1$ machen wir eine Fallunterscheidung.
+      Falls $y > 1$, setze $x_1 = 0$. Dann ist
+      $\exp(x_1) = 1 < y$. Für $y \leq 1$, setze
+      $x = -1/y$. Dann ist
+       \[
+         \exp(x_1) = \frac{1}{\exp(1/y)} < \frac{1}{1/y} = y.
+      \]
+      Dies zeigt die Behauptung, dass wir jeden gewünschten
+      Wert überbieten und auch unterbieten können.
+
+      Zu zeigen bleibt, dass wir den gewünschten Wert auch
+      tatsächlich treffen.
+      Wir suchen also $s \in \mathbb{R}$ mit $\exp(s) = y$.
+      Wir konstruieren dieses $s$ mit dem Supremumsprinzip.
+      Definiere
+      $A = \left\{x \in \mathbb{R} \mid \exp(x) \leq y\right\}$
+      Nach obiger Behauptung ist $A$ nicht leer,
+      da $x_1$ existiert mit $\exp(x_1) \leq y$.
+      Weiter ist $A$ nach oben beschränkt,
+      da $y \leq \exp(x_2)$.
+      Setze nun $s = \sup(A) \in \mathbb{R}$.
+      Wir zeigen, dass $\exp(s) = y$ indem wir
+      beide Ungleichungen zeigen.
+
+      Nehme widerspruchsweise an, dass $\exp(s) < y$.
+      Wähle $h \in \mathbb{R}$ mit $0 < h < 1$
+      und $1 + 2h \leq y/\exp(s)$.
+      Dies funktioniert, da $y/\exp(s) > 1$.
+      Es gilt dann
+       \[
+         \exp(s + h) = \exp(s) \cdot \exp(h) \leq \exp(s)
+         \cdot (1 + 2h) \leq y
+      \]
+      nach Eigenschaft (ii).
+      Also ist $s + h \in A$, was im Widerspruch zu
+      $s = \sup(A)$ steht.
+      Somit folgt $\exp(s) \geq y$.
+      
+      Umgekehrt, nehme widerspruchsweise an,
+      dass $\exp(s) > y$. Ähnlich wie im ersten Schritt, wähle
+      $h \in \mathbb{R}$ mit $0 < h \leq 1$ 
+      und $1 + 2h \leq \exp(s)/y$.
+      Dann gilt
+      \[
+        \exp(s-h) = \frac{\exp(s)}{\exp(h)}
+        \geq \frac{\exp(s)}{1 + 2h} \geq y.
+      \]
+      Also ist $s-h$ eine obere Schranke für $A$,
+      im Widerspruch dazu dass $s = \sup(A)$ die
+      kleinste obere Schranke für $A$ ist.
+      Folglich gilt $\exp(s) \leq y$. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{remark}
+  Die Menge $\exp(\mathbb{Q})$ ist nicht die Menge
+  $\mathbb{Q}_{>0}$ der positiven rationalen Zahlen.
+  Tatsächlich ist das Bild der meisten rationalen Zahlen
+  nicht rational (das ist schwierig zu zeigen).
+  Der Satz oben funktioniert also nur über $\mathbb{R}$.
+\end{remark}
+
+\subsection*{Der Logarithmus}
+Wir wissen, dass die Exponentialfunktion
+$
+  \exp \colon \mathbb{R} \to \mathbb{R}_{>0}
+  $
+streng monoton wachsend und surjektiv ist.
+Insbesondere ist $\exp$ bijektiv.
+
+\begin{definition}
+  Die \emph{Logarithmusfunktion}
+  $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$ ist die
+  eindeutige Umkehrfunktion der Exponentialfunktion,
+  das heisst $\log = \exp^{-1}$.
+\end{definition}
+
+\begin{remark}
+Es gilt für alle $a, b > 0$, dass
+\[
+  \log(a \cdot b) = \log(a) + \log(b).
+\]
+Dazu bemerke, dass
+\[
+  \exp(\log(a) + \log(b)) = 
+  \exp(\log(a)) \cdot \exp(\log(b) 
+  = a \cdot b = \exp(\log(a \cdot b)).
+\]
+Da die Exponentialfunktion injektiv ist,
+folgt die Behauptung.
+\end{remark}
+
+\begin{definition}
+  Sei $a > 0$ und $x \in \mathbb{R}$. Wir definieren
+  die allgemeine \emph{Potenzfunktion}
+  $x \mapsto a^x$ durch
+  \[
+    a^x = \exp(\log(a) \cdot x).
+  \]
+\end{definition}
+
+\begin{remark}
+  Für alle $x, y \in \mathbb{R}$ gilt
+  \[
+    a^{x+y} = a^{x} \cdot a^{y}.
+  \]
+\end{remark}
 \end{document}
 
