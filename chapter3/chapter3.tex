@@ -3,4 +3,42 @@
 \begin{document}
 \chapter{Stetige Funktionen}
 
+Folgende Definition von Weierstrass
+ist aus gutem Grund sehr berühmt.
+
+\begin{definition}
+  Sei $A \subset \mathbb{R}$ 
+  eine beliebige Teilmenge.
+  Eine Funktion
+  $f \colon A \to \mathbb{R}$ 
+  heisst \emph{stetig} im Punkt
+  $p \in A$, falls für
+  alle vorgegebenen $\varepsilon > 0$
+  ein  $\delta > 0$ existiert,
+  so dass für alle $q \in A$ 
+  mit $|q-p| \leq \delta$ gilt,
+  dass $|f(q) - f(p)| \leq \varepsilon$.
+  Falls $f \colon A \to \mathbb{R}$ in
+  allen Punkten $p \in A$ stetig ist,
+  dann heisst $f$ \emph{stetig}.
+\end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Die Identitätsfunktion
+      \begin{align*}
+        f \colon \mathbb{R} & \to \mathbb{R} \\
+        p & \mapsto p
+      \end{align*}
+      ist stetig. Sei dazu $p \in \mathbb{R}$ fest
+      und $\varepsilon > 0$ vorgegeben.
+      Setze $\delta = \varepsilon$. Dann gilt
+      für alle $q \in \mathbb{R}$ mit
+      $|q - p| \leq \delta$, dass
+      $|f(q) - f(p)| = |q - p| \leq \delta = \varepsilon$.
+  \end{enumerate}
+\end{examples}
+
+
 \end{document}
