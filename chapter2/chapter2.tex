@@ -917,7 +917,7 @@ Reihen herleiten.
   negativen Folgeglied alterniert,
   ist eine Umordnung der
   alternierenden harmonischen Reihe
-  $\sum_{n=1}^{\infty} {(-1)}^{n+1}$.
+  $\sum_{n=1}^{\infty} {(-1)}^{n+1} \cdot 1/n$.
   Wir stellen fest, dass für alle
   $k \in 2 \mathbb{N}$ mit $k \geq 2$ gilt,
   dass
@@ -1096,7 +1096,7 @@ $\alpha + \beta$.
   $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
   ist die Reihe $\sum_{n=0}^{\infty} c_n$ mit den Summanden
   \[
-    \sum_{k=0}^{n} a_k b_{n-k}.
+    c_n = \sum_{k=0}^{n} a_k b_{n-k}.
   \]
   Also ist zum Beispiel
   \begin{itemize}
@@ -1258,10 +1258,10 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   $\sum_{n=0}^{\infty} c_n$ gerade $\alpha \cdot \beta$ 
   ist. Berechne dazu
   \begin{align*}
-    \left| \left( \sum_{i=0}^{N} a_j \right)
-    \left( \sum_{j=0}^{N}\right) - \sum_{n=0}^{N} c_n \right| 
+    \left| \left( \sum_{i=0}^{N} a_i \right)
+    \left( \sum_{j=0}^{N} b_j \right) - \sum_{n=0}^{N} c_n \right| 
     & \leq \left(\sum_{i=N/2}^{\infty} |a_i| \right)
-     \left( \sum_{j=0}^{N} |b_j| \right)
+     \left( \sum_{j=0}^{\infty} |b_j| \right)
      + \left( \sum_{i=0}^{\infty} |a_i| \right)
      \left( \sum_{j=N/2}^{\infty} |b_j| \right)\\
     &= \left( \sum_{i=N/2}^{\infty} |a_i| \right) B
@@ -1281,7 +1281,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     \sum_{n=0}^{\infty} c_n 
     & = \lim_{N \to \infty} \sum_{n=0}^{N} c_n \\
     & = \left( \lim_{N \to \infty}\sum_{i=0}^{N} a_i \right)
-    \left( \lim_{N \to \infty}\sum_{j=0}^{\infty} b_j \right) \\
+    \left( \lim_{N \to \infty}\sum_{j=0}^{N} b_j \right) \\
     & = \alpha \cdot \beta. && \qedhere
   \end{align*}
 \end{proof}
@@ -1310,7 +1310,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     + \frac{x^N}{N!} + \cdots \frac{x^n}{n!} \\ &
     = 1 + \cdots + \frac{x^N}{N!}
     \left( 1 + \frac{x}{N+1} + \frac{x^2}{(N+1)(N+2)}
-  + \cdots \frac{x^{n-N}}{(N+1) \cdots n}\right)\\ &
+  + \cdots + \frac{x^{n-N}}{(N+1) \cdots n}\right)\\ &
     \leq 1 + x + \cdots \frac{x^{N-1}}{(N-1)!} + 2 \cdot
     \frac{x^N}{N!},
   \end{align*}
@@ -1325,8 +1325,8 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   \[
     s_n(x) = \sum_{k=0}^{n} \frac{x^k}{k!}
   \]
-  nach oben beschränkt und monoton wachsend ist, da $x \geq 0$.
-  Also ist die Reihe
+  nach oben beschränkt und monoton wachsend, da $x \geq 0$.
+  Folglich ist die Reihe
   $\sum_{k=0}^{\infty} \frac{x^k}{k!}$ absolut konvergent.
   Für $x < 0$ bemerken wir,
   dass die Reihe
@@ -1335,7 +1335,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     = \sum_{k=0}^{\infty} \frac{|x|^k}{k!}
   \]
   konvergiert (siehe oben), also auch die Reihe
-  $\sum_{k=0}^{\infty} x^k$.
+  $\sum_{k=0}^{\infty} x^k/k!$.
 \end{proof}
 
 \begin{definition}
@@ -1377,10 +1377,8 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 \begin{eig-exp}
   \leavevmode
   \begin{enumerate}[\normalfont(i)]
-    \item $\exp(0) = 1$ und $exp(1) = e$, die Eulersche Zahl
-      (siehe Serie 4%
-      % TODO check if really serie 4
-      ).
+    \item $\exp(0) = 1$ und $\exp(1) = e$, die Eulersche Zahl
+      (siehe Serie 4).
     \item Für $h \geq 0$ gilt $\exp(h) \geq 1 + h$,
       und für $0 \leq h \leq 1$ gilt  
       \[
@@ -1389,7 +1387,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       (siehe Serie 4). %TODO check.
     \item Für alle $x \in \mathbb{R}$ gilt
       \[
-        \exp(-x) = \frac{1}{exp(x)}.
+        \exp(-x) = \frac{1}{\exp(x)}.
       \]
       Dazu berechne
       \[
@@ -1428,11 +1426,12 @@ $e^{\sqrt 2}$ zu definieren.
   \begin{itemize}
     \item \emph{Positivität}. 
       Für $x \geq 0$ gilt $\exp(x) \geq 1$,
-      und für $x < 0 $ gilt $\exp(-x) = 1/\exp(x)$
+      und für $x < 0 $ gilt $\exp(x) = 1/\exp(-x)$
       (siehe Eigenschaft (iii)), also
+      auch in diesem Fall
       $\exp(x) > 0$.
     \item \emph{Monotonie}. 
-      Seien $x, < \in \mathbb{R}$ mit $x < y$.
+      Seien $x, y \in \mathbb{R}$ mit $x < y$.
       Dann gilt:
       \[
         \exp(y) = \exp(x + (y - x))
