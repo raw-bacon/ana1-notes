@@ -624,7 +624,11 @@ von $f$.
   \centering
   \includegraphics{chapter3/images/brouwer}
   %TODO
-  \caption{Fixpunktsatz von Brouwer}%
+  \caption{Fixpunktsatz von Brouwer.
+  Ein Schnittpunkt des Graphen von $f$ mit
+der Gerade mit Steigung $1$ ist ein
+Fixpunkt von $f$. Die eingezeichnete Abbildung
+hat sogar drei Fixpunkte, zum Beispiel $p$.}%
   \label{fig:brouwer}
 \end{figure}
 
@@ -664,7 +668,9 @@ Eine Teilmenge
 \end{definition}
 
 \begin{remark}
-  Jede (auch unendliche) Vereinigung offener Mengen ist offen.
+  Jede (auch unendliche) Vereinigung offener Mengen ist offen
+  (aber unendliche Vereinigungen abgeschlossener Mengen
+  sind nicht unbedingt abgeschlossen).
 \end{remark}
 
 \begin{examples}
@@ -683,7 +689,7 @@ Eine Teilmenge
       siehe Abbildung~\ref{fig:offen}.
       \begin{figure}[htb]
         \centering
-        \includegraphics{chapter3/images/offen}*
+        \includegraphics{chapter3/images/offen}
         \caption{Offene Intervalle
         sind offen}%
         \label{fig:offen}
@@ -747,10 +753,10 @@ brauchen wir noch etwas Vorarbeit.
 \end{lemma*}
 
 \begin{proof}
-  Wir beweisen das Lemma durch Kontraposition.
+  Wir beweisen das Lemma durch Widerspruch.
   Sei
   \[
-    p = \lim_{n \to a_n} \in \mathbb{R} \setminus A.
+    p = \lim_{n \to \infty} a_n \in \mathbb{R} \setminus A.
   \]
   Da $\mathbb{R} \setminus A$ offen ist,
   existiert $\delta > 0$ mit $(p - \delta, p + \delta)
@@ -761,7 +767,7 @@ brauchen wir noch etwas Vorarbeit.
   \subset \mathbb{R} \setminus A$,
   also $a_n \notin A$, was der Annahme, dass 
   $a \colon \mathbb{N} \to A$
-  eine Folge in $A$ ist.
+  eine Folge in $A$ ist, widerspricht.
 \end{proof}
 
 
