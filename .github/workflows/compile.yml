@@ -43,7 +43,7 @@ jobs:
       - name: Move doc to right folder
         run: |
           mkdir build
-          mv Script.pdf build/
+          mv main.pdf build/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: github.ref == 'refs/heads/master'
