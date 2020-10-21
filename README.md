@@ -4,7 +4,7 @@ zu den Vorlesungsnotizen
 des Kurses Analysis 1 bei 
 Prof. Dr. Sebastian Baader
 im Herbstsemester 2020.
-[Hier](main.pdf) findest du
+[Hier](https://raw-bacon.github.io/ana1-notes) findest du
 jeweils die aktuellste Version.
 
 # Fehler melden
