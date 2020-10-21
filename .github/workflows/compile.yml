@@ -16,10 +16,21 @@ jobs:
         with:
           name: Script
           path: main.pdf
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    
+    steps:
+      - name: Download script
+        uses: actions/download-artifact@v2
+        with:
+          name: Script
+          path: build/Script.pdf
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        if: github.ref == 'refs/heads/master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -32,23 +43,19 @@ jobs:
       - name: Upload Release Asset
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
-        if: github.ref == 'refs/heads/master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}  
-          asset_path: ./main.pdf
+          asset_path: ./build/Script.pdf
           asset_name: Script.pdf
           asset_content_type: application/pdf
-      - name: Move doc to right folder
+      - name: Create Redirect for gh-pages
         run: |
-          mkdir build
-          mv main.pdf build/Script.pdf
           touch build/index.html
           echo '<html><head><meta http-equiv="refresh" content="0; url=./Script.pdf" /></head><body></body></html>' > build/index.html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: github.ref == 'refs/heads/master'
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages 
