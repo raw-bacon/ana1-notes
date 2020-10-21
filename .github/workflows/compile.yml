@@ -43,7 +43,9 @@ jobs:
       - name: Move doc to right folder
         run: |
           mkdir build
-          mv main.pdf build/
+          mv main.pdf build/Script.pdf
+          touch build/index.html
+          echo '<html><head><meta http-equiv="refresh" content="0; url=./Script.pdf" /></head><body></body></html>' > build/index.html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: github.ref == 'refs/heads/master'
