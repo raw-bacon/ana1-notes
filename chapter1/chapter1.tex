@@ -235,9 +235,10 @@ Resultat.
   \]
   Alle solchen $A_{k} \subset \mathbb Q$ sind endlich und
   \[
-    \mathbb Q = \bigcupdot_{k \geq 1} A_{k}
+    \mathbb Q = \bigcup_{k \geq 1} A_{k}
   \]
-  ist die \emph{disjunkte Vereinigung} dieser Mengen.
+  ist die \emph{disjunkte Vereinigung} dieser Mengen,
+  das heisst $A_i \cap A_j = \emptyset$ für alle $i \neq j$.
   Wir haben
   \[
     A_{1} = \{0/1\}, \; A_{2} = \{\pm 1/1\}, \; A_{3} = \{\pm 1/2, \pm 2/1\}, \dots.
@@ -405,7 +406,7 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   Klammer beginnt.
   Weiter gilt, dass für verschiedene
   korrekte $n$-Klammerungen $K_{1}$ und $K_{2}$
-  auch $()K_{1}, (K_{1}), ()K_{2}, (K_{2})$ verschieden sind (wieso?).
+  auch $()K_{1}, (K_{1}), ()K_{2}, (K_{2})$ verschieden sind.
   Wir können also aus jeder korrekten $n$-Klammerung zwei korrekte
   $(n+1)$-Klammerungen konstruieren. Somit folgt, dass
   \[C_{n+1} \geq 2 C_{n} \geq 2 \cdot 2^{n-1} = 2^{n}.\]
@@ -730,7 +731,7 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
   Diese Menge könnte auch endlich sein.
   Definiere einen Schnitt
   \[
-    D_{B} = \left\{x \in \mathbb Q \middle| x > \sum_{k=0}^{\infty}
+    D_{B} = \left\{x \in \mathbb Q \; \middle| \; x > \sum_{k=0}^{\infty}
       {\left( \frac{1}{3}\right)}^{n_{k}}
     \right\}.
   \]
@@ -854,7 +855,7 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
 \begin{definition}
 Seien $D, D' \in \mathbb R$ Dedekindsche Schnitte.
 Wir Definieren die \emph{Summe} von $D$ und $D'$ als
-\[D + D' = \left\{z \in \mathbb Q \mid \text{ es existieren }
+\[D + D' = \left\{z \in \mathbb Q \mid \text{es existieren }
     x \in D \text{ und } y \in D' \text{ mit } z = x + y\right\}.\]
 \end{definition}
 
@@ -957,7 +958,7 @@ Seien
 $D ,D' \in \mathbb R$. Wir nehmen an, dass $D, D' \geq 0$,
 das heisst $D, D' \subset D_{0}$. Dann definieren wir das \emph{Produkt}
 von $D$ und $D'$ als
-\[D \cdot D' = \{z \in \mathbb Q \mid \textup{ es existieren } x \in D,
+\[D \cdot D' = \{z \in \mathbb Q \mid \textup{es existieren } x \in D,
   y \in D' \textup{ mit } z = x \cdot y\}.\]
 Falls $D < 0$ und $D' \geq 0$, dann definieren wir
 \[D \cdot D' = -(-D) \cdot D',\]
@@ -1135,12 +1136,16 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
 \end{claim}
 
 \begin{proof}
+  Seien $A, B \subset \mathbb{R}$ nicht-leere Teilmengen
+  mit $A < B$.
   Setze
   \[
     D = \bigcup_{b \in B} D_b = \left\{x \in \mathbb{Q} \mid x > b
     \text{ für ein } b \in B \right\}.
   \]
-  Diese Menge $D$ ist ein Schnitt (wieso?) %TODO
+  Diese Menge $D$ ist ein Schnitt,
+  da beliebige Vereinigungen von Schnitten Schnitte sind.
+  Bemerke weiterhin:
   \begin{itemize}
 	  \item Es gilt für alle $b \in B$, dass $D \supset D_b$.
 	  \item Es gilt für alle $a \in A$ und $b \in B$, dass
@@ -1200,7 +1205,8 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
   Seien $K_1$ und $K_2$ zwei vollständig geordnete Körper.
   Dann existiert ein Körperisomorphismus
   $\varphi\colon K_1 \to K_2$, das heisst
-	   für alle $x, y \in K_1$ ist $\varphi(x+y)
+	   für alle $x, y \in K_1$ gelten die
+     Gleichungen $\varphi(x+y)
 		  = \varphi(x) + \varphi(y)$,
 		  und $\varphi(xy) = \varphi(x)\varphi(y)$,
 	und $\varphi$ ist bijektiv.

@@ -279,7 +279,7 @@ durchdringt.}%
       \]
       sogenannte \emph{Polynome},
       mit Koeffizienten $a_k \in \mathbb{R}$ sind stetig
-      auf $\mathbb{R}$, da die Funktion $x \mapsto x$
+      auf $\mathbb{R}$, da die Identitätsfunktion $x \mapsto x$
       und konstante Funktionen stetig sind.
     \item Die Funktion $f(x) = 1/x$ ist stetig
       auf $\mathbb{R} \setminus \{0\}$.
@@ -293,7 +293,7 @@ durchdringt.}%
   genau dann stetig im Punkt
   $p \in A$, wenn für alle
   konvergenten Folgen $a \colon \mathbb{N} \to A$
-  mit $\lim_{n \to \infty}a_n = p$ gilt, dass
+  mit $\lim_{n \to \infty}a_n = p \in A$ gilt, dass
   \[
     \lim_{n \to \infty} f(a_n) = f(p).
   \]
@@ -352,6 +352,8 @@ Dieser Satz sagt, dass genau dann die Formel
 \[
   \lim_{n \to \infty}  f(a_n) = f\left(\lim_{n \to \infty} a_n\right)
 \]
+für alle konvergenten Folgen ${(a_{n})}_{n \in \mathbb{N}}$ in $A$
+mit Grenzwert in $A$
 gilt, wenn $f$ stetig ist.
 
 \begin{application}
@@ -409,8 +411,8 @@ gilt, wenn $f$ stetig ist.
   das heisst es existiert keine stetige
   Funktion $\overline f \colon \mathbb{R} \to \mathbb{R}$,
   so dass $\overline f |_{\mathbb{R} \setminus \{0\}} = f$.
-  Hier ist $\overline f |_{\mathbb{R} \setminus\{0\}}
-  \colon \mathbb{R} \setminus \{0\} \to \mathbb{R}$
+  Hier ist \[\overline f |_{\mathbb{R} \setminus\{0\}}
+  \colon \mathbb{R} \setminus \{0\} \to \mathbb{R}\]
   die Funktion $\overline f$ \emph{eingeschränkt} auf
   $\mathbb{R} \setminus \{0\}$, 
   gegeben durch 
@@ -551,6 +553,9 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   stetig mit $f(a) \leq f(b)$.
   Dann gilt 
   \[[f(a), f(b)] \subset f([a, b]).\]
+  In anderen Worten heisst das, das stetige
+  Funktionen jeden Wert zwischen
+  zwei angenommenen Werten annehmen.
 \end{zwischenwertsatz}
 
 \begin{proof}
@@ -737,8 +742,8 @@ Eine Teilmenge
   und beschränkt,
   und sei weiterhin $f \colon A \to \mathbb{R}$
   stetig. Dann nimmt $f$ auf $A$ ein
-  Maximum und ein Minimum an,
-  das heisst es existiert $p \in A$,
+  Maximum, beziehungsweise ein Minimum an,
+  das heisst~es existiert $p \in A$,
   so dass für alle $q \in A$ gilt,
   dass $f(q) \leq f(p)$, beziehungsweise $f(q) \geq f(p)$.
 \end{theorem}

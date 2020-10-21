@@ -103,7 +103,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \[
 		  \lim_{n \to \infty} 1 + \sqrt{\frac{2}{n-1}} = 1,
 	  \]
-    was eine Variation vom ersten Beispiel ist folgt nun auch
+    was eine Variation vom ersten Beispiel ist, folgt nun auch
 	  \[
 		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
 	  \]
@@ -143,7 +143,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 Eine Folge 
 ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$ 
 heisst \emph{Cauchyfolge}, so dass für alle
-vorgegebenen $\varepsilon$ ein $N \in \mathbb{N}$ existiert,
+vorgegebenen $\varepsilon > 0$ ein $N \in \mathbb{N}$ existiert,
 so dass für alle $n, m \in \mathbb{N}$ mit $n,m \geq N$ gilt,
 dass $|a_n - a_m| \leq \varepsilon$.
 \end{definition}
@@ -225,13 +225,13 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
   Sei also $\varepsilon > 0$ vorgegeben.
   Dann existiert $N \in \mathbb{N}$ 
   so dass immer wenn $n, m \geq N$, dann auch
-  $|a_n - a_m| \leq \varepsilon$
-  (da ${(a_n)}_{n \in \mathbb{N}}$ eine Cauchyfolge ist).
+  $|a_n - a_m| \leq \varepsilon$,
+  da ${(a_n)}_{n \in \mathbb{N}}$ eine Cauchyfolge ist.
   Daraus folgt, dass
   \[
     |\sup A_N - \inf A_N| \leq \varepsilon,
   \]
-  da die nicht-strikte Ungleichung ja für alle
+  da die nicht-strikte Ungleichung für alle
   Elemente von $A_N$ gilt.
   Nach Konstruktion gilt $\inf A_N \leq L \leq \sup A_N$.
   Ausserdem gilt für alle $n \geq N$, dass
@@ -243,13 +243,13 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
 
 Zusammengefasst haben wir die Folgeglieder
 erst ab einem späten Index betrachtet und
-unter Verwendung der Vollständigkeit (!)
+unter Verwendung der Vollständigkeit
 gezeigt, dass wir einen Grenzwert $L$
 finden können.
 
 \begin{remark}
-  In $\mathbb{R}$ (und auch
-  in einem allgemeineren Setting)
+  In geordneten Körpern,
+  die das archimedische Prinzip erfüllen,
   sind folgende Prinzipien äquivalent.
   \begin{itemize}
     \item Vollständigkeit,
@@ -262,11 +262,13 @@ finden können.
 
 Die Beobachtung, dass die Folge $I_0, I_1, I_2, \dots$
 im Beweis oben konvergiert, lässt sich verallgemeinern.
+Eine Folge ${(a_{n})}_{n \in \mathbb{N}}$ 
+so dass für alle $n \in \mathbb{N}$ gilt,
+dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
 
 \begin{monotony}
   Sei ${(a_n)}_{n \in \mathbb{N}}$ eine monoton wachsende
-  Folge in $\mathbb{R}$ (das heisst, für alle
-  $n \in \mathbb{N}$ gilt, dass $a_n \leq a_{n+1}$),
+  Folge in $\mathbb{R}$,
   welche nach oben beschränkt ist.
   Dann konvergiert ${(a_n)}_{n \in \mathbb{N}}$ mit
   Grenzwert
@@ -286,7 +288,7 @@ im Beweis oben konvergiert, lässt sich verallgemeinern.
   Sei dazu $\varepsilon > 0$ vorgegeben. 
   Dann ist $S - \varepsilon$ keine obere Schranke
   für $\{a_0, a_1, a_2, \dots\}$,
-  da $S$ ja die kleinste obere Schranke ist.
+  da $S$ die kleinste obere Schranke ist.
   Also existiert $N \in \mathbb{N}$ mit
   $a_N > S - \varepsilon$.
   Dann gilt für alle $n \geq N$, dass
@@ -472,7 +474,7 @@ Folgeglieder enthalten hat.
   \]
 \end{definition}
 
-\begin{example}
+\begin{examples}
   \leavevmode
   \begin{enumerate}[(i)]
     \item Bei der Folge $a_n = (-1)^n$ ist die Menge
@@ -500,7 +502,7 @@ Folgeglieder enthalten hat.
         \lim_{k \to \infty} a_{n_k} = \alpha.
       \]
   \end{enumerate}
-\end{example}
+\end{examples}
 
 
 \subsection*{Rechenregeln}
@@ -666,7 +668,7 @@ heisst \emph{geometrische Reihe}.
 
 \begin{claim}
   Die Reihe
-  $\sum_{k=0}^{\infty} q^k$ ist konvergent, genau dann,
+  $\sum_{k=0}^{\infty} q^k$ ist konvergent, genau dann
   wenn $|q| < 1$, und in diesem Fall gilt
   \[
     \sum_{k=0}^{\infty} q^k = \frac{1}{1-q}
@@ -790,7 +792,7 @@ Reihen herleiten.
 
 \begin{summary}
   Alle allgemein anwendbaren Verfahren zur Untersuchung
-  der Konvergenz von Reihen von positiven
+  der Konvergenz von Reihen mit positiven
   Termen basieren auf folgenden
   beiden Strategien.
   \begin{itemize}
@@ -930,7 +932,7 @@ Reihen herleiten.
     \frac{1}{2k-1} + \frac{1}{2k+1} = \frac{4k}{(2k-1)(2k+1)}
     = \frac{4k}{4k^2 - 1} > \frac{4k}{4k^2} = \frac{1}{k}.
   \]
-  Also ist die umgeordnete Reihe
+  Also gilt für die umgeordnete Reihe, dass
   \[
     \sum_{n=0}^{\infty} a_{\varphi(n)} = 
     1 + \frac{1}{3} + \frac{1}{5} - \frac{1}{2}
@@ -942,7 +944,7 @@ Reihen herleiten.
   und so weiter.
   Die Umordnung einer konvergenten Reihe kann also den
   Grenzwert dieser Reihe ändern,
-  oder sogar Divergenz herbeiführen. Siehe Aufgabe~4
+  oder sogar Divergenz herbeiführen. Siehe auch Aufgabe~4
   auf Serie 5.
 \end{example}
 
@@ -1149,7 +1151,6 @@ $\alpha + \beta$.
       + \frac{1}{\sqrt{n+1}} \cdot \frac{1}{\sqrt 1}
     \right).
   \end{align*}
-\end{example}
 Jeder dieser $n + 1$ Summanden in $c_n$ ist grösser oder
 gleich $1/(n+1)$, denn
 \[
@@ -1161,6 +1162,7 @@ Also ist $|c_n| \geq 1$ für alle $n \in \mathbb{N}$.
 Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$ 
 keine Nullfolge,
 also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
+\end{example}
 
 \begin{theorem}\label{thm:cauchy-product}
   Seien
@@ -1269,7 +1271,9 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   \end{align*}
   siehe Abbildung~\ref{fig:cauchy-proof}: die
   Terme rechts von der Ungleichung sind alle Punkte
-  im grau markierten Bereich.
+  im grau markierten Bereich,
+  und die Terme links von der Ungleichung
+  sind alle Punkte im vollständig grauen Dreieck.
   Aber
   \[
     \lim_{N \to \infty} \sum_{i=N/2}^{\infty} |a_i| = 0
@@ -1427,7 +1431,7 @@ $e^{\sqrt 2}$ zu definieren.
     \item \emph{Positivität}. 
       Für $x \geq 0$ gilt $\exp(x) \geq 1$,
       und für $x < 0 $ gilt $\exp(x) = 1/\exp(-x)$
-      (siehe Eigenschaft (iii)), also
+      (siehe Eigenschaft (iii)), also gilt
       auch in diesem Fall
       $\exp(x) > 0$.
     \item \emph{Monotonie}. 
