@@ -672,6 +672,18 @@ Eine Teilmenge
   Jede (auch unendliche) Vereinigung offener Mengen ist offen
   (aber unendliche Vereinigungen abgeschlossener Mengen
   sind nicht unbedingt abgeschlossen).
+  Dazu seien $U_i \subset \mathbb{R}$ offene Teilmengen
+  für $i \in I$, wobei $i$ eine 
+  beliebige Indexmenge ist. Sei dann
+  \[
+    x \in U = \bigcup_{i \in I} U_i
+  \]
+  beliebig. Dann ist $x \in U_i$ für
+  ein $i \in I$, und da $U_i$ offen ist existiert
+  $\delta > 0$ so dass $(x - \delta, x + \delta) \subset U_i$.
+  Aber $U_i$ ist eine Teilmenge von $U$, also
+  gilt auch $(x - \delta, x + \delta) \subset U$. Somit ist
+  $U$ offen.
 \end{remark}
 
 \begin{examples}
@@ -707,6 +719,9 @@ Eine Teilmenge
       Dann gilt
       $(p - \delta, p + \delta) \cap [a, b] = \emptyset$,
       also ist $\mathbb{R} \setminus [a, b]$ offen.
+    \item Im Extremfall $a = b$ enthält das Intervall
+      $[a,b] = \{a\}$ genau einen Punkt. Also
+      sind einelementige Mengen abgeschlossen.
     \item Sei $A = \{0\} \cup \left\{1/n \mid n \in 
       \mathbb{N}, n \geq 1\right\}$.
       Dann ist $A$ abgeschlossen, da
@@ -746,15 +761,18 @@ Eine Teilmenge
 Für den Beweis von Theorem~\ref{thm:extreme}
 brauchen wir noch etwas Vorarbeit.
 
-\begin{lemma*}
-  Sei $A \subset \mathbb{R}$ abgeschlossen
-  und $a \colon \mathbb{N} \to A$ eine konvergente
-  Folge. Dann liegt der
-  Grenzwert $\lim_{n \to \infty} a_n$ in $A$.
+\begin{lemma*}[Folgenabgeschlossenheit]
+  Sei $A \subset \mathbb{R}$ eine nichtleere Teilmenge.
+  Dann ist $A$ abgeschlossen, genau dann, wenn für
+  alle konvergenten Folgen
+  ${(a_{n})}_{n \in \mathbb{N}}$ mit
+  $a_n \in A$ gilt, dass auch
+  der Grenzwert $\lim_{n \to \infty} a_n$ in $A$ 
+  liegt das heisst, $A$ ``folgenabgeschlossen'' ist.
 \end{lemma*}
 
 \begin{proof}
-  Wir beweisen das Lemma durch Widerspruch.
+  Wir beweisen die Hinrichtung ``$\Rightarrow$'' durch Widerspruch.
   Sei
   \[
     p = \lim_{n \to \infty} a_n \in \mathbb{R} \setminus A.
@@ -769,11 +787,385 @@ brauchen wir noch etwas Vorarbeit.
   also $a_n \notin A$, was der Annahme, dass 
   $a \colon \mathbb{N} \to A$
   eine Folge in $A$ ist, widerspricht.
+
+  Umgekehrt, für die Rückrichtung ``$\Leftarrow$'', sei
+  $A \subset \mathbb{R}$ folgenabgeschlossen.
+  Sei $p \in \mathbb{R} \setminus A$. Wir suchen
+  $\delta > 0$, so dass $(p - \delta, p + \delta)
+  \subset \mathbb{R} \setminus A$. Falls es kein
+  solches $\delta > 0$ gibt, dann existiert zu jedem
+  $n \in \mathbb{N}$ ein Punkt $a_n \in A$ so, dass
+  $|a_n - p| \leq 1/n$.
+  Dann gilt
+  \[
+    \lim_{n \to \infty} a_n = p \in A,
+  \]
+  da $A$ folgenabgeschlossen ist. Das ist ein Widerspruch
+  zu $p \in \mathbb{R} \setminus A$.
 \end{proof}
 
-\section*{Vorlesung 23. Oktober}
-Ich durfte heute morgen nicht in die Vorlesung und werde deshalb erst
-heute Abend die Mitschrift schreiben.
+\begin{remark}
+  Etwas pathologisch ist die leere Menge $\emptyset$
+  offen und somit $\mathbb{R}$ selbst abgeschlossen.
+  Ausserdem ist $\mathbb{R}$ offen (da $\mathbb{R}$
+  jedes Intervall enthält) und somit $\emptyset$ 
+  abgeschlossen.
+
+  Es stellt sich heraus, dass $\mathbb{R}$ und $\emptyset$ 
+  die einzigen Teilmengen von $\mathbb{R}$ sind, welche
+  sowohl offen als auch abgeschlossen sind.
+  Äquivalent dazu ist, dass keine abgeschlossenen
+  nicht-leere Mengen $A, B \subset \mathbb{R}$ existieren,
+  so dass $A \cap B = \emptyset$ und
+  $A \cup B = \mathbb{R}$.
+  Andernfalls könnten wir konvergente Folgen
+  ${(a_{n})}_{n \in \mathbb{N}}$ in $A$
+  und ${(b_{n})}_{n \in \mathbb{N}}$ in $B$ 
+  konstruieren, so dass
+  \[
+    \lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n.
+  \]
+  Eine Art solche Folgen zu produzieren ist folgendermassen.
+  Wähle beliebige $a_0 \in A$ und $b_0 \in B$.
+  Nach konstruieren von $a_n$ und $b_n$ betrachte
+  den Mittelpunkt $c_n = (a_n + b_n)/2$ und unterscheide
+  zwei Fälle. Falls $c_n \in A$, setze $a_{n+1} = c_n$ 
+  und $b_{n+1} = b_n$. Ansonsten, falls $c_n \in B$, setze
+  $a_{n+1} = a_n$ und $b_{n+1} = c_n$.
+  Die Folgen ${(a_{n})}_{n \in \mathbb{N}}$ und
+  ${(b_{n})}_{n \in \mathbb{N}}$ erfüllen dann
+  die gewünschte Eigenschaft. Das ist aber ein
+  Widerspruch zum Lemma oben: Der gemeinsame Grenzwert
+  \[
+    c = \lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n
+  \]
+  liegt nach dem Lemma oben in $A \cap B = \emptyset$.
+\end{remark}
+
+\begin{proof}[Beweis von Theorem~\ref{thm:extreme}]
+  Sei $A \subset \mathbb{R}$ abgeschlossen
+  und $f \colon A \to \mathbb{R}$ stetig.
+  Wir beweisen in zwei Schritten, dass $f$
+  ein Maximum annimmt.
+  \begin{enumerate}[(i)]
+    \item Die Menge $f(A) \subset \mathbb{R}$ ist 
+      nach oben beschränkt.
+      Andernfalls gibt es zu jedem $n \in \mathbb{N}$ 
+      ein $a_n \in A$ mit $f(a_n) \geq n$.
+      Da $A$ beschränkt ist, hat
+      die Folge ${(a_{n})}_{n \in \mathbb{N}}$ eine
+      konvergente Teilfolge
+      ${(a_{n_k})}_{k \in \mathbb{N}}$ mit
+      Grenzwert $p \in \mathbb{R}$.
+      Da $A$ abgeschlossen, also folgenabgeschlossen
+      ist, gilt
+      \[
+        p = \lim_{k \to \infty}a_{n_k} \in A.
+      \]
+      Weiter ist $f$ stetig, also folgenstetig
+      in $p$, also gilt
+      \[
+        f(p) = \lim_{k \to \infty} f(a_{n_k})
+        \geq \lim_{k \to \infty} n_k = +\infty,
+      \]
+      was ein Widerspruch zu $+\infty \notin \mathbb{R}$ ist.
+    \item Die Funktion $f$ nimmt ein Maximum an.
+      Setze
+      \[
+        M = \sup \left\{f(x) \mid x \in A\right\} \in \mathbb{R}.
+      \]
+      Es ist bloss zu zeigen, dass $p \in A$ existiert,
+      so dass $f(p) = M$.
+      Für alle $n \in \mathbb{N}_{\geq 1}$ existiert
+      $a_n \in A$ mit $f(a_n) \geq M - 1/n$.
+      Da $A$ beschränkt und abgeschlossen ist,
+      hat die Folge
+      ${(a_{n})}_{n \in \mathbb{N}}$ wie im
+      ersten Schritt eine konvergente
+      Teilfolge ${(a_{n_k})}_{k \in \mathbb{N}}$ mit
+      \[
+        \lim_{k \to \infty} a_{n_k}= p \in A.
+      \]
+      Bemerke, dass
+      \[
+        M - 1/n_k \leq f(a_{n_k}) \leq M.
+      \]
+      Da $f$ stetig, also folgenstetig in $p$ ist, folgt
+      \[
+        M = \lim_{k \to \infty} f(a_{n_k}) = f(p).
+      \]
+  \end{enumerate}
+  Um zu zeigen, dass $f$ auch ein Minimum annimmt,
+  bemerke lediglich, dass $-f$ ein Maximum annimmt.
+\end{proof}
+
+\begin{definition}
+  Eine Teilmenge $K \subset \mathbb{R}$ heisst
+  \emph{kompakt}, falls $K$ 
+  beschränkt und abgeschlossen ist.
+\end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item $K = [0, 1]$ ist kompakt.
+    \item Die Menge
+      \[
+        K = \{0\} \cup \left\{1/n \mid n \in \mathbb{N}_{\geq 1}\right\} 
+        \subset [0, 1]
+      \]
+      ist kompakt.
+    \item 
+      Betrachte die \emph{Cantormenge}
+      \[
+        K = [0, 1] \setminus \bigcup_{n=1}^{\infty} U_n,
+      \]
+      wobei
+      \begin{itemize}
+        \item $U_1 = (1/3, 2/3)$,
+        \item $U_2 = (1/9, 2/9) \cup (7/9, 8/9)$,
+        \item $U_3 = (1/27, 2/27) \cup (7/27, 8/27) \cup (19/27, 20/27) \cup (25/27, 26/27)$,
+      \end{itemize}
+      und so weiter,
+      siehe Abbildung~\ref{fig:cantor}.
+
+      \begin{figure}[htb]
+        \centering
+        \includestandalone{images/cantor}
+        \caption{Iterative Konstruktion der
+        Cantormenge. Die erste Zeile ist
+        $[0, 1]$, die zweite ist
+        $[0, 1] \setminus U_1$, die dritte ist
+        $[0, 1] \setminus (U_1 \cup U_2)$ und die
+        vierte ist $[0, 1] \setminus (U_1 \cup U_2 \cup U_2)$.}%
+        \label{fig:cantor}
+      \end{figure}
+
+      Offensichtlich ist $K$ beschränkt.
+      Alle $U_n$ sind offen, also auch
+      die Vereinigung $\bigcup_{n \in \mathbb{N}} U_n$.
+      Somit ist $K$ abgeschlossen, also kompakt.
+      Eine lustige Tatsache ist,
+      dass Elemente von $K$ mit einem Weg
+      in einem unendlich
+      verzweigten binären Baum kodiert werden können,
+      siehe Abbildung~\ref{fig:tree}:
+      Die Menge $K$ steht in einer Natürlichen
+      Bijektion zur Menge ${\{0, 1\}}^{\mathbb{N}}$,
+      siehe auch den Beweis von 
+      Proposition~\ref{prop:real-uncountable}
+      aus Kapitel~\ref{chp:real}.
+      Dort haben wir diese Bijektion explizit konstruiert.
+      Das zeigt, dass die Cantormenge überabzählbar ist.
+
+      \begin{figure}[htb]
+        \centering
+        \includestandalone{images/tree}
+        \caption{Ein Weg $(1,1,0,1,0, \dots)$ in einem unendlich
+        verzweigten Baum}%
+        \label{fig:tree}
+      \end{figure}
+  \end{itemize}
+\end{examples}
+
+\section{Kompakte Mengen}
+\begin{proposition}[Folgenkompaktheit]
+  Eine Teilmenge $K \subset \mathbb{R}$ ist
+  kompakt, genau dann, wenn jede Folge
+  ${(a_{n})}_{n \in \mathbb{N}}$ in $K$
+  eine konvergente Teilfolge mit Grenzwert
+  in $K$ besitzt.
+\end{proposition}
+
+\begin{proof}
+  Für die Hinrichtung ``$\Rightarrow$''
+  sei $K$ kompakt und ${(a_{n})}_{n \in \mathbb{N}}$
+  in $K$.
+  Da $K$ beschränkt ist, hat ${(a_{n})}_{n \in \mathbb{N}}$ 
+  eine in $\mathbb{R}$ konvergente
+  Teilfolge  ${(a_{n_{k}})}_{k \in \mathbb{N}}$, und
+  da $K$ abgeschlossen ist, liegt
+  der Grenzwert $\lim_{k \to \infty} a_{n_k}$ in $K$.
+
+  Umgekehrt, für die Rückrichtung ``$\Leftarrow$'',
+  nehme an, dass $K$ folgenkompakt ist.
+  Wir zeigen in zwei Schritten, dass
+  $K$ kompakt ist.
+  \begin{enumerate}[(i)]
+    \item $K$ ist beschränkt.
+      Ansonsten gibt es $a_n \in K$
+      mit $|a_{n}| \geq n$.
+      Aber dann hat die Folge
+      ${(a_{n})}_{n \in \mathbb{N}}$ 
+      in $K$ keine konvergente Teilfolge.
+    \item $K$ ist abgeschlossen.
+      Sei $p \in \mathbb{R} \setminus K$.
+      Gesucht ist ein $\delta > 0$ 
+      so dass
+      $(p - \delta, p + \delta) \subset \mathbb{R} \setminus K$.
+      Falls es kein solches Intervall gibt,
+      dann existiert $a_n \in K$ mit
+      $|a_n - p| \leq 1/n$.
+      Dann ist ${(a_{n})}_{n \in \mathbb{N}}$ eine
+      konvergente Folge in $K$ mit Grenzwert $p$, also gilt
+      \[
+        \lim_{n \to \infty} a_n = p \in K,
+      \]
+      da jede Teilfolge von ${(a_{n})}_{n \in \mathbb{N}}$ 
+      mit Grenzwert $p$ konvergiert. Das widerspricht
+      aber $p \in \mathbb{R} \setminus K$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{proposition}\label{prop:image-compact-compact}
+  Sei $K \subset \mathbb{R}$ kompakt und
+  $f \colon K \to \mathbb{R}$ stetig.
+  Dann ist $f(K) \subset \mathbb{R}$ kompakt.
+\end{proposition}
+
+\begin{remark}
+  Die Aussage, dass stetige Bilder kompakter Mengen
+  kompakt sind, ist in vielen Gebieten der Mathematik
+  enorm
+  wichtig. Sie ist erstaunlich, da
+  zum Beispiel stetige Bilder offener Mengen
+  nicht offen sein müssen,
+  und stetige Bilder abgeschlossener Mengen
+  nicht abgeschlossen sein müssen.
+  Beispiele hier ist die konstante Funktion
+  $x \mapsto 0$,
+  denn das Bild von $\mathbb{R}$ ist $\{0\}$,
+  was nicht offen ist,
+  und $\exp \colon \mathbb{R} \to \mathbb{R}$,
+  denn $\exp( \mathbb{R} ) = \mathbb{R}_{>0}$
+  ist nicht abgeschlossen.
+\end{remark}
+
+\begin{proof}[Beweis von Proposition~\ref{prop:image-compact-compact}]
+  Auch diese Proposition zeigen wir in zwei Schritten.
+  \begin{enumerate}[(i)]
+    \item $f(K) \subset \mathbb{R}$ ist beschränkt.
+      Das folgt aus Theorem~\ref{thm:extreme},
+      welches besagt,
+      dass $f$ ein Maximum und ein Minimum annimmt.
+    \item $f(K)$ ist abgeschlossen.
+      Sei ${(y_{n})}_{n \in \mathbb{N}}$ eine
+      Folge in $f(K)$, welche mit
+      Grenzwert $y \in \mathbb{R}$ konvergiert.
+      Wähle
+      $x_n \in K$ mit $f(x_n) = y_n$.
+      Da $K$ kompakt ist,
+      hat ${(x_{n})}_{n \in \mathbb{N}}$ eine
+      konvergente Teilfolge
+      ${(x_{n_{k}})}_{k \in \mathbb{N}}$ 
+      mit Grenzwert $p \in K$.
+      Da $f$ stetig, also folgenstetig in $p$ ist,
+      folgt
+      \[
+        y = \lim_{k \to \infty} y_{n_k} 
+        = \lim_{k \to \infty} f(x_{n_k}) = f(p).
+      \]
+      Da $f(p) \in f(K)$ gilt, folgt also,
+      dass $f(K)$ folgenabgeschlossen, also abgeschlossen
+      ist. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\subsection*{Gleichmässige Stetigkeit}
+\begin{definition}
+  Sei $A \subset \mathbb{R}$ beliebig.
+  Eine Funktion $f \colon A \to \mathbb{R}$ 
+  heisst \emph{gleichmässig stetig},
+  falls für alle $\varepsilon > 0$ 
+  ein $\delta > 0$ 
+  existiert, so dass für alle $p, q \in A$ 
+  mit $|p - q| \leq \delta$ gilt,
+  dass $|f(p) - f(q)| \leq \varepsilon$.
+\end{definition}
+
+\begin{remark}
+  Das unterscheidet sich von der Definition
+  der Stetigkeit in einem Detail:
+  Bei der gleichmässigen Stetigkeit
+  darf $\delta$ nicht vom Punkt $p$ abhängen,
+  was bei der herkömmlichen Stetigkeit
+  erlaubt ist.
+  Gleichmässige Stetigkeit impliziert
+  also Stetigkeit in allen Punkten von $A$.
+  Die Umkehrung gilt aber nicht.
+\end{remark}
+
+\begin{example}
+  Betrachte die Funktion
+  \begin{align*}
+    f \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto x^2.
+  \end{align*}
+  Sei $\varepsilon > 0$ beliebig,
+  zum Beispiel $\varepsilon = 1$, und $\delta > 0$ vorgegeben.  
+  Sei $x > 0$ und berechne
+  \begin{align*}
+    f\left(x + \frac{1}{n}\right) 
+    & = {\left(x + \frac{1}{n}\right)}^2 \\
+               & = x^2 + \frac{2x}{n} + \frac{1}{n^2} \\
+               & > f(x) + \frac{2x}{n}.
+  \end{align*}
+  Insbesondere gilt
+  \[
+  f\left(n \cdot \varepsilon + \frac{1}{n}\right)
+  > f(n \varepsilon) + 2 \varepsilon
+  \]
+  für $n \in \mathbb{N}$. Wähle
+  $n$ so, dass $1/n \leq \delta$.
+  Setze $q = n\varepsilon + 1/n$ 
+  und $p = n\varepsilon$.
+  Dann gilt $|q - p| = 1/n \leq \delta$,
+  aber
+  $|f(q) - f(p)| > 2 \varepsilon > \varepsilon$.
+  Also ist $f$ nicht gleichmässig stetig.
+\end{example}
+
+\begin{proposition}
+  Sei $K \subset \mathbb{R}$ kompakt
+  und $f \colon K \to \mathbb{R}$ stetig.
+  Dann ist $f$ gleichmässig stetig.
+\end{proposition}
+
+\begin{proof}
+  Wir beweisen die Proposition durch Widerspruch.
+  Nehme an, dass $f \colon K \to \mathbb{R}$ nicht
+  gleichmässig stetig ist.
+  Dann existiert ein $\varepsilon > 0$,
+  so dass für alle $n \in \mathbb{N}$ 
+  ein $p_n \in K$ und ein $q_n \in K$ mit
+  $|p_n - q_n| \leq 1/n$ existiert
+  mit $
+    |f(p_n) - f(q_n)| > \varepsilon$.
+  Da $K$ kompakt ist,
+  hat die Folge ${(p_{n})}_{n \in \mathbb{N}}$ 
+  eine konvergente Teilfolge
+  ${(p_{n_k})}_{k \in \mathbb{N}}$ 
+  mit
+  \[
+    p = \lim_{k \to \infty}p_{n_k} \in K.
+  \]
+  Aus
+  \[
+    |p_{n_k} - q_{n_k}| \leq 1/n_k \leq 1/k
+  \]
+  folgt, dass
+  $
+    \lim_{k \to \infty} q_{n_k} = p
+    $.
+  Da $f$ stetig in $p$ ist, folgt, dass
+  \[
+    \lim_{k \to \infty} f(p_{n_k}) 
+    = f(p) 
+    = \lim_{k \to \infty} f(q_{n_k}).
+  \]
+  Das widerspricht aber der Forderung,
+  dass $|f(p_{n_k}) - f(q_{n_k})| > \varepsilon > 0$.
+\end{proof}
 
 
 
