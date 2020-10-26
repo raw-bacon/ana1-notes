@@ -41,7 +41,7 @@ die Menge der Natürlichen Zahlen.
     \label{fig:euklid}
   \end{figure}
 
-  Weiterhin gilt, dass sowohl $x_{1}$ als auch $d_{1}$, ganze Vielfache von $L$ sind:
+  Weiterhin gilt, dass sowohl $x_{1}$ als auch $d_{1}$ ganze Vielfache von $L$ sind:
   \begin{align*}
     x_{1} = d-x = (n-m)L \\
     d_{1} = 2x-d = (2m -n)L
@@ -70,7 +70,7 @@ Dies zeigt, dass unsere Annahme falsch war.
 Seien $a,b > 0$ zwei kommensurable Längen. Das heisst, es existieren $L > 0$
 und $m,n \in \mathbb N$ mit $a = mL$, $b= nL$. Dann gilt:
 \[\frac{a}{b} = \frac{mL}{nL} = \frac{m}{n},\]
-das heisst das Verhältnis $a/b$ ist eine \emph{rationale Zahl}.
+das heisst, das Verhältnis $a/b$ ist eine \emph{rationale Zahl}.
 Zurück zum Quadrat mit Seite $x$ und Diagonale $d$. Nach Pythagoras
 gilt $d^{2} = 2x^{2}$. Falls $x=mL$ und $d=nL$ gilt,
 dann also
@@ -92,7 +92,7 @@ Schreibe noch $m = 2\ell$ mit $\ell \in \mathbb N$. Es gilt also
 \[ 2 = {\left(\frac{n}{m}\right)}^{2}
   = {\left(\frac{k}{\ell}\right)}^{2}.\]
 In anderen Worten sind Zähler und Nenner beide gerade.
-Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$, Dann entsteht ein Widerspruch.
+Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$. Dann entsteht ein Widerspruch.
 
 \begin{corollary}
   Die Gleichung $z^{2} = 2$ hat keine rationale Lösung, das heisst,
@@ -238,7 +238,7 @@ Resultat.
     \mathbb Q = \bigcup_{k \geq 1} A_{k}
   \]
   ist die \emph{disjunkte Vereinigung} dieser Mengen,
-  das heisst $A_i \cap A_j = \emptyset$ für alle $i \neq j$.
+  das heisst, $A_i \cap A_j = \emptyset$ für alle $i \neq j$.
   Wir haben
   \[
     A_{1} = \{0/1\}, \; A_{2} = \{\pm 1/1\}, \; A_{3} = \{\pm 1/2, \pm 2/1\}, \dots.
@@ -397,7 +397,7 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
   aus der Induktionsannahme (für $n$) her.
   Hier heisst das, dass wir $C_{n+1} \geq 2^{n}$ aus $C_{n} \geq 2^{n-1}$
   herleiten wollen. Sei dazu $K$ eine korrekte $n$-Klammerung,
-  das heisst eine korrekte
+  das heisst, eine korrekte
   Klammerung mit $n$ linken und $n$ rechten Klammern.
   Dann sind sowohl $(K)$ als auch $()K$ korrekte $(n+1)$-Klammerungen.
   Weiter gilt, dass diese beiden Klammerungen verschieden sind:
@@ -432,9 +432,9 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
   Der zweite Binomialkoeffizient zählt die Anzahl inkorrekter Klammerungen.
   Man kann sich dies folgendermassen skizzenhaft überlegen.
   Eine inkorrekte Klammerung hat eine erste Position,
-  wo eine rechte Klammer zuviel ist.
+  wo eine rechte Klammer zu viel ist.
   Drehe alle Klammern hinter dieser Position um.
-  Die Klammerung die wir so erhalten, hat $n+1$ rechte Klammern.
+  Die Klammerung, die wir so erhalten, hat $n+1$ rechte Klammern.
   Weiter kann man diesen Prozess rückgängig machen:
   Jede Klammerung mit $n+1$ rechten Klammern
   liefert eine inkorrekte Klammerung mit $n$ rechten Klammern.
@@ -506,7 +506,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
         \caption{Verknüpfungstabelle von $\{e, a, b\}$}%
         \label{tab:eab}
       \end{table}
-      \item $(Z, +)$ ist eine Gruppe.
+      \item $(\mathbb Z, +)$ ist eine Gruppe.
       \item $(\mathbb Z, \cdot)$ ist keine Gruppe. Zum Beispiel hat die Zahl
       $2 \in \mathbb Z$ kein inverses Element.
       \item $(\mathbb Q, +)$ ist eine Gruppe.
@@ -586,7 +586,7 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
       Die Rechengesetze (Assoziativität, Kommutativität und Distributivität) übertragen
       sich von den entsprechenden Gesetzen für die Menge der ganzen Zahlen $\mathbb Z$
       mit der üblichen Addition und Multiplikation.
-      Diese widerum wurden von Dedekind erstmals formal definiert (``was
+      Diese wiederum wurden von Dedekind erstmals formal definiert (``was
       sind und sollen Zahlen'').
       % TODO
       Wir
@@ -654,7 +654,7 @@ Wir konstruieren die reellen Zahlen nach Dedekind, ca. 1872.
 Intuitiv ist ein Schnitt eine ``rechte Hälfte'' von $\mathbb Q$, wobei
 die Grenze
 zwischen den Hälften
-nicht unbedingt bei $0$ ist, und sie auch nicht als Element der
+nicht unbedingt bei $0$ ist und sie auch nicht als Element der
 rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
 
 \begin{figure}[htb]
@@ -679,12 +679,15 @@ rechten Hälfte gilt. Siehe auch Abbildung~\ref{fig:schnitt}.
 \end{remark}
 
 \begin{question}
-  Sei $D \subset \mathbb Q$ ein Schnitt. Existiert
+  % Wenn Folgendes (mit 'beliebiger', 'immer') gemeint ist,
+  % kommt mir die explizitere Formulierung einfacher vor.
+  Sei $D \subset \mathbb Q$ ein beliebiger Schnitt. Existiert immer
   eine Zahl $x \in \mathbb Q$ mit $D = D_{x}$?
   (Hier ist $D_{x}$ die Menge aus dem Beispiel oben.)
 \end{question}
 
 Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable} unten.
+
 
 \begin{definition}
   Die Menge $\mathbb R$ der \emph{reellen Zahlen} ist definiert als die Menge
@@ -701,16 +704,18 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
     \item Nicht alle Schnitte sind rational. Zum Beispiel ist
       \[D_{\sqrt 2} = \left\{x \in \mathbb Q \mid x^{2} > 2 \text{ oder } x < 0\right\}\]
       kein rationaler Schnitt.
+      % So definiert ist D_sqrt2 aber kein Schnitt (?), denn z.B., -1 in D_sqrt2,
+      % und 1 > -1, aber 1 nin D_sqrt2. Meinst du "x^2 > 2 und x > 0"?
   \end{itemize}
 \end{examples}
 
 \begin{proposition}[Cantor]\label{prop:real-uncountable}
-  Die Menge $\mathbb R$ ist überabzählbar, das heisst unendlich
+  Die Menge $\mathbb R$ ist überabzählbar, das heisst, unendlich
   aber nicht abzählbar.
 \end{proposition}
 
 \begin{corollary}
-  Es gibt irrationale Schnitte, das heisst Schnitte $D \subset \mathbb Q$,
+  Es gibt irrationale Schnitte, das heisst, Schnitte $D \subset \mathbb Q$,
   welche nicht vom Typ $D_{x}$ für $x \in \mathbb Q$ sind.
 \end{corollary}
 
@@ -740,7 +745,7 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
     \item Sei $B = \emptyset$.
       Wir halten uns an die Konvention ``leere Summe gleich $0$''. Es gilt also
       $D_{\emptyset} = D_{0}$.
-    \item Sei $B = \mathbb N$, das heisst $B = \{0, 1, 2, \dots\}$
+    \item Sei $B = \mathbb N$, das heisst, $B = \{0, 1, 2, \dots\}$
       (also $n_{k} = k$). Berechne
       \begin{align*}
         \sum_{k=0}^{\infty}
@@ -766,7 +771,7 @@ $D_{B}$ ist wirklich ein Schnitt.
 Setze nun
 \[\psi(B) = D_{B} \in \mathbb R.\]
 
-Wir behaupten nun, das $\psi$ injektiv ist. Konkreter, seien
+Wir behaupten nun, dass $\psi$ injektiv ist. Konkreter, seien
 $B_{1}, B_{2} \in P(\mathbb N)$ mit $B_{1} \neq B_{2}$.
 Wir zeigen, dass $D_{B_{1}} \neq D_{B_{2}}$.
 Schreibe dazu
@@ -828,7 +833,7 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
 \end{definition}
 
 \begin{remark}
-  Falls $D < D'$ (das heisst $D' \subset D$ und $D' \neq D$), dann
+  Falls $D < D'$ (das heisst, $D' \subset D$ und $D' \neq D$), dann
   existiert $y \in \mathbb Q$ mit $y \in D$ und $y \notin D'$.
   Da $D$ kein kleinstes Element enthält,
   existiert $x \in \mathbb Q$ mit $x < y$ und $x \in D$.
@@ -854,7 +859,7 @@ $D \subset D'$ oder $D' \subset D$ (siehe oben).
 
 \begin{definition}
 Seien $D, D' \in \mathbb R$ Dedekindsche Schnitte.
-Wir Definieren die \emph{Summe} von $D$ und $D'$ als
+Wir definieren die \emph{Summe} von $D$ und $D'$ als
 \[D + D' = \left\{z \in \mathbb Q \mid \text{es existieren }
     x \in D \text{ und } y \in D' \text{ mit } z = x + y\right\}.\]
 \end{definition}
@@ -875,7 +880,7 @@ Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
       für alle $D \in \mathbb R$, dass $D + D_{0} = D$. Wir
       zeigen beide Inklusionen.
       \begin{enumerate}[(a)]
-        \item Die Inklusion $D + D_{0} \subset D$ folgt direcht aus
+        \item Die Inklusion $D + D_{0} \subset D$ folgt direkt aus
           der Definition: Wenn wir eine positive Zahl
           (ein Element von $D_{0}$) zu einem
           $x \in D$ addieren, erhalten wir eine grössere
@@ -905,16 +910,16 @@ Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
       \begin{enumerate}[(i)]
         \item $z > 0$,
         \item $-y \in \mathbb Q \setminus D$, also $y \notin D$.
-          Das heisst $-y < x$, also $x + y > 0$.
+          Das heisst, $-y < x$, also $x + y > 0$.
       \end{enumerate}
       Wir schliessen, dass $x + y + z > 0$, also $x + y + z \in D_{0}$.
       Das zeigt die Inklusion $D + (-D) \subset D_{0}$. 
       
       Sei umgekehrt
-      $p/q \in D_{0}$, das heisst $p/q > 0$. Wähle $y \in \mathbb Q$
+      $p/q \in D_{0}$, das heisst, $p/q > 0$. Wähle $y \in \mathbb Q$
       mit $0 < y < p/q$, zum Beispiel $y = p/2q$.
       Es existiert $x \in D$, so dass $x - y \notin D$:
-      Sei hierzu $x' \in D$ beliebig, und sei $n \in \mathbb N$ maximal
+      Sei hierzu $x' \in D$ beliebig, und sei $n \in \mathbb N$ maximal,
       so dass $x' -ny \in D$. Dann erfüllt $x = x' - ny$ diese Eigenschaft.
       Aus $x - y \notin D$ folgt, dass $x- y \in \mathbb Q \setminus D$.
       Dann ist aber $y - x \in - (\mathbb Q \setminus D)$.
@@ -964,7 +969,7 @@ Falls $D < 0$ und $D' \geq 0$, dann definieren wir
 \[D \cdot D' = -(-D) \cdot D',\]
 falls $D \geq 0$ und $D' < 0$, definieren wir ähnlich
 \[D \cdot D' = -(D \cdot (-D')),\]
-und falls $D < 0$ und $D' < 0$ definieren wir
+und falls $D < 0$ und $D' < 0$, definieren wir
 \[D \cdot D' = (-D) \cdot (-D').\]
 In dieser Definition bezeichnet ``$-D$'' das in obigem Abschnitt
 definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
@@ -1090,7 +1095,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 
 \begin{example}
   Die Menge der rationalen Zahlen $\mathbb Q$ mit der üblichen
-  Addition, Multiplikation und Ordnung, ist ein geordneter Körper.
+  Addition, Multiplikation und Ordnung ist ein geordneter Körper.
   Mit der ``üblichen Ordnung'' ist die Relation
   \[ \frac{a}{b} \leq \frac{c}{d} \Leftrightarrow ad \leq bc\]
   falls $b, d > 0$, gemeint.
@@ -1100,7 +1105,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 
 \begin{theorem}
   Die Menge der reellen Zahlen $\mathbb R$ mit der oben definierten
-  Addition, Multiplikation und Ordnung, ist ein geordneter Körper.
+  Addition, Multiplikation und Ordnung ist ein geordneter Körper.
 \end{theorem}
 
 \begin{proof}
@@ -1182,7 +1187,7 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
 \begin{einschub}
   Wie gut lässt sich $\sqrt 2$ durch rationale Zahlen
   approximieren? Es finden sich rationale Zahlen $p/q$ beliebig
-  nahe an $\sqrt 2$ so dass
+  nahe an $\sqrt 2$ mit
   \[
     \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{q},
   \]
@@ -1204,7 +1209,7 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
 \begin{theorem}[Dedekind]
   Seien $K_1$ und $K_2$ zwei vollständig geordnete Körper.
   Dann existiert ein Körperisomorphismus
-  $\varphi\colon K_1 \to K_2$, das heisst
+  $\varphi\colon K_1 \to K_2$, das heisst,
 	   für alle $x, y \in K_1$ gelten die
      Gleichungen $\varphi(x+y)
 		  = \varphi(x) + \varphi(y)$,
@@ -1225,17 +1230,17 @@ die Definition verwenden.
 \subsubsection*{Das Supremumsprinzip}
 \begin{supremum}
 Sei $A \subset \mathbb{R}$ nach oben beschränkt,
-das heisst es existiert $b \in \mathbb{R}$ so dass
+das heisst, es existiert $b \in \mathbb{R}$, so dass
 für alle $a \in A$ gilt, dass $a \leq b$.
 Dann existiert eine eindeutige Zahl $S = \sup A$
 mit folgenden Eigenschaften:
 %TODO notation $A \leq B$ auslagern
 \begin{enumerate}[\normalfont(i)]
-	\item $A \leq S$ (das heisst $S$ ist eine obere Schranke
+	\item $A \leq S$ (das heisst, $S$ ist eine obere Schranke
 		für $A$). Präziser: für alle $a \in A$
 		ist $a \leq S$.
   \item für alle $y \in \mathbb{R}$ mit $y < S$ gilt,
-	  dass $A \not \leq y$ (das heisst $S$ ist die kleinste
+	  dass $A \not \leq y$ (das heisst, $S$ ist die kleinste
 	  obere Schranke für $A$). Präziser: für alle $y \in \mathbb{R}$
 	  mit $y < S$ existiert $a \in A$ mit $y < a$.
 \end{enumerate}
@@ -1275,7 +1280,7 @@ Teilmengen von $\mathbb{R}$ definiert.
   Insbesondere ist $c$ eine obere Schranke für $A$.
   Wir nehmen nun widerspruchsweise an, es gäbe eine
   kleinere obere Schranke $y \in \mathbb{R}$ für $A$,
-  das heisst $A \leq y < c \leq B$.
+  das heisst, $A \leq y < c \leq B$.
   Dann gilt
   \[
     A < \frac{y + c}{2} < B.
