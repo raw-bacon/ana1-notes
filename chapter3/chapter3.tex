@@ -364,7 +364,7 @@ gilt, wenn $f$ stetig ist.
 \end{application}
 
 \begin{proof}
-  Wir verwenden die Folgenstetigkeit um einen schnellen
+  Wir verwenden die Folgenstetigkeit, um einen schnellen
   Beweis zu liefern.
   Sei  ${(a_{n})}_{n \in \mathbb{N}}$ eine konvergente
   Folge in $A$ mit $\lim_{n \to \infty} a_n = p \in A$.
@@ -377,7 +377,7 @@ gilt, wenn $f$ stetig ist.
   $f(p)$.
   Da $g$ stetig in $f(p)$ ist, folgt
   \[
-    \lim_{n \to \infty} \lim_{n \to \infty} g(b_n) = g(f(p)).
+    \lim_{n \to \infty} g(b_n) = g(f(p)).
   \]
   Wir folgern, dass
   \[
@@ -479,7 +479,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   Sei $f \colon [a, b] \to \mathbb{R}$ stetig
   mit $f(a) \leq 0 \leq f(b)$ oder
   $f (a) \geq 0 \geq f(b)$. Dann existiert $s \in [a, b]$ 
-  mit $f(p) = 0$.
+  mit $f(s) = 0$.
 \end{theorem}
 
 \begin{proof}
@@ -548,7 +548,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   stetig mit $f(a) \leq f(b)$.
   Dann gilt 
   \[[f(a), f(b)] \subset f([a, b]).\]
-  In anderen Worten heisst das, das stetige
+  In anderen Worten heisst das, dass stetige
   Funktionen jeden Wert zwischen
   zwei angenommenen Werten annehmen.
 \end{zwischenwertsatz}
@@ -643,8 +643,10 @@ Sei $f \colon A \to \mathbb{R}$ stetig.
 Ist dann $f(A) \subset \mathbb{R}$ beschränkt?
 \end{question}
 
+Die Antwort ist nein. 
+
 \begin{example}
-  Die Antwort ist nein. Sei 
+  Sei 
   \[
     A = (0, 1) = \left\{x \in \mathbb{R} \mid 0 < x < 1\right\}
   \]
@@ -713,7 +715,7 @@ Eine Teilmenge
         A = [a, b] = \left\{x \in \mathbb{R} \mid a \leq x \leq b\right\}
       \]
       zwischen $a$ und $b$ abgeschlossen.
-      Sei dazu $p \notin [a,b]$, das heisst entweder
+      Sei dazu $p \notin [a,b]$, das heisst, entweder
       $p < a$ oder $p > b$.
       Setze $\delta = \min \{|p- a|, |p-b|\} > 0$.
       Dann gilt
@@ -728,7 +730,7 @@ Eine Teilmenge
       \[
         \mathbb{R} \setminus A = \mathbb{R}_{<0} \cup
         \mathbb{R}_{>1} \cup \bigcup_{n \in \mathbb{N}_{\geq 1}}
-        \left(1(n+1), 1/n\right)
+        \left(1/(n+1), 1/n\right)
       \]
       eine Vereinigung offener Mengen und somit selbst offen ist.
     \item Die Menge
@@ -753,7 +755,7 @@ Eine Teilmenge
   und sei weiterhin $f \colon A \to \mathbb{R}$
   stetig. Dann nimmt $f$ auf $A$ ein
   Maximum, beziehungsweise ein Minimum an,
-  das heisst~es existiert $p \in A$,
+  das heisst,~es existiert $p \in A$,
   so dass für alle $q \in A$ gilt,
   dass $f(q) \leq f(p)$, beziehungsweise $f(q) \geq f(p)$.
 \end{theorem}
