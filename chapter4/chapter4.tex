@@ -1,5 +1,186 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Differenzierbare Funktionen}
+\chapter{Differenzierbarkeit}
+\section{Differenzierbare Funktionen}
+\begin{goal}
+  Formalisiere
+  folgende Aussage:
+  ``der Funktionsgraph einer Funktion
+  $f \colon \mathbb{R} \to \mathbb{R}$
+  hat im Punkt $(p, f(p))$ eine 
+  wohldefinierte Tangente''.
+\end{goal}
+
+Affine Funktionen 
+\begin{align*}
+  A \colon \mathbb{R} & \to \mathbb{R} \\
+  x & \mapsto ax + b
+\end{align*}
+für $a, b \in \mathbb{R}$,
+siehe Abbildung~\ref{fig:affin},
+sind der Prototyp
+einer solchen Funktion.
+Für alle $p \in \mathbb{R}$ und
+alle $h \in \mathbb{R}$ gilt
+\[
+  A(p+h) = a(p+ h) + b = A(p) + L(h),
+\]
+wobei
+\begin{align*}
+  L \colon \mathbb{R} & \to \mathbb{R} \\
+  h & \mapsto ah
+\end{align*}
+linear ist (im Gegensatz
+zu der Funktion
+$A \colon \mathbb{R} \to \mathbb{R}$,
+welche ``nur'' affin ist).
+Wir erhalten, dass für festes $p$ 
+gilt, dass
+  $A(p+h) = A(p) + L(h)$
+die Summe einer konstanten
+Funktion mit einer linearen Funktion ist.
+Eine solche Aufteilung ist
+eine zu restriktive Bedingung
+für allgemeinere Funktionen,
+da diese nur für affine Funktionen
+gilt.
+
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/affine}
+  \caption{Der
+  Graph einer affinen Funktion
+$x \mapsto ax + b$}
+  \label{fig:affin}
+\end{figure}
+
+\subsection*{Dreigliedentwicklung}
+\begin{definition}
+  Seien $a, b \in \mathbb{R}$ 
+  mit $a < b$ und
+  $f \colon (a, b) \to \mathbb{R}$ 
+  eine Funktion.
+  Weiterhin sei $p \in (a, b)$ und
+  $d > 0$ 
+  mit $(p - d, p + d) \subset (a, b)$.
+  Die Funktion $f \colon (a, b) \to \mathbb{R}$ 
+  heisst im Punkt
+  $p \in (a, b)$ \emph{differenzierbar},
+  falls eine lineare Funktion
+  ${(Df)}_p \colon\mathbb{R} \to \mathbb{R}$
+  und eine Funktion ${(Rf)}_p \colon (-d, d) \to \mathbb{R}$ 
+  existieren, die folgende Eigenschaften erfüllen.
+  \begin{enumerate}[(i)]
+    \item Für alle $h \in (-d, d)$ gilt
+      \[
+        f(p + h) = f(p) + {(Df)}_p(h) + {(Rf)}_p(h).
+      \]
+    \item Für alle $\varepsilon > 0$ existiert
+      $\delta > 0$ mit $\delta \leq d$, so dass
+      für alle $h \in (- \delta, \delta)$ gilt,
+      dass
+      \[
+        |{(Rf)}_p(h)| \leq \varepsilon \cdot |h|.
+      \]
+   \end{enumerate}
+   Die Aufteilung
+   \[
+     f(p + h) = f(p) + {(Df)}_p(h) + {(Rf)}_p(h)
+   \]
+   heisst \emph{Dreigliedentwicklung} von $f$ 
+   an der Stelle $p$.
+   Die lineare Abbildung
+   ${(Df)}_p \colon\mathbb{R} \to \mathbb{R}$ heisst
+   \emph{Differential} von $f$ an der Stelle $p$,
+   und ${(Rf)}_p$ heisst der \emph{Restterm}.
+\end{definition}
+
+Für die Bedingung, dass für
+alle $\varepsilon > 0$ ein $\delta > 0$ 
+mit $\delta \leq d$ existiert,
+so dass für $h \in (-\delta, \delta)$ gilt,
+dass
+\[
+  |{(Rf)}_p(h)| \leq \varepsilon \cdot |h|,
+\]
+schreiben wir häufig kurz
+\[
+  \lim_{|h| \to 0} \frac{|{(Rf)}_p(h)}{|h|} = 0.
+\]
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $L \colon \mathbb{R} \to \mathbb{R}$ 
+      linear.
+      Dann gilt für alle $p \in \mathbb{R}$ und alle
+      $h \in \mathbb{R}$, dass
+      \[
+        L(p + h) = L(p) + L(h) + 0.
+      \]
+      Setze ${(DL)}_p = L \colon \mathbb{R} \to \mathbb{R}$.
+      Diese Funktion ist linear. Setze
+      ${(RL)}_p(h) = 0$. Diese Funktion erfüllt
+      \[
+        \lim_{h \to 0} \frac{|{(RL)}_p(h)|}{|h|} = 0.
+      \]
+      Also ist $L \colon \mathbb{R} \to \mathbb{R}$
+      an der Stelle $p \in \mathbb{R}$ 
+      differenzierbar mit Differential
+      \[
+      {(DL)}_p = L \colon \mathbb{R} \to \mathbb{R}.
+      \]
+    \item Betrachte die Abbildung
+      \begin{align*}
+        f \colon \mathbb{R} & \to \mathbb{R} \\
+        x & \mapsto x^2.
+      \end{align*}
+      Es gilt für alle $p \in \mathbb{R}$ und
+      $h \in \mathbb{R}$, dass
+      \[
+        f( p + h ) = {(p + h)}^2
+        = p^2 + 2ph + h^2
+        = f(p) + 2ph + h^2.
+      \]
+      Setze
+      \[
+        {(Df)}_p(h) = 2ph
+      \]
+      und
+      \[
+        {(Rf)}_p(h) = h^2.
+      \]
+      Die Funktion
+      \begin{align*}
+        {(Df)}_p \colon \mathbb{R} & \to \mathbb{R} \\
+        h & \mapsto 2ph
+      \end{align*}
+      ist linear (für festes $p$).
+      Die Funktion
+      \begin{align*}
+        {(Rf)}_p \colon \mathbb{R} & \to \mathbb{R} \\
+        h & \mapsto h^2
+      \end{align*}
+      erfüllt
+      \[
+        \lim_{h \to 0} \frac{|{(Rf)}_p(h)|}{|h|} = 0.
+      \]
+      Tatsächlich, sei $\varepsilon > 0$ vorgegeben.
+      Setze $\delta = \varepsilon > 0$.
+      Für alle $h \in \mathbb{R}$ mit $|h| \leq \delta$ gilt,
+      dass
+      \[
+        |{(Rf)}_p(h)| = |h| \cdot |h| \leq \varepsilon \cdot |h|.
+      \]
+      Also ist $f$ im Punkt $p \in \mathbb{R}$ differenzierbar
+      mit Differential
+      \[
+        {(Df)}_p(h) = 2p \cdot h.
+      \]
+  \end{enumerate}
+\end{examples}
+
+
 \end{document}
