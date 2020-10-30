@@ -33,7 +33,6 @@ ist aus gutem Grund sehr berühmt.
 nur rechts und links, aber nicht oben und unten
 durchdringt.}%
   \label{fig:conti}
-  % $f(p) + \varepsilon$ auf y-Achse, statt 2 Mal $f(p) - \varepsilon$ 
 \end{figure}
 
 
@@ -378,7 +377,7 @@ gilt, wenn $f$ stetig ist.
   $f(p)$.
   Da $g$ stetig in $f(p)$ ist, folgt
   \[
-    \lim_{n \to \infty} \lim_{n \to \infty} g(b_n) = g(f(p)).
+    \lim_{n \to \infty} g(b_n) = g(f(p)).
   \]
   Wir folgern, dass
   \[
@@ -458,7 +457,8 @@ $g \circ f$ eine stetige Fortsetzung auf $\mathbb{R}$ hat.
 
       Später werden wir sehen,
       dass $h$ im Punkt $x = 0$ unendlich oft differenzierbar
-      ist dass und alle Ableitungen $h^{(n)}$ von $h$
+      ist und dass alle Ableitungen $h^{(n)}$ von $h$
+      im Nullpunkt null sind, das heisst,
       $h^{(n)}(0) = 0$ erfüllen.
       Das bedeutet, dass $h$ nur im Nullpunkt
       mit ihrer ``Taylorreihe'' bei $0$
@@ -492,7 +492,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   siehe Abbildung~\ref{fig:zwischen}.
   Dann ist $A$ nicht leer, da $a \in A$, und nach oben
   beschränkt durch~$b$.
-  $A$ hat also ein Supremum $s \in \mathbb{R}$.
+  Die Menge $A$ hat also ein Supremum $s \in \mathbb{R}$.
   Es gilt, dass $s \in [a,b]$, da $s$ die kleinste
   obere Schranke von $A$ ist.
   Wir behaupten nun, dass $f(s) = 0$ und beweisen
@@ -644,8 +644,9 @@ Sei $f \colon A \to \mathbb{R}$ stetig.
 Ist dann $f(A) \subset \mathbb{R}$ beschränkt?
 \end{question}
 
+Die Antwort ist nein.
 \begin{example}
-  Die Antwort ist nein. Sei 
+  Sei 
   \[
     A = (0, 1) = \left\{x \in \mathbb{R} \mid 0 < x < 1\right\}
   \]
@@ -729,7 +730,7 @@ Eine Teilmenge
       \[
         \mathbb{R} \setminus A = \mathbb{R}_{<0} \cup
         \mathbb{R}_{>1} \cup \bigcup_{n \in \mathbb{N}_{\geq 1}}
-        \left(1(n+1), 1/n\right)
+        \left(1/(n+1), 1/n\right)
       \]
       eine Vereinigung offener Mengen und somit selbst offen ist.
     \item Die Menge
@@ -905,6 +906,7 @@ brauchen wir noch etwas Vorarbeit.
   beschränkt und abgeschlossen ist.
 \end{definition}
 
+\newpage
 \begin{examples}
   \leavevmode
   \begin{itemize}
