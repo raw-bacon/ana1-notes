@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \clip (-0.25, -0.25) rectangle (2, 2);
+  \draw (-1, 0) -- (4, 0);
+  \draw (0, -1) -- (0, 2);
+  \draw[domain=0:4, samples=500] plot ({\x}, {sqrt(\x)});
+\end{tikzpicture}
+\end{document}
