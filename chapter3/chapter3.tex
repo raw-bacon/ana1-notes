@@ -33,6 +33,7 @@ ist aus gutem Grund sehr berühmt.
 nur rechts und links, aber nicht oben und unten
 durchdringt.}%
   \label{fig:conti}
+  % $f(p) + \varepsilon$ auf y-Achse, statt 2 Mal $f(p) - \varepsilon$ 
 \end{figure}
 
 
@@ -95,7 +96,7 @@ durchdringt.}%
       die \emph{Dirichletfunktion}.
       Dann ist $f$ in keinem Punkt stetig.
       Betrachte dazu $\varepsilon = 1/2$.
-      Sei $p \in \mathbb{Q}$, das heisst $f(p) = 1$.
+      Sei $p \in \mathbb{Q}$, das heisst, $f(p) = 1$.
       Für alle $\delta > 0$ finden wir eine
       irrationale Zahl
       $q \in \mathbb{R} \setminus \mathbb{Q}$ mit
@@ -109,14 +110,14 @@ durchdringt.}%
       also $f(q) = 0$.
 
       Analog, sei $p \in \mathbb{R} \setminus \mathbb{Q}$,
-      das heisst $f(p) = 0$.
+      das heisst, $f(p) = 0$.
       Für alle $\delta > 0$ finden wir
       eine Zahl $q \in \mathbb{Q}$ mit $|q - p| \leq \delta$ 
       und
       $|f(q) - f(p)| = 1 > \varepsilon$.
       Tatsächlich,
       wähle $N \in \mathbb{N}$ mit $1/N \leq \delta$.
-      Dann existiert $a \in \mathbb{Z}$
+      Dann existiert $a \in \mathbb{Z}$,
       so dass
       $|a/N - p| \leq 1/N$.
       Setze $q = a/N$.
@@ -184,12 +185,12 @@ durchdringt.}%
   dass $f  + g$ stetig ist.
   Sei $\varepsilon > 0$ vorgegeben.
   Wähle $\delta_f > 0$ und  $\delta_g > 0$ 
-  so dass für alle $q \in A$ mit
+  so, dass für alle $q \in A$ mit
   $|q - p| \leq \delta_f$ gilt, dass
   $|f(q) - f(p)| \leq \varepsilon/2$,
-  und so dass für alle
+  und so, dass für alle
   $q \in A$ mit $|q - p| \leq \delta_g$ 
-  git, dass
+  gilt, dass
   $|g(p) - g(q)| \leq \varepsilon/2$.
   Setze $\delta = \min \{\delta_f, \delta_g\}$.
   Dann gilt für alle $q \in A$ mit
@@ -228,7 +229,7 @@ durchdringt.}%
   Setze $\delta = \min \{\delta_1, \delta_2, \delta_3 \}$.
   Für $q \in A$ mit $|q - p| \leq \delta$ gilt dann:
   \begin{align*}
-    |(f \cdot g)(q) - (f \cdot g)(p)
+    |(f \cdot g)(q) - (f \cdot g)(p)|
     &\leq |g(q)| \cdot \frac{\varepsilon}{2} \cdot  
     \frac{1}{|g(p)| + 1}
     + |f(p)| \cdot \frac{\varepsilon}{2}
@@ -248,7 +249,7 @@ durchdringt.}%
   |f(q) - f(p)| \leq \frac{|f(p)|}{2}.
   \]
   Also ist $1/f$ auf der Menge $(p-a, p+a) \cap A$ definiert,
-  da dort $|f(q)| > 0$.
+  da dort $|f(q)| \geq \frac{|f(p)|}{2} > 0$. % braucht man für Beweis
   Sei nun $\varepsilon > 0$. 
   Berechne
    \begin{align*}
@@ -256,7 +257,7 @@ durchdringt.}%
      & = \left| \frac{f(p) - f(q)}{f(q)f(p)} \right| \\
      & \leq 2 \cdot \frac{|f(p) - f(q)|}{|f(p)|^2}. 
   \end{align*}
-  Wähle $\delta > 0$, so dass $\delta \leq a$ 
+  Wähle $\delta > 0$ so, dass $\delta \leq a$ 
   und immer wenn $|q - p| \leq \delta$,
   dann auch 
   \[
@@ -307,10 +308,10 @@ durchdringt.}%
     \lim_{n \to \infty} a_n = p.
   \]
   Sei $\varepsilon > 0$ vorgegeben.
-  Dann existiert $\delta > 0$ so dass immer wenn
+  Dann existiert $\delta > 0$, so dass immer wenn
   $|q - p| \leq \delta$, dann auch
   $|f(q) - f(p)| \leq \varepsilon$.
-  Wähle $N \in \mathbb{N}$, so
+  Wähle $N \in \mathbb{N}$ so,
   dass für $n \in \mathbb{N}$ mit $n \geq N$ gilt,
   dass $|a_n - p| \leq \delta$.
   Es gilt also für $n \geq N$, dass
@@ -320,9 +321,9 @@ durchdringt.}%
     \lim_{n \to \infty} f(a_n) = f(p).
   \]
   
-  Für die Rückrichtung ``$\Leftarrow$'', nehme an,
+  Für die Rückrichtung ``$\Leftarrow$'', nimm an,
   dass $f$ \emph{folgenstetig} in $p$ ist,
-  das heisst dass für alle
+  das heisst, dass für alle
   konvergenten Folgen $a \colon \mathbb{N} \to A$
   mit $\lim_{n \to \infty} a_n = p$ gilt,
   dass
@@ -331,14 +332,14 @@ durchdringt.}%
   \]
   Wir beweisen durch Widerspruch, dass
   $f$ stetig in $p$ ist.
-  Nehme an, dass $f$ nicht stetig in $p$ ist.
+  Nimm an, dass $f$ nicht stetig in $p$ ist.
   Dann existiert $\varepsilon_0 > 0$, so dass
   für alle $\delta > 0$ ein $q \in A$ 
   existiert, so dass
   $|q - p| \leq \delta$ und $|f(q) - f(p)| > \varepsilon_0$.
   Wähle nun eine Folge
   ${(a_{n})}_{n \in \mathbb{N}}$ wie folgt.
-  Wähle $a_n \in A$ so dass
+  Wähle $a_n \in A$ so, dass
   $|a_n - p| \leq 1/(n+1)$ und $|f(a_n) - f(p)| > \varepsilon_0$.
   Nach Konstruktion gilt
   $\lim_{n \to \infty} a_n = p$, aber
@@ -364,7 +365,7 @@ gilt, wenn $f$ stetig ist.
 \end{application}
 
 \begin{proof}
-  Wir verwenden die Folgenstetigkeit, um einen schnellen
+  Wir verwenden die Folgenstetigkeit um einen schnellen
   Beweis zu liefern.
   Sei  ${(a_{n})}_{n \in \mathbb{N}}$ eine konvergente
   Folge in $A$ mit $\lim_{n \to \infty} a_n = p \in A$.
@@ -377,13 +378,13 @@ gilt, wenn $f$ stetig ist.
   $f(p)$.
   Da $g$ stetig in $f(p)$ ist, folgt
   \[
-    \lim_{n \to \infty} g(b_n) = g(f(p)).
+    \lim_{n \to \infty} \lim_{n \to \infty} g(b_n) = g(f(p)).
   \]
   Wir folgern, dass
   \[
     \lim_{n \to \infty} (g \circ f)(a_n) = (g \circ f)(p),
   \]
-  das heisst $g \circ f$ ist stetig im Punkt $p$.
+  das heisst, $g \circ f$ ist stetig im Punkt $p$.
 \end{proof}
 
 \begin{example}
@@ -408,7 +409,7 @@ gilt, wenn $f$ stetig ist.
 \begin{remark}
   Die Funktion $f(x) = 1/x$ hat keine
   stetige Fortsetzung auf $\mathbb{R}$,
-  das heisst es existiert keine stetige
+  das heisst, es existiert keine stetige
   Funktion $\overline f \colon \mathbb{R} \to \mathbb{R}$,
   so dass $\overline f |_{\mathbb{R} \setminus \{0\}} = f$.
   Hier ist \[\overline f |_{\mathbb{R} \setminus\{0\}}
@@ -457,8 +458,8 @@ $g \circ f$ eine stetige Fortsetzung auf $\mathbb{R}$ hat.
 
       Später werden wir sehen,
       dass $h$ im Punkt $x = 0$ unendlich oft differenzierbar
-      ist, und alle Ableitungen $h^{(n)}$ von $h$
-      erfüllen $h^{(n)}(0) = 0$.
+      ist dass und alle Ableitungen $h^{(n)}$ von $h$
+      $h^{(n)}(0) = 0$ erfüllen.
       Das bedeutet, dass $h$ nur im Nullpunkt
       mit ihrer ``Taylorreihe'' bei $0$
       übereinstimmt.
@@ -479,7 +480,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   Sei $f \colon [a, b] \to \mathbb{R}$ stetig
   mit $f(a) \leq 0 \leq f(b)$ oder
   $f (a) \geq 0 \geq f(b)$. Dann existiert $s \in [a, b]$ 
-  mit $f(s) = 0$.
+  mit $f(p) = 0$.
 \end{theorem}
 
 \begin{proof}
@@ -490,8 +491,8 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
   \]
   siehe Abbildung~\ref{fig:zwischen}.
   Dann ist $A$ nicht leer, da $a \in A$, und nach oben
-  beschränkt durch~$b$,
-  hat also ein Supremum $s \in \mathbb{R}$.
+  beschränkt durch~$b$.
+  $A$ hat also ein Supremum $s \in \mathbb{R}$.
   Es gilt, dass $s \in [a,b]$, da $s$ die kleinste
   obere Schranke von $A$ ist.
   Wir behaupten nun, dass $f(s) = 0$ und beweisen
@@ -501,7 +502,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
     \item Wir zeigen erst durch Widerspruch, dass $f(s) \geq 0$.
       Falls $f(s) < 0$, setze
       $\varepsilon = |f(s)| > 0$. Da $f$ stetig in $s$ ist,
-      existiert $\delta > 0$ so dass
+      existiert $\delta > 0$, so dass
       für $q \in [a, b]$
       mit $|q - s| \leq \delta$ gilt, dass
       $|f(q) - f(s)| \leq \varepsilon$.
@@ -517,7 +518,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
       dass $f(s) \leq 0$. 
       Falls $f(s) > 0$,
       setze $\varepsilon = f(s)/2 > 0$.
-      Wiederum existiert $\delta > 0$ 
+      Wiederum existiert $\delta > 0$, 
       so dass für alle $q \in [a, b]$ mit $|q- s| \leq \delta$ 
       gilt, dass
       $|f(q) - f(s)| \leq \varepsilon$.
@@ -531,7 +532,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
       im Widerspruch zu $s = \sup(A)$.
   \end{enumerate}
   Für den Fall $f(a) \geq 0 \geq f(b)$ kann man
-  stattdessen $-f$ betrachten,
+  stattdessen $-f$ betrachten
   oder im Beweis oben alle Ungleichungen umdrehen.
 \end{proof}
 
@@ -585,7 +586,7 @@ das \emph{abgeschlossene Intervall} zwischen $a$ und $b$.
     \lim_{n \to \infty} \frac{f(-n)}{n^{2k+1}}
     = \lim_{n \to \infty}
     \left( -1 + \frac{a_1}{n} - \frac{a_2}{n^2}
-    + \cdots + \frac{a_{2k+1}}{n^{2k+1}}\right) = -1,
+    \pm \cdots + \frac{a_{2k+1}}{n^{2k+1}}\right) = -1,
   \]
   also nimmt $f$ negative Werte
   mit beliebig hohem Betrag an.
@@ -637,16 +638,14 @@ hat sogar drei Fixpunkte, zum Beispiel $p$.}%
 
 \begin{question}
 Sei $A \subset \mathbb{R}$ beschränkt,
-das heisst es existiert $R > 0$ 
+das heisst, es existiert $R > 0$ 
 mit $A \subset [-R, R]$.
 Sei $f \colon A \to \mathbb{R}$ stetig.
 Ist dann $f(A) \subset \mathbb{R}$ beschränkt?
 \end{question}
 
-Die Antwort ist nein. 
-
 \begin{example}
-  Sei 
+  Die Antwort ist nein. Sei 
   \[
     A = (0, 1) = \left\{x \in \mathbb{R} \mid 0 < x < 1\right\}
   \]
@@ -681,8 +680,8 @@ Eine Teilmenge
     x \in U = \bigcup_{i \in I} U_i
   \]
   beliebig. Dann ist $x \in U_i$ für
-  ein $i \in I$, und da $U_i$ offen ist existiert
-  $\delta > 0$ so dass $(x - \delta, x + \delta) \subset U_i$.
+  ein $i \in I$. Da $U_i$ offen ist, existiert
+  $\delta > 0$, so dass $(x - \delta, x + \delta) \subset U_i$.
   Aber $U_i$ ist eine Teilmenge von $U$, also
   gilt auch $(x - \delta, x + \delta) \subset U$. Somit ist
   $U$ offen.
@@ -730,7 +729,7 @@ Eine Teilmenge
       \[
         \mathbb{R} \setminus A = \mathbb{R}_{<0} \cup
         \mathbb{R}_{>1} \cup \bigcup_{n \in \mathbb{N}_{\geq 1}}
-        \left(1/(n+1), 1/n\right)
+        \left(1(n+1), 1/n\right)
       \]
       eine Vereinigung offener Mengen und somit selbst offen ist.
     \item Die Menge
@@ -754,10 +753,10 @@ Eine Teilmenge
   und beschränkt,
   und sei weiterhin $f \colon A \to \mathbb{R}$
   stetig. Dann nimmt $f$ auf $A$ ein
-  Maximum, beziehungsweise ein Minimum an,
-  das heisst,~es existiert $p \in A$,
+  Maximum beziehungsweise ein Minimum an,
+  das heisst, es existiert $p \in A$,
   so dass für alle $q \in A$ gilt,
-  dass $f(q) \leq f(p)$, beziehungsweise $f(q) \geq f(p)$.
+  dass $f(q) \leq f(p)$ beziehungsweise $f(q) \geq f(p)$.
 \end{theorem}
 
 Für den Beweis von Theorem~\ref{thm:extreme}
@@ -765,12 +764,12 @@ brauchen wir noch etwas Vorarbeit.
 
 \begin{lemma*}[Folgenabgeschlossenheit]
   Sei $A \subset \mathbb{R}$ eine nichtleere Teilmenge.
-  Dann ist $A$ abgeschlossen, genau dann, wenn für
+  Dann ist $A$ genau dann abgeschlossen, wenn für
   alle konvergenten Folgen
   ${(a_{n})}_{n \in \mathbb{N}}$ mit
   $a_n \in A$ gilt, dass auch
   der Grenzwert $\lim_{n \to \infty} a_n$ in $A$ 
-  liegt das heisst, $A$ ``folgenabgeschlossen'' ist.
+  liegt, das heisst, wenn $A$ ``folgenabgeschlossen'' ist.
 \end{lemma*}
 
 \begin{proof}
@@ -782,7 +781,7 @@ brauchen wir noch etwas Vorarbeit.
   Da $\mathbb{R} \setminus A$ offen ist,
   existiert $\delta > 0$ mit $(p - \delta, p + \delta)
   \subset \mathbb{R} \setminus A$.
-  Wähle $N \in \mathbb{N}$  so dass für alle $n \geq N$
+  Wähle $N \in \mathbb{N}$  so, dass für alle $n \geq N$
   gilt, dass $|a_n - p| < \delta$.
   Aber dann gilt $a_n \in (p - \delta, p + \delta)
   \subset \mathbb{R} \setminus A$,
@@ -796,7 +795,7 @@ brauchen wir noch etwas Vorarbeit.
   $\delta > 0$, so dass $(p - \delta, p + \delta)
   \subset \mathbb{R} \setminus A$. Falls es kein
   solches $\delta > 0$ gibt, dann existiert zu jedem
-  $n \in \mathbb{N}$ ein Punkt $a_n \in A$ so, dass
+  $n \in \mathbb{N}$ ein Punkt $a_n \in A$, so dass
   $|a_n - p| \leq 1/n$.
   Dann gilt
   \[
@@ -829,7 +828,7 @@ brauchen wir noch etwas Vorarbeit.
   \]
   Eine Art solche Folgen zu produzieren ist folgendermassen.
   Wähle beliebige $a_0 \in A$ und $b_0 \in B$.
-  Nach konstruieren von $a_n$ und $b_n$ betrachte
+  Nach Konstruieren von $a_n$ und $b_n$ betrachte
   den Mittelpunkt $c_n = (a_n + b_n)/2$ und unterscheide
   zwei Fälle. Falls $c_n \in A$, setze $a_{n+1} = c_n$ 
   und $b_{n+1} = b_n$. Ansonsten, falls $c_n \in B$, setze
@@ -969,7 +968,6 @@ brauchen wir noch etwas Vorarbeit.
   \end{itemize}
 \end{examples}
 
-\newpage
 \section{Kompakte Mengen}
 \begin{proposition}[Folgenkompaktheit]
   Eine Teilmenge $K \subset \mathbb{R}$ ist
@@ -991,7 +989,7 @@ brauchen wir noch etwas Vorarbeit.
   der Grenzwert $\lim_{k \to \infty} a_{n_k}$ in $K$.
 
   Umgekehrt, für die Rückrichtung ``$\Leftarrow$'',
-  nehme an, dass $K$ folgenkompakt ist.
+  nimm an, dass $K$ folgenkompakt ist. % Nimm = Imperativ, 'man nehme' Konjunktiv I.
   Wir zeigen in zwei Schritten, dass
   $K$ kompakt ist.
   \begin{enumerate}[(i)]
@@ -1032,10 +1030,10 @@ brauchen wir noch etwas Vorarbeit.
   enorm
   wichtig. Sie ist erstaunlich, da
   zum Beispiel stetige Bilder offener Mengen
-  nicht offen sein müssen,
-  und stetige Bilder abgeschlossener Mengen
-  nicht abgeschlossen sein müssen.
-  Beispiele hier ist die konstante Funktion
+  nicht offen sein müssen
+  und ebenso brauchen stetige Bilder abgeschlossener Mengen
+  nicht abgeschlossen zu sein.
+  Beispiele hier sind die konstante Funktion
   $x \mapsto 0$,
   denn das Bild von $\mathbb{R}$ ist $\{0\}$,
   was nicht offen ist,
@@ -1136,7 +1134,7 @@ brauchen wir noch etwas Vorarbeit.
 
 \begin{proof}
   Wir beweisen die Proposition durch Widerspruch.
-  Nehme an, dass $f \colon K \to \mathbb{R}$ nicht
+  Nimm an, dass $f \colon K \to \mathbb{R}$ nicht
   gleichmässig stetig ist.
   Dann existiert ein $\varepsilon > 0$,
   so dass für alle $n \in \mathbb{N}$ 
@@ -1270,7 +1268,7 @@ die Definition der Kompaktheit.
       Sei ${\{U_i\}}_{i \in I}$ eine
       beliebige offene Überdeckung von~$K$.
       Es existiert ein Index $i_0 \in I$ 
-      mit $0 \in U_{i_{0}}$ 
+      mit $0 \in U_{i_{0}}$. 
       Da $U_{i_0} \subset \mathbb{R}$ offen ist,
       existiert $\delta > 0$ mit
       $(-\delta, \delta) \subset U_{i_0}$.
@@ -1299,7 +1297,7 @@ die Definition der Kompaktheit.
   Folge in $K$. Zu zeigen ist, dass
   eine konvergente Teilfolge
   ${(a_{n_{k}})}_{k \in \mathbb{N}}$ 
-  mit Grenzwert in $K$.
+  mit Grenzwert in $K$ existiert.
   Andernfalls wäre kein Punkt $p \in K$ 
   Grenzwert einer konvergenten Teilfolge.
   Dann existiert aber für jeden Punkt $p \in K$ 
@@ -1320,7 +1318,7 @@ die Definition der Kompaktheit.
   nur endlich viele Folgenglieder
   $a_n$, also auch $K$. Das ist ein Widerspruch.
   
-  Für die Richtung (i) $\Rightarrow$ (ii) sei
+  Für die Richtung (i) $\Rightarrow$ (ii) seien
   $K$ kompakt und ${\{U_i\}}_{i \in I}$ eine
   offene Überdeckung von~$K$.
   Wir behaupten, dass
@@ -1344,7 +1342,7 @@ die Definition der Kompaktheit.
   Es existiert $i_0 \in I$ 
   mit $p \in U_{i_0}$.
   Es existiert sogar ein
-  $\varepsilon > 0$ so, dass
+  $\varepsilon > 0$, so dass
   $B_p(\varepsilon) \subset U_{i_0}$.
   Wähle $k \in \mathbb{N}$ mit
   $1/k < \varepsilon/2$
@@ -1360,7 +1358,7 @@ die Definition der Kompaktheit.
   $B_{p_{n_k}}(1/n_k) \not\subset U_{i_0}$
   und zeigt somit unsere Behauptung.
 
-  Sei nun $\delta_0 > 0$ so, dass
+  Sei nun $\delta_0 > 0$, so dass
   für alle $p \in K$ 
   ein $i \in I$ existiert
   mit $B_p(\delta_0) \subset U_i$.
