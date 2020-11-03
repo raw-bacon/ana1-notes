@@ -8,13 +8,13 @@
                              ($(\tikztostart)!-#1!(\tikztotarget)$)--($(\tikztotarget)!-#2!(\tikztostart)$)%
                                  \tikztonodes},add/.default={.2 and .2}}
                                    }
+\usetikzlibrary{calc}
 \begin{tikzpicture}[scale=2]
   \clip (-1, -0.25) rectangle (1, 1);
 
-\usetikzlibrary{calc}
   \draw (-1, 0) -- (1, 0);
   \draw (0, -0.25) -- (0, 1);
-  \draw[domain=-1:1] 
+  \draw[domain=-1:1, smooth] 
     plot ({\x}, {\x * \x});
   \draw[fill=black]
     (0.25, {0.25 * 0.25})

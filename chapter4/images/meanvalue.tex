@@ -1,0 +1,29 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\tikzset{%
+add/.style args={#1 and #2}{
+to path={%
+ ($(\tikztostart)!-#1!(\tikztotarget)$)--($(\tikztotarget)!-#2!(\tikztostart)$)%
+   \tikztonodes},add/.default={.2 and .2}}
+     }
+
+\begin{tikzpicture}[scale=4]
+  \clip (-0.3, -0.15) rectangle (1, 1);
+
+  \draw (-1, 0) -- (1, 0);
+  \draw (0, -0.25) -- (0, 1);
+  \draw[thick, domain=-1:1, smooth] 
+    plot ({\x}, {\x * \x});
+  \draw[fill=black]
+    (0.25, {0.25 * 0.25})
+    circle (0.0125);
+  \draw[add=1 and 1] (0.25, {0.25 * 0.25}) to (0.75, {0.75 * 0.75});
+  \draw[fill=black] (0.75, {0.75 * 0.75}) circle (0.0125);
+  \draw[fill=black] (0.5, 0.25) circle (0.0125);
+  \draw (-0.5, -0.75) -- (1, 0.75);
+  \draw[add=1 and 1] (0.5, 0.25) to (1, 0.75);
+\end{tikzpicture}
+\end{document}

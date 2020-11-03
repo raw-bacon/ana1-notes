@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc}
+\begin{document}
+\begin{tikzpicture}
+  \clip (-2, -2) rectangle (2, 2);
+  \draw (0, -2) -- (0, 2);
+  \draw (-2, 0) -- (2, 0);
+  \draw[domain=-2:2, smooth] plot ({\x}, {\x*\x*\x});
+\end{tikzpicture}
+\end{document}

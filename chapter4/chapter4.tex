@@ -525,7 +525,7 @@ auf diese kompliziertere Situation
   \[
     \frac{f(p + h) - f(p)}{h}
     = \frac{{(Df)}_p(h) + {(Rf)}_p(h)}{h}
-    =(Df)_p(1) + \frac{{(Rf)}_p(h)}{h}.
+    ={(Df)}_p(1) + \frac{{(Rf)}_p(h)}{h}.
   \]
   Da ${(Rf)}_p(h)$ relativ klein in $|h|$ ist,
   folgt dass
@@ -716,12 +716,447 @@ auf diese kompliziertere Situation
         \caption{Sinus und Cosinus}%
         \label{fig:sine}
       \end{figure}
-      
+    \item Betrachte die Funktion
+      \begin{align*}
+        f \colon \mathbb{R} & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          x^2 & \text{falls $x \in \mathbb{Q}$ }, \\
+          0 & \text{falls $x \in \mathbb{R} \setminus \mathbb{Q}$ }.
+        \end{cases}
+      \end{align*}
+      Dann ist $f$ an der Stelle $p = 0$ differenzierbar
+      und es gilt $f'(0) = 0$. Wir beweisen das mit dem Ansatz
+        \[
+          f(0 + h) = 0 + 0 + {(Rf)}_0(h)
+        \]
+      für eine Dreigliedentwicklung bei $p = 0$.
+      Zu zeigen ist, dass ${(Rf)}_0(h) = f(h)$ 
+      relativ klein in $|h|$ ist.
+      Sei dazu $\varepsilon > 0$ vorgegeben.
+      Setze $\delta = \varepsilon$.
+      Dann gilt für alle $h \in \mathbb{R}$ mit $|h| \leq \delta$,
+      dass
+      \[
+        |{(Rf)}_0(h)| = |f(h)| \leq |h| \cdot |h| \leq \delta \cdot |h|
+        = \varepsilon \cdot |h|.
+      \]
+      In allen Punkten $p \neq 0$ ist $f$ nicht stetig,
+      und deshalb auch nicht differenzierbar. Das Letztere
+      folgt aus folgendem Lemma.
   \end{enumerate}
-  
 \end{examples}
 
+\begin{lemma*}
+  Sei $f \colon (a, b) \to \mathbb{R}$ im Punkt $p \in \mathbb{R}$ 
+  differenzierbar. Dann ist $f$ im Punkt $p$ stetig.
+\end{lemma*}
 
+\begin{proof}[Beweisskizze]
+  Das ist eine Übung auf Serie~7.
+  Sei $\varepsilon > 0$ vorgegeben. Gesucht
+  ist ein $\delta > 0$ so, dass für $h \in \mathbb{R}$ 
+  mit $|h| \leq \delta$ gilt, dass
+  $|f(p+h) - f(p)| \leq \varepsilon$.
+  Nach der Dreigliedentwicklung ist aber
+  \[
+    |f(p + h) - f(p)| = |{(Df)}_p(h) - {(Rf)}_p(h)|
+    \leq |h \cdot f'(p)| + |{(Rf)}_p(h)|
+  \]
+  Wähle nun $\delta > 0$ geeignet.
+\end{proof}
+
+\begin{remark}
+  Es existieren stetige Funktionen $f \colon \mathbb{R} \to \mathbb{R}$,
+  welche in keinem Punkt differenzierbar sind.
+  Solche Funktionen wurden erstmals vom Deutschen Mathematiker
+  Weierstrass konstruiert.
+\end{remark}
+
+\section{Die Kettenregel}
+
+\begin{chainrule}
+Seien 
+$a, b, c, d \in \mathbb{R}$ mit $a < b$ und $c < d$,
+sei $g \colon (a, b) \to \mathbb{R}$ 
+eine Funktion
+deren Bild in $(c, d)$ liegt, das heisst,
+$g((a, b)) \subset (c, d)$,
+und sei $f \colon (c, d) \to \mathbb{R}$ eine Funktion.
+Falls $g$ im Punkt $p \in (a, b)$ und $f$ 
+im Punkt $g(p) \in (c, d)$ differenzierbar sind,
+dann ist die Komposition
+$f \circ g \colon (a, b) \to \mathbb{R}$ 
+im Punkt $p$ differenzierbar, und es gilt
+\[
+  {(D(f \circ g))}_p = {(Df)}_{g(p)} \circ {(Df)}_p.
+\]
+\end{chainrule}
+
+\begin{remark}
+  Da $g'(p) = {(Dg)}_p(1)$ und
+  ebenso $f'(g(p)) = {(Df)}_{g(p)}(1)$,
+  haben wir, dass
+  \begin{align*}
+    (f \circ g)'(p)
+    & = {(D(f \circ g)}_p(1) \\
+    & = {(Df)}_{g(p)} \circ {(Dg)}_p(1) \\
+    & = {(Df)}_{g(p)}(g'(p)) \\
+    & = g'(p) \cdot {(Df)}_{g(p)}(1) \\
+    & = g'(p) \cdot f'(g(p)),
+  \end{align*}
+  oder in einer Zeile,
+  \[
+    (f \circ g)'(p) = f'(g(p)) \cdot g'(p),
+  \]
+  was auch häufig als die \emph{Kettenregel}
+  bezeichnet wird.
+\end{remark}
+
+\begin{proof}[Beweis der Kettenregel]
+  Wir leiten eine Dreigliedentwicklung
+  für $f \circ g$ an der Stelle $p \in (a, b)$ her.
+  Schreibe mithilfe der Dreigliedentwicklung
+  von $g$, dass
+  \begin{align*}
+    f \circ g(p + h) 
+    &= f(g(p+h))  \\
+    &= f(g(p) + {(Dg)}_p(h) + {(Rg)}_p(h)) \\
+    &= f(g(p) + \overline h)
+  \end{align*}
+  für $\overline h = {(Dg)}_p(h) + {(Rg)}_p(h)$.
+  Wir können nun die Dreigliedentwicklung von $f$ 
+  anwenden um zu sehen, dass
+  \[
+    f \circ g(p + h) = f(g(p)) + {(Df)}_{g(p)}(\overline h)
+    + {(Rf)}_{g(p)}(\overline h).
+  \]
+  Nach Linearität von ${Df)}_{g(p)}$ gilt, dass
+  \[
+    f(g(p+h)) = f(g(p)) + {(Df)}_{g(p)}(
+    {(Dg)}_p(h))
+    + {(Df)}_{g(p)}({(Rg)}_p(h))
+    + {(Rf)}_{g(p)}(\overline h).
+  \]
+  Setze
+  \[
+    {(D(f \circ g))}_p(h) = {(Df)}_{g(p)}({(Dg)}_p(h)).
+  \]
+  Setzen wir
+  \[
+    R_1(h) = {(Df)}_{g(p)}({(Rg)}_p(h))
+  \]
+  und
+  \[
+    R_2(h) = {(Rf)}_{g(p)}(\overline h),
+  \]
+  so bleibt zu zeigen, dass $R_1(h)$ 
+  und $R_2(h)$ relativ klein
+  in $|h|$ sind.
+  \begin{enumerate}[(1)]
+    \item Berechne
+      \begin{align*}
+        R_1(h)
+        & = {(Rg)}_p(h) \cdot {(Df)}_{g(p)}(1)\\
+        & = {(Rg)}_p(h) \cdot f'(g(p)),
+      \end{align*}
+      wobei $f'(g(p))$ konstant ist.
+      Das heisst, $R_1(h)$ ist das
+      Produkt einer Konstanten mit
+      einem Term, der relativ klein in $|h|$ ist.
+      Also ist $R_1(h)$ relativ klein in $|h|$.
+    \item Berechne
+      \[
+        R_2(h) 
+        = {(Rf)}_{g(p)}({(Dg)}_p(h) + {(Rg)}_p(h)).
+      \]
+      Sei $\varepsilon > 0$ vorgegeben. Wähle
+      $\delta_1 > 0$ so, dass
+      für $h \in \mathbb{R}$ mit $|h| \leq \delta_1$ gilt,
+      dass
+      \[
+        |{(Rg)}_p(h)| \leq |h|.
+      \]
+      Dann ist also
+      \begin{align*}
+         |\overline h| 
+         & = |{(Dg)}_p(h) + {(Rg)}_p(h)|\\
+         & \leq |{(Dg)}_p(h)| + |{(Rg)}_p(h)| \\
+         &\leq |g'(p)| \cdot |h| + |h| \\
+         &= (|g'(p)| + 1) \cdot |h| \\
+         &= \alpha \cdot |h|
+      \end{align*}
+      für $\alpha = |g'(p)| + 1$.
+      Wähle nun $\delta_2 > 0$ so,
+      dass für alle $\widetilde h \in \mathbb{R}$ 
+      mit $|\widetilde h| \leq \delta_2$ gilt,
+      dass
+      \[
+        |{(Rf)}_{g(p)}(\widetilde h)| \leq \varepsilon/\alpha
+        \cdot |\widetilde h|.
+      \]
+      Dann gilt für alle $h \in \mathbb{R}$ mit
+      $|h| \leq \delta_1$ und $|h| \leq \delta_2/\alpha$,
+      dass
+      \[
+        |R_2(h)| = |{(Rf)}_{g(p)}(\overline h)|
+        \leq \varepsilon/\alpha \cdot |\overline h| \leq
+        \varepsilon \cdot |h|.
+      \]
+      Hier haben wir verwendet, dass
+      $|\overline h| \leq \alpha \cdot |h| \leq \delta_2$,
+      was wir aus $|h| \leq \delta_1$ schliessen
+      können. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\subsection*{Anwendungen der Kettenregel}
+\subsubsection*{Ableitungen von Umkehrfunktionen}
+Sei $f \colon (a, b) \to (c, d)$ 
+differenzierbar und bijektiv.
+Dann existiert eine Umkehrfunktion
+von $f$, das heisst eine Funktion
+$g \colon (c, d) \to (a, b)$ 
+mit $f \circ g = \text{Id}_{(c, d)}$,
+die Identität des Intervalls
+$(c, d)$. Das heisst, für alle
+$x \in (c, d)$ gilt
+\[
+  f(g(x)) = x.
+\]
+Falls $g$ im Punkt $p \in (c, d)$
+differenzierbar ist, dann gilt
+\[
+  {(D(\text{Id}_{(c, d)}))}_{p} = 
+  {(D(f \circ g))}_p
+  = {(Df)}_{g(p)} \circ {(Dg)}_p
+\]
+Da das Differential einer linearen Abbildung
+die lineare Abbildung selbst ist,
+folgt insbesondere, dass
+\[
+  {(D(\text{Id}_{(c, d)}))}_p = \text{Id}_{\mathbb{R}}.
+\]
+Wir folgern, dass
+\[
+  {(Df)}_{g(p)} \circ {(Dg)}_p = \text{Id}_{\mathbb{R}},
+\]
+das heisst, die beiden linearen Abbildungen
+${(Df)}_{g(p)} \colon \mathbb{R} \to \mathbb{R}$
+und ${(Dg)}_p \colon \mathbb{R} \to \mathbb{R}$ 
+sind zueinander invers.
+Für die Ableitungen gilt, dass
+\[
+  f'(g(p)) \cdot g'(p) = 1,
+\]
+also
+\[
+  g'(p) = \frac{1}{f'(g(p))}.
+\]
+
+\begin{example}
+Betrachte
+\begin{align*}
+  f \colon \mathbb{R} & \to \mathbb{R} \\
+  x & \mapsto e^x.
+\end{align*}
+Wir wissen bereits, dass $f'(x) = e^x$ gilt.
+Die Umkehrfunktion
+\begin{align*}
+  g \colon \mathbb{R}_{>0} & \to \mathbb{R} \\
+  x & \mapsto \log(x)
+\end{align*}
+erfüllt also, falls $g$ im Punkt $p > 0$ differenzierbar ist,
+\[
+  g'(p) = \frac{1}{f'(g(p))} = \frac{1}{p}.
+\]
+Falls $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$ 
+differenzierbar ist, dann gilt somit
+\[
+  \log'(x) = \frac{1}{x}.
+\]
+\end{example}
+      
+\begin{warning}
+  Aus $f(g(x)) = x$ und $f$ differenzierbar
+  folgt nicht, dass $g$ differenzierbar ist.
+\end{warning}
+
+\begin{example}
+  Betrachte
+  \begin{align*}
+    f \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto x^3.
+  \end{align*}
+  Die Umkehrfunktion von $f$ ist
+  \begin{align*}
+    g \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto \sqrt[3]{x},
+  \end{align*}
+  welches aufgrund einer vertikalen Tangente im
+  Nullpunkt, siehe Abbildung~\ref{fig:cube},
+  nicht differenzierbar ist.
+  
+\end{example}
+
+\begin{figure}[htb] 
+  \centering
+  \begin{minipage}{0.40\textwidth}
+    \centering
+    \includestandalone{images/cube-1}
+  \end{minipage}%
+  \begin{minipage}{0.40\textwidth}
+    \centering
+    \includestandalone{images/cube-2}
+  \end{minipage}%
+  \caption{Die Umkehrfunktion von $x \mapsto x^3$
+  ist im Nullpunkt nicht differenzierbar.}%
+  \label{fig:cube}
+\end{figure}
+
+\subsubsection*{Die Quotientenregel}
+Betrachte die Funktion
+\begin{align*}
+  f \colon \mathbb{R} \setminus \{0\} & \to \mathbb{R} \\
+  x & \mapsto \frac{1}{x}.
+\end{align*}
+Dann gilt für 
+$p \neq 0$ und für $h \in \mathbb{R}$ mit $p + h \neq 0$, dass
+\[
+  \frac{f(p+h) - f(p)}{h} = \frac{\frac{1}{p+h} - \frac{1}{p}}{h}
+  = \frac{-1}{p(p+h)},
+\]
+also
+\[
+  \lim_{h \to 0} \frac{f(p+h) - f(p)}{h} = - \frac{1}{p^2}.
+\]
+Somit ist $f$ an der Stelle
+$p \neq 0$ differenzierbar und es gilt
+\[
+  f'(p) = \frac{-1}{p^2}.
+\]
+Sei nun $g \colon \mathbb{R} \to \mathbb{R} \setminus \{0\}$ 
+differenzierbar an der Stelle $p \in \mathbb{R}$.
+Dann gilt
+\[
+  (f \circ g)'(p) = f'(g(p)) \cdot g'(p)
+  = \frac{g'(p)}{{g(p)}^2}.
+\]
+Zusammengefasst erhalten wir die \emph{Quotientenregel}
+\[
+  \left( \frac{1}{g(x)} \right)' = -\frac{g'(x)}{{g(x)}^2}
+\]
+
+\subsection*{Die Produktregel}
+\begin{productrule}
+Seien $f, g \colon (a, b) \to \mathbb{R}$ 
+im Punkt $p \in (a, b)$ differenzierbar.
+Dann ist das Produkt
+$f \cdot g \colon (a, b) \to \mathbb{R}$ 
+im Punkt $p$ differenzierbar und es gilt
+\[
+  {(D(f \cdot g))}_p(h) = f(p) \cdot
+  {(Dg)}_p(h) + g(p) \cdot {(Df)}_p(h)
+\]
+\end{productrule}
+
+\begin{remark}
+  Für die Ableitung gilt
+  \[
+    {(f\cdot g)}'(p) = f(p) \cdot g'(p) + g(p) \cdot f'(p),
+  \]
+  was auch häufig als die \emph{Produktregel}
+  bezeichnet wird.
+  Dies folgt direkt via einsetzen von $h = 1$.
+\end{remark}
+
+\begin{proof}[Beweisskizze]
+  Wir leiten eine Dreigliedentwicklung für $f \cdot g$ 
+  bei $p$ wie folgt her. Berechne
+  \begin{align*}
+    (f \cdot g) (p+h)
+    & = f(p+h) \cdot g(p+h)\\
+    &= \left( f(p) + {(Df)}_p(h) + {(Rf)}_p(h) \right)
+    \cdot \left( g(p) + {(Dg)}_p(h) + {(Rg)}_p(h) \right) \\
+    &= (f \cdot g)(p)
+    + f(p) \cdot {(Dg)}_p(h) + g(p) \cdot {(Df)}_p(h)
+    + {(R(f \cdot g))}_p(h),
+  \end{align*}
+  wobei ${(R(f \cdot g))}_p$ aus $6$ Resttermen
+  besteht.
+  Bemerke, dass
+  \[
+    {(D(f \cdot g))}_p(h) = f(p) \cdot {(Dg)}_p(h)
+    + g(p) \cdot {(Df)}_p(h)
+  \]
+  linear in $h$ ist.
+  Die $6$ Restterme sind
+  \begin{itemize}
+    \item $f(p) \cdot {(Rg)}_p(h)$ und
+      $g(p) \cdot {(Rf)}$, welche beide
+      ein Produkt einer Konstanten
+      mit einem Term der relativ klein in $|h|$ ist, sind,
+    \item ${(Df)}_p(h) \cdot {(Rg)}_p(h)$,
+      ${(Rf)}_p(h) \cdot {(Dg)}_p(h)$ und
+      ${(Rf)}_p(h) \cdot {(Rg)}_p(h)$
+      welche nicht allzu schwierig zu untersuchen sind,
+    \item ${(Df)}_p(h) \cdot {(Dg)}_p(h) = h^2
+      \cdot f'(p) \cdot g'(p)$, was ein Produkt
+      einer Konstanten
+      mit $h^2$, was relativ klein in $|h|$ ist, ist.
+  \end{itemize}
+  Da die Summe von relativ kleinen Termen selbst relativ
+  klein ist, haben wir die Produktregel bewiesen.
+\end{proof}
+
+\section{Der Mittelwertsatz}
+\begin{question}
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ 
+  differenzierbar mit $f' = 0$ (die Nullfunktion),
+  das heisst für alle $x \in \mathbb{R}$ gilt
+  $f'(x) = 0$. Ist dann $f$ konstant?
+\end{question}
+
+Die Antwort ist (ausnahmsweise) ja.
+Das ist aber nicht ganz trivial, da wir
+die Integralrechnung noch nicht aufgebaut haben.
+Wir brauchen dafür den Mittelwertsatz
+(nicht zu verwechseln mit dem Zwischenwertsatz).
+
+\begin{meanvalue}
+  Sei $f \colon [a, b] \to \mathbb{R}$ 
+  stetig und differenzierbar auf $(a, b)$.
+  Dann existiert $p \in (a, b)$ mit $f(b) - f(a)
+  = f'(p) \cdot (b-a)$.
+\end{meanvalue}
+
+\begin{geometric}
+  Sei $ f \colon [a, b] \to \mathbb{R}$ stetig
+  und differenzierbar auf $(a, b)$.
+  Dann existiert $p \in (a, b)$ so dass
+  die Sehne zwischen $(a, f(a))$ und
+  $(b, f(b))$ dieselbe Steigung
+  wie die Tangente des Graphen von $f$ zu $
+  (p, f(p))$ hat. Siehe Abbildung~\ref{fig:meanvalue}.
+\end{geometric}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/meanvalue}
+  \caption{Geometrische Interpretation
+  des Mittelwertsatzes}%
+  \label{fig:meanvalue}
+\end{figure}
+
+Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
+
+\begin{rolle}
+  Sei $h \colon [0, 1] \to \mathbb{R}$ stetig
+  und differenzierbar auf $(0, 1)$ 
+  mit $h(0) = h(1)$.
+  Dann existiert $t \in [0, 1]$ 
+  mit $h'(t) = 0$.
+\end{rolle}
 
 
 \end{document}
