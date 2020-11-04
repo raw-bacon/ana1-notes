@@ -750,7 +750,7 @@ Eine Teilmenge
 \end{examples}
 
 \begin{theorem}\label{thm:extreme}
-  Sei $A \subset \mathbb{R}$ abgeschlossen
+  Sei $A \subset \mathbb{R}$ nicht leer, abgeschlossen
   und beschränkt,
   und sei weiterhin $f \colon A \to \mathbb{R}$
   stetig. Dann nimmt $f$ auf $A$ ein
@@ -770,8 +770,16 @@ brauchen wir noch etwas Vorarbeit.
   ${(a_{n})}_{n \in \mathbb{N}}$ mit
   $a_n \in A$ gilt, dass auch
   der Grenzwert $\lim_{n \to \infty} a_n$ in $A$ 
-  liegt, das heisst, wenn $A$ ``folgenabgeschlossen'' ist.
+  liegt.
 \end{lemma*}
+
+Eine Menge $A$, 
+so dass für alle konvergenten Folgen
+${(a_{n})}_{n \in \mathbb{N}}$ mit
+$a_n  \in A$ gilt,
+dass auch $\lim_{n \to \infty}a_n$
+in $A$ liegt, werden wir im Beweis
+``folgenabgeschlossen'' nennen.
 
 \begin{proof}
   Wir beweisen die Hinrichtung ``$\Rightarrow$'' durch Widerspruch.
@@ -1374,9 +1382,9 @@ die Definition der Kompaktheit.
   mit $N > 2R/2\delta_0$.
   Dann existieren $N$ offene Intervalle
   \[
-    (a_1, b_i), \dots, (a_N, b_N) \subset \mathbb{R}
+    (a_1, b_1), \dots, (a_N, b_N) \subset \mathbb{R}
   \]
-  mit $b_k - a_k \leq 2 \delta_0$
+  mit $b_k - a_k = 2 \delta_0$
   und
   \[
     K \subset [-R, R] \subset \bigcup_{k=1}^{N}(a_k, b_k).
