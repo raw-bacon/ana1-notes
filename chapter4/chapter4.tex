@@ -197,14 +197,14 @@ Dann ist die Funktion
 \]
 linear und die Funktion
 $
-  {(Rf)}_p - \widetilde{{(Rf)}}_p
+  \widetilde{{(Rf)}}_p- {(Rf)}_p 
 $
 relativ klein in $|h|$.
 Weiter gilt auf dem gemeinsamen Definitionsbereich der
 beiden Funktionen, dass
 \[
 {(Df)}_p - \widetilde{{(Df)}}_p 
-  = {(Rf)}_p - \widetilde{{(Rf)}}_p.
+  =  \widetilde{{(Rf)}}_p-{(Rf)}_p 
 \]
 
 
@@ -248,7 +248,7 @@ Wir haben oben gesehen, dass
 \[
   g = 
 {(Df)}_p - \widetilde{{(Df)}}_p 
-  = {(Rf)}_p - \widetilde{{(Rf)}}_p.
+  = \widetilde{{(Rf)}}_p-{(Rf)}_p 
 \]
 linear und relativ klein in $|h|$, also
 die Nullfunktion ist.
@@ -272,7 +272,7 @@ die Nullfunktion ist.
   Mit ${(Df)}_0(-h) = - {(Df)}_0(h)$ und Eindeutigkeit
   der Dreigliedentwicklung folgt, dass
   \[
-    {(Df)}_0 = - {(Df)}_0(h),
+    {(Df)}_0 = - {(Df)}_0,
   \]
   also ${(Df)}_0(h) = 0$ für alle $h$.
 \end{application}
@@ -343,7 +343,7 @@ die Nullfunktion ist.
       \]
       und
       \[
-        {(Rf)}_p(h) = h^2 \sum_{k=2}^{n} \binom{n}{k}.
+        {(Rf)}_p(h) = h^2 \sum_{k=2}^{n} \binom{n}{k} p^{n-k}h^{k-2}.
       \]
       Dann ist ${(Df)}_p$ linear in $h$.
       Wir behaupten, dass ${(Rf)}_p(h)$ relativ
@@ -361,7 +361,8 @@ die Nullfunktion ist.
       mit $|h| \leq \delta$,
       dass
       \[
-        |{(Rf)}_p(h)| = |h|^2 \cdot \sum_{k=2}^{n}  p^{n-k}h^{k-2}
+        |{(Rf)}_p(h)| = |h|^2 \cdot \sum_{k=2}^{n} 
+        \binom{n}{k} \cdot |p|^{n-k} \cdot |h|^{k-2}
                  = |h|^2 \cdot M
                  \leq |h| \cdot \delta \cdot M 
                  \leq|h| \cdot  \varepsilon.
@@ -448,7 +449,7 @@ differenzierbaren Funktion differenzierbar ist.
   \end{enumerate}
   Falls diese Aussagen zutreffen, gilt
   \[
-    f'(p) = \lim_{h \to 0} \frac{f(p + h)}{h}.
+    f'(p) = \lim_{h \to 0} \frac{f(p + h) - f(p)}{h}.
   \]
 \end{proposition*}
 
@@ -530,7 +531,7 @@ auf diese kompliziertere Situation
   Da ${(Rf)}_p(h)$ relativ klein in $|h|$ ist,
   folgt dass
   \[
-    \lim_{h \to 0} \frac{|{(Rf)}_p(h)}{|h|} = 0,
+    \lim_{h \to 0} \frac{|{(Rf)}_p(h)|}{|h|} = 0,
   \]
   also auch
   \[
@@ -550,10 +551,10 @@ auf diese kompliziertere Situation
     a = \lim_{h \to 0} \frac{f(p+h) - f(p)}{h} \in \mathbb{R}
   \]
   existiert.
-  Im Hinblick auf $a = f'(p) = {(Df)}_p(1)$.
+  Im Hinblick auf $a = f'(p) = {(Df)}_p(1)$
   machen wir den Ansatz
   \[
-    f(p + h) = f(p) + a \cdot h + {(Rf)}_p(h).
+    f(p + h) = f(p) + a \cdot h + {(Rf)}_p(h)
   \]
   für eine Dreigliedentwicklung von $f$ an der Stelle
   $p \in (a, b)$. Zu zeigen ist, dass
@@ -622,7 +623,7 @@ auf diese kompliziertere Situation
   \begin{enumerate}[(1)]
     \item Sei $f(x) = \sqrt x$,
       definiert auf $\mathbb{R}_{\geq 0}$,
-      siehe
+      siehe Abbildung~\ref{fig:sqrt}.
       Wir versuchen, die Ableitung
       von $f$ an der Stelle $0$ auszurechnen.
       Berechne
