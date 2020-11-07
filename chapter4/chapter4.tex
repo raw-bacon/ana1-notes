@@ -233,9 +233,9 @@ beiden Funktionen, dass
   In anderen Worten ist $g$ die Nullfunktion.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary*}
   Die Dreigliedentwicklung ist eindeutig.
-\end{corollary}
+\end{corollary*}
 
 \begin{proof}
 Seien
@@ -1158,6 +1158,443 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   Dann existiert $t \in [0, 1]$ 
   mit $h'(t) = 0$.
 \end{rolle}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/rolle}
+  \caption{Satz von Rolle}%
+  \label{fig:rolle}
+\end{figure}
+
+\begin{proof}
+  Wir unterscheiden drei Fälle.
+  \begin{enumerate}[1.]
+    \item $h$ ist konstant.
+      Dann gilt für alle $t\in (0, 1)$,
+      dass $h'(t) = 0$.
+    \item Es existiert $p \in (0, 1)$ 
+      mit $h(p) < h(0) = h(1)$.
+      Das ist die Situation, die in
+      Abbildung~\ref{fig:rolle} dargestellt ist.
+      Da $h \colon [0, 1] \to \mathbb{R}$ 
+      stetig ist, nimmt $h$ auf dem
+      kompakten Intervall
+      $[0, 1]$ ein Minimum an.
+      Es existiert also $t \in [0, 1]$
+      so, dass für alle $q \in [0, 1]$ 
+      gilt, dass
+      $h(t) \leq h(q)$.
+      Wegen $h(p) < h(0) = h(1)$ folgt,
+      dass $t \in (0, 1)$.
+      Wir behaupten nun, dass $h'(t) = 0$.
+      Für den Beweis, siehe das Lemma unten.
+    \item Es existiert $p \in (0, 1)$ mit
+      $h(p) > h(0) = h(1)$. Wie im 2. Fall
+      folgt die Existenz eines Maximums
+      an einer Stelle $t \in (0, 1)$.
+      Auch hier folgt aus dem Lemma unten,
+      dass $h'(t) = 0$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{definition}
+  Sei $h \colon (a, b) \to \mathbb{R}$ differenzierbar.
+  Wir sagen, dass $h$ an der Stelle
+  $p \in (a, b)$ ein \emph{lokales
+  Minimum} annimmt, falls $\delta > 0$
+  mit $ (p - \delta, p + \delta)
+  \subset (a, b)$ existiert,
+  so dass für alle $q \in (p - \delta, p + \delta)$
+  gilt, dass  $h(q) \geq h(p)$. Ähnlich sagen wir,
+  dass $h$ an der Stelle
+  $p \in (a, b)$ ein \emph{lokales Maximum}
+  annimmt, falls $\delta > 0$ mit
+  $(p - \delta, p + \delta) \subset (a, b)$
+  existiert, so dass für alle $q \in (p - \delta, p + \delta)$ 
+  gilt, dass $h(q) \leq h(p)$.
+  Wir sagen weiterhin, dass $h$ an der
+  Stelle $p \in (a, b)$ ein
+  \emph{lokales Extremum} annimmt, falls 
+  $h$ an der Stelle $p$
+  ein lokales Maximum oder ein lokales Minimum
+  annimmt.
+\end{definition}
+
+
+\begin{lemma*}
+  Sei $h \colon (a, b) \to \mathbb{R}$
+  differenzierbar mit einem lokalen
+  Extremum an einer Stelle
+  $p \in (a, b)$. Dann gilt $h'(p) = 0$.
+\end{lemma*}
+
+\begin{remark}
+  Die Umkehrung gilt nicht: Nur weil $h'(t) = 0$ 
+  gilt, heisst das nicht, dass~$t$ ein
+  lokales Extremum von $h$ ist.
+\end{remark}
+
+\begin{example}
+  Betrachte die Funktion
+  \begin{align*}
+    h \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto x^3,
+  \end{align*}
+  siehe Abbildung~\ref{fig:cube} links.
+  Dann gilt $h'(0) = 0$, aber $h$
+  nimmt hat kein lokales Extremum im Nullpunkt.
+\end{example}
+
+\begin{proof}[Beweis des Lemmas]
+  Wir nehmen an, dass $h$ an der Stelle
+  $p$ ein lokales Minimum annimmt. Der Fall,
+  dass $h$ ein lokales Maximum bei $p$ annimmt,
+  ist analog.
+  Sei
+  \begin{align*}
+    h(p+k)
+    & = h(p) + {(Dh)}_p(k) + {(Rh)}_p(k)\\
+    & = h(p) + h'(p) \cdot k + {(Rh)}_p(k).
+  \end{align*}
+  Wir unterscheiden nun drei Fälle,
+  wobei zwei davon zu einem Widerspruch führen werden.
+  \begin{enumerate}[(1)]
+    \item $h'(p) = 0$. Das wollen wir zeigen.
+    \item $h'(p) > 0$. Setze
+      \[
+        \varepsilon = \frac{h'(p)}{2} > 0.
+      \]
+      Dann existiert $\delta > 0$ so dass
+      für alle $k \in \mathbb{R}$ mit
+      $|k| \leq \delta$ gilt, dass
+      $|{(Rh)}_p(k)| \leq \varepsilon \cdot |k|$.
+      Für alle $k \in (0, \delta)$ gilt:
+      \begin{align*}
+        h(p-k)
+        &= h(p) - k \cdot h'(p) + {(Rh)}_p(-k)\\
+        &\leq h(p) - k \cdot h'(p) + \frac{h'(p)}{2} \cdot k \\
+        &= h(p) - \frac{h'(p)}{2} \cdot k \\
+        &< h(p),
+      \end{align*}
+      was der Annahme, dass $h$ ein lokales minimum bei $p$
+      hat, widerspricht.
+    \item $h'(p) < 0$.
+      Setze 
+      \[
+        \varepsilon = \frac{|h'(p)|}{2} > 0.
+      \]
+      Dann existiert wie im 2. Fall $\delta > 0$ so dass
+      für alle $k \in \mathbb{R}$ mit
+      $|k| \leq \delta$ gilt, dass
+      $|{(Rh)}_p(k)| \leq \varepsilon \cdot |k|$.
+      Für alle $k \in (0, \delta)$ gilt dann
+      analog
+      $h(p + k) < h(p)$, was auch ein Widerspruch ist. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{proof}[Beweis vom Mittelwertsatz]
+  Betrachte die Hilfsfunktion 
+  \begin{align*}
+    h \colon [0, 1] & \to \mathbb{R} \\
+    t & \mapsto f((1- t)a + tb) - (1-t) \cdot f(a) - t\cdot f(b).
+  \end{align*}
+  Für $t \in (0, 1)$ gilt
+  \[
+    (1- t) \cdot a + t \cdot b = a + t \cdot (b-a) \in (a, b).
+  \]
+  Die Funktion $h$ ist stetig auf dem Intervall $[0, 1]$,
+  da sie eine Verknüpfung stetiger Funktionen ist,
+  und differenzierbar auf $(0, 1)$, da sie eine Verknüpfung
+  differenzierbarer Funktionen ist.
+  Es gilt
+  \begin{align*}
+    h(0) &= f(a) - f(a) = 0,\\
+    h(1) & = f(b) - f(b) = 0.
+  \end{align*}
+  Nach dem Satz von Rolle folgt, dass
+  $t_0 \in (0, 1)$ mit $h'(t_0) = 0$ 
+  existiert.
+  Wir berechnen \[
+    h'(t)  = f'((1-t)a + tb) \cdot (b-a) 
+  + f(a) - f(b). \]
+  Setze nun
+  \[
+    p = (1- t_0) \cdot a + t_0 \cdot b \in (a, b).
+  \]
+  Es gilt
+  \[
+    0 = h'(t_0) = f'(p) \cdot (b-a) + f(a) - f(b),
+  \]
+  also
+  \[
+    f'(p) = \frac{f(b) - f(a)}{b-a}. \qedhere
+  \]
+\end{proof}
+
+\begin{corollary}
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
+  mit $f' = 0$, die Nullfunktion.
+  Dann ist $f$ konstant.
+\end{corollary}
+
+\begin{proof}
+  Sei $a < b$. Nach dem Mittelwertsatz
+  existiert $p \in (a, b)$ mit
+  \[
+    f(b) - f(a) = f'(p) \cdot (b-a) = 0,
+  \]
+  also $f(p) = f(a)$.
+  Dies gilt für alle $a < b$, also
+  ist $f$ konstant.
+\end{proof}
+
+\begin{definition}
+  Eine Funktion $f \colon (a, b) \to \mathbb{R}$ 
+  heisst \emph{stetig differenzierbar} falls
+  $f$ differenzierbar und $f' \colon (a, b) \to \mathbb{R}$ 
+  stetig ist.
+\end{definition}
+
+
+\begin{corollary}\label{cor:strictly-monotone}
+  Sei $f \colon (a, b) \to \mathbb{R}$ 
+  stetig differenzierbar und sei
+  $p \in (a, b)$ mit $f'(p) > 0$.
+  Dann existiert $\delta > 0$,
+  so dass $f|_{(p- \delta, p + \delta)}
+  \colon (p - \delta, p + \delta) \to \mathbb{R}$ 
+  streng monoton wachsend ist,
+  das heisst, für alle $x, y \in (p - \delta, p + \delta)$ 
+  mit $x < y$ gilt
+  $f(x) < f(y)$.
+\end{corollary}
+
+\begin{proof}
+  Setze
+  \[
+    \varepsilon = \frac{f'(p)}{2} > 0.
+  \]
+  Da $f'$ stetig im Punkt $p$ ist, existiert
+  $\delta > 0$ so, dass
+  \begin{enumerate}[(i)]
+    \item $(p - \delta, p + \delta) \subset (a, b)$,
+    \item für alle $q \in (p - \delta, p + \delta)$ 
+      gilt
+      \[
+        |f'(q) - f'(p)| \leq \varepsilon.
+      \]
+  \end{enumerate}
+  Insbesondere gilt dann für
+  $q \in (p - \delta, p + \delta)$, dass
+  \[
+    f'(q) \geq f'(p) - \varepsilon \geq \frac{f'(p)}{2} > 0.
+  \]
+  Seien nun $x, y \in (p - \delta, p + \delta)$ mit
+  $x < y$.
+  Nach dem Mittelwertsatz existiert $t \in (x, y)$
+  mit 
+  \[f(y)  - f(x) = f'(t) \cdot (y - x) > 0. \]
+  Also gilt $f(y) > f(x)$.
+\end{proof}
+
+\subsection*{Konvexität}
+Mithilfe des Mittelwertsatzes können wir folgendes zeigen.
+\begin{enumerate}[(i)]
+  \item 
+    Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
+    mit $f' \geq 0$, das heisst, für alle $x \in \mathbb{R}$ 
+    gilt $f'(x) \geq 0$.
+    Dann ist $f$ monoton wachsend.
+    Tatsächlich, seien $x, y \in \mathbb{R}$ mit $x < y$.
+    Dann existiert $p \in [x, y]$ mit
+    \[
+      0 \leq f'(p) \cdot (y - x) = f(y) - f(x),
+    \]
+    also gilt $f(x) \leq f(y)$.
+  \item
+    Sei $f \colon \mathbb{R} \to \mathbb{R}$ zweimal
+    differenzierbar, das heisst, $f$ ist differenzierbar
+    und $f'$ ist differenzierbar mit $f'' \geq 0$.
+    Dann ist $f'$ monoton wachsend.
+    Wende dazu Punkt (i) auf
+    $f' \colon\mathbb{R} \to \mathbb{R}$ 
+    an.
+    Salopp gesagt heisst das,
+    dass die Steigung der Tangenten an den
+    Funktionsgraph von $f$ von links nach rechts
+    zunimmt.
+\end{enumerate}
+
+\begin{definition}
+  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
+  heisst \emph{konvex}, falls für alle $a, b, c \in \mathbb{R}$ 
+  mit $a < c < b$ der Punkt
+  $(c, f(c))
+  \in \mathbb{R}^2$ unter
+  oder auf der Gerade durch die Punkte
+  $(a, f(a))$ und $(b, f(b))$ liegt,
+  siehe Abbildung~\ref{fig:convexity}.
+\end{definition}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/convexity}
+  \caption{Konvexität}%
+  \label{fig:convexity}
+\end{figure}
+
+Formaler, schreibe
+$
+  c = a + t \cdot (b-a)
+  $
+mit $t \in (0, 1)$.
+Berechne den Schnittpunkt $(c, z)$ der
+Geraden $g$ zwischen
+$(a, f(a))$ und $(b, f(b))$ 
+mit der vertikalen Geraden durch $(c, 0)$ 
+folgendermassen:
+\[
+  z = f(a) + t \cdot (f(b) - f(a)).
+\]
+Die \emph{Konvexitätsbedingung} ist also
+$f(c) \leq z$, das heisst,
+\[
+  f(a + t \cdot (b-a)) \leq f(a) + t\cdot (f(b) - f(a)).
+\]
+Wir können also die Definition oben folgendermassen
+umformulieren.
+
+\begin{definition}
+  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
+  heisst \emph{konvex}, falls für alle $a < b$ 
+  und $t \in [0, 1]$ gilt, dass
+  \[
+    f(a + t \cdot (b - a)) \leq f(a) + t\cdot (f(b) - f(a)).
+  \]
+\end{definition}
+
+\newpage
+\begin{remarks}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Falls $f \colon \mathbb{R} \to \mathbb{R}$ 
+      zweimal differenzierbar ist und $f'' \geq 0$ gilt,
+      so ist $f$ konvex. Siehe dazu Serie 8.
+    \item Nicht jede konvexe Funktion
+      $f \colon \mathbb{R} \to \mathbb{R}$ ist
+      differenzierbar.
+  \end{enumerate}
+\end{remarks}
+
+\begin{example}
+  Betrachte die Funktion
+  \begin{align*}
+    f \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto |x|,
+  \end{align*}
+  siehe Abbildung~\ref{fig:modulus}.
+  Diese Funktion $f$ ist konvex, aber im
+  Nullpunkt nicht differenzierbar.
+  Aber $f$ ist stetig.
+\end{example}
+
+\begin{claim}
+  Jede konvexe Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
+  ist stetig.
+\end{claim}
+
+\begin{proof}[Beweisskizze]
+  Sei $x \in \mathbb{R}$.
+  Betrachte die Geraden $g$ 
+  durch $(x, f(x))$ und $(x-1, f(x-1))$
+  und $h$ durch $(x, f(x))$ und $(x+  1, f(x+1))$.
+  Dann liegt der Funktionsgraph von $f$ 
+  über dem Intervall $[x-1, x+1]$ zwischen
+  $g$ und $h$, siehe Abbildung~\ref{fig:convex-continuous}.
+  Das liegt daran, dass bei der Postulation
+  eines beliebigen Punktes ausserhalb
+  der grauen Region eine Sehne auftaucht,
+  die über dem Funktionsgraph von $f$ liegt.
+  Es folgt, dass
+  \[
+    \lim_{q \to x} f(q) = f(x),
+  \]
+  das heisst $f$ ist stetig in $x$.
+\end{proof}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/convex-continuous}
+  \caption{Konvexe Funktionen sind stetig}%
+  \label{fig:convex-continuous}
+\end{figure}
+
+Mit einer Variation vom obigen Argument lässt sich zeigen,
+dass konvexe Funktionen differenzierbar in allen
+bis auf abzählbar vielen Punkten sind.
+
+\section{Der Umkehrsatz}
+\begin{question}
+  Sei $f \colon (a, b) \to \mathbb{R}$ differenzierbar
+  und $p \in (a, b)$ mit $f'(p) > 0$.
+  Existiert $\delta > 0$, so dass
+  $f|_{(p - \delta, p + \delta)} \colon
+  (p - \delta, p + \delta)$ streng monoton wachsend ist?
+\end{question}
+
+In Korollar~\ref{cor:strictly-monotone} haben wir das
+nicht bewiesen, da wir dort stetige
+Differenzierbarkeit gefordert haben.
+Tatsächlich ist die Antwort nein.
+
+\begin{example}
+  Betrachte zunächst die Funktion
+  \begin{align*}
+    g \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto
+    \begin{cases}
+      0, & \text{falls $x = 0$}, \\
+      x^2 \cdot \sin(1/x), & \text{sonst}.
+    \end{cases}
+  \end{align*}
+Es gilt
+\[
+  g'(0) = \lim_{h \to 0} \frac{g(h) - g(0)}{h}
+  = \lim_{h \to 0} h \cdot \sin(1/h) = 0,
+\]
+da $|\sin(1/h)| \leq 1$ gilt.
+Für $x \neq 0$ gilt
+\[
+  g'(x) = 2x \cdot \sin(1/x) + x^2 \cdot \cos(1/x) \cdot (-1/x^2)
+  = 2x \cdot \sin(1/x) - \cos (1/x).
+\]
+Insbesondere gilt für alle $n \in \mathbb{Z}$ mit
+$n \neq 0$, dass
+\[
+  g'(1/2\pi n) = -1.
+\]
+Betrachte nun
+\begin{align*}
+  f \colon \mathbb{R} & \to \mathbb{R} \\
+  x & \mapsto x + 2g(x).
+\end{align*}
+Dann ist $f$ differenzierbar und es gilt
+\[
+  f'(0) = 1 + g'(0) = 1
+\]
+und
+\[
+  f'(1/2 \pi n) = 1 + 2 \cdot g'(1/ 2 \pi n) = -1
+\]
+für alle $n \in \mathbb{Z}$ mit $n \neq 0$.
+Insbesondere existiert keine offene
+Umgebung von $p = 0$ 
+in welcher $f$ monoton wachsend ist,
+obwohl $f'(0) = 1$.
+Das Problem hier ist, dass
+$f'$ an der Stelle $p = 0$ nicht stetig ist.
+\end{example}
 
 
 \end{document}

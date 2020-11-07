@@ -1,0 +1,19 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[yscale=2, xscale=3]
+  \draw (-0.25, 0) -- (2.5, 0);
+  \draw (0, -0.25) -- (0, 2.5);
+  \draw[dotted] (0, 2) -- (2, 2) -- (2, 0);
+  \draw (0, 2) .. controls +(0.5, -0.5) and
+    +(-0.25, 0) .. (0.75, 1.5)
+    .. controls +(0.25, 0) and +(-0.25, 0)
+    .. (1.25, 1.75)
+    .. controls +(0.25, 0) and +(-0.5, -0.5)
+    .. (2, 2);
+  \draw (0.25, 1.5) -- (1.25, 1.5);
+  \draw[dashed] (0.75, 1.5) -- (0.75, 0);
+  \node at (0.75, -0.15) {$t$};
+  \node at (2, -0.15) {$1$};
+\end{tikzpicture}
+\end{document}
