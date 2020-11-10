@@ -1596,5 +1596,215 @@ Das Problem hier ist, dass
 $f'$ an der Stelle $p = 0$ nicht stetig ist.
 \end{example}
 
+\begin{inverse}
+  Sei $f \colon (a, b) \to \mathbb{R}$ stetig
+  differenzierbar und $p \in (a, b)$ mit $f'(p) > 0$.
+  Dann existiert $\delta > 0$ so, dass
+  die Einschränkung $f|_{(p - \delta, p + \delta)}
+  \colon (p - \delta, p + \delta) \to
+  (f(p - \delta), f(p + \delta))$
+  injektiv und die Umkehrfunktion
+  $g = f|_{(p - \delta, p + \delta)}^{-1}$ 
+  differenzierbar ist und fűr alle
+  $q \in (f(p-\delta), f(p + \delta))$ die Bedingung
+  \[
+    g'(q) = \frac{1}{f'(g(q))}
+  \]
+  erfüllt.
+\end{inverse}
+
+\begin{remark}
+  Es ist wichtig, dass
+  $f$ stetig differenzierbar ist.
+  Die Funktion $f(x) = x + 2 x^2 \sin(1/x)$ 
+  erfüllt $f'(0) = 1$, aber  $f$ ist in
+  keiner offenen Umgebung von $0$ 
+  umkehrbar, siehe obiges Beispiel.
+\end{remark}
+
+\begin{proof}
+  Wähle $\delta > 0$ so, dass
+  \begin{enumerate}[(i)]
+    \item $[p - \delta, p + \delta] \subset (a,b)$,
+    \item fűr alle $q \in (p - \delta, p + \delta)$ gilt
+      \[
+        |f'(q) - f'(p)| \leq \frac{f'(p)}{2}.
+      \]
+  \end{enumerate}
+  Insbesondere gilt für alle $q \in (p - \delta, p + \delta)$, dass
+  \[
+    f'(q) \geq \frac{f'(q)}{2} > 0.
+  \]
+  Nach dem Mittelwertsatz ist $f$ auf dem
+  Intervall $(p -\delta, p+\delta)$ streng
+  monoton wachsend, also injektiv.
+  Nach dem Zwischenwertsatz für stetige Funktionen
+  nimmt $f$ auf dem Intervall $(p - \delta, p + -\delta)$ 
+  jeden Wert zwischen $f(p - \delta)$ und $f(p + \delta)$ an.
+  Daraus folgt, dass die Einschränkung
+  $f|_{(p - \delta, p + \delta)} \colon (p - \delta, p + \delta) \to (c, d)$,
+  wobei
+  $c = f(p - \delta)$ und $d = f(p + \delta)$,
+  bijektiv ist.
+
+  Sei $g = f|_{(p - \delta, p + \delta)}^{-1}$ die
+  Umkehrfunktion.
+  Zu zeigen ist, dass $g$ differenzierbar ist.
+  Sei dazu $q \in (c, d)$ und $h \in \mathbb{R}$ so dass
+  $q + h \in (c, d)$. 
+  Setze $\tilde q = g(q) \in (p - \delta, p +\delta)$ und
+  $\tilde h = g(q + h) - g(q)$.
+  Mit dieser Wahl gilt, dass
+  \[
+    f(\tilde q) = f(g(q)) = q
+  \]
+  und
+  \[
+    f(\tilde q + \tilde h) = f(g(q + h)) = q + h.
+  \]
+  Nach dem Mittelwertsatz existiert $t \in (\tilde q, \tilde q + \tilde h)$ 
+  mit
+  \[
+    h = f(\tilde q + \tilde h) - f(\tilde q) = f'(t) \cdot \tilde h.
+  \]
+  Berechne nun
+  \[
+    \frac{g(q + h) - g(q)}{h} = \frac{\tilde h}{h} =
+    \frac{\tilde h}{f(\tilde q + \tilde h) - f(\tilde q) } =
+    \frac{1}{f'(t)}.
+  \]
+  Bemerke, dass für $t \in (\tilde q, \tilde q + \tilde h) \subset (p - \delta, p + \delta)$ 
+  gilt, dass
+  $f'(t) \geq f'(p) / 2 > 0$, also ist $1/f'(t)$ definiert.
+  Im Grenzűbergang $h \to 0$ erhalten wir
+  \[
+    \lim_{h \to 0} \tilde h = \lim_{h \to 0} \frac{h}{f'(t)} = 0,
+  \]
+  da $f'(t) \geq f'(p) / 2$, und somit folgt
+  \[
+    \lim_{h \to 0} t = \tilde q,
+  \]
+  da $t \in (\tilde q, \tilde q + \tilde h)$. Wir folgern,
+  dass
+  \[
+    \lim_{h \to 0} \frac{g(q + h) - g(q)}{h} = \frac{1}{f'(\tilde q)} = \frac{1}{f'(g(q))}.
+  \]
+  Also ist $g$ im Punkt $q \in (f(p - \delta), f(p + \delta))$ differenzierbar
+  und es gilt wie gefordert $g'(q) = 1 / f'(g(q))$.
+\end{proof}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Betrachte $f = \exp \colon \mathbb{R} \to \mathbb{R}_{>0}$.
+      Wir bemerken, dass $f$ stetig differenzierbar ist, da $f' = f$.
+      Weiterhin gilt für alle $x \in \mathbb{R}$, dass
+      $f'(x) = e^x > 0$, also ist die Umkehrfunktion $g = \log$ 
+      auf $\mathbb{R}_{>0}$ differenzierbar ist mit
+      \[
+        g'(x) = \frac{1}{f'(g(x))} = \frac{1}{f(g(x))} = \frac{1}{x}.
+      \]
+      Für $x > 0$ gilt also
+       \[
+         \log'(x) = 1 / x.
+      \]
+    \item Betrachte die Funktion
+      \begin{align*}
+        f \colon \mathbb{R}_{> 0} & \to \mathbb{R}_{> 0} \\
+        x & \mapsto x^2.
+      \end{align*}
+      Dann gilt $g(x) = \sqrt x$. Bemerke, dass
+      $f'(x) = 2x$ stetig ist.
+      Weiterhin gilt für alle $x > 0$, dass $f'(x) = 2 x > 0$.
+      Also ist $g$ im Punkt $x^2$ differenzierbar,
+      also auf ganz $\mathbb{R}_{>0}$. Für alle
+      $x > 0$ gilt
+      \[
+        g'(x) = \frac{1}{f'(g(x))} = \frac{1}{2 \sqrt x}.
+      \]
+      Zusammengefasst erhalten wir
+      \[
+        \sqrt x ' = \frac{1}{2\sqrt x}.
+      \]      
+  \end{enumerate}
+\end{examples}
+
+\subsection*{Winkelfunktionen}
+Wir erinnern uns an die geometrische Überlegung, dass
+die Sinusfunktion
+$\sin$ 
+an der Stelle $x = 0$ differenzierbar ist mit
+$\sin(0) = 1$. Weiter gilt nach dem Satz
+von Pythagoras für alle $x \in \mathbb{R}$,
+dass
+\[
+  {(\cos(x))}^2 + {(\sin(x))}^2 = 1,
+\]
+also 
+\[
+  \cos(x) = \sqrt{1 - \sin^2(x)}.
+\]
+Gemäss Beispiel (2) und der
+Kettenregel ist $\cos$ an der
+Stelle $x = 0$ differenzierbar
+und es gilt
+\[
+  \cos ' ( 0 ) = 
+  \frac{1}{2 \sqrt{1 - \sin(0)}} \cdot (-2 \cdot \sin(0) \cdot \sin'(0)) = 0.
+\]
+
+\begin{question}
+  Sind $\sin$ und $\cos$ auch an Stellen $x \neq 0$
+  differenzierbar?
+\end{question}
+
+Die Antwort ist ja. Verwende dazu das Additionstheorem
+\[
+  \sin(x + y) = \sin(x) \cdot \cos(y) + \cos(x) \cdot \sin(y)
+\]
+um zu zeigen, dass
+\begin{align*}
+  \frac{\sin( x + h ) - \sin(x)}{h}
+  &=
+  \frac{\sin(x) \cdot \cos(h) + \cos(x) \cdot \sin(h) - \sin(x)}{h}
+  \\ & 
+  = \sin(x) \cdot \frac{\cos(h) - \cos(0)}{h} + \cos(x) \cdot \frac{\sin(h) - \sin(0)}{h}.
+\end{align*}
+Es folgt, dass
+\[
+  \sin'(x) = \lim_{h \to 0} \frac{\sin(x + h) - \sin(x)}{h} =
+  \sin(x) \cdot \cos'(0) + \cos(x) \cdot \sin' (0),
+\]
+also
+\[
+  \sin'(x) = \cos x
+\]
+und ebenso
+\[
+  \cos'(x) = -\sin(x).
+\]
+Um das Additionstheorem, das wir verwendet haben, zu beweisen,
+betrachte die Drehungen $D_x, D_y, D_{x + y}$ um den Nullpunkt
+in $\mathbb{R}^2$ mit Winkeln $x, y, x + y $.
+Es gilt $D_{x + y} = D_x \circ D_y$, also folgt
+\[
+  \begin{pmatrix}
+    \cos( x + y ) & - \sin(x + y) \\
+    \sin( x + y ) & \cos(x + y)
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos(x) & -\sin(x) \\
+    \sin(x) & \cos(x)
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    \cos(y) & -\sin(y) \\
+    \sin(y) & \cos(y)
+  \end{pmatrix}.
+\]
+Die gesuchte Formel steht dann in einer Komponente
+der resultierenden Matrizen.
+
 
 \end{document}

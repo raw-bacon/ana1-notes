@@ -1,5 +1,219 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Differentialrechnung}
+\chapter{Das Riemannsche Integral}
+Das Riemannsche Integrals wurde
+vom Schüler Bernhard Riemann (1826--1866)
+von Gauss eingeführt.
+
+Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
+mit $f' = 0$ (die Nullfunktion).
+Dann ist $f$ konstant (was wir bereits mithilfe des
+Mittelwertsatz gezeigt haben). Daraus können wir
+folgendes schliessen.
+Seien $f, g \colon \mathbb{R} \to \mathbb{R}$ 
+Funktionen mit
+$f' = g'$, das heisst, für alle $x \in \mathbb{R}$
+gilt $f'(x) = g'(x)$.
+Dann ist $f - g$ konstant.
+Wir folgern, dass die Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
+durch ihre Ableitung $f' \colon \mathbb{R} \to \mathbb{R}$ 
+und einen Wert $f(0)$ determiniert ist.
+
+\begin{question}
+  Wie bestimmen wir $f$ aus $f'$ 
+  und $f(0)$?
+\end{question}
+
+\begin{specialcase}
+  Sei $f$ affin. Dann gilt für alle
+  $x \in \mathbb{R}$, dass
+  \[
+    f(x) = f(0) + x \cdot f'(0).
+  \]
+  Dies gilt im allgemeinen nicht: wir verwenden
+  hier, dass $f$ affin ist.
+  Aber immerhin ist für kleine $|h|$
+  der Ausdruck $f(x) + h \cdot f'(x)$ eine
+  gute Approximation von $f(x + h)$.
+\end{specialcase}
+
+Dies führt zu der Überlegung, dass für beliebige
+Funktionen der Ausdruck
+\[
+  f(x) = f(0) + (f(x/N) - f(0))
+  + (f(2x/N) - f(x/N)) + \cdot
+  + (f(x) - f((N-1)x/N))
+\]
+zu einer Approximation von $f$ aus
+$f'$ führen könnte. Für grosse $N$ 
+sollte nämlich
+\[
+  f(x) - f(0) \approx \sum_{k = 0}^{N - 1} 
+  \frac{x}{N} \cdot f'(k \cdot x / N)
+\]
+eine gute Approximation sein, wobei
+hier das Symbol $\approx$ für ein
+saloppes ``ungefähr'' steht.
+Im Grenzübergang erhalten wir das
+Integral
+\[
+  \int_{0}^{x} f'(t) \, dt =
+  \lim_{N \to \infty} \sum_{k = 0}^{N - 1} \frac{x}{N}
+  f'(k \cdot x/N).
+\]
+Nun definieren wir dieses Integral formal.
+
+\section{Die Definition des Riemannschen Integrals}
+\begin{definition}
+  Seien $a,b \in \mathbb{R}$
+  mit $a < b$. Eine \emph{Partition} des Intervalls
+  $[a, b]$ ist eine Unterteilung in
+  endlich viele Teilintervalle der
+  Form
+  $I_k = [x_k, x_{k  + 1}]$ mit
+  \[
+    a = x_0 < x_1 < \cdots < x_n = b.
+  \]
+\end{definition}
+
+Sei nun $f \colon [a, b] \to \mathbb{R}$ von oben und
+unten beschränkt und $P$ eine Partition von $[a, b]$.
+Definiere die korrespondierende \emph{Obersumme} durch
+\[
+  \overline S_P(f)
+  = \sum_{k = 0}^{n - 1} (x_{k + 1} - x_k)
+  \cdot \sup \left\{f(x) \mid x \in I_k \right\}
+\]
+und die korrespondierende \emph{Untersumme} durch
+\[
+  \underline S_P(f)
+  = \sum_{k = 0}^{n - 1} (x_{k + 1} - x_k)
+  \cdot \inf \left\{f(x) \mid x \in I_k \right\},
+\]
+siehe Abbildung~\ref{fig:riemann}.
+
+\begin{figure}[htb] 
+  \centering
+  \begin{minipage}{0.50\textwidth}
+    \centering
+
+    \includestandalone{images/sum-upper}
+  \end{minipage}%
+  \begin{minipage}{0.50\textwidth}
+    \centering
+
+    \includestandalone{images/sum-lower}
+  \end{minipage}%
+  \caption{Obersumme und Untersumme}%
+  \label{fig:riemann}
+\end{figure}
+
+\begin{lemma*}
+  Seien $P_1$ und $P_2$ Partitionen
+  von $[a, b]$. Dann gilt
+  $\underline S_{P_1} \leq \overline S_{P_2}$.
+  In anderen Worten sind alle Obersummen
+  kleiner als alle Untersummen.
+\end{lemma*}
+
+\begin{proof}
+  Schreibe
+  $P_1 = [x_0, x_1, \dots, x_n]$ 
+  und
+  $P_2 = [y_0, y_1, \dots, y_m]$.
+  Wähle eine Partition $Q$ von
+  $[a,b]$, welche alle $x_i$ und
+  $y_j$ enthält, eine sogenannte
+  \emph{gemeinsame Verfeinerung}
+  von $P_1$ und $P_2$.
+  Dann gilt
+  \[
+    \underline S_{P_1} \leq \underline S_Q
+    \leq \overline S_Q
+    \leq \overline S_{P_2}.
+  \]
+  Dass die Untersummen beim Verfeinern
+  grösser und die Obersummen kleiner
+  werden, ist eine kleine Übung.
+\end{proof}
+
+\begin{definition}
+  Eine beschränkte Funktion
+  $f \colon [a, b] \to \mathbb{R}$ heisst
+  \emph{Riemann-integrierbar}, falls
+  \[
+    \sup_{P} \underline S_P(f) = \inf_{Q} \overline S_Q(f)
+  \]
+  gilt,
+  wobei $P$ und $Q$ alle Partitionen von
+  $[a, b]$ durchlaufen.
+  Diese Zahl heisst dann \emph{Riemann-Integral}
+  von $f$ über $[a,b]$ und wird
+  mit
+  \[
+    \int_{a}^{b} f(x) \, dx
+  \]
+  notiert.
+\end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Betrachte die Funktion
+      \begin{align*}
+        f \colon [0, 1] & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          1 & \text{falls $x \in \mathbb{Q}$},\\
+          0 & \text{falls $x \in \mathbb{R} \setminus \mathbb{Q}$}.
+        \end{cases}
+      \end{align*}
+      Für alle Partitionen $P$ von $[0, 1]$ gilt
+      \[
+        \overline S_P(f) = 1
+      \]
+      und
+      \[
+        \underline S_P(f) = 0.
+      \]
+      Also ist $f$ nicht Riemann-integrierbar.
+    \item Betrachte die Funktion
+      \begin{align*}
+        f \colon [-1, 1] & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & \text{falls $x \leq 0$},\\
+          1 & \text{falls $x > 0$}.
+        \end{cases}
+      \end{align*}
+      Betrachte die Partition
+      $P = [-1, 0, 1/N, 1]$.
+      Es gilt
+      \[
+        \overline S_P(f) = 1
+      \]
+      und
+      \[
+        \underline S_P(f) = 1 - 1/N.
+      \] 
+      Somit folgt $\overline S_P - \underline S_P = 1/N$,
+      also ist $f$ Riemann-integrierbar und es gilt
+      \[
+        \int_{0}^{1} f(x) \, dx = 1.
+      \]
+      
+      
+      
+      
+      
+      
+      
+  \end{enumerate}
+  
+\end{examples}
+
+
+
+
 \end{document}

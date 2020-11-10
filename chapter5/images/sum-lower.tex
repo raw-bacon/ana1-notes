@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[yscale=0.15, xscale=1.5]
+  \clip (-0.25, -3.5) rectangle (3.25, {exp(3.25)});
+  \draw (0,-0.25) -- (0, 25);
+  \draw (-0.25, 0) -- (4,0);
+  \draw[domain=-0.25:3.25] plot ({\x}, {exp(\x)});
+  \draw (1, 0) rectangle (2, {exp(1)});
+  \draw (2, 0) rectangle (2.5, {exp(2)});
+  \draw (2.5, 0) rectangle (3, {exp(2.5)});
+  \node at (1, -2.5) {$a$};
+  \node at (2, -2.5) {$x_1$};
+  \node at (2.5, -2.5) {$x_2$};
+  \node at (3, -2) {$b$};
+\end{tikzpicture}
+\end{document}
