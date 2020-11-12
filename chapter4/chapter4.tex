@@ -780,7 +780,7 @@ auf diese kompliziertere Situation
 Seien 
 $a, b, c, d \in \mathbb{R}$ mit $a < b$ und $c < d$,
 sei $g \colon (a, b) \to \mathbb{R}$ 
-eine Funktion
+eine Funktion,
 deren Bild in $(c, d)$ liegt, das heisst,
 $g((a, b)) \subset (c, d)$,
 und sei $f \colon (c, d) \to \mathbb{R}$ eine Funktion.
@@ -800,7 +800,7 @@ im Punkt $p$ differenzierbar, und es gilt
   haben wir, dass
   \begin{align*}
     (f \circ g)'(p)
-    & = {(D(f \circ g)}_p(1) \\
+    & = {(D(f \circ g))}_p(1) \\
     & = {(Df)}_{g(p)} \circ {(Dg)}_p(1) \\
     & = {(Df)}_{g(p)}(g'(p)) \\
     & = g'(p) \cdot {(Df)}_{g(p)}(1) \\
@@ -832,7 +832,7 @@ im Punkt $p$ differenzierbar, und es gilt
     f \circ g(p + h) = f(g(p)) + {(Df)}_{g(p)}(\overline h)
     + {(Rf)}_{g(p)}(\overline h).
   \]
-  Nach Linearität von ${Df)}_{g(p)}$ gilt, dass
+  Nach Linearität von ${(Df)}_{g(p)}$ gilt, dass
   \[
     f(g(p+h)) = f(g(p)) + {(Df)}_{g(p)}(
     {(Dg)}_p(h))
@@ -930,7 +930,7 @@ differenzierbar ist, dann gilt
 \[
   {(D(\text{Id}_{(c, d)}))}_{p} = 
   {(D(f \circ g))}_p
-  = {(Df)}_{g(p)} \circ {(Dg)}_p
+  = {(Df)}_{g(p)} \circ {(Dg)}_p.
 \]
 Da das Differential einer linearen Abbildung
 die lineare Abbildung selbst ist,
@@ -958,7 +958,7 @@ also
 \begin{example}
 Betrachte
 \begin{align*}
-  f \colon \mathbb{R} & \to \mathbb{R} \\
+  f \colon \mathbb{R} & \to \mathbb{R}_{>0} \\
   x & \mapsto e^x.
 \end{align*}
 Wir wissen bereits, dass $f'(x) = e^x$ gilt.
@@ -1094,7 +1094,7 @@ im Punkt $p$ differenzierbar und es gilt
   Die $6$ Restterme sind
   \begin{itemize}
     \item $f(p) \cdot {(Rg)}_p(h)$ und
-      $g(p) \cdot {(Rf)}$, welche beide
+      $g(p) \cdot {(Rf)}_p(h)$, welche beide
       ein Produkt einer Konstanten
       mit einem Term der relativ klein in $|h|$ ist, sind,
     \item ${(Df)}_p(h) \cdot {(Rg)}_p(h)$,
@@ -1104,7 +1104,7 @@ im Punkt $p$ differenzierbar und es gilt
     \item ${(Df)}_p(h) \cdot {(Dg)}_p(h) = h^2
       \cdot f'(p) \cdot g'(p)$, was ein Produkt
       einer Konstanten
-      mit $h^2$, was relativ klein in $|h|$ ist, ist.
+      mit $h^2$ und somit relativ klein in $|h|$ ist.
   \end{itemize}
   Da die Summe von relativ kleinen Termen selbst relativ
   klein ist, haben wir die Produktregel bewiesen.
@@ -1134,7 +1134,7 @@ Wir brauchen dafür den Mittelwertsatz
 \begin{geometric}
   Sei $ f \colon [a, b] \to \mathbb{R}$ stetig
   und differenzierbar auf $(a, b)$.
-  Dann existiert $p \in (a, b)$ so dass
+  Dann existiert $p \in (a, b)$ so, dass
   die Sehne zwischen $(a, f(a))$ und
   $(b, f(b))$ dieselbe Steigung
   wie die Tangente des Graphen von $f$ zu $
