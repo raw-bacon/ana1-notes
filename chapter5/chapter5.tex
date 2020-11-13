@@ -64,7 +64,7 @@ Integral
 \]
 Nun definieren wir dieses Integral formal.
 
-\section{Die Definition des Riemannschen Integrals}
+\section{Die Definition des Riemannschen Integrals}\label{sec:riemann-definition}
 \begin{definition}
   Seien $a,b \in \mathbb{R}$
   mit $a < b$. Eine \emph{Partition} des Intervalls
@@ -75,6 +75,8 @@ Nun definieren wir dieses Integral formal.
   \[
     a = x_0 < x_1 < \cdots < x_n = b.
   \]
+  Wir notieren diese Partition als
+  $P = [x_0, x_1, \dots, x_n]$.
 \end{definition}
 
 Sei nun $f \colon [a, b] \to \mathbb{R}$ von oben und
@@ -203,10 +205,417 @@ siehe Abbildung~\ref{fig:riemann}.
         \int_{0}^{1} f(x) \, dx = 1.
       \]
   \end{enumerate}
-  
 \end{examples}
 
+\begin{theorem}\label{thm:continuous-integrable}
+  Sei $f \colon [a, b] \to \mathbb{R}$ stetig. Dann ist $f$ 
+  Riemann-integrierbar.
+\end{theorem}
 
+\begin{proof}
+  Da $[a, b]$ kompakt ist, impliziert die Stetigkeit von $f$ sogar
+  \emph{gleichmässige Stetigkeit} auf $[0, 1]$:
+  Für alle $\varepsilon > 0$ existiert $\delta > 0$ so, dass
+  für alle $p, q \in [a, b]$ mit $|q - p| \leq \delta$ gilt, dass
+  $|f(q) - f(p)| \leq \varepsilon$.
+  Wähle $N \in \mathbb{N}$ mit
+  \[
+    \frac{b-a}{N} \leq \delta.
+  \]
+  Betrachte die Partition
+   \[
+    P = \left[ a, a + \frac{b - a}{N}, a + 2 \frac{b-a}{N}, \dots,
+    b\right].
+  \]
+  Für diese gilt
+  \begin{align*}
+    \overline S_P(f) - \underline S_P(f)
+    &\leq \sum_{k=0}^{N-1} \frac{b-a}{N}\cdot \varepsilon  \\
+    & N \frac{b-a}{\varepsilon} \\
+    &= \varepsilon \cdot (b-a).
+  \end{align*}
+  Wir folgern, dass die Differenz $\overline S_P(f) - \underline S_P(f)$ 
+  beliebig kleine Werte annehmen kann. Insbesondere gilt,
+  dass
+  \[
+    \lim_{N \to \infty} \overline S_P(f) - \underline S_P(f) = 0.
+  \]
+  Folglich ist $f$ Riemann-integrierbar.
+\end{proof}
+
+\begin{example}
+  Betrachte die Funktion
+  \begin{align*}
+    f \colon [0, 1] & \to \mathbb{R} \\
+    x & \mapsto x^n
+  \end{align*}
+  für $n \in \mathbb{N}$ beliebig. Betrachte die
+  Partition
+  \[
+    P = [0, 1/N, 2/N, \dots, 1].
+  \]
+  Es gilt:
+  \[
+    \overline S_P(f) = \frac{1}{N} \cdot \left( {\left( \frac{1}{N}  \right)}^n
+    + \cdots + {\left( \frac{N}{N}  \right)}^n \right)
+  \]
+  und
+  \[
+    \underline S_P(f) = \frac{1}{N} \cdot \left( 0 +{\left( \frac{1}{N}  \right)}^n 
+    + \cdots + {\left( \frac{N-1}{N}  \right)}^n\right).
+  \]
+  Also folgt
+  \[
+    \lim_{N \to \infty} \overline S_P(f) - \underline S_P(f) = 
+    \lim_{N \to \infty}\frac{1}{N} = 0,
+  \]
+  was wir auch aus Theorem~\ref{thm:continuous-integrable} schliessen konnten.
+  Wir wissen aber immer noch nicht, was das Integral
+  \[
+    I = \int_{0}^{1} x^n \, dx
+  \]
+  für einen Wert hat.
+\end{example}
+
+\begin{geometric}
+  Das Integral
+  \[
+    \int_{a}^{b} f(x) \, dx
+  \]
+  ist der Flächeninhalt zwischen der $x$-Achse und dessen
+  Funktionsgraph zwischen $a$ und $b$ mit Gewichtung
+  wie in Abbildung~\ref{fig:riemann-integral}.
+  Wir werden dies als Definition des Wortes
+  \textit{Flächeninhalt} auffassen.
+\end{geometric}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/riemann-integral}
+  \caption{Die Vorzeichen der Flächen}%
+  \label{fig:riemann-integral}
+\end{figure}
+
+\begin{remark}
+  Stetigkeit in allen Punkten von $[a, b]$ ist
+  nicht notwendig: Es gibt unstetige Funktionen,
+  die Riemann-integrierbar sind.
+\end{remark}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item Die Funktion
+      \begin{align*}
+        f \colon [-1, 1] & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & x \leq 0,\\
+          1 & x > 0.
+        \end{cases}
+      \end{align*}
+      ist nicht stetig, aber dennoch Riemann-integrierbar.
+    \item Die Funktion
+      \begin{align*}
+        f \colon [0, 1] & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & x = 0 \\
+          1/x & x > 0
+        \end{cases}
+      \end{align*}
+      ist unbeschränkt und deshalb nicht Riemann-integrierbar.
+      Für alle Partitionen $P$ von $[0, 1]$ gilt
+      $
+      \overline S_P(f) = + \infty$.
+      Dieses Phänomen ist der Grund dafür, dass
+      wir Beschränktheit von $f$ fordern.
+  \end{enumerate}
+\end{examples}
+
+\subsection*{Integrabilitätskriterium von Lebesgue}
+Henri Lebesgue (1875--1941) war ein Französischer Mathematiker.
+Sein Integrabilitätskriterium charakterisiert die
+Riemann-integrierbaren Funktionen, im Gegensatz zu
+Theorem~\ref{thm:continuous-integrable}, was nur eine
+hinreichende Bedingung darstellt.
+
+\begin{definition}
+  Eine Teilmenge $\Delta \subset \mathbb{R}$ 
+  heisst \emph{Lebesgue Nullmenge},
+  falls für alle $\varepsilon > 0$ abzählbar viele
+  offene Intervalle
+  \[
+    I_k = (a_k, b_k)
+  \]
+  mit $k \in \mathbb{N}$
+  existieren, so dass 
+  \[
+    \Delta \subset \bigcup_{k=0}^{\infty} I_k
+  \]
+  und
+  \[
+    \sum_{k=0}^{\infty} b_k - a_k \leq \varepsilon.
+  \]
+\end{definition}
+
+\begin{example}
+  Sei $\Delta = \mathbb{Q} \subset \mathbb{R}$.
+  Sei $\varepsilon > 0$ vorgegeben.
+  Wähle eine Bijektion $q \colon\mathbb{N} \to \mathbb{Q}$ 
+  und schreibe $q_k = q(k)$ für $k \in \mathbb{N}$.
+  Setze
+  \[
+    a_k = q_k - \frac{\varepsilon}{4} \cdot \frac{1}{2^k}
+  \]
+  und
+  \[
+    b_k = q_k + \frac{\varepsilon}{4} \cdot \frac{1}{2^k}.
+  \]
+  Es gilt $q_k \in (a_k, b_k)$ und  
+  \[
+    b_k - a_k = \frac{\varepsilon}{2^{k+1}}.
+  \]
+  Es folgt, dass
+  \[
+    \sum_{k=0}^{\infty} b_k - a_k = \varepsilon \cdot
+    \sum_{k=0}^{\infty} \frac{1}{2^{k+1}} = \varepsilon.
+  \]
+  Wir haben also $\mathbb{Q}$ abgedeckt mit Intervallen,
+  deren Gesamtlänge kleiner als $\varepsilon$ ist.
+  Also ist $\mathbb{Q}$ (und, mit dem selben Beweis,
+  jede abzählbare Teilmenge von $\mathbb{R}$)
+  eine Lebesgue Nullmenge.
+\end{example}
+
+\begin{theorem}[Lebesgue 1901]
+  Sei $f \colon [a, b] \to \mathbb{R}$ eine Funktion.
+  Dann sind folgende Aussagen äquivalent.
+  \begin{enumerate}[\normalfont(i)]
+    \item $f$ ist  Riemann-integrierbar,
+    \item $f$ ist beschränkt und beschränkt und die Menge
+      $\Delta$ der Unstetigkeitsstellen von $f$ ist
+      eine Lebesgue Nullmenge.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Siehe zum Beispiel Abschnitt 84 in~\cite{heuser}.
+\end{proof}
+
+In anderen Vorlesungen, zum Beispiel Analysis 3, wird
+der Begriff der Lebesgue-Integrabilität diskutiert.
+Mit dem Lebesgue-Integral sind sogar noch mehr Funktionen
+integrierbar.
+
+\begin{example}
+  Die Funktion
+  \begin{align*}
+    f \colon [0, 1] & \to \mathbb{R} \\
+    x & \mapsto 
+    \begin{cases}
+      1/q & \text{falls $x = p/q \in \mathbb{Q}$ gekürzt ist},\\
+      0 & \text{falls $x \in \mathbb{R} \setminus Q$}
+    \end{cases}
+  \end{align*}
+  ist beschränkt
+  und auf $\mathbb{R} \setminus \mathbb{Q}$ stetig,
+  also Riemann-integrierbar. In den Übungen wird das
+  ``zu Fuss'' mit der Definition des Riemann-Integrals
+  gezeigt.
+\end{example}
+
+\subsection*{Elementare Eigenschaften des Riemann-Integrals}
+\begin{notation}
+  Die Menge $R[a, b]$ ist definiert als
+  die Menge aller Riemann-integrierbaren Funktionen
+  $f \colon [a, b] \to \mathbb{R}$.
+\end{notation}
+
+Wir stellen fest:
+\begin{enumerate}[(i)]
+  \item $R[a, b]$ ist ein reeller Vektorraum.
+  \item die Abbildung
+    \begin{align*}
+      \int \colon R[a,b] & \to \mathbb{R} \\
+      f & \mapsto \int_{a}^{b} f(x) \, dx
+    \end{align*}
+    ist linear.
+\end{enumerate}
+Konkret heisst das folgendes.
+\begin{enumerate}[(i)]
+  \item Seien $f, g \colon [a, b] \to \mathbb{R}$
+    Riemann-integrierbar und $\lambda \in \mathbb{R}$.
+    Dann ist $f + \lambda g \colon [a, b] \to \mathbb{R}$ 
+    auch Riemann-integrierbar.
+  \item Die Gleichung
+    \[
+      \int_{a}^{b} f(x) + \lambda g(x) \, dx
+      = \int_{a}^{b} f(x) \, dx
+      + \lambda \cdot \int_{a}^{b} g(x) \, dx
+    \]
+    ist für alle Riemann-integrierbaren 
+    $f, g \colon [a, b] \to \mathbb{R}$ 
+    erfüllt.
+\end{enumerate}
+
+\begin{remark}
+  Der Vektorraum $R[a,b]$ ist unendlichdimensional, da die
+  Funktionen 
+  \[
+   x \mapsto x^k 
+  \]
+  linear unabhängig sind.
+\end{remark}
+
+An dieser Stelle halten wir ausserdem fest, dass
+für alle $c \in [a, b]$ und alle Riemann-integrierbaren
+$f \colon [a, b] \to \mathbb{R}$ gilt, dass
+\[
+  \int_{a}^{b} f(x) \, dx = \int_{a}^{c} f(x) \, dx
+  + \int_{c}^{b} f(x) \, dx.
+\]
+
+\section{Der Hauptsatz der Differential- und Integralrechnung}
+\begin{definition}
+  Sei $f \colon [a, b] \to \mathbb{R}$ eine Funktion.
+  Eine differenzierbare
+  Funktion $F \colon [a, b] \to \mathbb{R}$ ist
+  eine \emph{Stammfunktion} von $f$, falls für
+  alle $x \in [a, b]$ gilt, dass $F'(x) = f(x)$.
+  Hier einigen wir uns auf die Konvention,
+  dass Differenzierbarkeit im Punkt $a$ bedeutet, dass
+  der Grenzwert
+  \[
+    F'(a) 
+    = \lim_{h \to 0} \frac{F(a + |h|) - F(a)}{|h|} \in \mathbb{R}
+  \]
+  existiert. Ähnlich heisst Differenzierbarkeit im Punkt $b$,
+  dass der Grenzwert
+  \[
+    F'(b) = \lim_{h \to 0} \frac{F(b - |h|) - F(b)}{-|h|}
+  \]
+  existiert.
+\end{definition}
+
+
+\begin{theorem}\label{thm:fundamental}
+  Sei $f \colon [a, b] \to \mathbb{R}$ stetig.
+  Dann ist die Funktion
+  \begin{align*}
+    F \colon [a, b] & \to \mathbb{R} \\
+    x & \mapsto \int_{a}^{x} f(t) \, dt
+  \end{align*}
+  eine Stammfunktion von $f$.
+\end{theorem}
+
+\begin{proof}
+  Sei $p \in [a, b]$ und $h \in \mathbb{R}$ 
+  mit $p + h \in [a, b]$.
+  Wir leiten nun eine Dreigliedentwicklung
+  für $F$ bei $p$ her. Berechne
+  \begin{align*}
+    F(p+h)
+    &= \int_{a}^{p+h} f(t) \, dt\\
+    &= \int_{a}^{p} f(t) \, dt
+    + \int_{p}^{p+h} f(t) \, dt.
+  \end{align*}
+  Schreibe
+  \[
+    \int_{p}^{p+h} f(t) \, dt
+    = \int_{p}^{p+h} f(p) \, dt
+    + \int_{p}^{p+h} f(t) - f(p) \, dt.
+  \]
+  Bemerke, dass
+  \[
+    \int_{p}^{p+h} f(p) \, dt = h \cdot f(p).
+  \]
+  Setzen wir
+  \[
+    {(RF)}_p(h) = \int_{p}^{p+h} f(t) - f(p) \, dt,
+  \]
+  so gilt
+  \[
+    F(p + h) = F(p) + h \cdot f(p) + {(RF)}_p(h).
+  \]
+  Wir zeigen nun, dass ${(RF)}_p(h)$ relativ klein in $|h|$ ist.
+  Sei dazu $\varepsilon > 0$ vorgegebn.
+  Wähle $\delta > 0$ so, dass für alle
+  $t \in [a, b]$ mit $|t - p| \leq \delta$ gilt,
+  dass $|f(t) - f(p)| \leq \varepsilon$.
+  Dann gilt für $h \in \mathbb{R}$ mit $|h| \leq \delta$,
+  dass
+  \begin{align*}
+    |{(RF)}_p(h)|
+    & = \left| \int_{p}^{p+h} f(t) - f(p) \, dt \right|\\
+    & \leq |h| \cdot \varepsilon,
+  \end{align*}
+  da für alle Obersummen gilt, da alle Partitionen
+  die Bedingungen
+  $\overline S_P(f|_{[p, p+h]}) \leq |h| \cdot \varepsilon$
+  und $\underline S_P(f|_{[p, p+h]}) \geq - \varepsilon \cdot h$ 
+  erfüllen.
+  Wir schliessen, dass der Restterm
+  ${(RF)}_p(h)$ relativ klein in $|h|$ ist.
+  Also ist $F$ differenzierbar im Punkt $p$ mit
+  \[
+    {(DF)}_p(h) = h \cdot f(p),
+  \]
+  also gilt $F'(p) = f(p)$.
+\end{proof}
+
+\begin{application}
+  Sei $U \subset \mathbb{R}$ offen und $g \colon U \to \mathbb{R}$ 
+  stetig differenzierbar. Sei $[a, b] \subset U$.
+  Dann gilt
+  \[
+    \int_{a}^{b} g'(t) \, dt = g(b) - g(a).
+  \]
+\end{application}
+
+\begin{proof}
+  Betrachte die Funktion
+  \begin{align*}
+    G \colon [a, b] & \to \mathbb{R} \\
+    x & \mapsto \int_{a}^{x} g'(t) \, dt.
+  \end{align*}
+  Nach Theorem~\ref{thm:fundamental} ist $G$ differenzierbar
+  und $G'(x) = g'(x)$, das heisst $G - g$ ist auf
+  $[a, b]$ konstant (nach dem Mittelwertsatz).
+  Es existiert somit $c \in \mathbb{R}$ mit $G(x) = g(x) + c$.
+  Setzen wir $x = a $ ein, so erhalten wir
+  \[
+    G(a) = \int_{a}^{a} g'(t) \, dt = 0,
+  \]
+  also gilt $c = -g(a)$. Wir schliessen, dass
+  \[
+    \int_{a}^{b} g(t) \, dx = G(b) = g(b) - g(a). \qedhere
+  \]
+\end{proof}
+
+\begin{example}
+  Es gilt
+  \[
+    \int_{a}^{b} x^n \, dx = \frac{1}{n+1} (b^{n+1} - a^{n+1})
+  \]
+  für $n \in \mathbb{N}$, da die Funktion
+  \begin{align*}
+    G \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto \frac{x^{n+1}}{n+1}
+  \end{align*}
+  eine Stammfunktion von
+  \begin{align*}
+    g \colon \mathbb{R} & \to \mathbb{R} \\
+    x & \mapsto x^n
+  \end{align*}
+  ist. Der Spezialfall
+  \[
+    \int_{0}^{1} x^n \, dx = \frac{1}{n+1}
+  \]
+  beschreibt nun das Integral, das wir nach
+  dem Beweis von Theorem~\ref{thm:continuous-integrable}
+  noch nicht berechnen konnten.
+\end{example}
 
 
 \end{document}
