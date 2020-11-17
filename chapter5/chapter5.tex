@@ -335,7 +335,7 @@ siehe Abbildung~\ref{fig:riemann}.
 
 \subsection*{Integrabilitätskriterium von Lebesgue}
 Henri Lebesgue (1875--1941) war ein Französischer Mathematiker.
-Sein Integrabilitätskriterium charakterisiert die
+Sein Kriterium für Integrabilität charakterisiert die
 Riemann-integrierbaren Funktionen, im Gegensatz zu
 Theorem~\ref{thm:continuous-integrable}, was nur eine
 hinreichende Bedingung darstellt.
@@ -499,7 +499,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
 \end{definition}
 
 
-\begin{theorem}\label{thm:fundamental}
+\begin{theorem}[Hauptsatz der Differential- und Integralrechnung]\label{thm:fundamental}
   Sei $f \colon [a, b] \to \mathbb{R}$ stetig.
   Dann ist die Funktion
   \begin{align*}
@@ -616,6 +616,462 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
   dem Beweis von Theorem~\ref{thm:continuous-integrable}
   noch nicht berechnen konnten.
 \end{example}
+
+\begin{remarks}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $f \colon [a, b] \to \mathbb{R}$ Riemann-integrierbar
+      (aber nicht unbedingt stetig). Dann ist die Funktion
+      \begin{align*}
+        F \colon [a, b] & \to \mathbb{R} \\
+        x & \mapsto \int_{a}^{x} f(t) \, dt
+      \end{align*}
+      im allgemeinen nicht differenzierbar.
+      Betrachte zum Beispiel die Funktion
+      \begin{align*}
+        f \colon [-1, 1] & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & x \leq 0,\\
+          1 & x > 0.
+        \end{cases}
+      \end{align*}
+      Dann ist
+      \[
+        F(x) = 
+        \begin{cases}
+          0 & x \leq 0,\\
+          x & x \geq 0,
+        \end{cases}
+      \]
+      was an der Stelle $x = 0$ nicht differenzierbar ist.
+    \item Sei $U \subset \mathbb{R}$ offen und
+      $f \colon U \to \mathbb{R}$ stetig differenzierbar.
+      Dann ist $f' \colon U \to \mathbb{R}$ im allgemeinen
+      nicht Riemann-integrierbar.
+      Betrachte hier zum Beispiel
+      \begin{align*}
+        f \colon \mathbb{R} & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & x = 0, \\
+          x^2 \sin(1/x^2) & x \neq 0.
+        \end{cases}
+      \end{align*}
+      Dann ist
+      \[
+        f'(x) = 
+        \begin{cases}
+          0 & x = 0,\\
+          2x \sin(1/x^2) - 2/x \cdot \cos(1/x^2) & x \neq 0.
+        \end{cases}
+      \]
+      Bemerke, dass $f'$ auf jedem Intervall
+      der Form $(-\delta, \delta)$ für $\delta > 0$
+      unbeschränkt, also insbesondere
+      nicht Riemann-integrierbar ist.
+  \end{enumerate}
+\end{remarks}
+
+\section{Integrationsmethoden}
+\subsection*{Partielle Integration}
+Die Produktregel für die Ableitungen sagt, dass für
+differenzierbare $f, g \colon U \to \mathbb{R}$ gilt, dass
+\[
+  (f\cdot g)' = f'\cdot g + f\cdot g'.
+\]
+Seien nun zusätzlich $f', g' \colon U \to \mathbb{R}$ stetig
+und $[a, b] \subset U$. Dann ist $f' \cdot g + f \cdot g'$ 
+auf $[a, b]$ Riemann-integrierbar und es gilt
+\[
+  \int_{a}^{b} (f \cdot g)' (x) \, dx
+  = \int_{a}^{b} f'(x) \cdot g(x) \, dx
+  + \int_{a}^{b} f(x) \cdot g'(x) \, dx
+\]
+Wir erhalten folgendes Resultat.
+
+\begin{byparts}
+  Seien $f, g \colon U \to \mathbb{R}$ stetig differenzierbar.
+  Dann gilt 
+  \[
+    f(b) \cdot g(b) - f(a) \cdot g(a)
+    = \int_{a}^{b} f'(x) \cdot g(x) \, dx
+    + \int_{a}^{b} f(x) \cdot g'(x) \, dx.
+  \]
+\end{byparts}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $U = \mathbb{R}_{>0}$ und $a  > 0$.
+      Wir möchten das Integral
+      \[
+        \int_{a}^{x} \log(t) \, dt
+      \]
+      berechnen. Schreibe dazu
+      $f'(x) = 1$ und $g(x) = \log (x)$.
+      Das gilt zum Beispiel für $f(x) = x$,
+      und wir berechnen $g'(x) = 1/x$.
+      Es folgt, dass
+      \[
+        \int_{a}^{x} 1 \cdot \log(t) \, dt
+        = x \cdot \log (x) - a \cdot \log (a)
+        - \int_{a}^{x} t \cdot \frac{1}{t} \, dt.
+      \]
+      Wir erhalten somit eine Stammfunktion von $\log$ 
+      auf $\mathbb{R}_{>0}$, und zwar die Funktion
+      \[
+        x \mapsto x \cdot \log(x) - x.
+      \]
+    \item Sei $U = \mathbb{R}$ und $a \in \mathbb{R}$ beliebig.
+      Wir fragen uns, was
+      \[
+        \int_{a}^{x} \cos^2(t) \, dt
+      \]
+      ist. Schreibe dazu $f'(x) = \cos (x)$ 
+      und $g(x) = \cos(x)$.
+      Es gilt dann
+      $f(x) = \sin(x)$ (bis auf Addition einer Konstante,
+      die uns nicht interessiert), und $g'(x) = -\sin(x)$.
+      Also folgt
+      \[
+        \int_{a}^{x} \cos(t) \, dt
+        = \sin(x) \cdot \cos (x) -
+        \sin(a) \cdot \cos (a) +
+        \int_{a}^{x} \sin^2(t) \, dt.
+      \]
+      Mit $\sin^2(x) = 1 - \cos^2(x)$ folgt, dass
+      \[
+        \int_{a}^{x} \cos^2(t) \, dt
+        = \frac{1}{2} \cdot
+        \left( \sin(x) \cdot \cos(x) -
+        \sin(a) \cos (a) + (b-a) \right).
+      \]
+      Die Stammfunktion, die wir so erhalten, ist
+      \[
+        x \mapsto \frac{1}{2} (\sin (x) \cdot \cos(x) + x).
+      \]
+  \end{enumerate}
+\end{examples}
+
+\subsection*{Substitution}
+\begin{substitution}
+  Sei $U \subset \mathbb{R}$ offen
+  mit $[a, b] \subset U$.
+  Seien $f \colon \mathbb{R} \to \mathbb{R}$ stetig
+  und $g \colon U \to \mathbb{R}$ stetig differenzierbar.
+  Dann gilt
+  \[
+    \int_{g(a)}^{g(b)} f(z) \, dz
+    = \int_{a}^{b} f(g(t)) \cdot g'(t) \, dt
+  \]
+\end{substitution}
+
+\begin{proof}
+  Da $f$ stetig ist, existiert
+  eine Stammfunktion $F \colon \mathbb{R} \to \mathbb{R}$,
+  das heisst,
+  $F'(x) = f(x)$ für alle $x \in \mathbb{R}$.
+  Es gilt auch, dass
+  \[
+    (F \circ g)'(t) = f(g(t)) \cdot g'(t).
+  \]
+  Also ist $F \circ g$ eine Stammfunktion
+  von $(f \circ g) \cdot g'$.
+  Wir schliessen
+  \[
+    \int_{g(a)}^{g(b)} f(z) \, dz
+    = F(g(b)) - F(g(a))
+    = \int_{a}^{b} f(g(t)) \cdot g'(t) \, dt. \qedhere
+  \]
+\end{proof}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $g \colon \mathbb{R} \to \mathbb{R}_{>0}$ 
+      eine beliebige positive Funktion,
+      und sei $[a, b] \subset \mathbb{R}$.
+      Dann gilt
+      \[
+        \int_{a}^{b} \frac{g'(x)}{g(x)} \, dx
+        = \int_{g(a)}^{g(b)} \frac{1}{z} \, dz
+        = \log(g(b)) - \log(g(a))
+      \]
+      Tatsächlich, setze $f(x) = 1/x$ auf $\mathbb{R}_{>0}$
+      und wende die Substitutionsformel an.
+    \item Betrachte die Funktionen
+      \begin{align*}
+        g \colon [0, \pi/2] & \to [0, 1] \\
+        x & \mapsto \sin(x)
+      \end{align*}
+      und
+      \begin{align*}
+        f \colon [0, 1] & \to [0, 1] \\
+        z & \mapsto \sqrt{1- z^2}.
+      \end{align*}
+      Dann gilt $g(0) = 0$, $g(\pi(2)) = 1$ 
+      und $g'(x) = -\cos(x)$ für alle $x \in [0, \pi/2]$.
+      Es folgt, dass
+      \[
+        \int_{0}^{1} \sqrt{1 - z^2} \, dz
+        = \int_{0}^{\pi/2} \sqrt{1 - \sin^2(t)}
+        \cdot \cos(t)\, dt
+        = \int_{0}^{\pi/2} \cos^2(t) \, dt
+        = \frac{\pi}{4}.
+      \]
+      Wir können dieses Resultat geometrisch als den Fakt
+      interpretieren, dass die Fläche eines Kreises 
+      mit Einheitsradius $\pi$ ist, siehe
+      Abbildung~\ref{fig:circle-area}.
+  \end{enumerate}
+\end{examples}
+
+\begin{figure}[htb]
+  \centering
+  \includestandalone{images/circle-area}
+  \caption{Berechnung der Fläche eines Kreises mit Radius $1$}%
+  \label{fig:circle-area}
+\end{figure}
+
+\subsection*{Partialbruchzerlegung}
+Die Partialbruchzerlegung ist eine Methode
+zur Integration aller \emph{rationaler Funktionen}
+auf $\mathbb{R}$,
+das heisst, Funktionen der Form
+$p/q$, wobei $p$ und $q$ Polynome sind.
+Wir schreiben hier auch kurz $p, q \in \mathbb{R}[x]$.
+Diese Notation wird spätestens in der Vorlesung
+``Algebra'' gerechtfertigt.
+Der Fall $q(x) = 1$ für alle $x$ entspricht einfach
+der Integration eines Polynoms, was wir können.
+Schwieriger ist es, Integrale der Form
+\[
+  \int_{a}^{b} \frac{1}{p(x)} \, dx
+\]
+zu berechnen.
+Der Einfachheit halber beschränken wir uns auf diese Funktionen.
+
+Sei
+\[
+  p(x) = x^n + a_1 x^{n-1} + a_2 x^{n-2} + \cdots
+  + a_{n-1} x + a_n
+\]
+ein Polynom.
+Wir betrachten den Spezialfall,
+in dem $p$ genau $n$ paarweise verschiedene
+Nullstellen $\alpha_1, \alpha_2, \dots, \alpha_n \in \mathbb{R}$ 
+hat.
+Daraus, dass das Polynom
+\[
+  x \mapsto p(x) - \prod_{x=1}^{n} (x - \alpha_k)
+\]
+höchstens Grad $n-1$ und genau $n$ Nullstellen
+$\alpha_1, \dots, \alpha_n$ hat, folgt dass
+\[
+  p(x) = (x - \alpha_1) (x - \alpha_2) \cdots (x - \alpha_n)
+\]
+für alle $x \in \mathbb{R}$.
+
+\begin{lemma}[Partialbruchzerlegung]\label{lem:partial-fractions}
+  Sei $p \in \mathbb{R}[x]$ ein Polynom mit $n$ 
+  paarweise verschiedenen Nullstellen
+  $\alpha_1, \dots, \alpha_n$.
+  Dann existieren $b_1, \dots, b_n \in \mathbb{R}$
+  mit
+  \[
+    \frac{1}{p(x)} = \frac{b_1}{x - \alpha_1}
+    + \cdots + \frac{b_n}{x - \alpha_n}.
+  \]
+\end{lemma}
+
+\begin{application}
+  Die Funktion
+  \[
+    x \mapsto \frac{b_k}{x - \alpha_k}
+  \]
+  hat Stammfunktion
+  \[
+    x \mapsto b_k \cdot \log (x - \alpha_k).
+  \]
+  Für ein Polynom $p \in \mathbb{R}[x]$ mit
+  \[
+    \frac{1}{p(x)} = \frac{b_1}{x - \alpha_1}
+    + \cdots + \frac{b_n}{x - \alpha_n}
+  \]
+  folgt dann, dass
+  \[
+    \int_{a}^{b} \frac{1}{p(x)} \, dx
+    = \sum_{k=1}^{n} \int_{a}^{b} \frac{b_k}{x - \alpha_k} \, dx
+    = \sum_{k=1}^{n} b_k \cdot \log(b - \alpha_k)
+    - \sum_{k=1}^{n} \log(a - \alpha_k),
+  \]
+  vorausgesetzt $\alpha_k \notin [a, b]$ für $k = 1, \dots, n$.
+\end{application}
+
+\begin{example}
+  Sei $p(x) = (x - 1)(x - 2)$. Schreibe
+  \[
+    \frac{1}{p(x)} = \frac{b_1}{x - 1} + \frac{b_2}{x - 2}.
+  \]
+  Wir möchten $b_1$ und $b_2$ berechnen.
+  Multiplizieren wir auf beiden Seiten mit $p(x)$,
+  so erhalten wir
+  \[
+    1 = b_1 (x- 2) + b_2(x-1) = (b_1 + b_2) \cdot x
+    + (-2b_1 - b_2).
+  \]
+  Es gilt also $b_1 + b_2 = 0$ und somit $b_2 = -b_1 = 1$.
+\end{example}
+
+\begin{proof}[Beweis von Lemma~\ref{lem:partial-fractions}]
+  Um die Koeffizienten $b_k$ zu berechnen,
+  machen wir den Ansatz
+  \[
+    \frac{1}{p(x)} = \sum_{k=1}^{n} \frac{b_k}{x - \alpha_k}.
+  \]
+  Schreibe
+  \[
+    p_k(x) = \frac{p(x)}{x - \alpha_k}.
+  \]
+  Bemerke, dass $p_k \in \mathbb{R}[x]$ ein Polynom
+  von Grad $n-1$ ist, da $x - \alpha_k$ ein
+  Faktor von $p$ ist.
+  Multipliziere diesen Ansatz mit $p(x)$ und erhalte
+  \[
+    1 = \sum_{k=1}^{n} b_k \cdot p_k(x).
+  \]
+  Man bemerke, dass für $i \ne k$ gilt, dass
+  $p_i(\alpha_k) = 0$, da $p_i$ den Faktor
+  $x - \alpha_k$ enthält.
+  Wir erhalten
+  \[
+    1 = \sum_{i=1}^{n} b_i \cdot p_i(\alpha_k) = b_k \cdot p_k(\alpha_k),
+  \]
+  also folgern wir
+  \[
+    b_k = \frac{1}{p_k(\alpha_k)}.
+  \]
+  Das macht Sinn, da $p_k(\alpha_k) \neq 0$.
+ 
+  Wir behaupten nun, dass für diese $b_k$ tatsächlich
+  \[
+    \frac{1}{p(x)} = \sum_{k=1}^{n}  \frac{b_k}{x - \alpha_k}
+  \]
+  gilt.
+  Bemerke dazu, dass die Abbildung
+  \[
+    x \mapsto 1 - \sum_{k=1}^{n} b_k p_k(x)
+  \]
+  ein Polynom vom Grad $n-1$ mit $n$ Nullstellen
+  $\alpha_1, \dots, \alpha_n$ und somit die Nullfunktion ist.
+  Wir erhalten, dass
+  \[
+    1 = \sum_{k=1}^{n} b_k p_k(x)
+  \]
+  für alle $x \in \mathbb{R}$.
+  Division durch $p(x)$ liefert die Behauptung und somit
+  das Lemma.
+\end{proof}
+
+\begin{issues}
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item Das Polynom $p \in \mathbb{R}[x]$ könnte mehrfache
+      Nullstellen haben, wie zum Beispiel
+      $p(x) = x^2 \cdot (x - 1)$.
+    \item Das Polynom $p \in \mathbb{R}[x]$ hat vielleicht
+      nicht nur reelle Nullstellen, wie zum Beispiel
+      $p(x) = x^2 + 1$.
+  \end{enumerate}
+\end{issues}
+
+Das erste Problem lässt sich mit nicht allzu viel Aufwand lösen.
+Schreibe
+\[
+  p(x) = {(x - \alpha_1)}^{k_1} \cdots
+  {(x - \alpha_m)}^{k_m}.
+\]
+Dann liefert ein ähnlicher Beweis,
+siehe Abschnitt 69 in~\cite{heuser},
+eine Partialbruchzerlegung
+\[
+  \frac{1}{p(x)} = \sum_{i=1}^{m} \sum_{k=1}^{k_i} 
+  \frac{c_{ik}}{{(x - \alpha_i)}^k}
+\]
+mit geeigneten Koeffizienten $c_{ik} \in \mathbb{R}$.
+Auch dieses Resultat kann angewendet werden,
+um Integrale
+\[
+  \int_{a}^{b} \frac{1}{p(x)} \, dx
+  = \sum_{i=1}^{m} \sum_{k=1}^{k_i} \int_{a}^{b} 
+  \frac{c_{ik}}{{(x - \alpha_i)}^k}\, dx
+\]
+zu berechnen.
+
+\begin{example}
+  Betrachte zum Beispiel das Polynom
+    $p(x) = x^2 \cdot (x - 1)$.
+  Mit dem Ansatz
+  \[
+    \frac{1}{p(x)} = \frac{a}{x^2} + \frac{b}{x}
+    + \frac{c}{x-1}
+  \]
+  erhalten wir
+  \begin{align*}
+    1 & 
+    = a(x - 1) + b x (x - 1) + cx^2\\
+      &= (b + c) \cdot x^2 + (a - b) x - a.
+  \end{align*}
+  Wir folgern $b + c = a - b = 0$ und $a = -1$.
+\end{example}
+  
+Für das zweite Problem verwenden wir den
+\emph{Fundamentalsatz der Algebra},
+der folgendes aussagt.
+
+\begin{lemma}
+  Sei $p \in \mathbb{C}[x]$ ein nicht-konstantes
+  komplexes Polynom. Dann existiert $\alpha \in \mathbb{C}$ 
+  mit $p( \alpha ) = 0$.
+\end{lemma}
+
+Für den Beweis, siehe Abschnitt 69 in~\cite{heuser}, oder
+die Vorlesung ``Komplexe Analysis''.
+Sei nun $p \in \mathbb{R}[x]$ und $\alpha = a + bi \in \mathbb{C}$ 
+mit $p ( \alpha ) = 0$.
+Dann gilt auch
+$p(\overline \alpha) = 0$,
+wobei $\overline \alpha = a - bi$
+(hier brauchen wir, dass die Abbildung
+$z \mapsto \overline z$ linear
+und eingeschränkt auf $\mathbb{R}$ die Identität ist).
+Es gilt nun
+\[
+  p(x) = (x - \alpha)(x - \overline \alpha) \widetilde{p}(x)
+  = x^2 - 2ax + a^2 + b^2
+\]
+
+\begin{example}
+  Sei $p(x) = x^3 + 2x^2 + x + 2$.
+  Es gilt $p(i) = p(-i) = 0$.
+  Wir folgern, dass $(x- i)(x + i) = x^2 + 1$ 
+  das Polynom $p$ teilt. Tatsächlich gilt
+  \[
+    p(x) = (x^2 + 1)(x+2).
+  \]
+  In den Übungen ist $1/p(x)$ als
+  \[
+    \frac{1}{p(x)} = \frac{a}{x + 2}
+    + \frac{bx + c}{x^2 + 1}
+  \]
+  zu schreiben. Unter Benutzung von
+  \[
+    \arctan'(x) = \frac{1}{x^2 + 1}
+  \]
+  lässt sich der Term $(bx + c)/(x^2 + 1)$ leicht integrieren.
+\end{example}
+
 
 
 \end{document}
