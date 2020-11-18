@@ -1155,7 +1155,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   Sei $h \colon [0, 1] \to \mathbb{R}$ stetig
   und differenzierbar auf $(0, 1)$ 
   mit $h(0) = h(1)$.
-  Dann existiert $t \in [0, 1]$ 
+  Dann existiert $t \in (0, 1)$ 
   mit $h'(t) = 0$.
 \end{rolle}
 
@@ -1242,7 +1242,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   \end{align*}
   siehe Abbildung~\ref{fig:cube} links.
   Dann gilt $h'(0) = 0$, aber $h$
-  nimmt hat kein lokales Extremum im Nullpunkt.
+  hat kein lokales Extremum im Nullpunkt.
 \end{example}
 
 \begin{proof}[Beweis des Lemmas]
@@ -1276,7 +1276,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
         &= h(p) - \frac{h'(p)}{2} \cdot k \\
         &< h(p),
       \end{align*}
-      was der Annahme, dass $h$ ein lokales minimum bei $p$
+      was der Annahme, dass $h$ ein lokales Minimum bei $p$
       hat, widerspricht.
     \item $h'(p) < 0$.
       Setze 
@@ -1344,14 +1344,14 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   \[
     f(b) - f(a) = f'(p) \cdot (b-a) = 0,
   \]
-  also $f(p) = f(a)$.
+  also $f(b) = f(a)$.
   Dies gilt für alle $a < b$, also
   ist $f$ konstant.
 \end{proof}
 
 \begin{definition}
   Eine Funktion $f \colon (a, b) \to \mathbb{R}$ 
-  heisst \emph{stetig differenzierbar} falls
+  heisst \emph{stetig differenzierbar}, falls
   $f$ differenzierbar und $f' \colon (a, b) \to \mathbb{R}$ 
   stetig ist.
 \end{definition}
@@ -1407,7 +1407,7 @@ Mithilfe des Mittelwertsatzes können wir folgendes zeigen.
     gilt $f'(x) \geq 0$.
     Dann ist $f$ monoton wachsend.
     Tatsächlich, seien $x, y \in \mathbb{R}$ mit $x < y$.
-    Dann existiert $p \in [x, y]$ mit
+    Dann existiert $p \in (x, y)$ mit
     \[
       0 \leq f'(p) \cdot (y - x) = f(y) - f(x),
     \]
@@ -1589,7 +1589,7 @@ und
 \]
 für alle $n \in \mathbb{Z}$ mit $n \neq 0$.
 Insbesondere existiert keine offene
-Umgebung von $p = 0$ 
+Umgebung von $p = 0$,
 in welcher $f$ monoton wachsend ist,
 obwohl $f'(0) = 1$.
 Das Problem hier ist, dass
