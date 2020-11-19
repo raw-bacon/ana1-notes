@@ -2,7 +2,7 @@
 
 \begin{document}
 \chapter{Das Riemannsche Integral}
-Das Riemannsche Integrals wurde
+Das Riemannsche Integral wurde
 vom Schüler Bernhard Riemann (1826--1866)
 von Gauss eingeführt.
 
@@ -12,6 +12,7 @@ Dann ist $f$ konstant (was wir bereits mithilfe des
 Mittelwertsatz gezeigt haben). Daraus können wir
 folgendes schliessen.
 Seien $f, g \colon \mathbb{R} \to \mathbb{R}$ 
+differenzierbare
 Funktionen mit
 $f' = g'$, das heisst, für alle $x \in \mathbb{R}$
 gilt $f'(x) = g'(x)$.
@@ -31,7 +32,7 @@ und einen Wert $f(0)$ determiniert ist.
   \[
     f(x) = f(0) + x \cdot f'(0).
   \]
-  Dies gilt im allgemeinen nicht: wir verwenden
+  Dies gilt im Allgemeinen nicht: wir verwenden
   hier, dass $f$ affin ist.
   Aber immerhin ist für kleine $|h|$
   der Ausdruck $f(x) + h \cdot f'(x)$ eine
@@ -190,7 +191,7 @@ siehe Abbildung~\ref{fig:riemann}.
         \end{cases}
       \end{align*}
       Betrachte die Partition
-      $P = [-1, 0, 1/N, 1]$.
+      $P = [-1, 0, 1/N, 1]$ für festes $N \in \mathbb{N}$.
       Es gilt
       \[
         \overline S_P(f) = 1
@@ -202,7 +203,7 @@ siehe Abbildung~\ref{fig:riemann}.
       Somit folgt $\overline S_P - \underline S_P = 1/N$,
       also ist $f$ Riemann-integrierbar und es gilt
       \[
-        \int_{0}^{1} f(x) \, dx = 1.
+        \int_{-1}^{1} f(x) \, dx = 1.
       \]
   \end{enumerate}
 \end{examples}
