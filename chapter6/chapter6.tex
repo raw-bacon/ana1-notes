@@ -1,5 +1,279 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Riemann Integral}
+\chapter{Taylorreihen und Potenzreihen}
+\section{Taylorentwicklung}
+Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar.
+Dann hat $f$ in  jedem Punkt $p \in \mathbb{R}$ eine Dreigliedentwicklung
+der Form
+\[
+  f(p+ h) = f(p) + {(Df)}_p(h) + {(Rf)}_p(h).
+\]
+Insbesondere gilt für $p = 0$ und $h = x$, dass
+\begin{align*}
+  f(x) &= f(0) + {(Df)}_0(x) + {(Rf)}_0(x) \\
+       &= f(0) + f'(0) \cdot x + {(Rf)}_0(x).
+\end{align*}
+
+\begin{definition}
+  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$ heisst $n$-\emph{mal
+  differenzierbar}, falls alle Ableitungen $f', f'', \dots, f^{(n)}$ existieren.
+  Weiter heisst eine Funktion $f$ 
+  $n$-\emph{mal stetig differenzierbar} falls $f$ 
+  eine $n$-mal differenzierbare Funktion und 
+  $f^{(n)} \colon \mathbb{R} \to \mathbb{R}$ stetig ist.
+\end{definition}
+
+
+Sei nun $f \colon \mathbb{R} \to \mathbb{R}$ zweimal differenzierbar.
+Das heisst, die Funktion $f' \colon \mathbb{R} \to \mathbb{R}$ ist differenzierbar.
+Dann erhalten wir
+\[
+  f'(x) = f'(0) + f''(0) \cdot x + {(Rf')}_0 (x).
+\]
+Wir erhalten aus
+\[
+  f(x) - f(0)
+   = \int_{0}^{x} f'(t) \, dt,
+\]
+dass
+\begin{align*}
+  f(x) 
+  & = f(0) + \int_{0}^{x} f'(0) + f''(0) \cdot t + {(Rf')}_0(t) \, dt  \\
+  & = f(0) + f'(0) \cdot x + f''(0) \cdot \frac{x^2}{2} + \int_{0}^{x} {(Rf')}_0(t) \, dt.
+\end{align*}
+Durch Iteration dieses Verfahrens erhalten wir folgenden Satz.
+
+\newpage
+\begin{theorem}[Brook Taylor, ca. 1715]
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ eine
+  $n$-mal stetig differenzierbare Funktion für $n \in \mathbb{N}$ mit $n \geq 1$.
+  Dann besitzt $f$ eine Entwicklung
+  mit $n + 2 $ Gliedern der Form
+  \[
+    f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!}x^k + {(Rf)}_n(x),
+  \]
+  wobei der Restterm ${(Rf)}_n(x)$ relativ klein in
+  $|x|^n$ ist. Das heisst, für alle $ \varepsilon > 0$
+  existiert $\delta > 0$ so, dass für alle $x \in \mathbb{R}$ mit
+  $|x| \leq \delta$ gilt, dass
+  \[
+    |{(Rf)}_n(x)| \leq \varepsilon \cdot |x|^n.
+  \]
+\end{theorem}
+
+\begin{proof}
+  Wir beweisen diesen Satz durch Induktion über $n \in \mathbb{N}$.
+  Die Verankerung bei $n = 1$ ist bloss die Definition der Differenzierbarkeit
+  via die Dreigliedentwicklung.
+  Wir treffen die Induktionsannahme, dass die Aussage für $n-1$ gilt.
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ eine $n$-mal stetig differenzierbare Funktion.
+  Das heisst, $f'$ ist eine $(n-1)$-mal stetig differenzierbare Funktion.
+  Nach der Induktionsannahme hat $f'$ eine Entwicklung der Form
+  \[
+    f'(x) = \sum_{k=0}^{n-1} \frac{f^{(k+1)}(0)}{k!}x^k + {(Rf')}_{n-1}(x).
+  \]
+  Der Hauptsatz der Differential- und Integralrechnung liefert
+  \begin{align*}
+    f(x) - f(0) & = \int_{0}^{x} f'(t) \, dt \\
+                & = \int_{0}^{x} \sum_{k=0}^{n-1} \frac{f^{k+1}(0)}{k!}t^k
+                + {(Rf')}_{n-1}(t)\, dt.
+  \end{align*}
+  Daraus folgt, dass
+  \[
+    f(x) = f(0) + \sum_{k=0}^{n-1} \frac{f^{(k+1)}(0)}{k!} \int_{0}^{x} t^k \, dt
+    + \int_{0}^{x} {(Rf')}_{n-1}(t) \, dt.
+  \]
+  Setzen wir
+  \[
+    {(Rf)}_n(x) = \int_{0}^{x} {(Rf')}_{n-1}(t) \, dt,
+  \]
+  so erhalten wir
+  \begin{align*}
+    f(x) & = f(0) + \sum_{k=0}^{n-1} \frac{f^{(k+1)}(0)}{(k+1)!}x^{k+1} + {(Rf)}_n(x) \\
+         & = \sum_{\ell=0}^{n} \frac{f^{(\ell)}(0)}{\ell!}x^{\ell} + {(Rf)}_n(x).
+  \end{align*}
+  Wir behaupten nun, dass ${(Rf)}_n(x)$ relativ klein in $|x|^n$ ist.
+  Sei dazu $\varepsilon > 0$ vorgegeben. Dann existiert $\delta > 0$,
+  so dass für alle $t \in \mathbb{R}$ mit $| \leq \delta$ gilt,
+  dass
+  \[
+    |{(Rf')}_{n-1}(t)| \leq \varepsilon \cdot |t|^{n-1}.
+  \]
+  Schätze für $0 \leq x \leq \delta$ ab, dass
+  \begin{align*}
+    |{(Rf)}_n(x)| 
+    &= \left| \int_{0}^{x} {(Rf')}_{n-1}(t) \, dt \right|  \\
+    &\leq \int_{0}^{x} |{(Rf')}_{n-1}(t)| \, dt \\
+    &\leq \int_{0}^{x} \varepsilon \cdot |t|^{n-1} \, dt \\
+    &= \int_{0}^{x} \varepsilon \cdot t^{n-1} \, dt \\
+    &= \varepsilon \cdot \frac{x^n}{n} \\
+    &\leq \varepsilon \cdot |x|^n.
+  \end{align*}
+  Der Fall $-\delta \leq x \leq 0$ ist ähnlich.
+  Die Ungleichung
+  \[
+    \left| \int_{0}^{x} g(t) \, dt \right| \leq \int_{0}^{x} |g(t)| \, dt
+  \]
+  gilt für alle Riemann-integrierbaren $g \colon [0, x] \to \mathbb{R}$
+  und $x \geq 0$.
+  Schätze dazu alle Ober- und Untersummen ab.
+  Abbildung~\ref{fig:riemann-integral} liefert auch hier eine geometrische Erklärung.
+  Eine ähnliche Abschätzung gilt für $x < 0$, da nach Konvention
+  \[
+    \int_{0}^{x} g(t) \, dt = - \int_{x}^{0} g(t) \, dt
+  \]
+  gilt.
+  Die Funktion $t \mapsto {(Rf')}_{n-1}(t)$ ist Riemann-integrierbar, da
+  \[
+    {(Rf')}_{n-1}(t) = f'(t) - \sum_{k=0}^{n-1} \frac{f^{k+1}(0)}{k!}t^k
+  \]
+  die Summe einer stetigen Funktion mit einem Polynom ist.
+\end{proof}
+
+\begin{zusatz}
+  Es existiert ein $\zeta \in [0, x]$ mit 
+  \[
+    {(Rf)}_n(x) = \frac{f^{(n)}(\zeta)}{(n+1)!}x^{n+1},
+  \]
+  genannt Restglied von Lagrange.
+\end{zusatz}
+
+Der Beweis ist in Abschnitt 61 in~\cite{heuser} zu finden.
+Der Spezialfall $n = 0$ ist bloss eine Umformulierung des Mittelwertsatzes,
+da dort
+\[
+  f(x) = f(0) + f'(\zeta) \cdot x
+\]
+steht.
+
+\begin{definition}
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ unendlich oft differenzierbar,
+  das heisst, für alle $k \in \mathbb{N}$ existiert die $k$-te Ableitung
+  $f^{(k)} \colon \mathbb{R} \to \mathbb{R}$.
+  Die \emph{Taylorreihe} von $f$ bei $0$ ist die formale Reihe
+  \[
+    Tf(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k.
+  \]
+\end{definition}
+
+\begin{questions}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Ist die Reihe $Tf(x)$ für alle $x \in \mathbb{R}$ konvergent?
+    \item Nehme an, dass $Tf(x)$ konvergiert. Gilt dann $f(x) = Tf(x)$?
+  \end{enumerate}
+\end{questions}
+
+Leider ist die Antwort auf beide Fragen nein.
+
+\begin{definition}
+  Eine unendlich oft differenzierbare Funktion
+  $f \colon \mathbb{R} \to \mathbb{R}$ heisst \emph{analytisch},
+  falls für alle $x \in \mathbb{R}$ die Reihe
+  $Tf(x)$ konvergiert und $Tf(x) = f(x)$ gilt.
+\end{definition}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Seien $a_0, \dots, a_n \in \mathbb{R}$ und
+      $f \in \mathbb{R}[x]$ mit
+      \[
+        f(x) = a_0 + a_1 + a_2 x^2 + \cdots +a_n x^{n}.
+      \]
+      Berechne, dass
+      \begin{itemize}
+        \item $f(0) = a_0$,
+        \item $f'(0)$ = $a_1$,
+        \item $f''(0) = 2a_2$,
+        \item \dots,
+        \item $f^{(k)}(0) = k! \cdot a_k$ für $k \leq n$.
+      \end{itemize}
+      Es folgt, dass
+      \[
+        Tf(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k
+        = \sum_{k=0}^{\infty} \frac{k! \cdot a_k}{k!}x^k = f(x).
+      \]
+      Also sind Polynome analytisch.
+    \item Betrachte die Funktion
+      \begin{align*}
+        \exp \colon \mathbb{R} & \to \mathbb{R} \\
+        x & \mapsto e^x.
+      \end{align*}
+      Dann gilt $\exp'(x) = e^x$. Also ist $\exp$ unendlich oft differenzierbar
+      und für alle $k \in \mathbb{N}$ gilt $\exp^{(k)}(0) = e^0 = 1$.
+      Somit ist
+      \[
+        T\exp(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k
+        = \sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x.
+      \]
+      Also ist $T\exp(x)$ konvergent, wie wir bereits in früheren Betrachtungen
+      gesehen haben, und $T\exp(x) = e^x$ für alle $x \in \mathbb{R}$.
+      Somit ist die Exponentialfunktion analytisch.
+    \item Betrachte die Funktion
+      \begin{align*}
+        f \colon \mathbb{R} & \to \mathbb{R} \\
+        x & \mapsto 
+        \begin{cases}
+          0 & x = 0,\\
+          e^{-1/x^2} & x \neq 0.
+        \end{cases}
+      \end{align*}
+      Wir werden sehen, dass $Tf = 0$ die Nullfunktion ist.
+      Dazu schätzen wir zuerst für alle $x \neq 0$ die Ableitungen
+      $f^{(k)}(x)$ wie folgt ab. Berechne
+      \begin{itemize}
+        \item $f'(x) = 2/x^3 \cdot e^{-1/x^2}$,
+        \item $f''(x) = {(2/x^3)}^2 \cdot e^{-1/x^2} - 6/x^4 \cdot e^{- 1/x^2}$.
+      \end{itemize}
+      Wir behaupten, dass für alle $k \geq 1$ ein Polynom $p_k \in \mathbb{R}[x]$ 
+      vom Grad höchstens $3k$ existiert,
+      so dass
+      \[
+        f^{(k)}(x) = \frac{p_k(x)}{x^{3k}} \cdot e^{-1/x^2}.
+      \]
+      Der Beweis ist ein kurzer Induktionsbeweis. Die Verankerung bei $k = 1$ 
+      haben wir bereits oben gezeigt. Für den Induktionsschritt von $k$ zu
+      $k + 1$ berechnen wir
+      \begin{align*}
+         \left( \frac{p_k(x)}{x^{3k}} e^{-1/x^2}\right)'
+         &= \left( \frac{p_k'(x)}{x^{3k}} - \frac{3k \cdot p_k(x)}{x^{3k+1}} \right)
+         \cdot e^{-1/x^2}
+         + \frac{p_k(x)}{x^{3k} \cdot 2/x^3} \cdot e^{-1/x^2}\\
+         &= \frac{p_{k+1}(x)}{x^{3k+3}} \cdot e^{-1/x^2},
+      \end{align*}
+      wobei der Grad von $p_{k+1}$ höchstens $3(k+1)$ ist.
+
+      Als nächstes zeigen wir, dass für alle $k \in \mathbb{N}$ die Ableitung
+      $f^{(k)}(0)$ existiert und $f^{(k)}(x) = 0$ ist.
+      Berechne
+      \begin{align*}
+        f'(0)
+        & = \lim_{x \to 0} \frac{f(x) - f(0)}{x}\\
+        & = \lim_{x \to 0} \frac{e^{-1/x^2}}{x}\\
+        & = \lim_{x \to 0} \frac{1}{x \cdot e^{1/x^2}} \\
+        & = \lim_{z \to \infty} \frac{z}{e^{z^2}} \\
+        & = 0,
+      \end{align*}
+      womit wir bei $k = 1$ verankert haben.
+      Für den Induktionsschritt von $k$ zu $k + 1$ berechne
+      \begin{align*}
+        f^{(k+1)}(0)
+        & = \lim_{x \to 0} \frac{f^{(k)}(x) - f^{(k)}(0)}{x}\\
+        & = \lim_{x \to 0} \frac{f^{(k)}(x)}{x}\\
+        & = \lim_{x \to 0} \frac{p_k(x)}{x^{3k+1}} \cdot e^{-1/x^2}\\
+        & = \lim_{z \to \infty} \frac{p_k(1/z) \cdot z^{3k+1}}{e^{z^2}} \\
+        & = 0.
+      \end{align*}
+      Also konvergiert die Taylorreihe $Tf$ für alle $x \in \mathbb{R}$,
+      aber nur für $x = 0$ gilt $Tf(x) = f(x)$.
+      Also ist $f$ nicht analytisch.
+  \end{enumerate}
+\end{examples}
+
+
+
+
+
 \end{document}

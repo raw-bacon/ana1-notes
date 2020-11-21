@@ -1073,6 +1073,58 @@ Es gilt nun
   lässt sich der Term $(bx + c)/(x^2 + 1)$ leicht integrieren.
 \end{example}
 
+\begin{remark}
+  Sei $p \in \mathbb{R}[x]$ ein reelles Polynom mit
+  einer Nullstelle $\alpha = a + ib \in \mathbb{C} \setminus \mathbb{R}$, das heisst, $b \neq 0$.
+  Dann ist $p$ teilbar durch $(x - \alpha) (x - \overline \alpha)$,
+  wobei $\overline \alpha = a - ib$.
+  Es gilt
+   \[
+     (x - \alpha) ( x - \overline \alpha) = x^2 - 2ax + a^2 + b^2
+     = {(x - a)}^2 + b^2.
+  \]
+  Nach einer linearen Substitution $x \mapsto x - a$
+  erhalten wir den Faktor $x^2 + b^2$.
+  Um $1/p(x)$ zu integrieren, müssen wir wir insbesondere
+  $1/(x^2 + b^2)$ integrieren können.
+  Dazu betrachte die Tangensfunktion
+  \begin{align*}
+    \tan \colon (-\pi/2, \pi/2) & \to \mathbb{R} \\
+    x & \mapsto \frac{\sin(x)}{\cos(x)}.
+  \end{align*}
+  Wir berechnen
+  \begin{align*}
+    \tan'(x)
+    &=\frac{\sin'(x)}{\cos(x)} + \sin(x) \cdot
+    \left( - \frac{\cos'(x)}{\cos^2(x)} \right)\\
+    &= 1 + \tan^2(x) \\
+    &\geq 1
+  \end{align*}
+  für alle $x \in (-\pi/2, \pi/2)$.
+  Insbesondere hat $\tan$ eine differenzierbare Umkehrfunktion
+  \[
+    \arctan \colon \mathbb{R} \to (- \pi/2, \pi/2).
+  \]
+  Es gilt
+  \begin{align*}
+    \arctan'(x)
+    & = \frac{1}{1 + {\tan(\arctan(x))}^2}\\
+    & = \frac{1}{1 + x^2}
+  \end{align*}
+  Für $b > 0$ gilt nun
+  \[
+    \left( \frac{1}{b} \cdot \arctan \left( \frac{x}{b} \right) \right)'
+    = \frac{1}{b} \cdot \frac{1}{1 + {(x/b)}^2} \cdot \frac{1}{b}
+    = \frac{1}{b^2 + x^2}.
+  \]
+  
+  
+  
+  
+  
+  
+\end{remark}
+
 
 
 \end{document}
