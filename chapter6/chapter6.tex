@@ -443,6 +443,117 @@ Folgender Satz ist bloss eine Verallgemeinerung von Theorem~\ref{thm:taylor}.
   \]
 \end{proof}
 
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $f(x) = a_0 + a_1 x + \cdots + a_n x^n$.
+      Sei $p \in \mathbb{R}$ beliebig.
+      Es gilt $f^{(n)}(p) = n! \cdot a_n$ und
+      $f^{(n+1)}(p) = 0$. Also kann man $f(x)$ schreiben als
+      \[
+        f(x) = \sum_{k=0}^{n} b_k {(x - p)}^k
+      \]
+      mit $b_n = a_n$. Wir machen keine Aussage über die weiteren $b_k$.
+    \item Betrachte die Funktion  $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$.
+      Wir berechnen die Taylorentwicklung von $\log$ bei $p = 1$.
+      Berechne $\log(1) = 0$. Die Ableitungen des Logarithmus sind
+      \[
+        \log^{(k)}(x) = {(-1)}^{k+1} \frac{(k-1)!}{x^k},
+      \]
+      also gilt $f^{(k)}(1) = {(-1)}^{k+1} (k-1)!$.
+      Wir folgern, dass
+      \[
+        T\log(x) = \sum_{k=0}^{\infty} \frac{{(-1)}^{k+1}(k-1)!}{k!}{(x-1)}^k
+        = \sum_{k=1}^{\infty} \frac{{(-1)}^{k+1}}{k}{(x-1)}^k.
+      \]
+      Diese Reihe ist konvergent für alle $x \in (0, 2)$.
+      Vergleiche sie dazu mit der geometrischen Reihe.
+      Für $x = 0$ erhalten wir $-1 -1/2 - 1/3 - \cdots$, was divergiert.
+      Für $x = 2$ erhalten wir $1 - 1/2 + 1/3 - 1/4 + \cdots$, was nach
+      dem Leibnizkriterium konvergent ist.
+
+      Wir haben nun also eine Taylorreihe $T\log$ für $\log$ gefunden.
+      Für welche $x$ konvergiert nun $T\log(x)$?
+      Berechne dazu für $|z| < 1$, dass
+      \begin{align*}
+         \log(1 + z)  \log(1)
+         &= \int_{1}^{1+z} \frac{1}{t} \, dt  \\
+         &= \int_{0}^{z} \frac{1}{1+s} \, ds.
+      \end{align*}
+      Aus $|z| < 1$ folgt auch $|s| < 1$ für $s \in [0, z]$, also folgt
+      durch vertauschen des Integrals mit der Summe (was wir später rechtfertigen),
+      dass
+      \begin{align*}
+        \log(1+z)
+        & = \int_{0}^{z} \left( \sum_{k=0}^{\infty} {(-1)}^k s^k \right) \, ds\\
+        &= \sum_{k=0}^{\infty} {(-1)}^k \int_{0}^{z} s^k \, ds\\
+        &= \sum_{k=0}^{\infty} {(-1)}^k \frac{z^{k+1}}{k+1}\\
+        &= \sum_{k=1}^{\infty} {(-1)}^{k+1} \frac{z^k}{k},
+      \end{align*}
+      Im Allgemeinen dürfen wir die Reihenfolge des Summieren und Integrieren
+      nicht vertauschen. In dieser Situation dürfen wir das aber, 
+      siehe hier Abschnitt \dots %TODO
+      Es funktioniert sogar im Grenzfall $z = 1$. Es gilt also
+      \[
+        \log(2) = \sum_{\ell = 1}^{\infty} \frac{{(-1)}^{\ell+1}}{\ell}
+        = 1 - 1/2 + 1/3 - 1/4 + \dots.
+      \]
+      Siehe dazu den Grenzwertsatz von Abel, der In Abschnitt~65 in Heuser
+      bewiesen wird.
+      Wir folgern, dass $T\log(x) = \log(x)$ für alle $x \in \mathbb{R}$
+      mit $0 < x \leq 2$.
+  \end{enumerate}
+\end{examples}
+
+\section{Konvergenzradius von Potenzreihen}
+Seien $a_0, a_1, a_2, \dots \in \mathbb{R}$.
+Die formale Reihe
+\[
+  P(x) = \sum_{k=0}^{\infty} a_k x^k
+\]
+heisst \emph{Potenzreihe}.
+
+\begin{definition}
+  Eine Zahl $r \in \mathbb{R} \cup \{\infty\}$ heisst
+  \emph{Konvergenzradius} der Potenzreihe 
+  \[
+    P(x) = \sum_{k=0}^{\infty} a_k x^k,
+  \]
+  falls
+  \begin{enumerate}[(i)]
+    \item für alle $x \in \mathbb{R}$ mit $|x| < r$ ist $P(x)$ konvergent,
+    \item für alle $x \in \mathbb{R}$ mit $|x| > r$ ist $P(x)$ divergent.
+  \end{enumerate}
+\end{definition}
+
+Bemerke, dass es a priori nicht klar ist, dass jede Potenzreihe
+einen Konvergenzradius hat. Wir werden aber zeigen, dass das aber trotzdem gilt.
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Die Potenzreihe
+      \[
+        P(x) = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+      \]
+      konvergiert für alle $x \in \mathbb{R}$, 
+      Also ist ihr Konvergenzradius $r = \infty$.
+    \item Die Potenzreihe
+      \[
+        P(x) = \sum_{k=0}^{\infty} x^k
+      \]
+      konvergiert für $|x| < 1$. Für $|x| \geq 1$ ist ${(x^{k})}_{k \in \mathbb{N}}$ keine
+      Nullfolge, also ist der Konvergenzradius $r = 1$.
+    \item Die Potenzreihe
+      \[
+        \sum_{k=1}^{\infty} \frac{x^k}{k}
+      \]
+      ist konvergent für genau diejenigen $x \in \mathbb{R}$ mit $-1 \leq x < 1$.
+      Also ist auch hier der Konvergenzradius $r = 1$.
+  \end{enumerate}
+\end{examples}
+
+
 
 
 
