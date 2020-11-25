@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw (-2, 0) -- (2, 0);
+  \draw (0, -0.2) -- (0, 1.5);
+  \draw[domain=-2:-0.01] plot ({\x}, {exp(-1 / (\x*\x))});
+  \draw[domain=2:0.01] plot ({\x}, {exp(-1 / (\x*\x))});
+\end{tikzpicture}
+\end{document}
