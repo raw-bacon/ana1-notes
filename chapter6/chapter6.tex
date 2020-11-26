@@ -498,14 +498,31 @@ Folgender Satz ist bloss eine Verallgemeinerung von Theorem~\ref{thm:taylor}.
         \log(2) = \sum_{\ell = 1}^{\infty} \frac{{(-1)}^{\ell+1}}{\ell}
         = 1 - 1/2 + 1/3 - 1/4 + \dots.
       \]
-      Siehe dazu den Grenzwertsatz von Abel, der In Abschnitt~65 in Heuser
-      bewiesen wird.
+      Siehe dazu den Grenzwertsatz von Abel.
       Wir folgern, dass $T\log(x) = \log(x)$ für alle $x \in \mathbb{R}$
       mit $0 < x \leq 2$.
   \end{enumerate}
 \end{examples}
 
-\section{Konvergenzradius von Potenzreihen}
+\begin{theorem*}[Grenzwertsatz von Abel]
+  Seien $a_0, a_1, a_2, \dots \in \mathbb{R}$ und
+  sei $r$ der Konvergenzradius der Potenzreihe
+  \[
+    P(x) = \sum_{n=0}^{\infty} a_n x^n.
+  \]
+  Falls $P(x)$ im Punkt $x = r$ konvergiert, so gilt
+  \[
+    \lim_{x \to r} f(x) = \sum_{n=0}^{\infty} a_n r^n.
+  \]
+\end{theorem*}
+
+Für die Definition des Begriffs ``Konvergenzradius'',
+siehe Abschnitt~\ref{sec:radius}, und
+für den Beweis des Grenzwertsatzes von Abel,
+siehe Abschnitt~65 in~\cite{heuser}.
+
+
+\section{Konvergenzradius von Potenzreihen}\label{sec:radius}
 Seien $a_0, a_1, a_2, \dots \in \mathbb{R}$.
 Die formale Reihe
 \[
