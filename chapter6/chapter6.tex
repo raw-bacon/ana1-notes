@@ -543,6 +543,7 @@ heisst \emph{Potenzreihe}.
   \end{enumerate}
 \end{definition}
 
+Die Definition des Konvergenzradius macht keine Aussage über den Fall $|x| = r$.
 Bemerke, dass es a priori nicht klar ist, dass jede Potenzreihe
 einen Konvergenzradius hat. Wir werden aber zeigen, dass das aber trotzdem gilt.
 
@@ -563,14 +564,374 @@ einen Konvergenzradius hat. Wir werden aber zeigen, dass das aber trotzdem gilt.
       Nullfolge, also ist der Konvergenzradius $r = 1$.
     \item Die Potenzreihe
       \[
-        \sum_{k=1}^{\infty} \frac{x^k}{k}
+        P(x) = \sum_{k=1}^{\infty} \frac{x^k}{k}
       \]
       ist konvergent für genau diejenigen $x \in \mathbb{R}$ mit $-1 \leq x < 1$.
       Also ist auch hier der Konvergenzradius $r = 1$.
+      Tatsächlich gilt für $|x| > 1$, dass $P(x)$ divergent ist.
+      Das ist klar für $x > 1$. Für $x < -1$ schreibe
+      $x = -(1 + \varepsilon)$ mit $\varepsilon > 0$.
+      Dann gilt 
+      \[
+        |x|^k = (1 + \varepsilon)^k \geq 1 + k \varepsilon
+      \]
+      nach der Bernoulli-Ungleichung. Folglich ist $|x|^k/k \geq \varepsilon$ 
+      für alle $k \geq 1$, also ist $x^k/k$ keine Nullfolge.
+    \item Die Potenzreihe
+      \[
+        \sum_{k=1}^{\infty} \frac{1}{k^2}x^k
+      \]
+      konvergiert genau für diejenigen $x \in \mathbb{R}$ mit $-1 \leq x \leq 1$.
+      Für $x = \pm 1$ haben wir das bereits gesehen. Um zu sehen, dass
+      $P(x)$ für $|x| > 1$ divergiert, schreibe
+      \(
+        |x| = 1 + \varepsilon
+      \)
+      und berechne
+      \[
+        |x|^k \geq 1 + k \varepsilon + \frac{k(k-1)}{2}\varepsilon^2,
+      \]
+      das heisst
+      \[
+        \frac{|x|^k}{k^2} \geq \frac{k(k-1)}{2k^2} \varepsilon^2,
+      \]
+      aber
+      \[
+        \lim_{k \to \infty} \frac{k(k-1)}{2k^2}\varepsilon^2 = \frac{\varepsilon^2}{2} > 0.
+      \]
+      Also ist $|x|^k/k^2$ keine Nullfolge, und somit divergiert $P(x)$ für $|x| > 1$.
+    \item Die Potenzreihe
+      \[
+        P(x) = \sum_{k=0}^{\infty} k! x^k
+      \]
+      hat Konvergenzradius $r = 0$, siehe Serie 11.
+      Das heisst, dass $P(x)$ für alle $x \in \mathbb{R}$ mit $x \neq 0$ divergiert.
   \end{enumerate}
 \end{examples}
 
+\begin{definition}
+  Sei ${(b_{n})}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$.
+  \begin{enumerate}[(i)]
+    \item Eine Zahl $\beta \in \mathbb{R}$ heisst
+      \emph{Häufungspunkt} der Folge ${(b_{n})}_{n \in \mathbb{N}}$, falls eine
+      konvergente Teilfolge ${(b_{n_k})}_{k \in \mathbb{N}}$
+      mit
+      \[
+        \lim_{k \to \infty}b_{n_k} = \beta
+      \]
+      existiert.
+    \item Wir schreiben
+      \[
+        \limsup_{n \to \infty} b_n = +\infty
+      \]
+      falls für alle $R \in \mathbb{R}$ ein $n \in \mathbb{N}$ existiert
+      mit $b_n \geq R$.
+      Weiter schreiben wir
+      \[
+        \limsup_{n \to \infty} b_n = -\infty
+      \]
+      falls für alle $R \in \mathbb{R}$ nur für endlich viele $n \in \mathbb{N}$ gilt,
+      dass
+      $b_n \geq R$.
+      Zu guter letzt schreiben wir
+      \[
+        \limsup_{n \to \infty} b_n = \sup \left\{\beta \in \mathbb{R} \mid 
+        \beta \text{ ist ein Häufungspunkt von ${(b_{n})}_{n \in \mathbb{N}}$}\right\},
+      \]
+      falls die beiden oberen Fälle nicht zutreffen.
+  \end{enumerate}
+\end{definition}
 
+\begin{remark}
+  Falls ${(b_{n})}_{n \in \mathbb{N}}$ konvergiert mit Grenzwert $\beta$, so
+  gilt
+  \(
+    \limsup_{n \to \infty} b_n = \beta.
+  \)
+\end{remark}
+
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item Für $b_n = 1/n$ ist
+      \(
+        \limsup_{n \to \infty} b_n = \lim_{n \to \infty} b_n = 0.
+      \)
+    \item Für $b_n = {(-1)}^n$ sind die Häufungspunkte von
+      ${(b_{n})}_{n \in \mathbb{N}}$ die beiden Zahlen $\pm 1$, also ist
+      \(
+        \limsup_{n \to \infty} b_n = 1.
+      \)
+    \item Für $b_n = n$ ist
+      \(
+        \limsup_{n \to \infty} b_n = \infty.
+      \)
+    \item Für $b_n = -n$ ist
+      \(
+        \limsup_{n \to \infty} b_n = -\infty.
+      \)
+    \item Für die Folge ${(b_{n})}_{n \in \mathbb{N}} = (0, -1, 0, -2, 0, -3, \dots)$ ist
+      \(
+        \limsup_{n \to \infty} b_n = 0.
+      \)
+  \end{itemize}
+\end{examples}
+
+\begin{theorem}[Satz von Hadamard]\label{thm:hadamard}
+  Der Konvergenzradius einer Potenzreihe
+  \[
+    P(x) = \sum_{k=0}^{\infty} a_k x^k
+  \]
+  ist
+  \[
+    r = \frac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}.
+  \]
+  Hier lesen wir $1/0 = \infty$ und $1/\infty = 0$.
+\end{theorem}
+
+\begin{examples}
+  \leavevmode
+  \begin{itemize}
+    \item Betrachte die Potenzreihe
+      \[
+        P(x) = \sum_{k=1}^{\infty} x^k,
+      \]
+      das heisst $a_n = 1$ für alle $n \in \mathbb{N}$.
+      Dann gilt auch $\sqrt[n]{|a_n|} = 1$ für alle $n \in \mathbb{N}$,
+      also ist der Konvergenzradius $r = 1$.
+    \item Für die Potenzreihe
+      \[
+        P(x) = \sum_{k=1}^{\infty} \frac{x^k}{k}
+      \]
+      ist $\sqrt[n]{|a_n|} = 1/\sqrt[n]{n}$, also folgt aus
+      \[
+        \lim_{n \to \infty} \sqrt[n]{n},
+      \]
+      dass der Konvergenzradius $r = 1$ ist.
+    \item Die Potenzreihe
+      \[
+        P(x) = \sum_{k=0}^{\infty} k x^k
+      \]
+      hat mit demselben Argument Konvergenzradius $r = 1$.
+    \item Die Potenzreihe
+      \[
+        P(x) = \sum_{k=0}^{\infty} k! x^k
+      \]
+      hat Konvergenzradius $r = 0$, siehe wie schon erwähnt Serie 11.
+  \end{itemize}
+\end{examples}
+
+\begin{proof}[Beweis von Theorem~\ref{thm:hadamard}]
+  Sei \[|x| < r = \frac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}.\]
+  Wähle $\varepsilon > 0$ mit $|x|/r + \varepsilon \cdot |x| < 1$.
+  Es gilt
+  \[
+    1/r = \limsup_{n \to \infty} \sqrt[n]{|a_n|}.
+  \]
+  Also existiert $N \in \mathbb{N}$ so, dass für alle $k \geq N$ gilt, dass
+  \(
+    \sqrt[n]{|a_n|} < 1/r + \varepsilon.
+  \)
+  Dann gilt auch
+  \(
+    \sqrt[n]{|a_n|} \cdot |x| < q < 1.
+  \)
+  für
+  \(
+    q = (1/r + \varepsilon) \cdot |x|.
+  \)
+  Somit gilt
+  \[
+    \sum_{n=N}^{+\infty} |a_n| \cdot |x|^n \leq \sum_{n=N}^{\infty} q^n \leq \infty,
+  \]
+  also konvergiert die Summe
+  \[
+    \sum_{k=0}^{\infty} a_k x^k = \sum_{k=0}^{N-1} a_k x^k + \sum_{k=N}^{\infty} a_k x^k < \infty.
+  \]
+  
+  Sei nun $|x| > r$. Wähle $\varepsilon > 0$ mit $|x|/r - \varepsilon \cdot |x| \geq 1$.
+  Es gilt
+   \[
+     1/r = \limsup_{n \to \infty} \sqrt[n]{|a_n|}.
+  \]
+  Also existiert eine Teilfolge ${(a_{n_k})}_{k \in \mathbb{N}}$ mit
+  \(
+    \sqrt[n_k]{|a_{n_k}|} \geq 1/r - \varepsilon.
+  \)
+  Für diese $n_k$ gilt dann
+  \(
+    \sqrt[n_k]{|a_{n_k}|} \cdot |x| \geq (1/r -\varepsilon) \cdot |x| \geq 1,
+  \)
+  also auch $|a_{n_k}| \cdot |x|^{n_k} \geq 1$. Also divergiert die Reihe
+  \[
+    \sum_{n=0}^{\infty} a_n x^n,
+  \]
+  da $ {(a_n x^n)}_{n \in \mathbb{N}}$ keine Nullfolge ist.
+\end{proof}
+
+\begin{remark}
+  Die Extremfälle $r = 0$ und $r = +\infty$ benötigen leichte notationstechnische
+  Modifikationen. Insbesondere entfällt jeweils einer der Schritte
+  $|x| < r$ oder $|x| > r$.
+\end{remark}
+
+\section{Funktionenfolgen}
+\begin{definition}
+  Sei $X \subset \mathbb{R}$ und für alle $n \in \mathbb{N}$ sei $f_n \colon X \to \mathbb{R}$ 
+  eine Funktion. Die Folge ${(f_{n})}_{n \in \mathbb{N}}$ heisst
+  \emph{Funktionenfolge}.
+  Eine Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ \emph{konvergiert}
+  mit Grenzfunktion $f \colon X \to \mathbb{R}$ falls für alle $x \in X$ 
+  gilt, dass
+  \[
+    \lim_{n \to \infty} f_n(x) = f(x).
+  \]
+  Wir schreiben dafür kurz
+  \[
+    \lim_{n \to \infty} f_n = f.
+  \]
+\end{definition}
+
+\begin{remark}
+  Jede Potenzreihe liefert eine Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ auf $X = \mathbb{R}$ 
+  durch
+  \[
+    f_n(x) \sum_{k=0}^{n} a_k x^k.
+  \]
+  Das ist wohldefiniert für alle $x \in \mathbb{R}$, da endliche Summen immer existieren.
+\end{remark}
+
+\begin{examples}
+  \leavevmode
+  \begin{enumerate}[(1)]
+    \item Sei $f_n \colon \mathbb{R} \to \mathbb{R}$ gegeben durch
+      \[
+        f_n(x) = \sum_{k=0}^{n} \frac{x^k}{k!}.
+      \]
+      Für alle $x \in \mathbb{R}$ gilt
+      \[
+        \lim_{n \to \infty} f_n(x) = \sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x.
+      \]
+      Also gilt
+      \(
+        \lim_{n \to \infty} f_n = \exp.
+      \)
+    \item Seien $f_n \colon (-1, 1) \to \mathbb{R}$ gegeben durch
+      \[
+        f_n(x) = \sum_{k=0}^{n} x^k.
+      \]
+      Für alle $x \in (-1, 1)$ gilt dann
+      \[
+        \lim_{n \to \infty} f_n(x) = \frac{1}{1-x}.
+      \]
+      Für
+      \begin{align*}
+        f \colon (-1, 1) & \to \mathbb{R} \\
+        x & \mapsto \frac{1}{1-x}
+      \end{align*}
+      gilt dann
+      \(
+        \lim_{n \to \infty}f_n = f.
+      \)
+    \item Betrachte $f_n \colon [0, 1] \to \mathbb{R}$ mit $f_n(x) = x^n$.
+      Es gilt
+      \(
+        \lim_{n \to \infty} f_n (1) = \lim_{n \to \infty} 1^n = 1,
+      \)
+      und für alle $x \in \mathbb{R}$ mit $0 \leq x < 1$ gilt
+      \(
+        \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} x^n = 0.
+      \)
+      Also ist
+      \(
+        \lim_{n \to \infty} f_n = f
+      \)
+      mit
+      \begin{align*}
+        f \colon [0, 1] & \to \mathbb{R} \\
+        x & \mapsto
+        \begin{cases}
+          0 & \text{falls $x < 1$},\\
+          1 & \text{falls $x = 1$},
+        \end{cases}
+      \end{align*}
+      siehe auch Abbildung~\ref{fig:discontinuous-limit}.
+      Bemerke, dass alle  $f_n$ stetig sind,
+      aber die Grenzfunktion $f$ im Punkt $x = 1$ 
+      nicht stetig ist.
+      Stetige Funktionen können also gegen eine unstetige
+      Grenzfunktion konvergieren.
+
+      \begin{figure}[htb]
+        \centering
+        \includestandalone{images/discontinuous-limit}
+        \caption{Die Funktionenfolge in Beispiel (3)}%
+        \label{fig:discontinuous-limit}
+      \end{figure}
+    \item Betrachte die Funktionen $f_n \colon \mathbb{R} \to \mathbb{R}$ mit $f_n(x) = \sin(nx)$.
+      Für $x = \pi/2$ gilt
+      \[
+        f_n(\pi/2) = \sin(n/2 \cdot \pi)
+        =
+        \begin{cases}
+          0 & n = 0, 2, 4, 6, \dots,\\
+          1 & n = 1, 5, 9, \dots,\\
+          -1 & n = 3, 7, 11, \dots.
+        \end{cases}
+      \]
+      Insbesondere existiert der Grenzwert
+      \(
+      \lim_{n \to \infty} f_n(\pi/2)
+      \)
+      nicht. Es existiert also keine Funktion
+      $f \colon \mathbb{R} \to \mathbb{R}$ 
+      mit
+      \(
+        \lim_{n \to \infty} f_n = f.
+      \)
+      In anderen Worten konvergiert die
+      Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ nicht.
+    \item Betrachte die Funktionen
+      $f_n \colon \mathbb{R} \to \mathbb{R}$ 
+      mit
+      \[
+        f_n(x) = \sum_{k=1}^{n} \frac{1}{k^2}\sin(kx).
+      \]
+      Wir erinnern uns, dass die Reihe
+      $\sum_{k=0}^{\infty} 1/k^2$ konvergiert.
+      Sei $\varepsilon > 0$. Dann existiert
+      $N \in \mathbb{N}$ mit
+      \[
+        \sum_{k=N}^{\infty} \frac{1}{k^2} \leq \varepsilon.
+      \]
+      Für $n \geq m \geq N$ und alle $x \in \mathbb{R}$ 
+      gilt dann
+      \[
+        |f_n(x) - f_m(x)| =
+        \left| \sum_{k=m+1}^{n} \frac{1}{k^2} \sin(kx) \right|
+        \leq
+        \sum_{k=m+1}^{n} \frac{1}{k^2} \leq
+        \sum_{k=N}^{\infty} \frac{1}{k^2} \leq \varepsilon.
+      \]
+      Also ist für alle
+      $x \in \mathbb{R}$ 
+      die Folge ${(f_{n}(x))}_{n \in \mathbb{N}}$
+      eine Cauchyfolge in $\mathbb{R}$,
+      also konvergent.
+      Wir schliessen, dass die Funktionenfolge
+      ${(f_{n})}_{n \in \mathbb{N}}$ auf $\mathbb{R}$ 
+      konvergiert, mit Grenzfunktion
+      $f \colon \mathbb{R} \to \mathbb{R}$.
+      Wir werden bald sehen, dass $f$ stetig ist.
+      Es ist jedoch schwierig, die Funktion
+      $f$ konkreter zu beschreiben. Wir wissen jedoch,
+      dass $f$ periodisch ist mit Periode $2\pi$,
+      das heisst, für alle $x \in \mathbb{R}$ gilt
+      $f(x + 2\pi) = f(x)$.
+      Dazu bemerke bloss, dass für alle $n \in \mathbb{N}$ 
+      gilt, dass $f_n(x + 2 \pi) = f_n(x)$.
+  \end{enumerate}
+\end{examples}
 
 
 

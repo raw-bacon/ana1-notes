@@ -1,0 +1,23 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=3]
+  \draw (-0.2, 0) -- (1.2, 0);
+  \draw (0, -0.2) -- (0, 1.2);
+  \draw (0, 1) -- (1, 1);
+  \draw (0, 0) -- (1, 1);
+  \draw[domain=0:1] plot ({\x}, {\x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x * \x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x * \x * \x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x * \x * \x * \x * \x});
+  \draw[domain=0:1] plot ({\x}, {\x * \x * \x * \x * \x * \x * \x * \x});
+  \draw[fill=white] (1, 0) circle (0.025);
+  \draw[fill=black] (1, 1) circle (0.025);
+  \draw[dotted] (1, 0) -- (1, 1);
+  \node at (1.1, 0.5) {$f$};
+  \node at (0.5, 1.1) {$f_0$};
+  \node at (0.43, 0.57) {$f_1$};
+\end{tikzpicture}
+\end{document}
