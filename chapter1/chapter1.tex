@@ -43,19 +43,18 @@ die Menge der Natürlichen Zahlen.
 
   Weiterhin gilt, dass sowohl $x_{1}$ als auch $d_{1}$ ganze Vielfache von $L$ sind:
   \begin{align*}
-    x_{1} = d-x = (n-m)L \\
-    d_{1} = 2x-d = (2m -n)L
+    x_{1} = d-x = (n-m)L, \\
+    d_{1} = 2x-d = (2m -n)L.
   \end{align*}
   Nach Pythagoras gilt $d^{2} = 2x^{2}$, und somit $d \leq 3/2\cdot x$, da ${(3/2)}^{2} > 2$.
   Daraus folgt, dass
-  \[x_{1} = d - x \leq \frac{1}{2} \cdot x.\]
+  \(x_{1} = d - x \leq 1/2 \cdot x\).
   Iteriere dieses Verfahren und erhalte eine Serie von Quadraten mit Seiten
-  $x_{2}, x_{3}, \dots$ und Diagonalen $d_{2}, d_{3}, \dots$. Es gilt:
-  \[x_{k} \leq \frac{1}{2^{k}} \cdot x.\]
+  $x_{2}, x_{3}, \dots$ und Diagonalen $d_{2}, d_{3}, \dots$. Es gilt
+  \(x_{k} \leq 1/2^k \cdot x\).
   Ausserdem ist jedes $x_{k}$ (und $d_{k}$) ein ganzes Vielfaches von $L$.
   Wähle nun $k$ so gross, dass
-   \[x_{k} \leq \frac{1}{2^{k}} x < L.\]
-
+   \(x_{k} \leq 1/2^{k}\cdot x < L\).
    Dies, zusammen mit dem Fakt, dass
    $x_{k}$ ein ganzes Vielfaches von $L$ ist,
    impliziert, dass $x_{k} = 0$, was unmöglich ist. Deshalb können $x$ und $d$
@@ -68,7 +67,7 @@ Dies zeigt, dass unsere Annahme falsch war.
 
 \subsection*{Zeitgenössische Umformulierung}
 Seien $a,b > 0$ zwei kommensurable Längen. Das heisst, es existieren $L > 0$
-und $m,n \in \mathbb N$ mit $a = mL$, $b= nL$. Dann gilt:
+und $m,n \in \mathbb N$ mit $a = mL$, $b= nL$. Dann gilt
 \[\frac{a}{b} = \frac{mL}{nL} = \frac{m}{n},\]
 das heisst, das Verhältnis $a/b$ ist eine \emph{rationale Zahl}.
 Zurück zum Quadrat mit Seite $x$ und Diagonale $d$. Nach Pythagoras
@@ -76,16 +75,16 @@ gilt $d^{2} = 2x^{2}$. Falls $x=mL$ und $d=nL$ gilt,
 dann also
 \[2 = \frac{d^{2}}{x^{2}} = {\left( \frac{d}{x}\right)}^{2} = {\left(\frac{n}{m}\right)}^{2},\]
 und somit
-\begin{equation}
-  \label{eq:1}
-2m^{2} = n^{2}.
-\end{equation}
+\(
+2m^{2} = n^{2}.\)
 Die linke Seite dieser Gleichung ist durch $2$ teilbar. Dies impliziert, dass $n^{2}$, und
 somit auch $n$, durch $2$ teilbar ist. Schreibe nun $n = 2k$. Schreibe $n = 2k$ mit
-$k \in \mathbb N$. Setze das in die Gleichung~(\ref{eq:1}) ein und erhalte
-$2m^{2} = {(2k)}^{2} = 4k^{2}$,
+$k \in \mathbb N$. Setze das in die Gleichung $m^2 = n^2$ ein und erhalte
+\[
+2m^{2} = {(2k)}^{2} = 4k^{2},
+\]
 beziehungsweise
-\[m^{2} = 2k^{2}.\]
+\(m^{2} = 2k^{2}.\)
 Die rechte Seite ist durch $2$ teilbar, also auch $m$.
 Wir schliessen, dass sowohl $n$ als auch $m$ durch $2$ teilbar sind.
 Schreibe noch $m = 2\ell$ mit $\ell \in \mathbb N$. Es gilt also
@@ -116,7 +115,7 @@ und die Menge der \emph{rationalen Zahlen}
 \[ \mathbb Q = \left\{p/q \mid p, q \in \mathbb Z, \, q > 0\right\}.\]
 Wir wollen eine weitere Menge, die Menge $\mathbb R$ der \emph{reellen Zahlen}
 einführen. Es gelten dann die Inklusionen
-\[\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R.\]
+\(\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R\).
 
 \subsection*{Wichtige Grundbegriffe}
 \begin{definition}
@@ -134,7 +133,6 @@ einführen. Es gelten dann die Inklusionen
   \end{enumerate}
 \end{definition}
 
-\newpage
 \begin{examples}\label{ex:inj-surj}
   \leavevmode
   \begin{enumerate}[(i)]
@@ -171,17 +169,18 @@ einführen. Es gelten dann die Inklusionen
   \leavevmode
   \begin{enumerate}[(1)]
     \item Bijektive Abbildungen $f \colon A \to B$ haben eine eindeutige \emph{Umkehrabbildung}
-      $f^{-1} \colon B \to A$. Die Konstruktion dafür ist wie folgt. Sei $b \in B$.
+      \[
+       f^{-1} \colon B \to A.
+      \]
+      Die Konstruktion dafür ist wie folgt. Sei $b \in B$.
       Da $f$ surjektiv ist, existiert $a \in A$ mit $f(a) = b$. Da $f$
       injektiv ist, ist dieses $a$ eindeutig. Setze $f^{-1}(b) = a$. Es gilt dann
-      \[f^{-1}(f(a)) = a\]
+      \(f^{-1}(f(a)) = a\)
       für alle $a \in A$, und ebenso
-      \[f(f^{-1}(b)) = b\]
+      \(f(f^{-1}(b)) = b\)
       für alle $b \in B$. Wir schreiben häufig
-      \begin{align*}
-        f^{-1} \circ f = \textrm{Id}_{A}, \\
-        f \circ f^{-1} = \textrm{Id}_{B},
-      \end{align*}
+      \(f^{-1} \circ f = \textrm{Id}_{A}\) und
+      \(f \circ f^{-1} = \textrm{Id}_{B}\),
       in Worten, ``$f^{-1}$ verknüpft mit $f$ ist die Identitätsabbildung auf $A$''
       und ähnlich, ``$f$ verknüpft mit $f^{-1}$ ist die Identitätsabbildung auf $B$''.
     \item Für endliche Mengen $A$ und $B$ gilt: Es existiert eine bijektive Abbildung
@@ -253,9 +252,9 @@ Resultat.
     a_{1} + \cdots + a_{k-1} + a_{k} - 1\}.
   \]
   Es gilt dann
-  \[
+  \(
     B_{1} = \{0\}, \; B_{2} = \{1, 2\}, \; B_{3} = \{3, 4, 5, 6\}, \dots.
-  \]
+  \)
 Wähle eine Bijektion $\varphi_{k} \colon B_{k} \to A_{k}$ für alle $k \geq 1$.
 Definiere nun
 \begin{align*}
@@ -349,23 +348,6 @@ Ein wenig formaler,
   Es kann keine solche Abbildung geben.
 \end{proof}
 
-\subsection*{Einschub: Beweismethoden}
-Ein \emph{Beweis} ist eine ``Deduktion einer Aussage
-aus bereits bewiesenen Aussagen oder Grundaxiomen''.
-Wichtig ist hier, dass die Deduktion logisch korrekt erfolgt.
-Folgende Beweismethoden sind typisch.
-  \begin{itemize}
-    \item Geometrische Beweise, zum Beispiel mit Hilfe von Euklids Axiomen.
-      Das erste Theorem der Vorlesung haben wir so bewiesen.
-    \item Beweise mithilfe von logischen Schlussfolgerungen,
-      zum Beispiel Widerspruchsbeweise.
-      Proposition~\ref{prop:cantor} haben wir so bewiesen.
-    \item Kombinatorische Beweise, zum Beispiel
-      Beweise mit vollständiger Induktion.
-  \end{itemize}
-
-
-Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
 \begin{definition}
   Die $n$-te \emph{Catalanzahl} $C_{n}$ ist die Anzahl korrekte
   Klammerungen mit $2n$ Klammern ($n$ linke und $n$ rechte Klammern).
@@ -393,7 +375,6 @@ Wir führen nun ein Beispiel eines Beweises durch vollständige Induktion.
 
   Die \emph{Induktionsannahme} ist nun,
   dass die Aussage für ein festes $n \in \mathbb N$ stimmt.
-
   Im \emph{Induktionsschritt} leiten wir nun die Aussage für $n + 1$
   aus der Induktionsannahme (für $n$) her.
   Hier heisst das, dass wir $C_{n+1} \geq 2^{n}$ aus $C_{n} \geq 2^{n-1}$
@@ -461,6 +442,8 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
   \end{enumerate}
 \end{definition}
 
+\newpage
+
 \begin{notation}
   \leavevmode
   \begin{enumerate}[(i)]
@@ -480,7 +463,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
       in Tabelle~\ref{tab:ea} bildet eine Gruppe.
       \begin{table}[htb]
         \centering
-        \begin{tabular}[h]{ccc}
+        \begin{tabular}{ccc}
          & \color{gray}{$e$} & \color{gray}{$a$}\\
         % \hline
         \color{gray}{$e$} & $e$ & $a$ \\
@@ -497,7 +480,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
       Winkel $4\pi/3$.
       \begin{table}[htb]
         \centering
-        \begin{tabular}[h]{cccc}
+        \begin{tabular}{cccc}
         & \color{gray}$e$ & \color{gray}$a$ & \color{gray}$b$\\
         % \hline
         \color{gray}$e$ & $e$ & $a$ & $b$\\
@@ -528,16 +511,16 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
   Verknüpfung mit $b$ von links auf beiden Seiten liefert
   $b \circ (a \circ x) = b \circ c$. Axiom~(iii) sagt, dass
   die linke Seite
-  \[
+  \(
     (b \circ a) \circ x = e \circ x = x
-  \]
+  \)
   ist. Also ist $x = b \circ c = a^{-1} \circ c$ eine Lösung.
   Um Eindeutigkeit zu zeigen seien $x_{1}, x_{2} \in G$ mit
   \[
     a \circ x_{1} = c = a \circ x_{2}.
   \]
   Verknüpfung von links wie oben mit $b$ liefert
-  \[b \circ (a \circ x_{1}) = b \circ (a \circ x_{2}).\]
+  \(b \circ (a \circ x_{1}) = b \circ (a \circ x_{2})\).
   Wir erhalten
   \[
     (b \circ a) \circ x_{1} = (b \circ a) \circ x_{2}.
@@ -572,7 +555,7 @@ Hierzu brauchen wir die Formel in folgender Bemerkung.
 
 Wir halten uns hier an die Konvention, dass die Multiplikation stärker
 bindet als die Addition. Konkret haben wir oben
-\[ x \cdot y + x \cdot z = (x \cdot y) + (x \cdot z).\]
+\( x \cdot y + x \cdot z = (x \cdot y) + (x \cdot z)\).
 Dass $(G, \circ)$ eine kommutative Gruppe ist, bedeutet,
 dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
 
@@ -594,7 +577,7 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
       führen das in dieser Vorlesung nicht weiter aus.
     \item $K = \{0, 1\}$ mit Verknüpfungstabellen
       wie in Tabelle~\ref{tab:01}
-      \begin{table}[h]
+      \begin{table}[htb]
         \centering
         \begin{minipage}{0.25\linewidth}
           \centering
@@ -624,7 +607,7 @@ dass für alle $g, h \in G$ gilt, dass $g \circ h = h \circ g$.
 
 \begin{ausblick}[Algebra]
   Sei $p \in \mathbb N$ prim. Dann ist die Menge
-  \[ \mathbb Z / p \mathbb Z = \{0, 1, 2, \dots, p-1\}\]
+  \( \mathbb Z / p \mathbb Z = \{0, 1, 2, \dots, p-1\}\)
   mit ``Addieren und Multiplizieren modulo $p$'' ein Körper.
 \end{ausblick}
 
@@ -749,25 +732,24 @@ Wie erwartet ist die Antwort nein, siehe Proposition~\ref{prop:real-uncountable}
         {\left(\frac{1}{3}\right)}^{k}
         &= 1 + \frac{1}{3} + {\left(\frac{1}{3}\right)}^{2} + \dots \\
         &= \frac{1}{1 - 1/3}
-          \\ &= \frac{3}{2}.
+          = \frac{3}{2}.
       \end{align*}
       Also ist $D_{\mathbb N} = D_{3/2}$.
   \end{enumerate}
 
 Sei nun $B = \{n_{0}, n_{1}, \dots \} \subset \mathbb N$ beliebig.
 Dann gilt
-\begin{align*}
+\[
   0
-  &\leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} \\
-  &\leq \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k} \\
-  &= \frac{3}{2}.
-\end{align*}
+  \leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} 
+  \leq \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k} 
+  = \frac{3}{2}.
+\]
 Also gilt $D_{0} \supset D_{B} \supset D_{3/2}$.
 Insbesondere ist $D_{B} \neq \emptyset$ und $D_{B} \neq \mathbb Q$, das heisst
 $D_{B}$ ist wirklich ein Schnitt.
 Setze nun
-\[\psi(B) = D_{B} \in \mathbb R.\]
-
+\(\psi(B) = D_{B} \in \mathbb R\).
 Wir behaupten nun, dass $\psi$ injektiv ist. Konkreter, seien
 $B_{1}, B_{2} \in P(\mathbb N)$ mit $B_{1} \neq B_{2}$.
 Wir zeigen, dass $D_{B_{1}} \neq D_{B_{2}}$.
@@ -963,11 +945,11 @@ von $D$ und $D'$ als
 \[D \cdot D' = \{z \in \mathbb Q \mid \textup{es existieren } x \in D,
   y \in D' \textup{ mit } z = x \cdot y\}.\]
 Falls $D < 0$ und $D' \geq 0$, dann definieren wir
-\[D \cdot D' = -(-D) \cdot D',\]
+\(D \cdot D' = -(-D) \cdot D'\),
 falls $D \geq 0$ und $D' < 0$, definieren wir ähnlich
-\[D \cdot D' = -(D \cdot (-D')),\]
+\(D \cdot D' = -(D \cdot (-D'))\),
 und falls $D < 0$ und $D' < 0$, definieren wir
-\[D \cdot D' = (-D) \cdot (-D').\]
+\(D \cdot D' = (-D) \cdot (-D')\).
 In dieser Definition bezeichnet ``$-D$'' das in obigem Abschnitt
 definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \end{definition}
@@ -975,7 +957,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \begin{lemma}\label{lem:r-mal-gruppe}
   Die Menge $\mathbb R \setminus \{D_{0}\}$ mit Multiplikation ist eine
   kommutative Gruppe mit neutralem Element
-  \[D_{1} = \{x \in \mathbb Q \mid x > 1\}.\]
+  \(D_{1} = \{x \in \mathbb Q \mid x > 1\}\).
 \end{lemma}
 
 \begin{proof}
@@ -1017,7 +999,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
           \[\frac{p}{q} = x \cdot \frac{y}{x} \cdot
             \frac{p/q}{y}\in D \cdot
           {(D_{0} \setminus D)}^{-1} \cdot D_{1}.\]
-          Da $x/y \notin D$ ist $x / y \in D_{0} \setminus D$,
+          Da $x/y \notin D$, folgt $x / y \in D_{0} \setminus D$,
           also $y/x \in {(D_{0} \setminus D)}^{-1}$.
           Wir erhalten die umgekehrte Inklusion $D \cdot D^{-1} \supset D_{1}$.
       \end{enumerate}
@@ -1185,9 +1167,9 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
   Wie gut lässt sich $\sqrt 2$ durch rationale Zahlen
   approximieren? Es finden sich rationale Zahlen $p/q$ beliebig
   nahe an $\sqrt 2$ mit
-  \[
-    \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{q},
-  \]
+  \(
+    \left\vert \sqrt 2 - {p}/{q} \right\vert < {1}/{q},
+  \)
   sogar
   \[
     \left\vert \sqrt 2 - \frac{p}{q} \right\vert < \frac{1}{2q^2},
@@ -1218,10 +1200,9 @@ Man findet das in vielen Lehrbüchern der Analysis.
 Um die Hauptidee des Beweises selber zu entdecken,
 versuche zu zeigen, dass es nur einen Körperisomorphismus
 $\mathbb{R} \to \mathbb{R}$ gibt.
-
 Was dieses Theorem für uns bedeutet ist, dass wir ab jetzt
 nur noch die Eigenschaften von $\mathbb{R}$, aber nicht
-die Definition verwenden.
+die Definition verwenden müssen.
 
 \subsection*{Folgerungen aus der Vollständigkeit}
 \subsubsection*{Das Supremumsprinzip}
@@ -1246,7 +1227,6 @@ mit folgenden Eigenschaften:
 Die Zahl $\sup A$ heisst \emph{Supremum} von $A$. Falls
 $\sup A \in A$, dann heisst diese Zahl auch \emph{Maximum} von $A$,
 notiert $\max A$.
-
 Analog sind die Begriffe \emph{Infimum} ($\inf A$) und
 \emph{Minimum} ($\min A$) für nach unten beschränkte
 Teilmengen von $\mathbb{R}$ definiert.
@@ -1299,10 +1279,10 @@ es aber aus der Vollständigkeit herleiten.
 
 \begin{proof}
   Sei $a \in \mathbb{R}$ fest. Setze
-  \[
+  \(
     A = \left\{n \in \mathbb{N} \mid n \leq a\right\} \subset \mathbb{N}
     \subset \mathbb{R}.
-  \]
+  \)
   Falls $A = \emptyset$, dann setze $N = 1$.
   Falls $A \neq \emptyset$, dann hat $A$ ein Supremum
   $S = \sup A \in \mathbb{R}$, da $A$ nach oben 

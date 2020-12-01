@@ -11,11 +11,6 @@
   \end{align*}
   Wir notieren das häufig als 
   $(a_0, a_1, a_2, \dots) = {(a_n)}_{n \in \mathbb{N}}$.
-\end{definition}
-
-Die für uns wichtigste Eigenschaft von Folgen ist deren Konvergenz.
-
-\begin{definition}
 	Eine Folge ${(a_n)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
 	heisst \emph{konvergent} mit Grenzwert
 	$L \in \mathbb{R}$, falls für alle
@@ -53,9 +48,9 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 		  |a_n - 0| = \frac{1}{n} < \varepsilon,
 	  \]
 	  also
-	  \[
+	  \(
 		  \lim_{n \to \infty}\frac{1}{n} = 0.
-	  \]
+	  \)
 	  Varianten davon sind
 	  \begin{itemize}
 	    \item $\lim_{n \to \infty} \frac{1}{n^2} = 0$,
@@ -117,9 +112,9 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	    \end{cases}
 	  \]
 	Die Notation
-	\[
+	\(
 	  \lim_{n \to \infty} a_n = + \infty
-	\]
+	\)
 	heisst, dass für alle $S > 0$ ein Index $N \in \mathbb{N}$
 	existiert, so dass für alle $n \geq N$ gilt, dass
 	$a_n > S$ ist.
@@ -130,9 +125,9 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	\]
 	wobei $q-1 > 0$. 
 	Sei $S > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
-	\[
-	  N \geq \frac{S}{q-1}.
-	\]
+	\(
+  N \geq {S}/{(q-1)}.
+	\)
 	Für alle $n \geq N$ gilt dann $q^n \geq 1 + S > S$.
 	Für den ersten Fall ersetze $q$ durch $1/q$.
 \end{enumerate}
@@ -272,9 +267,9 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
   welche nach oben beschränkt ist.
   Dann konvergiert ${(a_n)}_{n \in \mathbb{N}}$ mit
   Grenzwert
-  \[
+  \(
     S = \sup \{a_0, a_1, a_2, \dots\}.
-  \]
+  \)
 \end{monotony}
 
 \begin{proof}
@@ -320,12 +315,12 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
          {\left( 1 + \frac{1}{n+1} \right)}^{n+1},
        \]
        indem 
-       \begin{align*}
-         {\left( 1 - \frac{1}{{(n+1)}^2} \right)}^n &=
-         {\left( \frac{1 + \frac{1}{n+1}}{1 + \frac{1}{n}} \right) } \\& 
-         \geq \frac{1}{1 + \frac{1}{n+1}}\\
-                       &= 1 - \frac{1}{n+2}
-       \end{align*}
+       \[
+         {\left( 1 - \frac{1}{{(n+1)}^2} \right)}^n =
+         {\left( \frac{1 + \frac{1}{n+1}}{1 + \frac{1}{n}} \right) }
+         \geq \frac{1}{1 + \frac{1}{n+1}}
+                       = 1 - \frac{1}{n+2}
+       \]
        berechnet wird.
      \item
        Die Ungleichung ${(1 + 1/n)}^n \leq 3$ ist äquivalent
@@ -354,16 +349,16 @@ Wir bemerken, dass
 \begin{enumerate}[(i)]
   \item jede konvergente Folge beschränkt ist,
   \item es beschränkte Folgen gibt, welche nicht konvergieren,
-    zum Beispiel $a_n = {(-1)}^n$ (wieso?).
+    zum Beispiel $a_n = {(-1)}^n$.
 \end{enumerate}
 
 \begin{definition}
   Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$ 
   und ${(n_k)}_{k \in \mathbb{N}}$ eine Folge in $\mathbb{N}$,
   welche streng monoton wachsend ist, das heisst
-  \[
+  \(
     n_0 < n_1 < n_2 < \cdots.
-  \]
+  \)
   Dann heisst die Folge ${(a_{n_k})}_{k \in \mathbb{N}}$ 
 eine \emph{Teilfolge} von ${(a_n)}_{n \in \mathbb{N}}$.
 \end{definition}
@@ -404,10 +399,10 @@ Folgeglieder übrigbleibt.
     \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist unendlich.
       Wir konstruieren eine sogenannte Intervallschachtelung.
       Setze 
-      \[
+      \(
         I_0 = [x, y] = \left\{z \in \mathbb{R} 
         \mid x \leq z \leq y\right\}.
-      \]
+      \)
       Wähle $a_{n_0} = a_0 \in I_0$. Halbiere $I_0$, also
       schreibe
       \[
@@ -442,10 +437,10 @@ Folgeglieder übrigbleibt.
         y_k - x_k = \frac{y - x}{2^k}.
       \]
       Sei $\varepsilon > 0$ vorgegeben. Wähle
-      $N \in \mathbb{N}$, so dass
-      \[
-        \frac{y-x}{2^N} \leq \varepsilon.
-      \]
+      $N \in \mathbb{N}$ so, dass
+      \(
+        (y-x)/{2^N} \leq \varepsilon.
+      \)
       Dann gilt für alle $k, \ell \geq N$, dass
       $a_{n_k}, a_{n_\ell} \in I_N$ höchstens
       $\varepsilon$ voneinander entfernt sind.
@@ -456,11 +451,6 @@ Folgeglieder übrigbleibt.
       \]
   \end{enumerate}
 \end{proof}
-
-Zusammengefasst haben wir die Intervalle
-iterativ halbiert, und uns immer für das Intervall
-entschieden, das immer noch unendlich viele
-Folgeglieder enthalten hat.
 
 \begin{definition}
   Eine Zahl $\alpha \in \mathbb{R}$ heisst
@@ -497,10 +487,10 @@ Folgeglieder enthalten hat.
       rationale Zahlen enthält. Wir können auch $n_k > n_{k-1}$
       einrichten, da bei der $k$-ten Wahl erst endlich viele
       rationale Zahlen bereits belegt sind.
-      Es ist also
-      \[
+      Es gilt also
+      \(
         \lim_{k \to \infty} a_{n_k} = \alpha.
-      \]
+      \)
   \end{enumerate}
 \end{examples}
 
@@ -518,12 +508,12 @@ Folgeglieder enthalten hat.
   \begin{enumerate}[\normalfont(i)]
     \item $\lim_{n \to \infty} (a_n + b_n) = a + b$ 
     \item $\lim_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
-    \item Falls für alle $n \in \mathbb{N}$ gilt,
-      dass $a_n \neq 0$ und auch $a \neq 0$ gilt,
-      dann ist
-      \[
-        \lim_{n \to \infty} \frac{1}{a_n} = \frac{1}{a}.
-      \]
+    \item Nehme an, dass für alle $n \in \mathbb{N}$ gilt,
+      dass $a_n \neq 0$. Nehme weiterhin an, dass $a \neq 0$.
+      dann gilt
+      \(
+        \lim_{n \to \infty} {1}/{a_n} = {1}/{a}
+      \).
   \end{enumerate}
 \end{proposition}
 
@@ -563,13 +553,13 @@ ${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
   heisst \emph{konvergent} mit Grenzwert $S \in \mathbb{R}$,
   falls die Folge ${(s_{n})}_{n \in \mathbb{N}}$ der
   \emph{Partialsummen}
-  \[
+  \(
     s_n = \sum_{k=0}^{n} a_k = a_0 + a_1 + \cdots + a_n
-  \]
+  \)
   in $\mathbb{R}$ mit Grenzwert $S$ konvergiert, das heisst
-  \[
+  \(
     \lim_{n \to \infty} s_n = S
-  \]
+  \)
   erfüllt. Wir schreiben in diesem Fall
   \[
     \sum_{k=0}^{\infty} a_k = S,
@@ -603,9 +593,9 @@ und somit
   Für jedes $\varepsilon > 0$ existiert also ein Index
   $N \in \mathbb{N}$ mit der Eigenschaft, dass
   immer wenn $n, m \geq N$, dann ist
-  \[
+  \(
     |s_m - s_n| \leq \varepsilon.
-  \]
+  \)
   Insbesondere folgt für $m = n + 1$, dass
   \[
     |a_{n+1}| = |s_{n+1} - s_n| \leq \varepsilon.
@@ -690,18 +680,18 @@ heisst \emph{geometrische Reihe}.
             = 1 + q + q^2 + \cdots + q^n
       \]
       indem wir bemerken, dass
-      \[
+      \(
         q \cdot s_n - s_n = q^{n+1} - 1.
-      \]
+      \)
       Lösen wir nach $s_n$ auf, erhalten wir
       \[
         s_n = \frac{q^{n+1} - 1}{q - 1}
         = \frac{q^{n+1}}{q-1} - \frac{1}{q-1},
       \]
       und somit
-      \[
-        \lim_{n \to \infty} s_n = \frac{1}{1-q}. \qedhere
-      \]
+      \(
+        \lim_{n \to \infty} s_n = {1}/(1-q)
+      \).\qedhere
   \end{itemize}
 \end{proof}
 
@@ -775,9 +765,9 @@ Reihen herleiten.
     \]
     Die Details hier sind eine Übung auf Serie 4.
     Wir schliessen, dass die monoton wachsende Folge
-    \[
-      s_n = \sum_{k=0}^{n} \frac{1}{k!}
-    \]
+    \(
+      s_n = \sum_{k=0}^{n} {1}/{k!}
+    \)
     konvergiert, mit Grenzwert $S \leq 3$.
 \end{enumerate}
 
@@ -823,20 +813,19 @@ Reihen herleiten.
 \end{example}
 
 \begin{leibniz}
-  Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine Folge
-  positiver reller Zahlen mit
-  \[
-   a_0 > a_1 > a_2 > \cdots > 0,
-  \]
-  eine sogenannte
-  monoton fallende Folge, mit 
-  \[
+  Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine monoton fallende Folge
+  positiver reller Zahlen, das heisst,
+  \(
+   a_0 > a_1 > a_2 > \cdots > 0
+  \),
+  so dass
+  \(
     \lim_{n \to \infty}a_n = 0.
-  \]
+  \)
   Dann konvergiert die alternierende Reihe
-  \[
+  \(
     \sum_{k=0}^{\infty} {(-1)}^k a_k.
-  \]
+  \)
 \end{leibniz}
 
 \begin{proof}
@@ -862,9 +851,9 @@ Reihen herleiten.
   mit der Eigenschaft, dass wenn immer $n \geq N$, dann
   ist $|a_n| \leq \varepsilon$. Solch ein $N$ existiert,
   da wir angenommen haben, dass
-  \[
+  \(
     \lim_{n \to \infty} a_n = 0
-  \]
+  \)
   (ersetze wenn nötig $N$ durch $N + 1$).
   Für alle $n \geq N$ gilt dann
   \[
@@ -1012,12 +1001,12 @@ Reihen herleiten.
     s_n = \sum_{k=0}^{n} a_k
   \]
   Seien  nun $n > m \geq N$. Dann gilt
-  \begin{align*}
-    |s_n - s_m| & = \left| \sum_{k=m+1}^{n} a_k \right|\\
-                & \leq \sum_{k=m+1}^{n} |a_k| \\
-                & \leq \sum_{k=N}^{\infty} |a_k| \\
-                & \leq \varepsilon.
-  \end{align*}
+  \[
+    |s_n - s_m|  = \left| \sum_{k=m+1}^{n} a_k \right|
+                 \leq \sum_{k=m+1}^{n} |a_k| 
+                 \leq \sum_{k=N}^{\infty} |a_k| 
+                 \leq \varepsilon.
+  \]
   Also ist $s_n$ eine 
   Cauchyfolge und deshalb ist $\sum_{k=0}^{\infty} a_n$ konvergent
   in $\mathbb{R}$.
@@ -1077,9 +1066,9 @@ Reihen herleiten.
   also konvergent.
 
   Es bleibt zu zeigen, dass
-  \[
+  \(
     \sum_{k=0}^{\infty} a_{\varphi(k)} = \sum_{k=0}^{\infty} a_k,
-  \]
+  \)
   also die Grenzwerte übereinstimmen.
   Für $n \in \mathbb{N}$, setze dazu
   \[
@@ -1127,11 +1116,9 @@ $\alpha + \beta$.
     c_n = \sum_{k=0}^{n} a_k b_{n-k}.
   \]
   Also ist zum Beispiel
-  \begin{itemize}
-    \item $c_0 = a_0 b_0$,
-    \item $c_1 = a_0 b_1 + a_1 b_0$,
-    \item $c_2 = a_0 b_2 + a_1 b_1 + a_2 b_0$.
-  \end{itemize}
+    $c_0 = a_0 b_0$,
+    $c_1 = a_0 b_1 + a_1 b_0$,
+    $c_2 = a_0 b_2 + a_1 b_1 + a_2 b_0$.
 \end{definition}
 
 \begin{figure}[htb] 
@@ -1379,9 +1366,9 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 
 \begin{theorem}\label{thm:exp-product-sum}
   Für alle $x, y \in \mathbb{R}$ gilt
-  \[
+  \(
     \exp(x + y) = \exp (x) \cdot \exp (y).
-  \]
+  \)
 \end{theorem}
 
 \begin{proof}
@@ -1417,34 +1404,29 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       \]
       (siehe Serie 4). %TODO check.
     \item Für alle $x \in \mathbb{R}$ gilt
-      \[
-        \exp(-x) = \frac{1}{\exp(x)}.
-      \]
+      \(
+        \exp(-x) = {1}/{\exp(x)}.
+      \)
       Dazu berechne
       \[
         \exp(0) = \exp(x - x) = \exp(x) \cdot \exp(-x)
       \]
       nach Theorem~\ref{thm:exp-product-sum}.
     \item Für alle
-      $n \in \mathbb{N}$ gilt
+      $n \in \mathbb{N}$ gilt $\exp(n) = e^n$. Berechne dazu
       \[
         \exp(n) = \exp(1 + \cdots + 1) =
-        \left( \exp(1) \right)^n = e^n.
+        {\left( \exp(1) \right)}^n = e^n.
       \]
   \end{enumerate}
 \end{eig-exp}
 
 \begin{notation}
   Wir schreiben von nun an auch
-  \[
+  \(
     e^x = \exp(x).
-  \]
+  \)
 \end{notation}
-
-Wir müssen das so 
-definieren, da die Intuition aus
-Punkt (iv) nicht reicht, um zum Beispiel
-$e^{\sqrt 2}$ zu definieren.
 
 \begin{proposition*}
   Die Exponentialfunktion $\exp \colon \mathbb{R} \to \mathbb{R}$ 
