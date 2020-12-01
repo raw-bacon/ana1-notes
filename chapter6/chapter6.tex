@@ -921,285 +921,285 @@ Wir untersuchen nun einen Konvergenzbegriff für Funktionenfolgen,
 der sicher stellen soll, dass die Grenzfunktion einige gute Eigenschaften
 der einzelnen Glieder erbt.
 
-\begin{definition}
-  Sei $X \subset \mathbb{R}$ eine beliebige Teilmenge.
-  Eine Folge ${(f_{n})}_{n \in \mathbb{N}}$ von Funktionen $f_n \colon X \to \mathbb{R}$
-  \emph{konvergiert gleichmässig} mit Grenzfunktion $f \colon X \to \mathbb{R}$,
-  falls für alle $\varepsilon > 0$ ein Index $N \in \mathbb{N}$ existiert,
-  so dass für alle $n \geq N$ und alle $x \in X$ gilt, dass
-  $|f_n(x) - f(x)| \leq \varepsilon$.
-\end{definition}
+% \begin{definition}
+%   Sei $X \subset \mathbb{R}$ eine beliebige Teilmenge.
+%   Eine Folge ${(f_{n})}_{n \in \mathbb{N}}$ von Funktionen $f_n \colon X \to \mathbb{R}$
+%   \emph{konvergiert gleichmässig} mit Grenzfunktion $f \colon X \to \mathbb{R}$,
+%   falls für alle $\varepsilon > 0$ ein Index $N \in \mathbb{N}$ existiert,
+%   so dass für alle $n \geq N$ und alle $x \in X$ gilt, dass
+%   $|f_n(x) - f(x)| \leq \varepsilon$.
+% \end{definition}
 
-Dies unterscheidet sich von der üblichen (punktweisen) Konvergenz dadurch,
-dass bei der gleichmässigen Konvergenz der Index $N$ nicht vom Punkt $x$ abhängen darf.
-Siehe auch Abbildung~\ref{fig:uniform}.
+% Dies unterscheidet sich von der üblichen (punktweisen) Konvergenz dadurch,
+% dass bei der gleichmässigen Konvergenz der Index $N$ nicht vom Punkt $x$ abhängen darf.
+% Siehe auch Abbildung~\ref{fig:uniform}.
 
-\begin{figure}[htb]
-  \centering
-  \includestandalone{images/uniform}
-  \caption{Gleichmässige Konvergenz heisst, dass sich jedes
-  $f_n$ im $\varepsilon$-breiten Band um $f$ befindet.}%
-  \label{fig:uniform}
-\end{figure}
+% \begin{figure}[htb]
+%   \centering
+%   \includestandalone{images/uniform}
+%   \caption{Gleichmässige Konvergenz heisst, dass sich jedes
+%   $f_n$ im $\varepsilon$-breiten Band um $f$ befindet.}%
+%   \label{fig:uniform}
+% \end{figure}
 
-\begin{examples}
-  \leavevmode
-  \begin{enumerate}[(1)]
-    \item Sei $X = [0, 1]$ und betrachte die Funktionen
-      \begin{align*}
-        f_n \colon [0, 1] & \to \mathbb{R} \\
-        x & \mapsto x^n.
-      \end{align*}
-      Die Folge ${(f_{n})}_{n \in \mathbb{N}}$ konvergiert
-      punktweise gegen die Funktion
-      \begin{align*}
-        f \colon [0, 1] & \to \mathbb{R} \\
-        x & \mapsto
-        \begin{cases}
-          0 & x < 1,\\
-          1 & x = 1.
-        \end{cases}
-      \end{align*}
-      Diese Konvergenz ist jedoch nicht gleichmässig.
-      Sei dazu $\varepsilon = 1/3$.
-      Bemerke, dass alle $f_n \colon [0, 1] \to \mathbb{R}$ stetig sind.
-      Nach dem Zwischenwertsatz existiert also $x_n \in (0, 1)$ 
-      mit $f_n(x_n) = 1/2$.
-      Es folgt, dass
-      \[
-        |f_n(x_n) - f(x_n)| = |1/2 - 0| = 1/2.
-      \]
-      Wir schliessen, dass kein $N \in \mathbb{N}$ existiert, so dass
-      für alle $x \in [0, 1]$ gilt, dass \[|f_n(x) - f(x)| \leq 1/3.\]
-    \item Sei $a \in (0, 1)$.
-      Betrachte die Funktionen
-      \begin{align*}
-        f_n \colon [0, a] & \to \mathbb{R} \\
-        x & \mapsto x^n.
-      \end{align*}
-      Dann konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ 
-      gleichmässig gegen die Nullfunktion $f \colon[0, a] \to \mathbb{R}$.
-      Sei dazu $\varepsilon > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
-      $a^N \leq \varepsilon$. Ein solches $N$ existiert, da $a < 1$.
-      Dann gilt für alle $n \geq N$ und alle $x \in [0, a]$, dass
-      \[
-        |f_n(x) - f(x)| = |x^n - 0| = x^n \leq a^n \leq a^N \leq \varepsilon.
-      \]
-    \item Seien $a_0, a_1, a_2, \dots$  und $b_1, b_2, b_3, \dots$ reelle Zahlen,
-      so dass
-      \[
-        \sum_{k=1}^{\infty} |a_k| + |b_k| < \infty.
-      \]
-      Definiere $f_n \colon \mathbb{R} \to \mathbb{R}$ durch
-      \[
-        f_n(x) = a_0 + \sum_{k=1}^{n} a_k \cos(kx) + b_k \sin(kx).
-      \]
-      Dann konvergiert die Funktionenfolge $f_n$ gleichmässig gegen die
-      Grenzfunktion
-      \[
-        f(x) = a_0 + \sum_{k=0}^{\infty} a_k \cos(kx) + b_k \sin (kx).
-      \]
-      Sei dazu $\varepsilon > 0$.
-      Wähle $N \in \mathbb{N}$ mit
-      \[
-        \sum_{k=N}^{\infty} |a_k| + |b_k| \leq \varepsilon.
-      \]
-      Dann gilt für alle $n \geq N$ und alle $x \in \mathbb{R}$, dass
-      \[
-        |f_n(x) - f(x)| = \left| \sum_{k = n + 1}^{\infty} a_k \cos(kx)
-        + b_k \sin (kx)\right| \leq \sum_{k=N}^{\infty} |a_k| + |b_k| \leq \varepsilon.
-      \]
+% \begin{examples}
+%   \leavevmode
+%   \begin{enumerate}[(1)]
+%     \item Sei $X = [0, 1]$ und betrachte die Funktionen
+%       \begin{align*}
+%         f_n \colon [0, 1] & \to \mathbb{R} \\
+%         x & \mapsto x^n.
+%       \end{align*}
+%       Die Folge ${(f_{n})}_{n \in \mathbb{N}}$ konvergiert
+%       punktweise gegen die Funktion
+%       \begin{align*}
+%         f \colon [0, 1] & \to \mathbb{R} \\
+%         x & \mapsto
+%         \begin{cases}
+%           0 & x < 1,\\
+%           1 & x = 1.
+%         \end{cases}
+%       \end{align*}
+%       Diese Konvergenz ist jedoch nicht gleichmässig.
+%       Sei dazu $\varepsilon = 1/3$.
+%       Bemerke, dass alle $f_n \colon [0, 1] \to \mathbb{R}$ stetig sind.
+%       Nach dem Zwischenwertsatz existiert also $x_n \in (0, 1)$ 
+%       mit $f_n(x_n) = 1/2$.
+%       Es folgt, dass
+%       \[
+%         |f_n(x_n) - f(x_n)| = |1/2 - 0| = 1/2.
+%       \]
+%       Wir schliessen, dass kein $N \in \mathbb{N}$ existiert, so dass
+%       für alle $x \in [0, 1]$ gilt, dass \[|f_n(x) - f(x)| \leq 1/3.\]
+%     \item Sei $a \in (0, 1)$.
+%       Betrachte die Funktionen
+%       \begin{align*}
+%         f_n \colon [0, a] & \to \mathbb{R} \\
+%         x & \mapsto x^n.
+%       \end{align*}
+%       Dann konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ 
+%       gleichmässig gegen die Nullfunktion $f \colon[0, a] \to \mathbb{R}$.
+%       Sei dazu $\varepsilon > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
+%       $a^N \leq \varepsilon$. Ein solches $N$ existiert, da $a < 1$.
+%       Dann gilt für alle $n \geq N$ und alle $x \in [0, a]$, dass
+%       \[
+%         |f_n(x) - f(x)| = |x^n - 0| = x^n \leq a^n \leq a^N \leq \varepsilon.
+%       \]
+%     \item Seien $a_0, a_1, a_2, \dots$  und $b_1, b_2, b_3, \dots$ reelle Zahlen,
+%       so dass
+%       \[
+%         \sum_{k=1}^{\infty} |a_k| + |b_k| < \infty.
+%       \]
+%       Definiere $f_n \colon \mathbb{R} \to \mathbb{R}$ durch
+%       \[
+%         f_n(x) = a_0 + \sum_{k=1}^{n} a_k \cos(kx) + b_k \sin(kx).
+%       \]
+%       Dann konvergiert die Funktionenfolge $f_n$ gleichmässig gegen die
+%       Grenzfunktion
+%       \[
+%         f(x) = a_0 + \sum_{k=0}^{\infty} a_k \cos(kx) + b_k \sin (kx).
+%       \]
+%       Sei dazu $\varepsilon > 0$.
+%       Wähle $N \in \mathbb{N}$ mit
+%       \[
+%         \sum_{k=N}^{\infty} |a_k| + |b_k| \leq \varepsilon.
+%       \]
+%       Dann gilt für alle $n \geq N$ und alle $x \in \mathbb{R}$, dass
+%       \[
+%         |f_n(x) - f(x)| = \left| \sum_{k = n + 1}^{\infty} a_k \cos(kx)
+%         + b_k \sin (kx)\right| \leq \sum_{k=N}^{\infty} |a_k| + |b_k| \leq \varepsilon.
+%       \]
 
-      Ein explizites Beispiel dafür ist
-      \[
-        f_n(x) = \sum_{k=1}^{n} \frac{\cos(kx)}{k^2}.
-      \]
-      Für die Grenzfunktion $f \colon\mathbb{R} \to \mathbb{R}$ gilt dann
-      \[
-        f(x) = \frac{\pi^2}{6} - \frac{\pi}{2}x + \frac{x^2}{4}
-      \]
-      für $x \in [0, 2 \pi]$. Weiterhin ist die Funktion
-      $f \colon \mathbb{R} \to \mathbb{R}$ periodisch mit Periode
-      $2 \pi$, das heisst für alle $x \in \mathbb{R}$ gilt $f(x + 2\pi) = f(x)$.
-      Siehe auch Abbildung~\ref{fig:pi-squared-sixths}.
-      Wir werden das noch genauer untersuchen, sobald wir Fourierreihen studieren.
+%       Ein explizites Beispiel dafür ist
+%       \[
+%         f_n(x) = \sum_{k=1}^{n} \frac{\cos(kx)}{k^2}.
+%       \]
+%       Für die Grenzfunktion $f \colon\mathbb{R} \to \mathbb{R}$ gilt dann
+%       \[
+%         f(x) = \frac{\pi^2}{6} - \frac{\pi}{2}x + \frac{x^2}{4}
+%       \]
+%       für $x \in [0, 2 \pi]$. Weiterhin ist die Funktion
+%       $f \colon \mathbb{R} \to \mathbb{R}$ periodisch mit Periode
+%       $2 \pi$, das heisst für alle $x \in \mathbb{R}$ gilt $f(x + 2\pi) = f(x)$.
+%       Siehe auch Abbildung~\ref{fig:pi-squared-sixths}.
+%       Wir werden das noch genauer untersuchen, sobald wir Fourierreihen studieren.
       
-      \begin{figure}[htb]
-        \centering
-        \includestandalone{images/pi-squared-sixths}
-        \caption{Eine $2\pi$-periodische Funktion $f$
-        mit $f(x) = \pi^2/6 + \pi/2 \cdot x + x^2/4$
-      für alle $x \in [0, 2\pi]$.}%
-        \label{fig:pi-squared-sixths}
-      \end{figure}
-  \end{enumerate}
-\end{examples}
+%       \begin{figure}[htb]
+%         \centering
+%         \includestandalone{images/pi-squared-sixths}
+%         \caption{Eine $2\pi$-periodische Funktion $f$
+%         mit $f(x) = \pi^2/6 + \pi/2 \cdot x + x^2/4$
+%       für alle $x \in [0, 2\pi]$.}%
+%         \label{fig:pi-squared-sixths}
+%       \end{figure}
+%   \end{enumerate}
+% \end{examples}
 
-\begin{theorem}[Satz von Weierstrass]\label{thm:weierstrass}
-  Sei ${(f_{n})}_{n \in \mathbb{N}}$ eine Folge von stetigen Funktionen
-  $f_n \colon X \to \mathbb{R}$, welche gleichmässig gegen
-  $f \colon X \to \mathbb{R}$ konvergiert.
-  Dann ist $f$ stetig.
-\end{theorem}
+% \begin{theorem}[Satz von Weierstrass]\label{thm:weierstrass}
+%   Sei ${(f_{n})}_{n \in \mathbb{N}}$ eine Folge von stetigen Funktionen
+%   $f_n \colon X \to \mathbb{R}$, welche gleichmässig gegen
+%   $f \colon X \to \mathbb{R}$ konvergiert.
+%   Dann ist $f$ stetig.
+% \end{theorem}
 
-\begin{proof}
-  Die Idee in diesem Beweis ist $\varepsilon$ zu dritteln.
-  Sei $p \in X$ und $\varepsilon > 0$ vorgegeben.
-  Wähle $N \in \mathbb{N}$ so, dass für alle $n \geq N$ 
-  und $x \in X$ gilt, dass
-  $|f_n(x) - f(x)| \leq \varepsilon /3$.
-  Wähle $\delta > 0$ so, dass
-  für alle $x \in X$ mit $|x - p| \leq \delta$ gilt,
-  dass
-  \(
-    |f_N(x) - f_N(p)| \leq \varepsilon/3.
-  \)
-  Das geht, da $f_N$ stetig ist.
-  Dann gilt für alle $x \in X$ mit $|x - p| \leq \delta$, dass
-  \begin{align*}
-    |f(x) - f(p)| &= |f(x) - f_N(x) + f_N(x) - f_N(p) + f_N(p) - f(p)| \\
-                  & \leq |f(x)  -f_N(x)| + |f_N(x) - f_N(p)| + |f_N(p) - f(p)|\\
-                  & \leq \varepsilon/3 + \varepsilon/3 + \varepsilon/3 = \varepsilon.
-  \end{align*}
-  Also ist $f$ stetig im Punkt $p \in X$.
-\end{proof}
+% \begin{proof}
+%   Die Idee in diesem Beweis ist $\varepsilon$ zu dritteln.
+%   Sei $p \in X$ und $\varepsilon > 0$ vorgegeben.
+%   Wähle $N \in \mathbb{N}$ so, dass für alle $n \geq N$ 
+%   und $x \in X$ gilt, dass
+%   $|f_n(x) - f(x)| \leq \varepsilon /3$.
+%   Wähle $\delta > 0$ so, dass
+%   für alle $x \in X$ mit $|x - p| \leq \delta$ gilt,
+%   dass
+%   \(
+%     |f_N(x) - f_N(p)| \leq \varepsilon/3.
+%   \)
+%   Das geht, da $f_N$ stetig ist.
+%   Dann gilt für alle $x \in X$ mit $|x - p| \leq \delta$, dass
+%   \begin{align*}
+%     |f(x) - f(p)| &= |f(x) - f_N(x) + f_N(x) - f_N(p) + f_N(p) - f(p)| \\
+%                   & \leq |f(x)  -f_N(x)| + |f_N(x) - f_N(p)| + |f_N(p) - f(p)|\\
+%                   & \leq \varepsilon/3 + \varepsilon/3 + \varepsilon/3 = \varepsilon.
+%   \end{align*}
+%   Also ist $f$ stetig im Punkt $p \in X$.
+% \end{proof}
 
-\begin{proposition}
-  Sei 
-  \[
-    P(x) = \sum_{k=0}^{\infty} a_k x^k
-  \]
-  eine Potenzreihe mit Konvergenzradius $r > 0$.
-  Sei weiterhin $s > 0$ mit $s < r$.
-  Dann konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ mit
-  \[
-    f_n(x) = \sum_{k=0}^{n} a_k x^k
-  \]
-  auf dem Intervall $[-s, s]$ gleichmässig gegen die Funktion
-  $f \colon [-s, s] \to \mathbb{R}$ mit
-  \[
-    f(x) = \sum_{k=0}^{\infty} a_k x^k.
-  \]
-  Insbesondere ist die Grenzfunktion $f \colon [-s, s] \to \mathbb{R}$ stetig.
-\end{proposition}
-
-
-\begin{proof}
-  Aus dem Beweis von Theorem~\ref{thm:hadamard} wissen wir, dass die Reihe
-  \(
-    \sum_{k=0}^{\infty} a_k s^k
-  \)
-  absolut konvergiert, da $s < r$.
-  Sei nun $\varepsilon > 0$ vorgegeben.
-  Wähle $N \in \mathbb{N}$ so, dass
-  \[
-    \sum_{k=N}^{\infty} |a_k| s^k \leq \varepsilon.
-  \]
-  Für alle $n \geq N$ und alle $x \in [-s, s]$ gilt dann
-   \begin{align*}
-     |f_n(x) - f(x)|
-     & = \left| \sum_{k=n+1}^{\infty} a_k x^k \right|\\
-     & \leq \sum_{k=n+1}^{\infty} |a_k| \cdot |x|^k\\
-     & \leq \sum_{k=N}^{\infty} |a_k| s^k \leq \varepsilon. 
-  \end{align*}
-  Also konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ auf $[-s, s]$ 
-  gleichmässig gegen $f$.
-\end{proof}
-
-\begin{question}
-  Was passiert im Grenzfall $x = \pm r$, wobei $r$ der Konvergenzradius ist?
-\end{question}
-
-Diese Frage ist interessant, da die Reihen $P(r)$ und $P(-r)$
-im allgemeinen nicht konvergieren.
-
-\begin{example}
-  Betrachte
-  \[
-    P(x) = \sum_{k=0}^{\infty} x^k.
-  \]
-  Dann konvergieren $P(1)$ und $P(-1)$ nicht.
-\end{example}
+% \begin{proposition}
+%   Sei 
+%   \[
+%     P(x) = \sum_{k=0}^{\infty} a_k x^k
+%   \]
+%   eine Potenzreihe mit Konvergenzradius $r > 0$.
+%   Sei weiterhin $s > 0$ mit $s < r$.
+%   Dann konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ mit
+%   \[
+%     f_n(x) = \sum_{k=0}^{n} a_k x^k
+%   \]
+%   auf dem Intervall $[-s, s]$ gleichmässig gegen die Funktion
+%   $f \colon [-s, s] \to \mathbb{R}$ mit
+%   \[
+%     f(x) = \sum_{k=0}^{\infty} a_k x^k.
+%   \]
+%   Insbesondere ist die Grenzfunktion $f \colon [-s, s] \to \mathbb{R}$ stetig.
+% \end{proposition}
 
 
-\begin{proposition}[Grenzwertsatz von Abel]\label{prop:abel-grenzwertsatz}
-  Sei $r$ der Konvergenzradius der Potenzreihe
-  \[
-    P(x) = \sum_{n=0}^{\infty} a_n x^n.
-  \]
-  Falls $P(r)$ konvergiert, dann konvergiert die Folge
-  ${(f_{n})}_{n \in \mathbb{N}}$ mit
-  \(
-    f_n(x) = \sum_{k=0}^{n}  a_k x^k
-  \)
-  auf $[0, r]$ gleichmässig gegen die Grenzfunktion $f \colon [0, r] \to \mathbb{R}$
-  mit
-  \(
-    f(x) = \sum_{k=0}^{\infty} a_k x^k.
-  \)
-  Insbesondere ist $f \colon [0, r] \to \mathbb{R}$ stetig.
-\end{proposition}
+% \begin{proof}
+%   Aus dem Beweis von Theorem~\ref{thm:hadamard} wissen wir, dass die Reihe
+%   \(
+%     \sum_{k=0}^{\infty} a_k s^k
+%   \)
+%   absolut konvergiert, da $s < r$.
+%   Sei nun $\varepsilon > 0$ vorgegeben.
+%   Wähle $N \in \mathbb{N}$ so, dass
+%   \[
+%     \sum_{k=N}^{\infty} |a_k| s^k \leq \varepsilon.
+%   \]
+%   Für alle $n \geq N$ und alle $x \in [-s, s]$ gilt dann
+%    \begin{align*}
+%      |f_n(x) - f(x)|
+%      & = \left| \sum_{k=n+1}^{\infty} a_k x^k \right|\\
+%      & \leq \sum_{k=n+1}^{\infty} |a_k| \cdot |x|^k\\
+%      & \leq \sum_{k=N}^{\infty} |a_k| s^k \leq \varepsilon. 
+%   \end{align*}
+%   Also konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ auf $[-s, s]$ 
+%   gleichmässig gegen $f$.
+% \end{proof}
 
-\begin{example}
-  Die Formel
-  \[
-    \log(1 + x) = \sum_{k=0}^{\infty} {(-1)}^k \frac{x^{k+1}}{k+1}
-  \]
-  gilt für alle $x \in (-1, 1)$.
-  Wir bemerken, dass
-  \[
-    P(1) = 1 - 1/2 + 1/3 - 1/4 + \cdots
-  \]
-  konvergiert (aber nicht absolut).
-  Aus Proposition~\ref{prop:abel-grenzwertsatz} folgt
-  \[
-    \log(2) = \lim_{x \to 1} \log(1 + x)
-    = \lim_{x \to 1} P(x) = P(1).
-  \]
-  Wir schliessen, dass
-  \[
-    \log(2) = 1 - 1/2 + 1/3 - 1/4 + \cdots.
-  \]
-\end{example}
+% \begin{question}
+%   Was passiert im Grenzfall $x = \pm r$, wobei $r$ der Konvergenzradius ist?
+% \end{question}
 
-\begin{proof}[Beweis von Proposition~\ref{prop:abel-grenzwertsatz}]
-  Wir führen den Beweis im Spezialfall $r = 1$.
-  Der allgemeine Fall kann durch eine Skalierung leicht auf diesen
-  Fall reduziert werden.
-  Berechne für alle $x \in [0, 1]$ und alle $n, k \in \mathbb{N}$, dass
-  \begin{align*}
-    f_{n+k}(x) - f_n(x) 
-    &= a_{n+1}x^{n+1} + a_{n+2}x^{n+2} + \cdots + a_{n+k}x^{n+k} \\
-    & = (a_{n+1} + a_{n+2} + \cdots + a_{n+k}) \cdot x^{n+k}\\
-    &\;\;\;\;\; + (a_{n+1} + a_{n+2} + \cdots + a_{n+k-1}) \cdot (x^{n+k-1} - x^{n+k})\\
-    &\;\;\;\;\; + (a_{n+1} + a_{n+2} + \cdots + a_{n+k - 2}) \cdot (x^{n+k-2} - x^{n+k-1})\\
-    &\;\;\;\;\; + \cdots
-    + a_{n+1} \cdot (x^{n+1} - x^{n+2}).
-  \end{align*}
-  Dieser ``Höllensumme'' sagt man \emph{Abel Summation}.
-  Da die Reihe $\sum_{k=0}^{\infty} a_k$ konvergiert,
-  existiert zu jedem $\varepsilon > 0$ ein $N \in \mathbb{N}$, so
-  dass für alle $n \geq N$ und alle $k \in \mathbb{N}$ gilt, dass
-  $|a_{n+1} + a_{n+2} + \cdots + a_{n+k}| \leq \varepsilon$.
-  Für alle $x \in [0, 1]$, alle $n \geq N$ und alle $k \in \mathbb{N}$ gilt nun, dass
-  \begin{align*}
-    |f_{n+k}(x) - f_n(x)| 
-    &\leq \varepsilon x^{n+k} +
-    \varepsilon \cdot (x^{n+k-1} - x^{n+k}) + \cdots + \varepsilon \cdot (x^{n+1} - x^{n+2})\\
-    &\leq \varepsilon x^{n+1}\\ & \leq \varepsilon.
-  \end{align*}
-  Im Grenzübergang $k \to \infty$ erhalten wir, dass $|f(x) - f_n(x)| \leq \varepsilon$
-  für alle $x \in [0, 1]$ und alle $n \geq N$.
-\end{proof}
+% Diese Frage ist interessant, da die Reihen $P(r)$ und $P(-r)$
+% im allgemeinen nicht konvergieren.
 
-\begin{proposition}\label{prop:swap-limit-integral}
-  Sei ${(f_{n})}_{n \in \mathbb{N}}$ eine Folge stetiger Funktionen
-  $f_n \colon [a, b] \to \mathbb{R}$, welche gleichmässig
-  gegen $f \colon[a, b] \to \mathbb{R}$ konvergiert. Dann gilt
-  \[
-    \lim_{n \to \infty} \int_{a}^{b} f_n(x) \, dx = \int_{a}^{b} f(x) \, dx.
-  \]
-\end{proposition}
+% \begin{example}
+%   Betrachte
+%   \[
+%     P(x) = \sum_{k=0}^{\infty} x^k.
+%   \]
+%   Dann konvergieren $P(1)$ und $P(-1)$ nicht.
+% \end{example}
+
+
+% \begin{proposition}[Grenzwertsatz von Abel]\label{prop:abel-grenzwertsatz}
+%   Sei $r$ der Konvergenzradius der Potenzreihe
+%   \[
+%     P(x) = \sum_{n=0}^{\infty} a_n x^n.
+%   \]
+%   Falls $P(r)$ konvergiert, dann konvergiert die Folge
+%   ${(f_{n})}_{n \in \mathbb{N}}$ mit
+%   \(
+%     f_n(x) = \sum_{k=0}^{n}  a_k x^k
+%   \)
+%   auf $[0, r]$ gleichmässig gegen die Grenzfunktion $f \colon [0, r] \to \mathbb{R}$
+%   mit
+%   \(
+%     f(x) = \sum_{k=0}^{\infty} a_k x^k.
+%   \)
+%   Insbesondere ist $f \colon [0, r] \to \mathbb{R}$ stetig.
+% \end{proposition}
+
+% \begin{example}
+%   Die Formel
+%   \[
+%     \log(1 + x) = \sum_{k=0}^{\infty} {(-1)}^k \frac{x^{k+1}}{k+1}
+%   \]
+%   gilt für alle $x \in (-1, 1)$.
+%   Wir bemerken, dass
+%   \[
+%     P(1) = 1 - 1/2 + 1/3 - 1/4 + \cdots
+%   \]
+%   konvergiert (aber nicht absolut).
+%   Aus Proposition~\ref{prop:abel-grenzwertsatz} folgt
+%   \[
+%     \log(2) = \lim_{x \to 1} \log(1 + x)
+%     = \lim_{x \to 1} P(x) = P(1).
+%   \]
+%   Wir schliessen, dass
+%   \[
+%     \log(2) = 1 - 1/2 + 1/3 - 1/4 + \cdots.
+%   \]
+% \end{example}
+
+% \begin{proof}[Beweis von Proposition~\ref{prop:abel-grenzwertsatz}]
+%   Wir führen den Beweis im Spezialfall $r = 1$.
+%   Der allgemeine Fall kann durch eine Skalierung leicht auf diesen
+%   Fall reduziert werden.
+%   Berechne für alle $x \in [0, 1]$ und alle $n, k \in \mathbb{N}$, dass
+%   \begin{align*}
+%     f_{n+k}(x) - f_n(x) 
+%     &= a_{n+1}x^{n+1} + a_{n+2}x^{n+2} + \cdots + a_{n+k}x^{n+k} \\
+%     & = (a_{n+1} + a_{n+2} + \cdots + a_{n+k}) \cdot x^{n+k}\\
+%     &\;\;\;\;\; + (a_{n+1} + a_{n+2} + \cdots + a_{n+k-1}) \cdot (x^{n+k-1} - x^{n+k})\\
+%     &\;\;\;\;\; + (a_{n+1} + a_{n+2} + \cdots + a_{n+k - 2}) \cdot (x^{n+k-2} - x^{n+k-1})\\
+%     &\;\;\;\;\; + \cdots
+%     + a_{n+1} \cdot (x^{n+1} - x^{n+2}).
+%   \end{align*}
+%   Dieser ``Höllensumme'' sagt man \emph{Abel Summation}.
+%   Da die Reihe $\sum_{k=0}^{\infty} a_k$ konvergiert,
+%   existiert zu jedem $\varepsilon > 0$ ein $N \in \mathbb{N}$, so
+%   dass für alle $n \geq N$ und alle $k \in \mathbb{N}$ gilt, dass
+%   $|a_{n+1} + a_{n+2} + \cdots + a_{n+k}| \leq \varepsilon$.
+%   Für alle $x \in [0, 1]$, alle $n \geq N$ und alle $k \in \mathbb{N}$ gilt nun, dass
+%   \begin{align*}
+%     |f_{n+k}(x) - f_n(x)| 
+%     &\leq \varepsilon x^{n+k} +
+%     \varepsilon \cdot (x^{n+k-1} - x^{n+k}) + \cdots + \varepsilon \cdot (x^{n+1} - x^{n+2})\\
+%     &\leq \varepsilon x^{n+1}\\ & \leq \varepsilon.
+%   \end{align*}
+%   Im Grenzübergang $k \to \infty$ erhalten wir, dass $|f(x) - f_n(x)| \leq \varepsilon$
+%   für alle $x \in [0, 1]$ und alle $n \geq N$.
+% \end{proof}
+
+% \begin{proposition}\label{prop:swap-limit-integral}
+%   Sei ${(f_{n})}_{n \in \mathbb{N}}$ eine Folge stetiger Funktionen
+%   $f_n \colon [a, b] \to \mathbb{R}$, welche gleichmässig
+%   gegen $f \colon[a, b] \to \mathbb{R}$ konvergiert. Dann gilt
+%   \[
+%     \lim_{n \to \infty} \int_{a}^{b} f_n(x) \, dx = \int_{a}^{b} f(x) \, dx.
+%   \]
+% \end{proposition}
 
 
 
