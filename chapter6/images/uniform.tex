@@ -1,0 +1,22 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5]
+  \draw (0.5, 2) .. controls +(0.5, 0.5) and +(-0.5, -0.5)
+    .. (2, 1) .. controls +(0.5, 0.5) and +(-0.5, 0)
+    .. (3, 2.5);
+  \draw[gray] (0.5, 2.5) .. controls +(0.5, 0.5) and +(-0.5, -0.5)
+    .. (2, 1.5) .. controls +(0.5, 0.5) and +(-0.5, 0)
+    .. (3, 3);
+  \draw[gray] (0.5, 1.5) .. controls +(0.5, 0.5) and +(-0.5, -0.5)
+    .. (2, 0.5) .. controls +(0.5, 0.5) and +(-0.5, 0)
+    .. (3, 2);
+  \draw[dotted] (0.5, 2.5) -- (0.5, 0);
+  \draw[dotted] (3, 3) -- (3, 0);
+  \draw (0, -0.5) -- (0, 3.5);
+  \draw (-0.5, 0) -- (3.5, 0);
+  \node at (0.25, 2) {$f$};
+  \node[gray] at (3.5, 3) {$f + \varepsilon$};
+  \node[gray] at (3.5, 2) {$f - \varepsilon$};
+\end{tikzpicture}
+\end{document}
