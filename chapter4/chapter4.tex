@@ -287,9 +287,9 @@ die Nullfunktion ist.
   siehe Abbildung~\ref{fig:modulus}.
   Dann ist $f$ symmetrisch. Wir behaupten, dass
   $f$ im Punkt $p = 0$ nicht differenzierbar ist.
-  Falls doch, ist muss ${(Df)}_0 = 0$ nach obiger
+  Falls doch, muss ${(Df)}_0 = 0$ nach obiger
   Anwendung gelten, also
-  Folgt
+  folgt
   \[
     |h| = f(0 + h) = f(0) + {(Df)}_0(h) + {(Rf)}_0(h)
     = {(Rf)}_0(h).
@@ -363,7 +363,7 @@ die Nullfunktion ist.
       \[
         |{(Rf)}_p(h)| = |h|^2 \cdot \sum_{k=2}^{n} 
         \binom{n}{k} \cdot |p|^{n-k} \cdot |h|^{k-2}
-                 = |h|^2 \cdot M
+                 \leq |h|^2 \cdot M % da |h|^{k-2} <= 1
                  \leq |h| \cdot \delta \cdot M 
                  \leq|h| \cdot  \varepsilon.
       \]
@@ -492,7 +492,7 @@ dass
 \]
 Aber das Verhältnis zweier linear unabhängiger
 Vektoren ist nicht definiert,
-das heisst der Punkt (ii) in der Proposition
+das heisst, der Punkt (ii) in der Proposition
 macht keinen Sinn.
 Die Funktion $f$ ist aber sehr wohl
 nach unserer Definition differenzierbar,
@@ -546,7 +546,7 @@ auf diese kompliziertere Situation
 
   Wir beweisen nun die Implikation
   ``(ii) $\Rightarrow$ (i)''.
-  Nehme an, der Grenzwert
+  Nimm an, der Grenzwert
   \[
     a = \lim_{h \to 0} \frac{f(p+h) - f(p)}{h} \in \mathbb{R}
   \]
@@ -563,7 +563,7 @@ auf diese kompliziertere Situation
   \[
     \frac{{(Rf)}_p(h)}{h} =
     \frac{f(p+h) - f(p) - ah}{h}
-    = \frac{f(p+h) - f(h)}{h} - a.
+    = \frac{f(p+h) - f(p)}{h} - a.
   \]
   Im Grenzwert gilt also
   \[
@@ -593,7 +593,7 @@ auf diese kompliziertere Situation
   \]
   ist die Steigung der Sekante
   zwischen den Punkten $(p, f(p))$ 
-  und $(p + h, f(p+h))$ im Graph
+  und $(p + h, f(p+h))$ im Graphen
   der Funktion $f$, siehe Abbildung~\ref{fig:derivative}
   links.
   Lassen wir $h$ gegen null gehen,
@@ -656,7 +656,7 @@ auf diese kompliziertere Situation
         \label{fig:sqrt}
       \end{figure}
 
-    \item Wir definieren geometrisch die Sinusfunktion
+    \item Wir definieren die Sinusfunktion geometrisch 
       und untersuchen diese auf Differenzierbarkeit.
       In einem Kreis mit Radius $1$, sei $x$ ein Winkel,
       das heisst, eine Strecke zwischen zwei Punkten auf
@@ -686,7 +686,7 @@ auf diese kompliziertere Situation
       \]
       Dies folgt aus der geometrischen Tatsache,
       dass $s \leq x \leq t$,
-      wovon wir uns vom Bild überzeugen lassen.
+      wovon wir uns vom Bild überzeugen lassen. % x <= t bzw. x >= s kann ich im Bild nicht sehen (Winkel vs. Länge)?
       Also folgt
       \[
         \sin(x) \leq x \leq \frac{\sin(x)}{\cos(x)}.
@@ -705,7 +705,7 @@ auf diese kompliziertere Situation
         \lim_{x \to 0} \frac{\sin(x) - \sin(0)}{x}
         = 1.
       \]
-      Das heisst die Funktion 
+      Das heisst, die Funktion 
       $\sin \colon \mathbb{R} \to \mathbb{R}$ ist differenzierbar
       bei $p = 0$.
       Aus den Additionstheoremen folgt leicht,
@@ -770,7 +770,7 @@ auf diese kompliziertere Situation
 \begin{remark}
   Es existieren stetige Funktionen $f \colon \mathbb{R} \to \mathbb{R}$,
   welche in keinem Punkt differenzierbar sind.
-  Solche Funktionen wurden erstmals vom Deutschen Mathematiker
+  Solche Funktionen wurden erstmals vom deutschen Mathematiker
   Weierstrass konstruiert.
 \end{remark}
 
@@ -916,7 +916,7 @@ im Punkt $p$ differenzierbar, und es gilt
 Sei $f \colon (a, b) \to (c, d)$ 
 differenzierbar und bijektiv.
 Dann existiert eine Umkehrfunktion
-von $f$, das heisst eine Funktion
+von $f$, das heisst, eine Funktion
 $g \colon (c, d) \to (a, b)$ 
 mit $f \circ g = \text{Id}_{(c, d)}$,
 die Identität des Intervalls
@@ -994,7 +994,7 @@ differenzierbar ist, dann gilt somit
     g \colon \mathbb{R} & \to \mathbb{R} \\
     x & \mapsto \sqrt[3]{x},
   \end{align*}
-  welches aufgrund einer vertikalen Tangente im
+  welche aufgrund einer vertikalen Tangente im
   Nullpunkt, siehe Abbildung~\ref{fig:cube},
   nicht differenzierbar ist.
   
@@ -1041,7 +1041,7 @@ differenzierbar an der Stelle $p \in \mathbb{R}$.
 Dann gilt
 \[
   (f \circ g)'(p) = f'(g(p)) \cdot g'(p)
-  = \frac{g'(p)}{{g(p)}^2}.
+  = -\frac{g'(p)}{{g(p)}^2}.
 \]
 Zusammengefasst erhalten wir die \emph{Quotientenregel}
 \[
@@ -1096,10 +1096,10 @@ im Punkt $p$ differenzierbar und es gilt
     \item $f(p) \cdot {(Rg)}_p(h)$ und
       $g(p) \cdot {(Rf)}_p(h)$, welche beide
       ein Produkt einer Konstanten
-      mit einem Term der relativ klein in $|h|$ ist, sind,
+      mit einem Term, der relativ klein in $|h|$ ist, sind, % oder m.E. besser: "; beide sind Produkte einer Konstanten mit einem Term, der relativ klein in $|h|$;"
     \item ${(Df)}_p(h) \cdot {(Rg)}_p(h)$,
       ${(Rf)}_p(h) \cdot {(Dg)}_p(h)$ und
-      ${(Rf)}_p(h) \cdot {(Rg)}_p(h)$
+      ${(Rf)}_p(h) \cdot {(Rg)}_p(h)$,
       welche nicht allzu schwierig zu untersuchen sind,
     \item ${(Df)}_p(h) \cdot {(Dg)}_p(h) = h^2
       \cdot f'(p) \cdot g'(p)$, was ein Produkt
@@ -1114,7 +1114,7 @@ im Punkt $p$ differenzierbar und es gilt
 \begin{question}
   Sei $f \colon \mathbb{R} \to \mathbb{R}$ 
   differenzierbar mit $f' = 0$ (die Nullfunktion),
-  das heisst für alle $x \in \mathbb{R}$ gilt
+  das heisst, für alle $x \in \mathbb{R}$ gilt
   $f'(x) = 0$. Ist dann $f$ konstant?
 \end{question}
 
@@ -1293,7 +1293,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   \end{enumerate}
 \end{proof}
 
-\begin{proof}[Beweis vom Mittelwertsatz]
+\begin{proof}[Beweis des Mittelwertsatzes]
   Betrachte die Hilfsfunktion 
   \begin{align*}
     h \colon [0, 1] & \to \mathbb{R} \\
@@ -1399,7 +1399,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 \end{proof}
 
 \subsection*{Konvexität}
-Mithilfe des Mittelwertsatzes können wir folgendes zeigen.
+Mithilfe des Mittelwertsatzes können wir Folgendes zeigen.
 \begin{enumerate}[(i)]
   \item 
     Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
@@ -1520,7 +1520,7 @@ umformulieren.
   \[
     \lim_{q \to x} f(q) = f(x),
   \]
-  das heisst $f$ ist stetig in $x$.
+  das heisst, $f$ ist stetig in $x$.
 \end{proof}
 
 \begin{figure}[htb]
