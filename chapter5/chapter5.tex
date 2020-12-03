@@ -736,7 +736,7 @@ Wir erhalten folgendes Resultat.
       die uns nicht interessiert), und $g'(x) = -\sin(x)$.
       Also folgt
       \[
-        \int_{a}^{x} \cos(t) \, dt
+        \int_{a}^{x} \cos^2(t) \, dt
         = \sin(x) \cdot \cos (x) -
         \sin(a) \cdot \cos (a) +
         \int_{a}^{x} \sin^2(t) \, dt.
@@ -811,8 +811,8 @@ Wir erhalten folgendes Resultat.
         f \colon [0, 1] & \to [0, 1] \\
         z & \mapsto \sqrt{1- z^2}.
       \end{align*}
-      Dann gilt $g(0) = 0$, $g(\pi(2)) = 1$ 
-      und $g'(x) = -\cos(x)$ für alle $x \in [0, \pi/2]$.
+      Dann gilt $g(0) = 0$, $g(\pi/2) = 1$ 
+      und $g'(x) = \cos(x)$ für alle $x \in [0, \pi/2]$.
       Es folgt, dass
       \[
         \int_{0}^{1} \sqrt{1 - z^2} \, dz
@@ -823,7 +823,7 @@ Wir erhalten folgendes Resultat.
       \]
       Wir können dieses Resultat geometrisch als den Fakt
       interpretieren, dass die Fläche eines Kreises 
-      mit Einheitsradius $\pi$ ist, siehe
+      mit Einheitsradius gerade $\pi$ ist, siehe
       Abbildung~\ref{fig:circle-area}.
   \end{enumerate}
 \end{examples}
@@ -854,11 +854,11 @@ zu berechnen.
 Der Einfachheit halber beschränken wir uns auf diese Funktionen.
 
 Sei
-\[
+\(
   p(x) = x^n + a_1 x^{n-1} + a_2 x^{n-2} + \cdots
   + a_{n-1} x + a_n
-\]
-ein Polynom.
+\)
+ein Polynom in $\mathbb{R}[x]$.
 Wir betrachten den Spezialfall,
 in dem $p$ genau $n$ paarweise verschiedene
 Nullstellen $\alpha_1, \alpha_2, \dots, \alpha_n \in \mathbb{R}$ 
