@@ -1064,11 +1064,11 @@ Siehe auch Abbildung~\ref{fig:uniform}.
   Also ist $f$ stetig im Punkt $p \in X$.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:power-series-uniform}
   Sei 
-  \[
+  \(
     P(x) = \sum_{k=0}^{\infty} a_k x^k
-  \]
+  \)
   eine Potenzreihe mit Konvergenzradius $r > 0$.
   Sei weiterhin $s > 0$ mit $s < r$.
   Dann konvergiert die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ mit
@@ -1192,6 +1192,39 @@ im allgemeinen nicht konvergieren.
   für alle $x \in [0, 1]$ und alle $n \geq N$.
 \end{proof}
 
+
+% Bevor wir Proposition~\ref{prop:swap-limit-integral} beweisen, betrachten wir
+% eine alternative Definition der gleichmässigen Konvergenz.
+
+% \begin{definition}
+%   Die Folge ${(f_{n})}_{n \in \mathbb{N}}$ von Funktionen $f_n \colon X \to \mathbb{R}$ 
+%   heisst gleichmässig konvergent, falls für alle $\varepsilon > 0$ 
+%   ein $N \in \mathbb{N}$ existiert, so dass für alle
+%   $n, m \geq N$ und alle  $x \in X$ gilt, dass $|f_n(x) - f_m(x)| \leq \varepsilon$.
+% \end{definition}
+
+% Dass die beiden Definitionen äquivalent sind, liegt lediglich an der
+% Vollständigkeit von $\mathbb{R}$.
+% Der Vorteil dieser Definition gegenüber der ursprünglichen ist,
+% dass die Grenzfunktion $f \colon X \to \mathbb{R}$ nicht im Voraus bekannt zu sein braucht.
+
+% \begin{example}
+%   Sei $P(x) = \sum_{k=0}^{\infty} a_k x^k$ mit $a_k \in \mathbb{R}$ mit Konvergenzradius $r > 0$.
+%   Für $s \in (0, r)$ ist die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ mit
+%   $f_n(x) = \sum_{k=0}^{n} a_k x^k$ auf dem Intervall $[-s, s]$ 
+%   gleichmässig konvergent, mit Grenzfunktion $f \colon [-s, s] \to \mathbb{R}$, wobei
+%   $f(x) = \sum_{k=0}^{\infty} a_k x^k$.
+%   Siehe dazu Theorem~\ref{thm:weierstrass} und Proposition~\ref{prop:power-series-uniform}.
+% \end{example}
+
+\subsection*{Gliedweise Integration}
+\begin{question}
+  Wann gilt
+  \[
+    \lim_{n \to \infty} \int_{a}^{b} f_n(x) \, dx = \int_{a}^{b} \lim_{n \to \infty} f(x)\, dx?
+  \]
+\end{question}
+
 \begin{proposition}\label{prop:swap-limit-integral}
   Sei ${(f_{n})}_{n \in \mathbb{N}}$ eine Folge stetiger Funktionen
   $f_n \colon [a, b] \to \mathbb{R}$, welche gleichmässig
@@ -1201,8 +1234,183 @@ im allgemeinen nicht konvergieren.
   \]
 \end{proposition}
 
+\begin{proof}[Beweis von Proposition~\ref{prop:swap-limit-integral}]
+  Wir bemerken zuerst, dass $f \colon [a, b] \to \mathbb{R}$ stetig, also auch
+  Riemann-integrierbar ist.
+  Sei $\varepsilon > 0$ vorgegeben.
+  Wähle $N \in \mathbb{N}$ so, dass für alle $n \geq N$ und alle $x \in [a, b]$ gilt,
+  dass
+  $|f_n(x) - f(x)| \leq \varepsilon/(b-a)$.
+  Dann gilt für $n \geq N$, dass
+  \[
+     \left| \int_{a}^{b} f_n(x) \, dx - \int_{a}^{b} f(x) \, dx\right|  
+     = \left| \int_{a}^{b} f_n(x) - f(x) \, dx \right|  
+     \leq \int_{a}^{b} |f_n(x) - f(x) \, dx \leq \varepsilon.\qedhere
+  \]
+\end{proof}
 
+\begin{example}
+  Sei $P(x) = \sum_{k=0}^{\infty} a_k x^k$ eine Potenzreihe mit Konvergenzradius $r > 0$.
+  Sei $s \in (0, r)$ und $[a, b] \subset [-s, s]$. Dann gilt
+  \begin{align*}
+    \int_{a}^{b} \sum_{k=0}^{\infty}  a_k x^k \, dx 
+    &= \lim_{n \to \infty} \int_{a}^{b} \sum_{k=0}^{n} a_k x^k \, dx  \\
+    &=  \lim_{n \to \infty} \sum_{k=0}^{n} \int_{a}^{b} a_k x^k \, dx \\
+    &= \sum_{k=0}^{\infty} a_k \cdot \frac{b^{k+1} - a^{k+1}}{k+1}.
+  \end{align*}
+  Für das Vertauschen des Limes mit dem Integral haben wir 
+  Propositionen~\ref{prop:power-series-uniform} und~\ref{prop:swap-limit-integral} benutzt.
+  Wir schliessen, dass gliedweise Integration innerhalb des Konvergenzbereichs
+  von $P(x)$ erlaubt ist.
+\end{example}
 
+\subsection*{Gliedweise Ableitung}
+\begin{question}
+  Wann gilt
+  \[
+    \lim_{n \to \infty} f_n' = \left(\lim_{n \to \infty} f_n \right)'?
+  \]
+\end{question}
 
+\begin{example}
+  Betrachte die Funktionenfolge ${(f_{n})}_{n \in \mathbb{N}}$ mit
+  $f_n(x) = 1/n \cdot \cos(nx)$.
+  Dann konvergiert ${(f_{n})}_{n \in \mathbb{N}}$ gleichmässig auf $\mathbb{R}$ 
+  gegen die Nullfuktion. Aber
+  die Folge der Ableitungen $f_n'(x) = -\sin (nx)$ konvergiert nicht,
+  insbesondere nicht gegen die Nullfunktion.
+  Die Details dazu werden auf Serie~12 ausgearbeitet.
+  In diesem Fall können wir den Limes also nicht mit der Ableitung vertauschen.
+\end{example}
 
+\begin{proposition}\label{prop:derivative-uniform}
+  Seien $f_n \colon (a, b) \to~\mathbb{R}$ stetig differenzierbare
+  Funktionen, so dass
+  \begin{enumerate}[\normalfont(i)]
+    \item die Folge $f_n' \colon (a, b) \to \mathbb{R}$ gleichmässig gegen
+      eine Funktion $g \colon (a, b) \to \mathbb{R}$ konvergiert,
+    \item für mindestens einen Punkt $p \in (a, b)$ der Grenzwert
+      $\lim_{n \to \infty} f_n(p) \in \mathbb{R}$ existiert.
+  \end{enumerate}
+  Dann konvergiert die Folge  ${(f_{n})}_{n \in \mathbb{N}}$ gleichmässig
+  gegen eine differenzierbare Funktion $f \colon (a, b) \to \mathbb{R}$,
+  und es gilt $f' = g$.
+\end{proposition}
+
+\begin{proof}
+  Wir zeigen die Proposition in zwei Schritten. Im ersten Schritt zeigen wir,
+  dass ${(f_{n})}_{n \in \mathbb{N}}$ gleichmässig auf $(a, b)$ konvergiert.
+  Dazu sei $\varepsilon > 0$ vorgegeben. Seien $m, n \in \mathbb{N}$ 
+  mit $m > n$, und sei $x \in (a, b)$.
+  Betrachte die Hilfsfunktion
+  \(
+    h(x) = f_m(x) - f_n(x)
+  \).
+  Nach dem Mittelwertsatz existiert $ t$ zwischen $p$ und $x$ mit
+  $h(x) = h(p) + h(p) + h'(t) \cdot (x - p)$.
+  Wähle $N_1 \in \mathbb{N}$ so, dass für alle $n , m \geq N_1$ und
+  alle $t \in (a, b)$ gilt, dass
+  \[
+  |f_n'(t) - f_m'(t)| \leq \frac{\varepsilon }{2(b-a)}.
+  \]
+  Wähle $N_2 \in \mathbb{N}$ so, dass für alle $n , m \geq N_2$ gilt,
+  dass
+  \(
+    |f_n(p) - f_m(p)| \leq \varepsilon/2
+  \).
+  Für alle $x \in (a, b)$ und alle $n, m \geq N = \max\{N_1, N_2\}$ gilt dann
+   \begin{align*}
+     h(x) 
+     &\leq |h(p)| + |h'(t)| \cdot |x - p|  \\
+     &= |f_m(p) - f_n(p)| + |f_m'(t) - f_n'(t)| \cdot |x - p| \\
+     & \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2(b-a)}\cdot (b-a) = \varepsilon.
+  \end{align*}
+  Also gilt für alle $x \in (a, b)$ und alle $n, m \geq N$, dass
+  $|f_m(x) - f_n(x)| \leq \varepsilon$. Da $\mathbb{R}$ vollständig ist,
+  bedeutet das, dass ${(f_{n})}_{n \in \mathbb{N}}$ gleichmässig konvergent ist.
+  Sei also $f$ die Grenzfunktion.
+  
+  Im zweiten Schritt zeigen wir nun, dass $f$ differenzierbar ist, und
+  dass $f' = g$ gilt.
+  Dazu machen mir einen Ansatz für eine Dreigliedentwicklung von $f$
+  an der Stelle $x \in (a, b)$. Schreibe
+  \[
+    f(x + h) = f(x) + g(x) \cdot h + {(Rf)}_x(h).
+  \]
+  Zu zeigen ist, dass ${(Rf)}_x(h)$ relativ klein in $|h|$ ist.
+  Sei dazu $n \in \mathbb{N}$.
+  Nach dem Mittelwertsatz existiert $t$ zwischen $x$ und $x + h$ 
+  so, dass $f_n(x + h) = f_n(x) + f_n'(t) \cdot h$.
+  Umgeschrieben heisst das, dass
+  \[
+    f_n(x + h) = f_n(x) + f_n'(x) \cdot h + (f_n'(t) - f_n'(x)) \cdot h.
+  \]
+  Schreibe ${(Rf_n)}_x(h) = (f_n'(t) - f_n'(x)) \cdot h$.
+  Wähle $N \in \mathbb{N}$ so, dass für alle $n, m \geq N$ und alle
+  $t \in (a, b)$ gilt, dass $|f_m'(t) - f_n'(t)| \leq \varepsilon/3$.
+  Weiter wähle $\delta > 0$ so, dass für alle $t \in (a, b)$ mit
+  $|t - x| \leq \delta$ gilt, dass
+  $|f_N'(t) - f_N'(x) \leq \varepsilon/3$ gilt. Das geht, da $f_N'$ stetig ist.
+  Für $n \geq N$ gilt dann
+  $|{(Rf_n)}_x(h)| = |f_n'(t) - f_n'(x)| \cdot |h|$.
+  Berechne
+  \begin{align*}
+    |f_n'(t) - f_n'(x)|
+    & \leq |f_n'(t) - f_N'(t)| + |f_N'(t) - f_N'(x)| + |f_N'(x) - f_n'(x)|\\
+    &\leq \varepsilon/3 + \varepsilon/3 + \varepsilon/3 = \varepsilon.
+  \end{align*}
+  Also haben wir
+  \(
+    |{(Rf_n)}_{x}(h)| \leq \varepsilon \cdot |h|
+  \).
+  Für alle $n \geq N$ und alle $|h| \leq \delta$ erhalten wir nun, dass
+  \[
+    f_n(x + h) = f_n(x) + f_n'(x) \cdot h + {(Rf_n)}_x(h)
+  \]
+  mit $|Rf_n(x, h)| \leq \varepsilon \cdot |h|$.
+  Entscheidend ist, dass das $\delta$ nicht von $n$ abhängt (sonst wäre das
+  bloss die Definition der Differenzierbarkeit von $f_n$).
+  Im Grenzwert gilt dann
+  \[
+    f(x + h) = f(x) + g(x) \cdot h + {(Rf)}_x(h)
+  \]
+  mit $|{(Rf)}_x(h) \leq \varepsilon \cdot |h|$.
+\end{proof}
+
+\begin{application}
+  Sei $P(x) = \sum_{k=0}^{\infty} a_k x^k$ mit Konvergenzradius $r > 0$.
+  Der Konvergenzradius von der formal abgeleiteten Potenzreihe
+  \[
+    P'(x) = \sum_{k=1}^{\infty} k a_k x^{k-1}
+  \]
+  ist auch $r$, siehe Serie 12.
+  Der springende Punkt hier ist, dass
+  \[
+    \lim_{n \to \infty} \sqrt[n]{n} = 1
+  \]
+  gilt. Für $s \in (0, r)$ konvergieren sowohl $P(x)$ als auch
+  $P'(x)$ auf dem Intervall $[-s, s]$ gleichmässig gegen stetige Funktionen
+  $f$ und $g$.
+  Nach Proposition~\ref{prop:derivative-uniform} ist $f$ differenzierbar
+  und $f' = g$.
+  Wir schliessen, dass gliedweise Ableitung innerhalb des Konvergenzbereichs von
+  $P(x)$ erlaubt ist.
+\end{application}
+
+\begin{example}
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ unendlich oft differenzierbar und
+  $Tf(x)$ die Taylorreihe von $f(x)$ mit Konvergenzradius $r \in [0, \infty]$.
+  Dann definiert $Tf(x)$ auf $(-r, r)$ eine unendlich oft differenzierbare Funktion
+  Das Problem hier ist, dass $Tf(x) $ und $f(x)$ auf $(-r, r)$ im allgemeinen
+  nicht übereinstimmen:
+  Zum Beispiel ist die Taylorreihe von
+  \[
+    f(x) =
+    \begin{cases}
+      e^{-1/x^2} & x \neq 0\\
+      0 & x = 0
+    \end{cases}
+  \]
+  identisch null, also ist $f(x)$ nicht durch $Tf(x)$ bestimmt.
+\end{example}
 \end{document}
