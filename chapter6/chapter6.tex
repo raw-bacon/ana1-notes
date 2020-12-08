@@ -95,7 +95,7 @@ Durch Iteration dieses Verfahrens erhalten wir folgenden Satz.
   \end{align*}
   Wir behaupten nun, dass ${(Rf)}_n(x)$ relativ klein in $|x|^n$ ist.
   Sei dazu $\varepsilon > 0$ vorgegeben. Dann existiert $\delta > 0$,
-  so dass für alle $t \in \mathbb{R}$ mit $| \leq \delta$ gilt,
+  so dass für alle $t \in \mathbb{R}$ mit $|t| \leq \delta$ gilt,
   dass
   \[
     |{(Rf')}_{n-1}(t)| \leq \varepsilon \cdot |t|^{n-1}.
@@ -181,7 +181,7 @@ Leider ist die Antwort auf beide Fragen im Allgemeinen nein.
     \item Seien $a_0, \dots, a_n \in \mathbb{R}$ und
       $f \in \mathbb{R}[x]$ mit
       \[
-        f(x) = a_0 + a_1 + a_2 x^2 + \cdots +a_n x^{n}.
+        f(x) = a_0 + a_1 x + a_2 x^2 + \cdots +a_n x^{n}.
       \]
       Berechne, dass
       \begin{itemize}
@@ -189,7 +189,8 @@ Leider ist die Antwort auf beide Fragen im Allgemeinen nein.
         \item $f'(0)$ = $a_1$,
         \item $f''(0) = 2a_2$,
         \item \dots,
-        \item $f^{(k)}(0) = k! \cdot a_k$ für $k \leq n$.
+        \item $f^{(k)}(0) = k! \cdot a_k$ für $k \leq n$,
+        \item $f^{(k)}(0) = 0$ für $k > n$.
       \end{itemize}
       Es folgt, dass
       \[
