@@ -1,0 +1,13 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[xscale=3]
+  \draw (-1.2, 0) -- (1.2, 0);
+  \draw (0, -1) -- (0, 5);
+  \draw[domain=-1:1, smooth, samples=1000] plot
+  ({\x}, {sin(6.5* 180*\x) / (3 * sin(180*\x/2))});
+  \node at (0.3, 4.3) {$n + 1/2$};
+  \node at (1, -0.3) {$\pi$};
+  \node at (-1, -0.3) {$-\pi$};
+\end{tikzpicture}
+\end{document}

@@ -344,7 +344,18 @@ für welche $x \in \mathbb{R}$ die Gleichung
   \lim_{n \to \infty} s_n(x) = f(x)
 \)
 gilt.
-Wir hoffen, dass
+
+\begin{example}
+  Betrachte die konstante Funktion $f(x) = 1$.
+  Dann gilt
+  \[
+    s_n (x) = \frac{1}{\pi} \int_{-\pi}^{\pi} \frac{1}{2} + \cos(t - x) + \cdots +
+    \cos(n(t-x))\, dt = 1,
+  \]
+  da alle Cosinusterme über ganze Perioden integriert werden.
+\end{example}
+
+Wir hoffen allgemeiner, dass
 \(
   \lim_{n \to \infty} 1/\pi \cdot D_n(t-x) = \delta(t-x),
 \)
@@ -367,43 +378,207 @@ Hier gibt es aber einige Probleme.
      \) gilt.
 \end{enumerate}
 
-Unser Ausweg ist es, nochmals zu mitteln.
-Definiere
-\[
-  \sigma_n(x) = \frac{1}{n} \sum_{k=0}^{n-1} s_k(x),
-\]
-wobei
-\(
-  s_0(x) = a_0
-\)
-konstant ist.
-Weiter setze
-\[
-  F_n(t - x) = \frac{1}{n} \sum_{k=0}^{n-1} D_k(t-x).
-\]
-Dann heisst ${(F_{n})}_{n \in \mathbb{N}}$ der \emph{Fejérkern}.
-Es gilt dann
-\[
-  \sigma_n(x) = \frac{1}{\pi} \int_{0}^{2\pi} f(t)
-  F_n (t-x)\, dt.
-\]
-Wir können nun Theorem~\ref{thm:fejer} folgendermassen
-umformulieren.
+\subsection*{Cesàro Mittelung}
 
-\begin{theorem*}[Fejér]
+\begin{definition}
+  Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$. Setze
+  \[
+    b_n = \frac{1}{n} \cdot (a_0 + a_1 + \cdots + a_{n-1})
+  \]
+  für $n \geq 1$.
+  Dann heisst ${(b_{n})}_{n \in \mathbb{N_{\geq 1}}}$ die \emph{Cesàro-gemittelte}
+  Folge zu ${(a_{n})}_{n \in \mathbb{N}}$.
+\end{definition}
+
+\begin{example}
+  Sei $a_n = {(-1)}^n$. Dann gilt
+  $b_1 = 1, b_2 = 0, b_3 = 1/3, b_4 = 0, b_5 = 1/5$, und so weiter.
+  Aus $|b_n| \leq 1/n$ folgt $\lim_{n \to \infty} b_n = 0$.
+\end{example}
+
+\begin{lemma}\label{lem:cesaro-converges}
+  Sei ${(a_{n})}_{n \in \mathbb{N}}$ konvergent mit Grenzwert $a \in \mathbb{R}$.
+  Dann gilt auch $\lim_{n \to \infty} b_n = a$.
+\end{lemma}
+
+\begin{proof}
+  Sei $\varepsilon > 0$ vorgegeben.
+  Wähle $N_1 \in \mathbb{N}$ gross genug, so dass für alle $n \geq N_1$ gilt, dass
+  $|a_n - a| \leq \varepsilon/2$.
+  Schreibe $b_n = L_n + R_n$ wobei
+  \[
+    L_n = \frac{1}{n} \cdot (N_1 a_{N_1}  + a_{N_1 + 1} + \cdots + a_n)
+  \]
+  und
+  \[
+    R_n = \frac{1}{n} (a_0 + a_1 + \cdots + a_{N-1} - N_1 a_{N_1}).
+  \]
+  Wähle $N_2 \in \mathbb{N}$ gross genug, so dass für $n \geq N_2$ gilt,
+  dass $|R_n| \leq \varepsilon/2$.
+  Bemerke, dass für $n \geq N_1$ gilt, dass
+  \(
+    |L_n - a| \leq \varepsilon/2.
+  \)
+  Für $n \geq N_1, N_2$ gilt dann, dass
+  \[
+    |b_n - a| 
+    = |L_n + R_n - a| \leq |L_n - a| + |R_n| \leq \varepsilon / 2 + \varepsilon/2 
+    = \varepsilon. \qedhere
+  \]
+\end{proof}
+
+Wieder in der Fouriertheorie mitteln wir mit
+\[
+  \sigma_n(x) = \frac{1}{n}(s_0 (x) + s_1(x) + \cdots + s_{n-1}(x))
+\]
+die Folge ${(s_{n})}_{n \in \mathbb{N}}$ der Partialsummen. Definiere
+weiterhin den \emph{Féjerkern}
+\[
+  F_n(z) = \frac{1}{n}(D_0(z) + D_1(z) + \cdots D_{n-1}(z))
+\]
+als die Mittelung des Dirichletkerns. Es gilt dann
+\[
+  \sigma_n(x) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) F_n(t-x) \, dt.
+\]
+Wir können nun Theorem~\ref{thm:fejer} folgendermassen umformulieren.
+
+\begin{theorem2}[Fejér]
   Sei $f \colon \mathbb{R} \to \mathbb{R}$ 
   stetig und $2\pi$-periodisch. Dann konvergiert
   die Folge ${(\sigma_{n})}_{n \in \mathbb{N}}$ 
   auf $\mathbb{R}$ gleichmässig gegen
   die Funktion $f(x)$.
-\end{theorem*}
+\end{theorem2}
 
+\begin{lemma}\label{lem:fejerkern}
+  Es gilt
+  \[
+    F_n(z) = \frac{1}{2n} \cdot \frac{1 - \cos(nz)}{1 - \cos(z)}.
+  \]
+\end{lemma}
 
+\begin{example}
+  Es gilt tatsächlich
+  \[
+    F_1(z) = D_0(z) = \frac{1}{2}.
+  \]
+  Weiter ist
+  \[
+    F_2(z) = \frac{1}{2}(D_0(z) + D_1(z)) = 
+    \frac{1}{2}\left(\frac{1}{2} + \frac{1}{2} + \cos(z)\right).
+  \]
+  Berechne
+  \[
+    1 - \cos(2z) = 1 - (\cos^2(z) - \sin^2(z))
+    = 2 - 2\cos^2(z).
+  \]
+  Es folgt, dass
+  \[
+    \frac{1}{4} \cdot \frac{1 - \cos(2z)}{1 - \cos(z)}
+    = \frac{1}{4} \cdot \frac{2 - 2 \cos^2(z) }{1 - \cos(z)}
+    = \frac{1}{2} (1 + \cos(z)).
+  \]
+\end{example}
 
+\subsection*{Formel von de Moivre}
+Sei $x \in \mathbb{R}$.
+Definiere $e^{ix} = \cos(x) + i \sin(x) \in \mathbb{C}$.
+Es gilt sogar
+\(
+  e^{ix} \in S^1 = \left\{z \in \mathbb{C} \mid |z|  = 1 \right\}
+\).
+Die Additionstheoreme für den Sinus und den Cosinus können wir
+nun folgendermassen umformulieren. Für alle $x, y \in \mathbb{R}$ 
+gilt
+\(
+  e^{i(x + y)} = e^{ix} \cdot e^{iy}.
+\)
+Durch $n$-maliges Anwenden erhalten wir die \emph{Formel von de Moivre}:
+Für alle $x \in \mathbb{R}$ gilt
+\[
+  e^{inx} = {(e^{ix})}^n.
+\]
 
+\begin{proof}[Beweis von Lemma~\ref{lem:fejerkern}]
+  Wir berechnen
+  \(
+    1 + e^{ix} + e^{2ix} + \cdots + e^{nix}.
+  \)
+  Nach de Moivre ist dies eine geometrische Reihe.
+  Es gilt also
+  \[
+    1 + e^{ix} + e^{2ix} + \cdots + e^{nix} = \frac{e^{(n+1)ix - 1}}{e^{ix}}.
+  \]
+  Beschränken wir uns auf den Realteil sehen wir
+  \begin{align*}
+    1 + \cos(x) + \cos(2x) + \cdots + \cos(nx) 
+    &=
+    \textup{Re} \left( \frac{e^{i(n+1)x} - 1}{e^{ix} - 1} \right)\\
+    &
+    = \textup{Re} \left( \frac{e^{i(n + 1/2)x} - e^{-ix/2}}{e^{ix/2} - e^{-ix/2}} \right)\\
+    &
+    = \textup{Re} \left( \frac{e^{i(n + 1/2)x} - e^{-ix/2}}{2i \sin(x/2)} \right)\\
+    &= \frac{\sin((n+1/2)x) + \sin(x/2)}{2 \sin(x/2)}
+  \end{align*}
+  durch Multiplikation mit $e^{-ix/2}$ und durch anwenden der Formel
+  \[
+    \text{Re}\left( \frac{a + ib}{c} \right) = \frac{b}{c}
+  \]
+  für $a, b, c \in \mathbb{R}$ mit $c \neq 0$.
+  Wir schliessen, dass
+  \[
+    D_n(x) = 1/2 + \cos(x) + \cos(2x) + \cdots + \cos(nx)
+    = \frac{\sin((n+ 1/2)x)}{2 \sin(x/2)},
+  \]
+  siehe auch Abbildung~\ref{fig:dirichlet}.
 
+  \begin{figure}[htb]
+    \centering
+    \includegraphics{images/dirichlet}
+    \caption{Der Dirichletkern}%
+    \label{fig:dirichlet}
+  \end{figure}
+  
+  Wir interessieren uns aber für den Féjerkern
+  \[
+    F_n(x) = \frac{1}{n} \sum_{k=0}^{n-1} D_k(x)
+    =\frac{1}{2n \sin(x/2)} \sum_{k=0}^{n-1} \sin((k + 1/2)x).
+  \]
+  Berechne
+  \begin{align*}
+     \sin(x/2) + \sin(3x/2) + \cdots + \sin((n-1/2)x)
+     &= \text{Im}(e^{ix/2} + e^{i3x/2} + \cdots + e^{i(n-1/2)x})  \\
+     &= \text{Im}(e^{ix/2}(1 + e^{ix} + \cdots + e^{i(n-1)x}))\\
+     &= \text{Im} \left( e^{ix/2} \cdot \frac{1 - e^{inx}}{1 - ix} \right)\\
+     &= \text{Im} \left( \frac{1 - e^{inx}}{e^{-ix/2} - e^{ix/2}} \right)\\
+     &= \text{Im} \left( \frac{1 - e^{inx}}{-2i \sin(x/2)} \right)\\
+     &= \frac{1- \cos(nx)}{2 \sin(x/2)}.
+  \end{align*}
+  Wir erhalten
+  \[
+    F_n(x) = \frac{1}{2n \sin(x/2)} \cdot \frac{1 - \cos(nx)}{2 \sin(x/2)}
+    =\frac{1 - \cos(nx)}{4n \sin^2(x/2)}
+    = \frac{1}{2n} \cdot \frac{1 - \cos(nx)}{1 - \cos(x)},
+  \]
+  da
+  \[
+    1 - \cos(x) = 1 - (\cos^2(x/2) - \sin^2(x/2))
+    = 2 \sin^2(x/2). \qedhere
+  \]
+\end{proof}
 
-
+Mit der Formel
+\[
+  1 + 2 + \cdots + n = \frac{n(n+1)}{2}
+\]
+können wir berechnen, dass
+\begin{align*}
+   F_n(0) 
+   & = \frac{1}{n} (D_0(0) + D_1(0) + \cdots D_{n-1}(0)) \\
+   &= \frac{1}{n}(1 + 2 + \cdots + (n-1) + n/2) \\
+   &= \frac{1}{n} \frac{n(n-1)}{2} + \frac{1}{2}\\
+   &= \frac{n}{2}.
+\end{align*}
 
 
 
