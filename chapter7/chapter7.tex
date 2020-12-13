@@ -532,12 +532,20 @@ Für alle $x \in \mathbb{R}$ gilt
   \]
   siehe auch Abbildung~\ref{fig:dirichlet}.
 
-  \begin{figure}[htb]
+\begin{figure}[htb] 
+  \centering
+  \begin{minipage}{0.50\textwidth}
     \centering
     \includegraphics{images/dirichlet}
-    \caption{Der Dirichletkern}%
-    \label{fig:dirichlet}
-  \end{figure}
+  \end{minipage}%
+  \begin{minipage}{0.50\textwidth}
+    \centering
+    \includegraphics{images/fejer}
+  \end{minipage}%
+  \caption{Dirichletkern und Féjerkern}%
+  \label{fig:dirichlet}
+\end{figure}
+
   
   Wir interessieren uns aber für den Féjerkern
   \[
@@ -579,6 +587,23 @@ können wir berechnen, dass
    &= \frac{1}{n} \frac{n(n-1)}{2} + \frac{1}{2}\\
    &= \frac{n}{2}.
 \end{align*}
+Weiterhin haben wir:
+\begin{enumerate}[(1)]
+  \item Für alle $x \in (-\pi, \pi)$ ist $F_n(x) \geq 0$.
+  \item Für alle $x \in (- \pi, \pi)$ with $x \neq 0$ 
+    gilt 
+    \[
+    \lim_{n \to \infty} F_n(x) = \lim_{n \to \infty}
+    \frac{1}{2n} \cdot \frac{1 - \cos(nx)}{1 - \cos(x)} = 0.
+    \]
+  \item Es gilt
+    \[
+      \frac{1}{\pi} \int_{-\pi}^{\pi} F_n(t) \, dt
+      = \frac{1}{n\pi}\int_{-\pi}^{\pi} D_0(t) + \cdots + D_{n-1}(t) \, dt = 1.
+    \]
+\end{enumerate}
+Siehe auch hier wieder Abbildung~\ref{fig:dirichlet}.
+
 
 
 
