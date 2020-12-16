@@ -442,13 +442,17 @@ als die Mittelung des Dirichletkerns. Es gilt dann
 \]
 Wir können nun Theorem~\ref{thm:fejer} folgendermassen umformulieren.
 
-\begin{theorem2}[Fejér]
+\begingroup
+\def\thetheorem{\ref{thm:fejer}}
+\begin{theorem}[Fejér]
   Sei $f \colon \mathbb{R} \to \mathbb{R}$ 
   stetig und $2\pi$-periodisch. Dann konvergiert
   die Folge ${(\sigma_{n})}_{n \in \mathbb{N}}$ 
   auf $\mathbb{R}$ gleichmässig gegen
   die Funktion $f(x)$.
-\end{theorem2}
+\end{theorem}
+\addtocounter{theorem}{-1}
+\endgroup
 
 \begin{lemma}\label{lem:fejerkern}
   Es gilt
@@ -604,12 +608,202 @@ Weiterhin haben wir:
 \end{enumerate}
 Siehe auch hier wieder Abbildung~\ref{fig:dirichlet}.
 
+\begin{example}
+  Wir zeigen einen Spezialfall von Theorem~\ref{thm:fejer}.
+  Sei $f(x) = 1$ die konstante $1$-Funktion.
+  Dann gilt
+  \[
+    \sigma_n(x) = \frac{1}{\pi} \int_{-\pi}^{\pi} F_n(t-x) \, dt.
+  \]
+  Wir berechnen
+  \begin{align*}
+    \sigma_n(x)
+    & = \frac{1}{\pi} \int_{-\pi}^{\pi} \frac{1}{n} \sum_{k=0}^{n-1}
+    1/2 + \cos(t-x) + \cdots + \cos(k(t-x)) \, dt\\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} 1/n \cdot n \cdot 1/2 \, dt
+    = 1 = f(x),
+  \end{align*}
+  da
+  \[
+    \int_{-\pi}^{\pi} \cos(k(t-x)) \, dt = 0
+  \]
+  für alle $k \neq 0$ gilt.
+\end{example}
 
 
+\begin{proof}[Beweis von Theorem~\ref{thm:fejer}]
+  Sei $\varepsilon > 0$. Wir bemerken, dass
+  die Einschränkung von $f$ auf das kompakte Intervall
+  $[0, 3\pi]$ gleichmässig stetig ist.
+  Es existiert also $\delta > 0$ so,
+  dass
+  \begin{enumerate}[(i)]
+    \item für alle $p, q \in [0, 3\pi]$ mit
+      $|p - q| \leq \delta$ gilt, dass
+      $|f(p) - f(q)| \leq \varepsilon$,
+    \item $\delta \leq \pi$.
+  \end{enumerate}
+  Seien nun $p, q \in \mathbb{R}$ mit $|p - q | \leq \delta$.
+  Dann existiert $N \in \mathbb{N}$ 
+  so, 
+  dass $p - 2\pi m \in [0, 3\pi]$ und $q - 2\pi m \in [0, 3\pi]$.
+  Die Funktion $f$ ist $2\pi$-periodisch, also gilt
+  \[
+    |f(p) - f(q)| 
+    = |f(p - 2 \pi m) - f(q - 2\pi m)| \leq \varepsilon.
+  \]
+  Also ist $f$ auf ganz $ \mathbb{R}$
+  gleichmässig stetig.
+  
+  Wir wählen nun $\delta > 0$ neu so, dass für alle $p, q \in \mathbb{R}$ 
+  mit $|p - q| \leq \delta$ gilt, dass $|f(p) - f(q)| \leq \varepsilon/3$.
+  Setze $M = \max \left\{|f(x)| \mid x \in \mathbb{R}\right\}$. Dieses
+  Maximum existiert, da $f$ stetig ist und $M = \max
+  \left\{|f(x)| \mid x \in [0, 2\pi]\right\} \geq 0$
+  nach dem Extremumsprinzip existiert.
+  Sei nun $x \in [-\pi, \pi]$.
+  Berechne
+  \begin{align*}
+    \sigma_n(x)
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(t)
+    \frac{1}{2n} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)}\, dt  \\
+    &= \int_{-\pi}^{x - \delta} I(t) \, dt + \int_{x - \delta}^{x + \delta} I(t) \, dt
+    + \int_{x + \delta}^{\pi} I(t) \, dt
+  \end{align*}
+  mit
+  \[
+    I(t) = \frac{1}{2 \pi n} \cdot f(t) \cdot \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)}.
+  \]
+  Schätze ab, dass für $t \in [-\pi, \pi] \setminus (x - \delta, x + \delta)$
+  gilt, dass
+  \[
+    |I(t)| \leq \frac{1}{2 \pi n} \cdot M \cdot \frac{2}{1 - \cos(\delta)}.
+  \]
+  Es folgt, dass
+  \begin{align*}
+    \left| \int_{-\pi}^{x - \delta} I(t) \, dt \right|
+    + \int_{x + \delta}^{\pi} I(t) \, dt 
+    &\leq \int_{-\pi}^{x - \delta} |I(t)| \, dt
+    + \int_{x + \delta}^{\pi} |I(t)| \, dt\\
+    &\leq 2 \pi \cdot \frac{1}{2 \pi n} \cdot M \cdot \frac{2}{1 - \cos(\delta)}
+  \end{align*}
+  Wähle nun $N \in \mathbb{N}$ so gross, dass
+  \[
+    \frac{M}{n} \cdot \frac{2}{1 - \cos(\delta)} \leq \varepsilon/3.
+  \]
+  Wir schätzen nun noch das Mittelstück ab.
+  Berechne
+  \[
+    \int_{x - \delta}^{x + \delta} I(t) \, dt = L_n(x) + R_n(x),
+  \]
+  wobei
+  \[
+    L_n(x) = \int_{x - \delta}^{x + \delta} f(x) \cdot \frac{1}{2 \pi n}
+    \cdot \frac{1 - \cos(n(t-x))}{1 - \cos(t- x)}\, dt
+  \]
+  und
+  \[
+    R_n(x) = \int_{x - \delta}^{x + \delta} (f(t) - f(x)) \cdot \frac{1}{2\pi n} \cdot
+    \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)}\, dt.
+  \]
+  Nach Wahl von $\delta > 0$ gilt für alle
+  $t \in [x - \delta, x + \delta]$, dass
+  $|f(t) - f(x)| \leq \varepsilon/3$.
+  \begin{align*}
+    |R_n(x)| &\leq \varepsilon/3 \cdot \int_{x - \delta}^{x + \delta}
+    \frac{1}{2 \pi n} \cdot \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)}\, dt \\
+     &\leq \varepsilon/3
+     \cdot \int_{-\pi}^{\pi} \frac{1}{2\pi n} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)} \, dt
+   \\&= \varepsilon/3
+  \end{align*}
+  nach dem Spezialfall $f = 1$.
+  Weiterhin gilt
+  \begin{align*}
+    L_n(x) 
+    &= \int_{x - \delta}^{x + \delta}f(x) \frac{1}{2 \pi n}
+    \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)}\\
+    &= f(x) \cdot \int_{-\pi}^{\pi} \frac{1}{2 \pi n} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)} \, dt
+    - S_n(x),
+  \end{align*}
+  wobei
+  \[
+    S_n(x) = \frac{f(x)}{2 \pi n}  \cdot
+    \left(\int_{-\pi}^{x - \delta} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)} \, dt
+    + \int_{x + \delta}^{\pi} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)} \, dt \right)
+  \]
+  Wir schliessen, dass
+  \begin{align*}
+    |L_n(x) - f(x)|
+    & \leq |S_n(x)|\\
+    & \leq \frac{|f(x)|}{2 \pi n} \cdot
+    \left( 
+      \int_{-\pi}^{x - \delta} \frac{1 - \cos(n(t-x))}{1 - \cos(t-x)} \, dt
+      + \int_{x + \delta}^{\pi} \frac{1 - \cos(n(t-x))}{\cos(t-x)} \, dt
+    \right)\\
+    & \leq \frac{M}{N} \cdot \frac{2}{1 - \cos(\delta)} \leq \varepsilon/3.
+  \end{align*}
+  Es folgt, dass für $n \geq N$ und alle $x \in [-\pi, \pi]$ gilt, dass
+  \begin{align*}
+    |\sigma_n(x) - f(x)|
+    &\leq
+    \left| \sigma_n(x) - \frac{1}{\pi}
+    \int_{x - \delta}^{x + \delta} f(t) F_n(t-x)  \, dt \right|
+    + \left| \frac{1}{\pi}
+    \int_{x - \delta}^{x + \delta} f(t) F_n(t-x) \, dt - f(x)\right|\\
+    &\leq \varepsilon/3 + |L_n(x) + R_n(x) - f(x)|\\
+    &\leq \varepsilon/3 + |R_n(x)| + |L_n(x) - f(x)| \\
+    &\leq \varepsilon/3 + \varepsilon/3 + \varepsilon/3 = \varepsilon.
+  \end{align*}
+  Aus der $2\pi$-Periodizität von $f$ und $\sigma_n$ 
+  folgt, dass die Abschätzung $|\sigma_n(x) - f(x)| \leq \varepsilon$ 
+  für alle $n \geq N$ und alle $x \in \mathbb{R}$ gilt.
+\end{proof}
 
+\begin{corollary}
+  Seien $f, g \colon\mathbb{R} \to \mathbb{R}$ stetig
+  und $2 \pi $-periodisch.
+  Dann gilt $f=g$ genau dann, wenn $FRf = FRg$.
+\end{corollary}
 
+\begin{proof}
+  Wenn $f = g$ gilt, so sind alle Fourierkoeffizienten gleich,
+  siehe deren Bestimmung.
+  Umgekehrt liefert Theorem~\ref{thm:fejer}, dass für alle
+  $x \in \mathbb{R}$ gilt, dass
+  \[\lim_{n \to \infty} \sigma_n(x) = f(x) \text{ und }
+  \lim_{n \to \infty} \sigma_n(x) = g(x).\]
+  Hier ist $\sigma_n$ bestimmt durch die Koeffizienten
+  $a_0, a_1, \dots, a_n, b_1, \dots, b_n$.
+\end{proof}
 
+Fourierreihen sind zum Beispiel
+nützlich zum Lösen von (partiellen) Differentialgleichungen.
 
-
-
+\begin{example}
+  Betrachte die Differentialgleichung $\nabla f = g$ auf $\mathbb{R}$,
+  wobei (in einer Variable) $\nabla f = f''$.
+  Wir suchen eine Funktion $f\colon \mathbb{R} \to \mathbb{R}$, die diese
+  Differentialgleichung löst.
+  Entwickle $g$ in die Fourierreihe
+  \[
+    FRg(x) = a_0 + \sum_{k=1}^{\infty} a_k \cos(kx) + b_k \sin(kx).
+  \]
+  Wir machen den Ansatz
+  \[
+    FRf(x) = \overline a_0 +
+    \sum_{k=1}^{\infty} \overline a_k \cos(kx) + \overline b_k \sin(kx).
+  \]
+  Zweimal ableiten und Koeffizientenvergleich liefert, dass
+  \(
+    \overline a_k \cos(kx) = - k^2 \overline a_k \cos(kx).
+  \)
+  Also folgt
+  \(
+    -k^2 \overline a_k = a_k
+  \),
+  also
+  \[
+    \overline a_k = - \frac{a_k}{k^2} \text{ und } \overline b_k = - \frac{b_k}{k^2}.
+  \]
+\end{example}
 \end{document}
