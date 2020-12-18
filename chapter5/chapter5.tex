@@ -3,14 +3,14 @@
 \begin{document}
 \chapter{Das Riemannsche Integral}
 Das Riemannsche Integral wurde
-vom Schüler Bernhard Riemann (1826--1866)
-von Gauss eingeführt.
+von Bernhard Riemann (1826--1866), einem Schüler von Gauss, eingeführt. %vom Schüler Bernhard Riemann (1826--1866)
+%von Gauss eingeführt. (krumm)
 
 Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
 mit $f' = 0$ (die Nullfunktion).
 Dann ist $f$ konstant (was wir bereits mithilfe des
-Mittelwertsatz gezeigt haben). Daraus können wir
-folgendes schliessen.
+Mittelwertsatzes gezeigt haben). Daraus können wir
+Folgendes schliessen.
 Seien $f, g \colon \mathbb{R} \to \mathbb{R}$ 
 differenzierbare
 Funktionen mit
@@ -215,7 +215,7 @@ siehe Abbildung~\ref{fig:riemann}.
 
 \begin{proof}
   Da $[a, b]$ kompakt ist, impliziert die Stetigkeit von $f$ sogar
-  \emph{gleichmässige Stetigkeit} auf $[0, 1]$:
+  \emph{gleichmässige Stetigkeit} auf $[a, b]$:
   Für alle $\varepsilon > 0$ existiert $\delta > 0$ so, dass
   für alle $p, q \in [a, b]$ mit $|q - p| \leq \delta$ gilt, dass
   $|f(q) - f(p)| \leq \varepsilon$.
@@ -232,7 +232,7 @@ siehe Abbildung~\ref{fig:riemann}.
   \begin{align*}
     \overline S_P(f) - \underline S_P(f)
     &\leq \sum_{k=0}^{N-1} \frac{b-a}{N}\cdot \varepsilon  \\
-    & N \frac{b-a}{\varepsilon} \\
+    %& N \frac{b-a}{\varepsilon} \\
     &= \varepsilon \cdot (b-a).
   \end{align*}
   Wir folgern, dass die Differenz $\overline S_P(f) - \underline S_P(f)$ 
@@ -335,7 +335,7 @@ siehe Abbildung~\ref{fig:riemann}.
 \end{examples}
 
 \subsection*{Integrabilitätskriterium von Lebesgue}
-Henri Lebesgue (1875--1941) war ein Französischer Mathematiker.
+Henri Lebesgue (1875--1941) war ein französischer Mathematiker.
 Sein Kriterium für Integrabilität charakterisiert die
 Riemann-integrierbaren Funktionen, im Gegensatz zu
 Theorem~\ref{thm:continuous-integrable}, was nur eine
@@ -384,7 +384,7 @@ hinreichende Bedingung darstellt.
   \]
   Wir haben also $\mathbb{Q}$ abgedeckt mit Intervallen,
   deren Gesamtlänge kleiner als $\varepsilon$ ist.
-  Also ist $\mathbb{Q}$ (und, mit dem selben Beweis,
+  Also ist $\mathbb{Q}$ (und, mit demselben Beweis,
   jede abzählbare Teilmenge von $\mathbb{R}$)
   eine Lebesgue Nullmenge.
 \end{example}
@@ -540,7 +540,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
     F(p + h) = F(p) + h \cdot f(p) + {(RF)}_p(h).
   \]
   Wir zeigen nun, dass ${(RF)}_p(h)$ relativ klein in $|h|$ ist.
-  Sei dazu $\varepsilon > 0$ vorgegebn.
+  Sei dazu $\varepsilon > 0$ vorgegeben.
   Wähle $\delta > 0$ so, dass für alle
   $t \in [a, b]$ mit $|t - p| \leq \delta$ gilt,
   dass $|f(t) - f(p)| \leq \varepsilon$.
@@ -590,7 +590,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
   \]
   also gilt $c = -g(a)$. Wir schliessen, dass
   \[
-    \int_{a}^{b} g(t) \, dx = G(b) = g(b) - g(a). \qedhere
+    \int_{a}^{b} g(t) \, dt = G(b) = g(b) - g(a). \qedhere
   \]
 \end{proof}
 
@@ -627,7 +627,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
         F \colon [a, b] & \to \mathbb{R} \\
         x & \mapsto \int_{a}^{x} f(t) \, dt
       \end{align*}
-      im allgemeinen nicht differenzierbar.
+      im Allgemeinen nicht differenzierbar.
       Betrachte zum Beispiel die Funktion
       \begin{align*}
         f \colon [-1, 1] & \to \mathbb{R} \\
@@ -648,7 +648,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
       was an der Stelle $x = 0$ nicht differenzierbar ist.
     \item Sei $U \subset \mathbb{R}$ offen und
       $f \colon U \to \mathbb{R}$ stetig differenzierbar.
-      Dann ist $f' \colon U \to \mathbb{R}$ im allgemeinen
+      Dann ist $f' \colon U \to \mathbb{R}$ im Allgemeinen
       nicht Riemann-integrierbar.
       Betrachte hier zum Beispiel
       \begin{align*}
@@ -905,7 +905,7 @@ für alle $x \in \mathbb{R}$.
     \int_{a}^{b} \frac{1}{p(x)} \, dx
     = \sum_{k=1}^{n} \int_{a}^{b} \frac{b_k}{x - \alpha_k} \, dx
     = \sum_{k=1}^{n} b_k \cdot \log(b - \alpha_k)
-    - \sum_{k=1}^{n} \log(a - \alpha_k),
+    - \sum_{k=1}^{n} b_k \log(a - \alpha_k), % denke ich?
   \]
   vorausgesetzt $\alpha_k \notin [a, b]$ für $k = 1, \dots, n$.
 \end{application}
@@ -1029,7 +1029,7 @@ zu berechnen.
   
 Für das zweite Problem verwenden wir den
 \emph{Fundamentalsatz der Algebra},
-der folgendes aussagt.
+der Folgendes aussagt.
 
 \begin{lemma}
   Sei $p \in \mathbb{C}[x]$ ein nicht-konstantes
