@@ -806,4 +806,29 @@ nützlich zum Lösen von (partiellen) Differentialgleichungen.
     \overline a_k = - \frac{a_k}{k^2} \text{ und } \overline b_k = - \frac{b_k}{k^2}.
   \]
 \end{example}
+
+\begin{corollary}
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$ stetig und $2\pi$-periodisch.
+  Sei $x \in \mathbb{R}$ so, dass
+  $\lim_{n \to \infty} s_n(x)$ existiert.
+  Dann gilt $\lim_{n \to \infty} s_n(x) = f(x)$.
+\end{corollary}
+
+Hier ist
+\(
+  s_n(x) = a_0 + \sum_{k=1}^{n} a_k \cos(kx) + b_k \sin(kx).
+\)
+
+\begin{proof}
+  Bemerke, dass
+  \[
+    \lim_{n \to \infty} s_n(x) = \lim_{n \to \infty} \sigma_n(x) = f(x),
+  \]
+  nach Theorem~\ref{thm:fejer} der Grenzwert $\sigma_n(x)$ mit $f(x)$ übereinstimmt, und
+  da Lemma~\ref{lem:cesaro-converges} besagt, dass falls ${(s_n(x))}_{n \in \mathbb{N}}$
+  konvergiert, dann gegen den Grenzwert von ${(\sigma_{n}(x))}_{n \in \mathbb{N}}$.
+\end{proof}
+
+
+
 \end{document}
