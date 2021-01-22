@@ -137,7 +137,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 \begin{definition}
 Eine Folge 
 ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$ 
-heisst \emph{Cauchyfolge}, so dass für alle
+heisst \emph{Cauchyfolge}, falls für alle
 vorgegebenen $\varepsilon > 0$ ein $N \in \mathbb{N}$ existiert,
 so dass für alle $n, m \in \mathbb{N}$ mit $n,m \geq N$ gilt,
 dass $|a_n - a_m| \leq \varepsilon$.
@@ -193,7 +193,7 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
   \[
   S_k = \max \{|a_k|, |a_{k+1}|, \dots, |a_{N-1}|, |a_N| + 1\}.
   \]
-  Dann gilt für alle $n \geq k$, dass $|a_k| \leq S_k$.
+  Dann gilt für alle $n \geq k$, dass $|a_n| \leq S_k$.
   Tatsächlich ist für $n \geq N$ die Ungleichung
   $|a_n - a_N| \leq \varepsilon = 1$
   erfüllt, also folgt $|a_n| \leq |a_N| + 1$.
@@ -386,9 +386,9 @@ Folgeglieder übrigbleibt.
 \end{example}
 
 \begin{proof}[Beweis von Theorem~\ref{thm:bolzano-weierstrass}]
-  Sei ${(a_n)}_{n \in \mathbb{N}}$ beschränkt, das heisst
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ beschränkt, das heisst,
   es existieren $x, y \in \mathbb{R}$, so dass für
-  alle $n \in \mathbb{N}$ gilt, dass $x \leq a_k \leq y$.
+  alle $k \in \mathbb{N}$ gilt, dass $x \leq a_k \leq y$.
   Wir unterscheiden nun zwei Fälle.
   \begin{enumerate}[1.]
     \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist endlich.
@@ -472,7 +472,7 @@ Folgeglieder übrigbleibt.
     \item Sei $a \colon \mathbb{N} \to \mathbb{Q}$ eine
       beliebige
       Bijektion. Dann ist jede reelle Zahl ein Häufungspunkt,
-      das heisst die Menge der Häufungspunkte
+      das heisst, die Menge der Häufungspunkte
       ist $\mathbb{R}$. Das ist erstaunlich, da abzählbar
       viele Folgeglieder überabzählbar viele
       Häufungspunkte hervorrufen. Zum Beweis,
@@ -699,7 +699,7 @@ heisst \emph{geometrische Reihe}.
 geometrischen Reihe}
 Aus der Konvergenz der geometrischen Reihe
 $\sum_{k=0}^{\infty} q^k$ für $|q|<1$
-können wir Konvergenz mehrerer interessanter
+können wir die Konvergenz mehrerer interessanter
 Reihen herleiten.
 \begin{enumerate}[(1)]
   \item Sei $a_n = 1/n^2$ für $n \geq 1$. Wir untersuchen die Reihe
@@ -814,7 +814,7 @@ Reihen herleiten.
 
 \begin{leibniz}
   Sei ${(a_{n})}_{n \in \mathbb{N}}$ eine monoton fallende Folge
-  positiver reller Zahlen, das heisst,
+  positiver reeller Zahlen, das heisst,
   \(
    a_0 > a_1 > a_2 > \cdots > 0
   \),
@@ -1087,7 +1087,7 @@ Reihen herleiten.
   bereits oben abgeschätzt haben,
   und $\sum_{k=M}^{\infty} |a_k| \leq \varepsilon$ aus
   $M \geq N$ folgt.
-  Folgich gilt
+  Folglich gilt
   \[
     \sum_{k=0}^{\infty} a_{\varphi(k)}
     - \sum_{k=0}^{\infty} a_{k} =
@@ -1250,7 +1250,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   \]
   Diese Grenzwerte existieren, da die beiden Reihen
   $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
-  absolut konvergieren. Im allgemeinen stimmen $A$ und $B$
+  absolut konvergieren. Im Allgemeinen stimmen $A$ und $B$
   aber nicht mit $\alpha$ und $\beta$ überein.
   Sei $N \in \mathbb{N}$. Wir schätzen ab:
   \begin{align*}
@@ -1485,7 +1485,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       Wir zeigen, dass $\exp(s) = y$ indem wir
       beide Ungleichungen zeigen.
 
-      Nehme widerspruchsweise an, dass $\exp(s) < y$.
+      Nimm widerspruchsweise an, dass $\exp(s) < y$.
       Wähle $h \in \mathbb{R}$ mit $0 < h < 1$
       und $1 + 2h \leq y/\exp(s)$.
       Dies funktioniert, da $y/\exp(s) > 1$.
@@ -1499,7 +1499,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       $s = \sup(A)$ steht.
       Somit folgt $\exp(s) \geq y$.
       
-      Umgekehrt, nehme widerspruchsweise an,
+      Umgekehrt, nimm widerspruchsweise an,
       dass $\exp(s) > y$. Ähnlich wie im ersten Schritt, wähle
       $h \in \mathbb{R}$ mit $0 < h \leq 1$ 
       und $1 + 2h \leq \exp(s)/y$.
