@@ -690,7 +690,7 @@ einen Konvergenzradius hat. Wir werden aber zeigen, dass das aber trotzdem gilt.
       \]
       ist $\sqrt[n]{|a_n|} = 1/\sqrt[n]{n}$, also folgt aus
       \[
-        \lim_{n \to \infty} \sqrt[n]{n},
+        \lim_{n \to \infty} \sqrt[n]{n} = 1,
       \]
       dass der Konvergenzradius $r = 1$ ist.
     \item Die Potenzreihe
@@ -1322,7 +1322,7 @@ im allgemeinen nicht konvergieren.
   \).
   Für alle $x \in (a, b)$ und alle $n, m \geq N = \max\{N_1, N_2\}$ gilt dann
    \begin{align*}
-     h(x) 
+     |h(x)| 
      &\leq |h(p)| + |h'(t)| \cdot |x - p|  \\
      &= |f_m(p) - f_n(p)| + |f_m'(t) - f_n'(t)| \cdot |x - p| \\
      & \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2(b-a)}\cdot (b-a) = \varepsilon.
@@ -1376,7 +1376,7 @@ im allgemeinen nicht konvergieren.
   \[
     f(x + h) = f(x) + g(x) \cdot h + {(Rf)}_x(h)
   \]
-  mit $|{(Rf)}_x(h) \leq \varepsilon \cdot |h|$.
+  mit $|{(Rf)}_x(h)| \leq \varepsilon \cdot |h|$.
 \end{proof}
 
 \begin{application}
@@ -1402,8 +1402,8 @@ im allgemeinen nicht konvergieren.
 \begin{example}
   Sei $f \colon \mathbb{R} \to \mathbb{R}$ unendlich oft differenzierbar und
   $Tf(x)$ die Taylorreihe von $f(x)$ mit Konvergenzradius $r \in [0, \infty]$.
-  Dann definiert $Tf(x)$ auf $(-r, r)$ eine unendlich oft differenzierbare Funktion
-  Das Problem hier ist, dass $Tf(x) $ und $f(x)$ auf $(-r, r)$ im allgemeinen
+  Dann definiert $Tf(x)$ auf $(-r, r)$ eine unendlich oft differenzierbare Funktion.
+  Das Problem hier ist, dass $Tf(x) $ und $f(x)$ auf $(-r, r)$ im Allgemeinen
   nicht übereinstimmen:
   Zum Beispiel ist die Taylorreihe von
   \[
