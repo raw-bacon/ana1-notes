@@ -93,7 +93,7 @@ Wir möchten, dass $f(x) = FR f(x)$ gilt. Dazu sollte
 gelten. Naiv erhalten wir nach Vertauschen des Limes mit dem Integral, dass
 \[
   \int_{0}^{2\pi} f(x) \, dx =
-  \int_{0}^{2\pi} a \, dx + \sum_{k=1}^{\infty} \int_{0}^{2\pi} a_k \cos (kx)
+  \int_{0}^{2\pi} a_0 \, dx + \sum_{k=1}^{\infty} \int_{0}^{2\pi} a_k \cos (kx)
   + b_k \sin(kx)\, dx = 2\pi a_0.
 \]
 Wir stellen also die Vermutung auf, dass
@@ -168,7 +168,7 @@ Sei nun $n \geq 1$.
 Berechne wieder naiv, dass
 \begin{align*}
   \int_{0}^{2\pi} f(x) \cdot \cos(nx) \, dx
-  &= \int_{0}^{2\pi} a_0 + \sum_{k=1}^{\infty} a_k \sin(kx) + b_k \cos(kx) \, d  \\
+  &= \int_{0}^{2\pi} a_0 + \sum_{k=1}^{\infty} a_k \sin(kx) + b_k \cos(kx) \cos(nx) \, dx  \\
   &= a_0 \int_{0}^{2\pi} \cos(nx) \, dx
   + \sum_{k=1}^{\infty} \int_{0}^{2\pi} a_k \cos(kx)\cos(nx) \, dx\\
   &\;\;\;\;\;\;  + \sum_{k=1}^{\infty} \int_{0}^{2\pi} b_k \sin(kx) \cos(nx) \, dx\\
@@ -311,11 +311,11 @@ Berechne
   & = a_0 + \sum_{k=1}^{\infty} a_k \cos(kx) + b_k \sin(kx)\\
   & = \frac{1}{2\pi} \int_{0}^{2\pi} f(t) \, dt +
   \sum_{k=1}^{\infty} \frac{1}{\pi}\int_{0}^{2\pi} 
-  f(t) \cos(t) \, dt
+  f(t) \cos(kt) \, dt
   \cdot \cos(kx) \\
   &\;\;\;\;\; + \sum_{k=1}^{\infty} \frac{1}{\pi} \int_{0}^{2\pi} 
   f(t) \sin(kt)\, dt \cdot \sin(kx)\\
-  &= \frac{1}{2\pi} \int_{0}^{2\pi} f(t) \, tx
+  &= \frac{1}{2\pi} \int_{0}^{2\pi} f(t) \, dx
   + \sum_{k=1}^{\infty} \frac{1}{\pi} \int_{0}^{2\pi} 
   f(t) \cos(k(t-x))\, dt,
 \end{align*}
@@ -411,7 +411,7 @@ Hier gibt es aber einige Probleme.
   \]
   und
   \[
-    R_n = \frac{1}{n} (a_0 + a_1 + \cdots + a_{N-1} - N_1 a_{N_1}).
+    R_n = \frac{1}{n} (a_0 + a_1 + \cdots + a_{N_1} - N_1 a_{N_1}).
   \]
   Wähle $N_2 \in \mathbb{N}$ gross genug, so dass für $n \geq N_2$ gilt,
   dass $|R_n| \leq \varepsilon/2$.
@@ -511,7 +511,7 @@ Für alle $x \in \mathbb{R}$ gilt
   Nach de Moivre ist dies eine geometrische Reihe.
   Es gilt also
   \[
-    1 + e^{ix} + e^{2ix} + \cdots + e^{nix} = \frac{e^{(n+1)ix - 1}}{e^{ix}}.
+    1 + e^{ix} + e^{2ix} + \cdots + e^{nix} = \frac{e^{(n+1)ix} - 1}{e^{ix}}.
   \]
   Beschränken wir uns auf den Realteil sehen wir
   \begin{align*}
@@ -561,7 +561,7 @@ Für alle $x \in \mathbb{R}$ gilt
      \sin(x/2) + \sin(3x/2) + \cdots + \sin((n-1/2)x)
      &= \text{Im}(e^{ix/2} + e^{i3x/2} + \cdots + e^{i(n-1/2)x})  \\
      &= \text{Im}(e^{ix/2}(1 + e^{ix} + \cdots + e^{i(n-1)x}))\\
-     &= \text{Im} \left( e^{ix/2} \cdot \frac{1 - e^{inx}}{1 - ix} \right)\\
+     &= \text{Im} \left( e^{ix/2} \cdot \frac{1 - e^{inx}}{1 - e^{ix}} \right)\\
      &= \text{Im} \left( \frac{1 - e^{inx}}{e^{-ix/2} - e^{ix/2}} \right)\\
      &= \text{Im} \left( \frac{1 - e^{inx}}{-2i \sin(x/2)} \right)\\
      &= \frac{1- \cos(nx)}{2 \sin(x/2)}.
@@ -594,7 +594,7 @@ können wir berechnen, dass
 Weiterhin haben wir:
 \begin{enumerate}[(1)]
   \item Für alle $x \in (-\pi, \pi)$ ist $F_n(x) \geq 0$.
-  \item Für alle $x \in (- \pi, \pi)$ with $x \neq 0$ 
+  \item Für alle $x \in (- \pi, \pi)$ mit $x \neq 0$ 
     gilt 
     \[
     \lim_{n \to \infty} F_n(x) = \lim_{n \to \infty}
