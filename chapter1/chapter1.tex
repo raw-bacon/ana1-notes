@@ -98,9 +98,117 @@ Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$. Dann entsteht ein Widerspr
   keine Lösung der Form $z = p/q$ mit $p, q \in \mathbb N$ und $q > 0$.
 \end{corollary*}
 
+\subsubsection*{Der goldene Schnitt}
+Wir werden nun ein weiteres Beispiel
+einer irrationalen Zahl nach Euklid untersuchen.
+Betrachte ein Rechteck mit Seitenlängen $1$ und $x$,
+so dass das Unterrechteck mit Seitenlängen $x$ und $1-x$ 
+dieselben Proportionen hat, siehe Abbildung~\ref{fig:golden-ratio} links. In Symbolen soll gelten, dass
+\[
+  \frac{x}{1} = \frac{1-x}{x}.
+\]
+Ein solches $x$ heisst \emph{goldener Schnitt}.
+Die DIN-Formate Reihe A (A3, A4, etc.) von Papieren
+hat (ungefähr) dieses Verhältnis. Deshalb
+sind zwei A5-Papiere dasselbe wie ein A4-Papier,
+zwei A4-Papiere sind dasselbe wie ein A3-Papier,
+und so weiter, ohne dass dieser Prozess zu verzerrten
+Grössen führt.
+Der mathematische Grund, dass so ein Verhältnis existiert,
+liegt im sogenannten ``Zwischenwertsatz'', siehe
+Abschnitt~\ref{sec:zwischenwertsatz} im Kapitel~\ref{chp:stetig}.
+Intuitiv läuft das Argument folgendermassen:
+für sehr kleine $x$ ist das Unterrechteck mit Seitenlängen
+$x$ und $1-x$ umgekehrt verzerrt wie dasjenige für grosse $x$.
+Also muss dazwischen irgendwo ein $x$ liegen, das
+die gewünschte Eigenschaft erfüllt.
+
+\begin{proposition}
+  Sei $x$ ein goldener Schnitt zwischen $0$ und $1$. Dann gilt:
+  \begin{enumerate}[(1)]
+    \item $x$ ist ein ``Kettenbruch'' der Form
+      \[
+        x = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \dots}}}.
+      \]
+    \item $x$ kann geschribeben werden als
+      \[
+        x = \frac{\sqrt{5} - 1}{2}.
+      \]
+    \item $x$ ist nicht rational.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  Wir zeigen jeden Punkt separat.
+  \begin{enumerate}[(1)]
+    \item Die Gleichung $x = (1-x)/x$ ist äquivalent zu
+      \[
+        1 + x = \frac{1}{x}.
+      \]
+      Wir sehen (optisch), dass der erwähnte Kettenbruch diese Gleichung erfüllt.
+      Wir sind momentan nicht in der Lage, dies präziser zu begründen,
+      da eine solche Begründung Folgen und Grenzwerte von Folgen
+      involvieren würde.
+    \item Die Gleichung $x = (1-x)/x$ ist äquivalent zur
+      quadratischen Gleichung $x^2 + x - 1 = 0$.
+      Diese hat Lösungen
+      \[
+        x = \frac{-1 \pm \sqrt{5}}{2},
+      \]
+      wovon nur die oben angekündigte Lösung positiv ist.
+    \item Wir zeigen diesen Punkt durch Widerspruch
+      (formal könnten wir dies auch durch Kontraposition
+      machen).
+      Wir nehmen an, dass $x$ trotzdem rational ist,
+      und werden daraus einen Widerspruch herleiten.
+      Sei also $x = p/q$ mit $p, q$ ganz
+      und $q \geq 1$.
+      Dann ist das Rechteck $R_0$ mit Seitenlängen
+      $1$ und $x$ mit Quadraten der Seitenlänge
+      $1/q$ zu pflastern, siehe Abbildung~\ref{fig:golden-ratio} rechts.
+      Wähle eine minimale Anzahl solcher Quadrate,
+      mit Seitenlänge $s$,
+      welche $R_0$ pflastert.
+      Es gilt dann, dass $1/s$ eine ganze Zahl $N$ ist,
+      da die Seitenlänge $1$ ein vielfaches von $s$ ist.
+      Ähnlich ist $x/s$ eine ganze Zahl $k$.
+      Wir haben also insgesamt $Nk$ Quadrate.
+      Wir erhalten aber auch eine Pflasterung vom
+      Rechteck $R_1$ mit Seitenlängen $x$ und $1-x$,
+      siehe den grauen Teil von Abbildung~\ref{fig:golden-ratio}
+      rechts.
+      Die Anzahl dieser Pflasterung ist $Nk - k^2$, was echt weniger
+      ist als $Nk$.
+      Das ist ein Widerspruch, da das Rechteck nach Konstruktion
+      $R_1$ ähnlich
+      zum ursprünglichen Rechteck $R_0$ ist.
+      Also war unsere Pflasterung nicht minimal.
+      \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{figure}[htb] 
+  \centering
+  \begin{minipage}{0.35\textwidth}
+    \centering
+    \includegraphics{images/golden-ratio1}
+  \end{minipage}%
+  \begin{minipage}{0.35\textwidth}
+    \centering
+    \includegraphics{images/golden-ratio2}
+  \end{minipage}%
+  \caption{Der goldene Schnitt}%
+  \label{fig:golden-ratio}
+\end{figure}
+
+
+
 Das Ziel für den Rest dieses Kapitels ist es, eine Zahlenmenge $\mathbb R$ (die Menge
-der \emph{reellen Zahlen}) zu konstruieren, in welcher die Gleichung
-$z^{2} = 2$ eine Lösung hat.
+der \emph{reellen Zahlen}) zu konstruieren, in welcher sowohl die Gleichung
+$z^{2} = 2$ als auch die Gleichung $z^2 + z - 1 = 0$ eine Lösung hat.
+
+
+
 
 \begin{exercise}
   Die Gleichung $z = \sqrt 2 x + \sqrt 3 y$ hat keine ganze Lösungen ausser $(0,0,0)$.

@@ -1,0 +1,18 @@
+\documentclass[tikz]{standalone}
+
+
+\begin{document}
+\begin{tikzpicture}[scale=0.31]
+  \draw (0, 0) rectangle (8, 13);
+  \draw[fill=black!20] (0, 0) rectangle (8, 5);
+  \draw[ultra thick] (0, 5) -- (8, 5);
+  \foreach \x in {1, ..., 8} {
+    \draw (\x, 0) -- (\x, 13);
+  }
+  \foreach \y in {1, ..., 13} {
+    \draw (0, \y) -- (8, \y);
+  }
+\end{tikzpicture}
+
+\end{document}
+
