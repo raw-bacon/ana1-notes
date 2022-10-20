@@ -9,14 +9,14 @@
     a \colon \mathbb{N} & \to \mathbb{R} \\
     n & \mapsto a_n.
   \end{align*}
-  Wir notieren das häufig als 
+  Wir notieren das häufig als
   $(a_0, a_1, a_2, \dots) = {(a_n)}_{n \in \mathbb{N}}$.
 	Eine Folge ${(a_n)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
 	heisst \emph{konvergent} mit Grenzwert
 	$L \in \mathbb{R}$, falls für alle
 	$\varepsilon \in \mathbb{R}$ mit $\varepsilon > 0$
 	eine Zahl $N \in \mathbb{N}$ existiert,
-	so dass für alle $n\in \mathbb{N}$ 
+	so dass für alle $n\in \mathbb{N}$
 	mit $n \geq N$ gilt, dass
 	$|a_n - L| \leq \varepsilon$. In diesem Fall schreiben wir
 	\[
@@ -62,7 +62,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \[
 		  \lim_{n \to \infty} \sqrt[n]{n} = 1.
 	  \]
-	  Wir wollen zeigen, dass 
+	  Wir wollen zeigen, dass
 	  \[
 		  \sqrt[n]{n} \leq 1 + \sqrt{\frac{2}{n-1}}.
 	  \]
@@ -83,7 +83,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 		  + R
 	  \]
 	  mit $R \geq 0$.
-    Wir interessieren uns nur für den 
+    Wir interessieren uns nur für den
     quadratischen Term.
     Bemerke, dass
     \[
@@ -104,7 +104,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \]
   \item Sei $q \in \mathbb{R}$ mit $q \geq 0$. Dann gilt
 	  \[
-	    \lim_{n \to \infty} q^n = 
+	    \lim_{n \to \infty} q^n =
 	    \begin{cases}
 		    0, & \text{falls } q < 1, \\
 		    1, & \text{falls } q = 1, \\
@@ -118,12 +118,12 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	heisst, dass für alle $S > 0$ ein Index $N \in \mathbb{N}$
 	existiert, so dass für alle $n \geq N$ gilt, dass
 	$a_n > S$ ist.
-	Der zweite der Fälle ist klar. Für den dritten Fall, 
+	Der zweite der Fälle ist klar. Für den dritten Fall,
 	betrachte
 	\[
 		q^n = {\left( 1 + (q-1) \right)}^n \geq 1 + n(q-1),
 	\]
-	wobei $q-1 > 0$. 
+	wobei $q-1 > 0$.
 	Sei $S > 0$ vorgegeben. Wähle $N \in \mathbb{N}$ mit
 	\(
   N \geq {S}/{(q-1)}.
@@ -135,8 +135,8 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 
 \section{Cauchyfolgen}
 \begin{definition}
-Eine Folge 
-${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$ 
+Eine Folge
+${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
 heisst \emph{Cauchyfolge}, falls für alle
 vorgegebenen $\varepsilon > 0$ ein $N \in \mathbb{N}$ existiert,
 so dass für alle $n, m \in \mathbb{N}$ mit $n,m \geq N$ gilt,
@@ -144,7 +144,7 @@ dass $|a_n - a_m| \leq \varepsilon$.
 \end{definition}
 
 In anderen Worten, ab einem gewissen Index sind alle
-Folgenglieder höchstens $\varepsilon$ voneinander 
+Folgenglieder höchstens $\varepsilon$ voneinander
 entfernt. Die Definition der Konvergenz unterscheidet
 sich dadurch, dass bei Cauchyfolgen kein Grenzwert
 erwähnt wird: nur Folgeglieder werden verglichen.
@@ -163,7 +163,7 @@ Für Folgen ${\left( a_n \right)}_{n \in \mathbb{N}}$ in $\mathbb{R}$
 
 \begin{proof}
   Die Implikation (i) $\Rightarrow$ (ii) ist eine Übung.
-  Dazu kann  
+  Dazu kann
   \[
     |a_n - a_m| \leq |a_n - L| + |L - a_m|
   \]
@@ -197,14 +197,14 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
   Tatsächlich ist für $n \geq N$ die Ungleichung
   $|a_n - a_N| \leq \varepsilon = 1$
   erfüllt, also folgt $|a_n| \leq |a_N| + 1$.
-  Analog existiert eine untere Schranke $I_k$ für 
+  Analog existiert eine untere Schranke $I_k$ für
   $A_k$.
   Dies zeigt die Behauptung.
 
   Nun gilt für alle $k \in \mathbb{N}$, dass
   $I_k \leq A_k \leq S_k$ (wobei $A_k \subset \mathbb{R}$
   und $I_k, S_k \in \mathbb{R}$).
-  Wende die Vollständigkeit von $\mathbb{R}$ 
+  Wende die Vollständigkeit von $\mathbb{R}$
   auf die beiden Teilmengen
   $\left\{ I_0, I_1, \dots \right\} $
   und $\{S_0, S_1, \dots\}$ an: Es existiert
@@ -218,7 +218,7 @@ Sei ${\left( a_n \right)}_{n \in \mathbb{N}}$ eine
   Um das zu beweisen, müssen wir die formale
   Definition der Konvergenz anwenden.
   Sei also $\varepsilon > 0$ vorgegeben.
-  Dann existiert $N \in \mathbb{N}$ 
+  Dann existiert $N \in \mathbb{N}$
   so dass immer wenn $n, m \geq N$, dann auch
   $|a_n - a_m| \leq \varepsilon$,
   da ${(a_n)}_{n \in \mathbb{N}}$ eine Cauchyfolge ist.
@@ -251,13 +251,13 @@ finden können.
     \item das Supremumsprinzip,
     \item das Konvergenzprinzip von Cauchy.
   \end{itemize}
-  
+
 \end{remark}
 
 
 Die Beobachtung, dass die Folge $I_0, I_1, I_2, \dots$
 im Beweis oben konvergiert, lässt sich verallgemeinern.
-Eine Folge ${(a_{n})}_{n \in \mathbb{N}}$ 
+Eine Folge ${(a_{n})}_{n \in \mathbb{N}}$
 so dass für alle $n \in \mathbb{N}$ gilt,
 dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
 
@@ -280,7 +280,7 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
     \lim_{n \to \infty} a_n = S
   \]
   gilt.
-  Sei dazu $\varepsilon > 0$ vorgegeben. 
+  Sei dazu $\varepsilon > 0$ vorgegeben.
   Dann ist $S - \varepsilon$ keine obere Schranke
   für $\{a_0, a_1, a_2, \dots\}$,
   da $S$ die kleinste obere Schranke ist.
@@ -294,7 +294,7 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
 \end{proof}
 
 \begin{example}
-  Betrachte die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+  Betrachte die Folge ${(a_n)}_{n \in \mathbb{N}}$
   gegeben durch
    \[
    a_n = {\left( 1 + \frac{1}{n} \right)}^n.
@@ -314,7 +314,7 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
          {\left( 1 + \frac{1}{n} \right) }^n \leq
          {\left( 1 + \frac{1}{n+1} \right)}^{n+1},
        \]
-       indem 
+       indem
        \[
          {\left( 1 - \frac{1}{{(n+1)}^2} \right)}^n =
          {\left( \frac{1 + \frac{1}{n+1}}{1 + \frac{1}{n}} \right) }
@@ -328,7 +328,7 @@ dass $a_n \leq a_{n+1}$, heisst \emph{monoton wachsend}.
        Man kann dann zeigen, dass
        \[
          {(n+1)}^n =
-         \sum_{k=0}^{n} \binom{n}{k}n^k 
+         \sum_{k=0}^{n} \binom{n}{k}n^k
          \leq \left( 1 + \frac{1}{1!}
          + \frac{1}{2!} + \frac{1}{3!} + \cdots +
        \frac{1}{n!}\right) \cdot n^n.
@@ -353,13 +353,13 @@ Wir bemerken, dass
 \end{enumerate}
 
 \begin{definition}
-  Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$ 
+  Sei ${(a_n)}_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}$
   und ${(n_k)}_{k \in \mathbb{N}}$ eine Folge in $\mathbb{N}$,
   welche streng monoton wachsend ist, das heisst
   \(
     n_0 < n_1 < n_2 < \cdots.
   \)
-  Dann heisst die Folge ${(a_{n_k})}_{k \in \mathbb{N}}$ 
+  Dann heisst die Folge ${(a_{n_k})}_{k \in \mathbb{N}}$
 eine \emph{Teilfolge} von ${(a_n)}_{n \in \mathbb{N}}$.
 \end{definition}
 
@@ -380,7 +380,7 @@ Folgeglieder übrigbleibt.
   $a_n = {(-1)}^n$ hat zwei naheliegende konvergente Teilfolgen,
   nämlich ${(a_{2k})}_{k \in \mathbb{N}}$ mit Grenzwert $1$,
   und ${(a_{2k+1})}_{k \in \mathbb{N}}$ mit Grenzwert $-1$.
-  Es gibt aber noch mehr Folgen von Indizes 
+  Es gibt aber noch mehr Folgen von Indizes
   ${(n_k)}_{k \in \mathbb{N}}$, die
   konvergente Teilfolgen liefern.
 \end{example}
@@ -392,21 +392,21 @@ Folgeglieder übrigbleibt.
   Wir unterscheiden nun zwei Fälle.
   \begin{enumerate}[1.]
     \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist endlich.
-      Dann hat die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+      Dann hat die Folge ${(a_n)}_{n \in \mathbb{N}}$
       eine konstante Teilfolge
       ${(a_{n_k})}_{k \in \mathbb{N}}$.
       Diese ist konvergent.
     \item Die Menge $\{a_0, a_1, a_2, \dots\}$ ist unendlich.
       Wir konstruieren eine sogenannte Intervallschachtelung.
-      Setze 
+      Setze
       \(
-        I_0 = [x, y] = \left\{z \in \mathbb{R} 
+        I_0 = [x, y] = \left\{z \in \mathbb{R}
         \mid x \leq z \leq y\right\}.
       \)
       Wähle $a_{n_0} = a_0 \in I_0$. Halbiere $I_0$, also
       schreibe
       \[
-        I_0 = \left[ x, \frac{x+y}{2} \right] 
+        I_0 = \left[ x, \frac{x+y}{2} \right]
         \cup \left[ \frac{x+y}{2}, y \right].
       \]
       Eines dieser beiden Teilintervalle enthält
@@ -415,11 +415,11 @@ Folgeglieder übrigbleibt.
       $\{a_0, a_1, a_2, \dots\}$. Nenne dieses Intervall
       $I_1 = [x_1, y_1]$. Wähle $a_{n_1} \in I_1$
       mit $n_1 > n_0$. Das können wir fordern,
-      da es unendlich viele Folgeglieder in 
+      da es unendlich viele Folgeglieder in
       $I_1$ gibt.
       Halbiere wie oben $I_1$ und schreibe
       \[
-        I_1 = \left[ x_1, \frac{x_1 + y_1}{2} \right] 
+        I_1 = \left[ x_1, \frac{x_1 + y_1}{2} \right]
         \cup \left[ \frac{x_1 + y_1}{2}, y_1 \right].
       \]
       Wieder enthält eines dieser Intervalle
@@ -446,7 +446,7 @@ Folgeglieder übrigbleibt.
       $\varepsilon$ voneinander entfernt sind.
       Konkreter,
       \[
-        |a_{n_k} - a_{n_\ell}| 
+        |a_{n_k} - a_{n_\ell}|
         \leq \frac{y-x}{2^N} \leq \varepsilon. \qedhere
       \]
   \end{enumerate}
@@ -456,7 +456,7 @@ Folgeglieder übrigbleibt.
   Eine Zahl $\alpha \in \mathbb{R}$ heisst
   \emph{Häufungspunkt} einer Folge
   ${(a_{n})}_{n \in \mathbb{N}}$ in $\mathbb{R}$,
-  falls es eine konvergente Folge
+  falls es eine konvergente Teilfolge
   ${(a_{n_k})}_{k \in \mathbb{N}}$ gibt
   mit
   \[
@@ -506,7 +506,7 @@ Folgeglieder übrigbleibt.
   \]
   Dann gilt:
   \begin{enumerate}[\normalfont(i)]
-    \item $\lim_{n \to \infty} (a_n + b_n) = a + b$ 
+    \item $\lim_{n \to \infty} (a_n + b_n) = a + b$
     \item $\lim_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
     \item Nehme an, dass für alle $n \in \mathbb{N}$ gilt,
       dass $a_n \neq 0$. Nehme weiterhin an, dass $a \neq 0$.
@@ -519,7 +519,7 @@ Folgeglieder übrigbleibt.
 
 \begin{remark}
 Bei (iii) müssen wir tatsächlich annehmen,
-dass $a \neq 0$. Die Folge ${(a_n)}_{n \in \mathbb{N}}$ 
+dass $a \neq 0$. Die Folge ${(a_n)}_{n \in \mathbb{N}}$
 mit Folgegliedern
 \[
   a_n = \frac{1}{n+1}
@@ -532,7 +532,7 @@ ${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
   \leavevmode
   \begin{enumerate}[(i)]
     \item $|(a_n + b_n) - (a + b)| \leq |a_n - a| + |b_n - b|$
-    \item $|a_n b_n - ab| \leq 
+    \item $|a_n b_n - ab| \leq
       {|a_n b_n - a_n b + a_n b - ab |}
       \leq |a_n| |b_n - b| + |b||a_n -a|$. \qedhere
   \end{enumerate}
@@ -569,7 +569,7 @@ ${(1/a_n)}_{n \in \mathbb{N}}$ konvergiert nicht in $\mathbb{R}$.
 \end{definition}
 
 \subsection*{Die konstante Reihe}
-Sei $c \in \mathbb{R}$ und setze $a_k = c$ für alle 
+Sei $c \in \mathbb{R}$ und setze $a_k = c$ für alle
 $k \in \mathbb{N}$.
 Die zugehörige Reihe ist dann
  \[
@@ -588,7 +588,7 @@ und somit
 
 \begin{remark}
   Sei $\sum_{k=0}^{\infty} a_k$ eine konvergente Reihe.
-  Dann ist insbesondere ${(s_{n})}_{n \in \mathbb{N}}$ 
+  Dann ist insbesondere ${(s_{n})}_{n \in \mathbb{N}}$
   eine Cauchyfolge.
   Für jedes $\varepsilon > 0$ existiert also ein Index
   $N \in \mathbb{N}$ mit der Eigenschaft, dass
@@ -616,7 +616,7 @@ Sei $a_n = 1/n$ für $n \geq 1$. Die Reihe
 $\sum_{k=1}^{\infty} 1/k$ heisst die
 \emph{harmonische Reihe}, ausgeschrieben
 \[
-  \sum_{k=1}^{\infty} \frac{1}{k} = 
+  \sum_{k=1}^{\infty} \frac{1}{k} =
   1 + \frac{1}{2} + \frac{1}{3}
   + \frac{1}{4}
   + \frac{1}{5}
@@ -644,8 +644,8 @@ und somit
   s_n \geq \frac{n + 1}{2}.
 \]
 Also ist die Folge der Partialsummen $s_n$ nicht
-beschränkt, und somit die 
-harmonische Reihe 
+beschränkt, und somit die
+harmonische Reihe
 $\sum_{k=0}^{\infty} 1/k$ nicht konvergent.
 
 \subsection*{Die geometrische Reihe}
@@ -676,7 +676,7 @@ heisst \emph{geometrische Reihe}.
       $\lim_{n \to \infty} q^n = 0$. Wir berechnen
       die Partialsummen
       \[
-        s_n =  \sum_{k=0}^{n} q^k 
+        s_n =  \sum_{k=0}^{n} q^k
             = 1 + q + q^2 + \cdots + q^n
       \]
       indem wir bemerken, dass
@@ -729,7 +729,7 @@ Reihen herleiten.
   \item Sei $a_n = 1/n^{1 + \alpha}$ mit $\alpha > 0$.
     Schätze die Partialsummen folgendermassen ab:
     \begin{itemize}
-      \item $1/2^{1 + \alpha} + 
+      \item $1/2^{1 + \alpha} +
         1/3^{1 + \alpha}< 2 \cdot 2 \cdot 1/2^{1+\alpha}
         = 1/2^\alpha$,
       \item $1/4^{1 + \alpha} + \cdots + 1/7^{1+ \alpha}
@@ -741,7 +741,7 @@ Reihen herleiten.
     \[
       s_n \leq 1 + \frac{1}{2^{\alpha}} + \frac{1}{4^{\alpha}}
       + \frac{1}{8^{\alpha}} + \dots
-      = \sum_{k=0}^{\infty} 
+      = \sum_{k=0}^{\infty}
       {\left( \frac{1}{2^{\alpha}} \right)}^k
       = \frac{1}{1-1/2^{\alpha}},
     \]
@@ -807,7 +807,7 @@ Reihen herleiten.
   \[
     \sum_{k=0}^{\infty} {(-1)}^k \frac{1}{k+1}
   \]
-  konvergiert. Unsere obigen Verfahren scheinen 
+  konvergiert. Unsere obigen Verfahren scheinen
   nicht zu funktionieren (ausser man hat eine
   gute Idee).
 \end{example}
@@ -835,7 +835,7 @@ Reihen herleiten.
     \item Wir haben $s_0 \geq s_2 \geq s_4 \geq s_6 \geq \cdots$,
       da $s_{k+2} = s_{2k} - a_{2k+1} + a_{2k+2}$ und
       $a_{2k+2}<a_{2k+1}$.
-    \item Analog haben wir 
+    \item Analog haben wir
       $s_1 \leq s_3 \leq s_5 \leq s_7 \leq \cdots$ (die
       Ungleichungen gehen in die andere Richtung).
     \item Ausserdem gilt für alle $k \in \mathbb{N}$, dass
@@ -846,8 +846,8 @@ Reihen herleiten.
     s_1 \leq s_3 \leq s_5 \leq \cdots \leq s_6 \leq s_4 \leq
     s_2 \leq s_0.
   \]
-  Sei nun $\varepsilon > 0$ vorgegeben. Wähle 
-  eine ungerade Zahl $N \in \mathbb{N}$ 
+  Sei nun $\varepsilon > 0$ vorgegeben. Wähle
+  eine ungerade Zahl $N \in \mathbb{N}$
   mit der Eigenschaft, dass wenn immer $n \geq N$, dann
   ist $|a_n| \leq \varepsilon$. Solch ein $N$ existiert,
   da wir angenommen haben, dass
@@ -871,7 +871,7 @@ Reihen herleiten.
 \begin{examples}
   \leavevmode
   \begin{enumerate}[(1)]
-    \item 
+    \item
   Die Reihe
   \[
     \sum_{n=1}^{\infty} {(-1)}^{n+1} \frac{1}{n}
@@ -887,7 +887,7 @@ Reihen herleiten.
   \begin{itemize}
     \item $1 - 1/2 > 0$, $1/3 - 1/4 > 0$, \dots
     \item $-1/2 + 1/3 < 0$, $-1/4 + 1/5 < 0$, \dots.
-  
+
   \end{itemize}
 
 \item Die Reihe
@@ -949,7 +949,7 @@ Reihen herleiten.
   \]
   Also gilt für die umgeordnete Reihe, dass
   \[
-    \sum_{n=0}^{\infty} a_{\varphi(n)} = 
+    \sum_{n=0}^{\infty} a_{\varphi(n)} =
     1 + \frac{1}{3} + \frac{1}{5} - \frac{1}{2}
     + \frac{1}{7} + \frac{1}{9} - \frac{1}{4} + \cdots > 1,
   \]
@@ -977,7 +977,7 @@ Reihen herleiten.
 
 \begin{example}
   Die Reihe
-  $\sum_{n=1}^{\infty} {(-1)}^{n+1}\frac{1}{n}$ 
+  $\sum_{n=1}^{\infty} {(-1)}^{n+1}\frac{1}{n}$
   ist konvergent, aber
   nicht absolut konvergent, da die harmonische Reihe divergiert.
 \end{example}
@@ -985,7 +985,7 @@ Reihen herleiten.
 
 \begin{proof}[Beweis des Lemmas]
   Sei $\varepsilon > 0$ vorgegeben. Da
-  $\sum_{n=0}^{\infty} |a_n|$ 
+  $\sum_{n=0}^{\infty} |a_n|$
   konvergiert, existiert $N \in \mathbb{N}$ mit
   $\sum_{n=N}^{\infty} |a_n| \leq \varepsilon$.
   Das liegt daran, dass die Folge der
@@ -996,18 +996,18 @@ Reihen herleiten.
     \sum_{n=N}^{\infty} |a_n| = \sum_{n=0}^{\infty} |a_n|
     - \sum_{n=0}^{N} |a_n| \leq \varepsilon
   \]
-  erfüllt. Setze 
+  erfüllt. Setze
   \[
     s_n = \sum_{k=0}^{n} a_k
   \]
   Seien  nun $n > m \geq N$. Dann gilt
   \[
     |s_n - s_m|  = \left| \sum_{k=m+1}^{n} a_k \right|
-                 \leq \sum_{k=m+1}^{n} |a_k| 
-                 \leq \sum_{k=N}^{\infty} |a_k| 
+                 \leq \sum_{k=m+1}^{n} |a_k|
+                 \leq \sum_{k=N}^{\infty} |a_k|
                  \leq \varepsilon.
   \]
-  Also ist $s_n$ eine 
+  Also ist $s_n$ eine
   Cauchyfolge und deshalb ist $\sum_{k=0}^{\infty} a_n$ konvergent
   in $\mathbb{R}$.
 \end{proof}
@@ -1029,7 +1029,7 @@ Reihen herleiten.
   Dann existiert zu jeder Zahl
   $\alpha \in \mathbb{R}$ eine
   Bijektion $\varphi \colon \mathbb{N} \to \mathbb{N}$,
-  so dass die Reihe $\sum_{k=0}^{\infty} a_{\varphi(k)}$ 
+  so dass die Reihe $\sum_{k=0}^{\infty} a_{\varphi(k)}$
   mit Grenzwert $\alpha$ konvergiert.
 \end{zusatz}
 
@@ -1045,9 +1045,9 @@ Reihen herleiten.
 \end{proof}
 
 \begin{proof}[Beweis von Theorem~\ref{thm:umordnung}]
-  Sei $\varepsilon > 0$ 
+  Sei $\varepsilon > 0$
   vorgegeben.
-  Wähle $N \in \mathbb{N}$ 
+  Wähle $N \in \mathbb{N}$
   mit $\sum_{k=N+1}^{\infty} |a_k| \leq \varepsilon$.
   Wähle $M \in \mathbb{N}$ mit $M > \varphi^{-1}(0),
   \varphi^{-1}(1), \dots, \varphi^{-1}(N)$.
@@ -1055,7 +1055,7 @@ Reihen herleiten.
   (nach Wahl von $M$).
   Also folgt
   \[
-   \sum_{k=M}^{\infty} |a_{\varphi(k)}| 
+   \sum_{k=M}^{\infty} |a_{\varphi(k)}|
    \leq \sum_{k=N+1}^{\infty} |a_k| \leq \varepsilon.
   \]
   Die Reihe
@@ -1083,7 +1083,7 @@ Reihen herleiten.
     + \sum_{k=M}^{\infty} |a_k| \leq 2\varepsilon,
   \end{align*}
   wobei wir
-  $\sum_{k=M}^{\infty} |a_{\varphi(k)}| \leq \varepsilon$ 
+  $\sum_{k=M}^{\infty} |a_{\varphi(k)}| \leq \varepsilon$
   bereits oben abgeschätzt haben,
   und $\sum_{k=M}^{\infty} |a_k| \leq \varepsilon$ aus
   $M \geq N$ folgt.
@@ -1096,7 +1096,7 @@ Reihen herleiten.
 \end{proof}
 
 \subsection*{Das Cauchyprodukt zweier Reihen}
-Seien $\sum_{k=0}^{\infty} a_k$ und $\sum_{k=0}^{\infty} b_k$ 
+Seien $\sum_{k=0}^{\infty} a_k$ und $\sum_{k=0}^{\infty} b_k$
 zwei konvergente Reihen mit Grenzwerten
 $\alpha$ und $\beta$ in $\mathbb{R}$.
 Dann konvergiert die Reihe
@@ -1110,7 +1110,7 @@ $\alpha + \beta$.
 
 \begin{definition}
   Das \emph{Cauchyprodukt} der Reihen
-  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$
   ist die Reihe $\sum_{n=0}^{\infty} c_n$ mit den Summanden
   \[
     c_n = \sum_{k=0}^{n} a_k b_{n-k}.
@@ -1121,7 +1121,7 @@ $\alpha + \beta$.
     $c_2 = a_0 b_2 + a_1 b_1 + a_2 b_0$.
 \end{definition}
 
-\begin{figure}[htb] 
+\begin{figure}[htb]
   \centering
   \begin{minipage}{0.50\textwidth}
     \centering
@@ -1136,7 +1136,7 @@ $\alpha + \beta$.
 \end{figure}
 
 \begin{example}
-  Sei 
+  Sei
   \[
     a_k = b_k = {(-1)}^k \frac{1}{\sqrt{k+1}}.
   \]
@@ -1156,7 +1156,7 @@ $\alpha + \beta$.
     c_n & = \sum_{k=0}^{n} {(-1)}^k \frac{1}{\sqrt{k+1}}
     \cdot {(-1)}^{n-k} \cdot \frac{1}{\sqrt{n-k+1}} \\
         &=
-    (-1)^n \left(  
+    (-1)^n \left(
       \frac{1}{\sqrt 1} \cdot \frac{1}{\sqrt{n+1}}
       + \frac{1}{\sqrt 2} \cdot \frac{1}{\sqrt n}
       + \frac{1}{\sqrt 3} \cdot \frac{1}{\sqrt{n-1}}
@@ -1172,15 +1172,15 @@ gleich $1/(n+1)$, denn
   = \frac{1}{n+1}.
 \]
 Also ist $|c_n| \geq 1$ für alle $n \in \mathbb{N}$.
-Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$ 
+Insbesondere ist ${(c_{n})}_{n \in \mathbb{N}}$
 keine Nullfolge,
 also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 \end{example}
 
 \begin{theorem}\label{thm:cauchy-product}
   Seien
-  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
-  absolut konvergent mit Grenzwerten $\alpha$ und $\beta$ 
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$
+  absolut konvergent mit Grenzwerten $\alpha$ und $\beta$
   in~$\mathbb{R}$.
   Dann konvergiert das Cauchyprodukt
   $\left( \sum_{i=0}^{\infty} a_i \right) \cdot
@@ -1192,7 +1192,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 %   Sei $N \in 2\mathbb{N}$ beliebig.
 %   Setze
 %    \[
-%      A = \sum_{i=0}^{\infty} |a_i|, \;\; 
+%      A = \sum_{i=0}^{\infty} |a_i|, \;\;
 %      B = \sum_{j=0}^{\infty} |b_j|.
 %    \]
 %    Beachte, dass $A$ nicht unbedingt dasselbe
@@ -1233,7 +1233,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 %    zeigen, dass
 %    \[
 %      \lim_{N \to \infty}
-%      \left| 
+%      \left|
 %        \sum_{n=0}^{N} c_n -
 %        \left( \sum_{i=0}^{N} a_i \right)
 %        \cdot
@@ -1249,7 +1249,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     B = \sum_{j=0}^{\infty} |b_j|.
   \]
   Diese Grenzwerte existieren, da die beiden Reihen
-  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$ 
+  $\sum_{i=0}^{\infty} a_i$ und $\sum_{j=0}^{\infty} b_j$
   absolut konvergieren. Im Allgemeinen stimmen $A$ und $B$
   aber nicht mit $\alpha$ und $\beta$ überein.
   Sei $N \in \mathbb{N}$. Wir schätzen ab:
@@ -1270,11 +1270,11 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   konvergent.
 
   Zu zeigen bleibt, dass der Grenzwert der Reihe
-  $\sum_{n=0}^{\infty} c_n$ gerade $\alpha \cdot \beta$ 
+  $\sum_{n=0}^{\infty} c_n$ gerade $\alpha \cdot \beta$
   ist. Berechne dazu
   \begin{align*}
     \left| \left( \sum_{i=0}^{N} a_i \right)
-    \left( \sum_{j=0}^{N} b_j \right) - \sum_{n=0}^{N} c_n \right| 
+    \left( \sum_{j=0}^{N} b_j \right) - \sum_{n=0}^{N} c_n \right|
     & \leq \left(\sum_{i=N/2}^{\infty} |a_i| \right)
      \left( \sum_{j=0}^{\infty} |b_j| \right)
      + \left( \sum_{i=0}^{\infty} |a_i| \right)
@@ -1295,7 +1295,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   \]
   also gilt
   \begin{align*}
-    \sum_{n=0}^{\infty} c_n 
+    \sum_{n=0}^{\infty} c_n
     & = \lim_{N \to \infty} \sum_{n=0}^{N} c_n \\
     & = \left( \lim_{N \to \infty}\sum_{i=0}^{N} a_i \right)
     \left( \lim_{N \to \infty}\sum_{j=0}^{N} b_j \right) \\
@@ -1323,7 +1323,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
   $N+ 1 \geq 2x$.
   Dann gilt für alle $n > N$, dass
   \begin{align*}
-    \sum_{k=0}^{n} \frac{x^k}{k!}    & 
+    \sum_{k=0}^{n} \frac{x^k}{k!}    &
     = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \cdots
     + \frac{x^N}{N!} + \cdots \frac{x^n}{n!} \\ &
     = 1 + \cdots + \frac{x^N}{N!}
@@ -1379,7 +1379,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     \exp(x) \cdot \exp(y) & =
     \left(\sum_{i=0}^{\infty} \frac{x^i}{i!}\right)
     \left( \sum_{j=0}^{\infty} \frac{y^j}{j!} \right)\\ &
-    = \sum_{n=0}^{\infty} \sum_{k=0}^{n} \frac{x^k}{k!} 
+    = \sum_{n=0}^{\infty} \sum_{k=0}^{n} \frac{x^k}{k!}
     \frac{y^{n-k}}{(n-k)!} \\ &
     = \sum_{n=0}^{\infty} \frac{{(x + y)}^n}{n!} \\&
     = \exp(x + y)
@@ -1398,7 +1398,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
     \item $\exp(0) = 1$ und $\exp(1) = e$, die Eulersche Zahl
       (siehe Serie 4).
     \item Für $h \geq 0$ gilt $\exp(h) \geq 1 + h$,
-      und für $0 \leq h \leq 1$ gilt  
+      und für $0 \leq h \leq 1$ gilt
       \[
         1 + h \leq \exp(h) \leq 1 + 2h,
       \]
@@ -1429,7 +1429,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 \end{notation}
 
 \begin{proposition*}
-  Die Exponentialfunktion $\exp \colon \mathbb{R} \to \mathbb{R}$ 
+  Die Exponentialfunktion $\exp \colon \mathbb{R} \to \mathbb{R}$
   ist positiv, streng monoton wachsend, und surjektiv
   als Funktion $\mathbb{R} \to \mathbb{R}_{>0}$.
 \end{proposition*}
@@ -1437,13 +1437,13 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
 \begin{proof}
   \leavevmode
   \begin{itemize}
-    \item \emph{Positivität}. 
+    \item \emph{Positivität}.
       Für $x \geq 0$ gilt $\exp(x) \geq 1$,
       und für $x < 0 $ gilt $\exp(x) = 1/\exp(-x)$
       (siehe Eigenschaft (iii)), also gilt
       auch in diesem Fall
       $\exp(x) > 0$.
-    \item \emph{Monotonie}. 
+    \item \emph{Monotonie}.
       Seien $x, y \in \mathbb{R}$ mit $x < y$.
       Dann gilt:
       \[
@@ -1454,7 +1454,7 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       da $\exp(y-x) > 1$.
     \item \emph{Surjektivität}.
       Sei $y > 0$. Wir behaupten,
-      dass $x_1, x_2 \in \mathbb{R}$ existieren mit 
+      dass $x_1, x_2 \in \mathbb{R}$ existieren mit
       \[
         \exp(x_1) < y < \exp(x_2).
       \]
@@ -1498,10 +1498,10 @@ also $\sum_{n=0}^{\infty} c_n$ nicht konvergent.
       Also ist $s + h \in A$, was im Widerspruch zu
       $s = \sup(A)$ steht.
       Somit folgt $\exp(s) \geq y$.
-      
+
       Umgekehrt, nimm widerspruchsweise an,
       dass $\exp(s) > y$. Ähnlich wie im ersten Schritt, wähle
-      $h \in \mathbb{R}$ mit $0 < h \leq 1$ 
+      $h \in \mathbb{R}$ mit $0 < h \leq 1$
       und $1 + 2h \leq \exp(s)/y$.
       Dann gilt
       \[
@@ -1553,7 +1553,7 @@ Es gilt für alle $a, b > 0$, dass
 \]
 Dazu bemerke, dass
 \[
-  \exp(\log(a) + \log(b)) = 
+  \exp(\log(a) + \log(b)) =
   \exp(\log(a)) \cdot \exp(\log(b))
   = a \cdot b = \exp(\log(a \cdot b)).
 \]
@@ -1577,4 +1577,3 @@ folgt die Behauptung.
   \]
 \end{remark}
 \end{document}
-
