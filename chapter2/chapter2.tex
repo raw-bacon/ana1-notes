@@ -70,7 +70,7 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	  \[
 		  n  \leq {\left( 1 + \sqrt{\frac{2}{n-1}} \right)}^n,
 	  \]
-	  denn Anwenden der binomischen Formel
+	  denn Anwenden des \emph{binomischen Lehrsatzes}
 	  \[
 		  {(a + b)}^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b
 		  + \cdots + \binom{n}{n-1}ab^{n-1} + \binom{n}{n}b^n
@@ -118,8 +118,13 @@ $[L- \varepsilon, L + \varepsilon]$ liegt.
 	heisst, dass für alle $S > 0$ ein Index $N \in \mathbb{N}$
 	existiert, so dass für alle $n \geq N$ gilt, dass
 	$a_n > S$ ist.
-	Der zweite der Fälle ist klar. Für den dritten Fall,
-	betrachte
+	Der zweite der Fälle ist klar. Für den dritten Fall
+  verwenden wir die \emph{Bernoulli-Ungleichung}
+  \[
+    {(1 + b)}^n \geq 1 + bn
+  \]
+  für $b \geq 0$. Diese folgt aus dem binomischen Lehrsatz oben.
+	Betrachte
 	\[
 		q^n = {\left( 1 + (q-1) \right)}^n \geq 1 + n(q-1),
 	\]
