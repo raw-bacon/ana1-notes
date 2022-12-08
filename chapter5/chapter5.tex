@@ -11,18 +11,18 @@ mit $f' = 0$ (die Nullfunktion).
 Dann ist $f$ konstant (was wir bereits mithilfe des
 Mittelwertsatzes gezeigt haben). Daraus können wir
 Folgendes schliessen.
-Seien $f, g \colon \mathbb{R} \to \mathbb{R}$ 
+Seien $f, g \colon \mathbb{R} \to \mathbb{R}$
 differenzierbare
 Funktionen mit
 $f' = g'$, das heisst, für alle $x \in \mathbb{R}$
 gilt $f'(x) = g'(x)$.
 Dann ist $f - g$ konstant.
-Wir folgern, dass die Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
-durch ihre Ableitung $f' \colon \mathbb{R} \to \mathbb{R}$ 
+Wir folgern, dass die Funktion $f \colon \mathbb{R} \to \mathbb{R}$
+durch ihre Ableitung $f' \colon \mathbb{R} \to \mathbb{R}$
 und einen Wert $f(0)$ determiniert ist.
 
 \begin{question}
-  Wie bestimmen wir $f$ aus $f'$ 
+  Wie bestimmen wir $f$ aus $f'$
   und $f(0)$?
 \end{question}
 
@@ -47,10 +47,10 @@ Funktionen der Ausdruck
   + (f(x) - f((N-1)x/N))
 \]
 zu einer Approximation von $f$ aus
-$f'$ führen könnte. Für grosse $N$ 
+$f'$ führen könnte. Für grosse $N$
 sollte nämlich
 \[
-  f(x) - f(0) \approx \sum_{k = 0}^{N - 1} 
+  f(x) - f(0) \approx \sum_{k = 0}^{N - 1}
   \frac{x}{N} \cdot f'(k \cdot x / N)
 \]
 eine gute Approximation sein, wobei
@@ -96,7 +96,7 @@ und die korrespondierende \emph{Untersumme} durch
 \]
 siehe Abbildung~\ref{fig:riemann}.
 
-\begin{figure}[htb] 
+\begin{figure}[htb]
   \centering
   \begin{minipage}{0.50\textwidth}
     \centering
@@ -122,7 +122,7 @@ siehe Abbildung~\ref{fig:riemann}.
 
 \begin{proof}
   Schreibe
-  $P_1 = [x_0, x_1, \dots, x_n]$ 
+  $P_1 = [x_0, x_1, \dots, x_n]$
   und
   $P_2 = [y_0, y_1, \dots, y_m]$.
   Wähle eine Partition $Q$ von
@@ -166,7 +166,7 @@ siehe Abbildung~\ref{fig:riemann}.
     \item Betrachte die Funktion
       \begin{align*}
         f \colon [0, 1] & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           1 & \text{falls $x \in \mathbb{Q}$},\\
           0 & \text{falls $x \in \mathbb{R} \setminus \mathbb{Q}$}.
@@ -184,7 +184,7 @@ siehe Abbildung~\ref{fig:riemann}.
     \item Betrachte die Funktion
       \begin{align*}
         f \colon [-1, 1] & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           0 & \text{falls $x \leq 0$},\\
           1 & \text{falls $x > 0$}.
@@ -199,7 +199,7 @@ siehe Abbildung~\ref{fig:riemann}.
       und
       \[
         \underline S_P(f) = 1 - 1/N.
-      \] 
+      \]
       Somit folgt $\overline S_P - \underline S_P = 1/N$,
       also ist $f$ Riemann-integrierbar und es gilt
       \[
@@ -209,7 +209,7 @@ siehe Abbildung~\ref{fig:riemann}.
 \end{examples}
 
 \begin{theorem}\label{thm:continuous-integrable}
-  Sei $f \colon [a, b] \to \mathbb{R}$ stetig. Dann ist $f$ 
+  Sei $f \colon [a, b] \to \mathbb{R}$ stetig. Dann ist $f$
   Riemann-integrierbar.
 \end{theorem}
 
@@ -235,7 +235,7 @@ siehe Abbildung~\ref{fig:riemann}.
     %& N \frac{b-a}{\varepsilon} \\
     &= \varepsilon \cdot (b-a).
   \end{align*}
-  Wir folgern, dass die Differenz $\overline S_P(f) - \underline S_P(f)$ 
+  Wir folgern, dass die Differenz $\overline S_P(f) - \underline S_P(f)$
   beliebig kleine Werte annehmen kann. Insbesondere gilt,
   dass
   \[
@@ -262,12 +262,12 @@ siehe Abbildung~\ref{fig:riemann}.
   \]
   und
   \[
-    \underline S_P(f) = \frac{1}{N} \cdot \left( 0 +{\left( \frac{1}{N}  \right)}^n 
+    \underline S_P(f) = \frac{1}{N} \cdot \left( 0 +{\left( \frac{1}{N}  \right)}^n
     + \cdots + {\left( \frac{N-1}{N}  \right)}^n\right).
   \]
   Also folgt
   \[
-    \lim_{N \to \infty} \overline S_P(f) - \underline S_P(f) = 
+    \lim_{N \to \infty} \overline S_P(f) - \underline S_P(f) =
     \lim_{N \to \infty}\frac{1}{N} = 0,
   \]
   was wir auch aus Theorem~\ref{thm:continuous-integrable} schliessen konnten.
@@ -309,7 +309,7 @@ siehe Abbildung~\ref{fig:riemann}.
     \item Die Funktion
       \begin{align*}
         f \colon [-1, 1] & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           0 & x \leq 0,\\
           1 & x > 0.
@@ -319,7 +319,7 @@ siehe Abbildung~\ref{fig:riemann}.
     \item Die Funktion
       \begin{align*}
         f \colon [0, 1] & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           0 & x = 0 \\
           1/x & x > 0
@@ -342,7 +342,7 @@ Theorem~\ref{thm:continuous-integrable}, was nur eine
 hinreichende Bedingung darstellt.
 
 \begin{definition}
-  Eine Teilmenge $\Delta \subset \mathbb{R}$ 
+  Eine Teilmenge $\Delta \subset \mathbb{R}$
   heisst \emph{Lebesgue Nullmenge},
   falls für alle $\varepsilon > 0$ abzählbar viele
   offene Intervalle
@@ -350,7 +350,7 @@ hinreichende Bedingung darstellt.
     I_k = (a_k, b_k)
   \]
   mit $k \in \mathbb{N}$
-  existieren, so dass 
+  existieren, so dass
   \[
     \Delta \subset \bigcup_{k=0}^{\infty} I_k
   \]
@@ -363,7 +363,7 @@ hinreichende Bedingung darstellt.
 \begin{example}
   Sei $\Delta = \mathbb{Q} \subset \mathbb{R}$.
   Sei $\varepsilon > 0$ vorgegeben.
-  Wähle eine Bijektion $q \colon\mathbb{N} \to \mathbb{Q}$ 
+  Wähle eine Bijektion $q \colon\mathbb{N} \to \mathbb{Q}$
   und schreibe $q_k = q(k)$ für $k \in \mathbb{N}$.
   Setze
   \[
@@ -373,7 +373,7 @@ hinreichende Bedingung darstellt.
   \[
     b_k = q_k + \frac{\varepsilon}{4} \cdot \frac{1}{2^k}.
   \]
-  Es gilt $q_k \in (a_k, b_k)$ und  
+  Es gilt $q_k \in (a_k, b_k)$ und
   \[
     b_k - a_k = \frac{\varepsilon}{2^{k+1}}.
   \]
@@ -413,7 +413,7 @@ integrierbar.
   Die Funktion
   \begin{align*}
     f \colon [0, 1] & \to \mathbb{R} \\
-    x & \mapsto 
+    x & \mapsto
     \begin{cases}
       1/q & \text{falls $x = p/q \in \mathbb{Q}$ gekürzt ist},\\
       0 & \text{falls $x \in \mathbb{R} \setminus Q$}
@@ -447,7 +447,7 @@ Konkret heisst das folgendes.
 \begin{enumerate}[(i)]
   \item Seien $f, g \colon [a, b] \to \mathbb{R}$
     Riemann-integrierbar und $\lambda \in \mathbb{R}$.
-    Dann ist $f + \lambda g \colon [a, b] \to \mathbb{R}$ 
+    Dann ist $f + \lambda g \colon [a, b] \to \mathbb{R}$
     auch Riemann-integrierbar.
   \item Die Gleichung
     \[
@@ -455,16 +455,16 @@ Konkret heisst das folgendes.
       = \int_{a}^{b} f(x) \, dx
       + \lambda \cdot \int_{a}^{b} g(x) \, dx
     \]
-    ist für alle Riemann-integrierbaren 
-    $f, g \colon [a, b] \to \mathbb{R}$ 
+    ist für alle Riemann-integrierbaren
+    $f, g \colon [a, b] \to \mathbb{R}$
     erfüllt.
 \end{enumerate}
 
 \begin{remark}
   Der Vektorraum $R[a,b]$ ist unendlichdimensional, da die
-  Funktionen 
+  Funktionen
   \[
-   x \mapsto x^k 
+   x \mapsto x^k
   \]
   linear unabhängig sind.
 \end{remark}
@@ -488,7 +488,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
   dass Differenzierbarkeit im Punkt $a$ bedeutet, dass
   der Grenzwert
   \[
-    F'(a) 
+    F'(a)
     = \lim_{h \to 0} \frac{F(a + |h|) - F(a)}{|h|} \in \mathbb{R}
   \]
   existiert. Ähnlich heisst Differenzierbarkeit im Punkt $b$,
@@ -511,7 +511,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
 \end{theorem}
 
 \begin{proof}
-  Sei $p \in [a, b]$ und $h \in \mathbb{R}$ 
+  Sei $p \in [a, b]$ und $h \in \mathbb{R}$
   mit $p + h \in [a, b]$.
   Wir leiten nun eine Dreigliedentwicklung
   für $F$ bei $p$ her. Berechne
@@ -554,7 +554,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
   da für alle Obersummen gilt, da alle Partitionen
   die Bedingungen
   $\overline S_P(f|_{[p, p+h]}) \leq |h| \cdot \varepsilon$
-  und $\underline S_P(f|_{[p, p+h]}) \geq - \varepsilon \cdot h$ 
+  und $\underline S_P(f|_{[p, p+h]}) \geq - \varepsilon \cdot h$
   erfüllen.
   Wir schliessen, dass der Restterm
   ${(RF)}_p(h)$ relativ klein in $|h|$ ist.
@@ -566,7 +566,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
 \end{proof}
 
 \begin{application}
-  Sei $U \subset \mathbb{R}$ offen und $g \colon U \to \mathbb{R}$ 
+  Sei $U \subset \mathbb{R}$ offen und $g \colon U \to \mathbb{R}$
   stetig differenzierbar. Sei $[a, b] \subset U$.
   Dann gilt
   \[
@@ -631,7 +631,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
       Betrachte zum Beispiel die Funktion
       \begin{align*}
         f \colon [-1, 1] & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           0 & x \leq 0,\\
           1 & x > 0.
@@ -639,7 +639,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
       \end{align*}
       Dann ist
       \[
-        F(x) = 
+        F(x) =
         \begin{cases}
           0 & x \leq 0,\\
           x & x \geq 0,
@@ -653,7 +653,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
       Betrachte hier zum Beispiel
       \begin{align*}
         f \colon \mathbb{R} & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           0 & x = 0, \\
           x^2 \sin(1/x^2) & x \neq 0.
@@ -661,7 +661,7 @@ $f \colon [a, b] \to \mathbb{R}$ gilt, dass
       \end{align*}
       Dann ist
       \[
-        f'(x) = 
+        f'(x) =
         \begin{cases}
           0 & x = 0,\\
           2x \sin(1/x^2) - 2/x \cdot \cos(1/x^2) & x \neq 0.
@@ -682,7 +682,7 @@ differenzierbare $f, g \colon U \to \mathbb{R}$ gilt, dass
   (f\cdot g)' = f'\cdot g + f\cdot g'.
 \]
 Seien nun zusätzlich $f', g' \colon U \to \mathbb{R}$ stetig
-und $[a, b] \subset U$. Dann ist $f' \cdot g + f \cdot g'$ 
+und $[a, b] \subset U$. Dann ist $f' \cdot g + f \cdot g'$
 auf $[a, b]$ Riemann-integrierbar und es gilt
 \[
   \int_{a}^{b} (f \cdot g)' (x) \, dx
@@ -693,7 +693,7 @@ Wir erhalten folgendes Resultat.
 
 \begin{byparts}
   Seien $f, g \colon U \to \mathbb{R}$ stetig differenzierbar.
-  Dann gilt 
+  Dann gilt
   \[
     f(b) \cdot g(b) - f(a) \cdot g(a)
     = \int_{a}^{b} f'(x) \cdot g(x) \, dx
@@ -719,7 +719,7 @@ Wir erhalten folgendes Resultat.
         = x \cdot \log (x) - a \cdot \log (a)
         - \int_{a}^{x} t \cdot \frac{1}{t} \, dt.
       \]
-      Wir erhalten somit eine Stammfunktion von $\log$ 
+      Wir erhalten somit eine Stammfunktion von $\log$
       auf $\mathbb{R}_{>0}$, und zwar die Funktion
       \[
         x \mapsto x \cdot \log(x) - x.
@@ -729,7 +729,7 @@ Wir erhalten folgendes Resultat.
       \[
         \int_{a}^{x} \cos^2(t) \, dt
       \]
-      ist. Schreibe dazu $f'(x) = \cos (x)$ 
+      ist. Schreibe dazu $f'(x) = \cos (x)$
       und $g(x) = \cos(x)$.
       Es gilt dann
       $f(x) = \sin(x)$ (bis auf Addition einer Konstante,
@@ -746,7 +746,7 @@ Wir erhalten folgendes Resultat.
         \int_{a}^{x} \cos^2(t) \, dt
         = \frac{1}{2} \cdot
         \left( \sin(x) \cdot \cos(x) -
-        \sin(a) \cos (a) + (b-a) \right).
+        \sin(a) \cos (a) + (x-a) \right).
       \]
       Die Stammfunktion, die wir so erhalten, ist
       \[
@@ -790,7 +790,7 @@ Wir erhalten folgendes Resultat.
 \begin{examples}
   \leavevmode
   \begin{enumerate}[(1)]
-    \item Sei $g \colon \mathbb{R} \to \mathbb{R}_{>0}$ 
+    \item Sei $g \colon \mathbb{R} \to \mathbb{R}_{>0}$
       eine beliebige positive Funktion,
       und sei $[a, b] \subset \mathbb{R}$.
       Dann gilt
@@ -811,7 +811,7 @@ Wir erhalten folgendes Resultat.
         f \colon [0, 1] & \to [0, 1] \\
         z & \mapsto \sqrt{1- z^2}.
       \end{align*}
-      Dann gilt $g(0) = 0$, $g(\pi/2) = 1$ 
+      Dann gilt $g(0) = 0$, $g(\pi/2) = 1$
       und $g'(x) = \cos(x)$ für alle $x \in [0, \pi/2]$.
       Es folgt, dass
       \[
@@ -822,7 +822,7 @@ Wir erhalten folgendes Resultat.
         = \frac{\pi}{4}.
       \]
       Wir können dieses Resultat geometrisch als den Fakt
-      interpretieren, dass die Fläche eines Kreises 
+      interpretieren, dass die Fläche eines Kreises
       mit Einheitsradius gerade $\pi$ ist, siehe
       Abbildung~\ref{fig:circle-area}.
   \end{enumerate}
@@ -861,7 +861,7 @@ Sei
 ein Polynom in $\mathbb{R}[x]$.
 Wir betrachten den Spezialfall,
 in dem $p$ genau $n$ paarweise verschiedene
-Nullstellen $\alpha_1, \alpha_2, \dots, \alpha_n \in \mathbb{R}$ 
+Nullstellen $\alpha_1, \alpha_2, \dots, \alpha_n \in \mathbb{R}$
 hat.
 Daraus, dass das Polynom
 \[
@@ -875,7 +875,7 @@ $\alpha_1, \dots, \alpha_n$ hat, folgt dass
 für alle $x \in \mathbb{R}$.
 
 \begin{lemma}[Partialbruchzerlegung]\label{lem:partial-fractions}
-  Sei $p \in \mathbb{R}[x]$ ein Polynom mit $n$ 
+  Sei $p \in \mathbb{R}[x]$ ein Polynom mit $n$
   paarweise verschiedenen Nullstellen
   $\alpha_1, \dots, \alpha_n$.
   Dann existieren $b_1, \dots, b_n \in \mathbb{R}$
@@ -954,7 +954,7 @@ für alle $x \in \mathbb{R}$.
     b_k = \frac{1}{p_k(\alpha_k)}.
   \]
   Das macht Sinn, da $p_k(\alpha_k) \neq 0$.
- 
+
   Wir behaupten nun, dass für diese $b_k$ tatsächlich
   \[
     \frac{1}{p(x)} = \sum_{k=1}^{n}  \frac{b_k}{x - \alpha_k}
@@ -997,7 +997,7 @@ Dann liefert ein ähnlicher Beweis,
 siehe Abschnitt 69 in~\cite{heuser},
 eine Partialbruchzerlegung
 \[
-  \frac{1}{p(x)} = \sum_{i=1}^{m} \sum_{k=1}^{k_i} 
+  \frac{1}{p(x)} = \sum_{i=1}^{m} \sum_{k=1}^{k_i}
   \frac{c_{ik}}{{(x - \alpha_i)}^k}
 \]
 mit geeigneten Koeffizienten $c_{ik} \in \mathbb{R}$.
@@ -1005,7 +1005,7 @@ Auch dieses Resultat kann angewendet werden,
 um Integrale
 \[
   \int_{a}^{b} \frac{1}{p(x)} \, dx
-  = \sum_{i=1}^{m} \sum_{k=1}^{k_i} \int_{a}^{b} 
+  = \sum_{i=1}^{m} \sum_{k=1}^{k_i} \int_{a}^{b}
   \frac{c_{ik}}{{(x - \alpha_i)}^k}\, dx
 \]
 zu berechnen.
@@ -1020,26 +1020,26 @@ zu berechnen.
   \]
   erhalten wir
   \begin{align*}
-    1 & 
+    1 &
     = a(x - 1) + b x (x - 1) + cx^2\\
       &= (b + c) \cdot x^2 + (a - b) x - a.
   \end{align*}
   Wir folgern $b + c = a - b = 0$ und $a = -1$.
 \end{example}
-  
+
 Für das zweite Problem verwenden wir den
 \emph{Fundamentalsatz der Algebra},
 der Folgendes aussagt.
 
 \begin{lemma}
   Sei $p \in \mathbb{C}[x]$ ein nicht-konstantes
-  komplexes Polynom. Dann existiert $\alpha \in \mathbb{C}$ 
+  komplexes Polynom. Dann existiert $\alpha \in \mathbb{C}$
   mit $p( \alpha ) = 0$.
 \end{lemma}
 
 Für den Beweis, siehe Abschnitt 69 in~\cite{heuser}, oder
 die Vorlesung ``Komplexe Analysis''.
-Sei nun $p \in \mathbb{R}[x]$ und $\alpha = a + bi \in \mathbb{C}$ 
+Sei nun $p \in \mathbb{R}[x]$ und $\alpha = a + bi \in \mathbb{C}$
 mit $p ( \alpha ) = 0$.
 Dann gilt auch
 $p(\overline \alpha) = 0$,
@@ -1056,7 +1056,7 @@ Es gilt nun
 \begin{example}
   Sei $p(x) = x^3 + 2x^2 + x + 2$.
   Es gilt $p(i) = p(-i) = 0$.
-  Wir folgern, dass $(x- i)(x + i) = x^2 + 1$ 
+  Wir folgern, dass $(x- i)(x + i) = x^2 + 1$
   das Polynom $p$ teilt. Tatsächlich gilt
   \[
     p(x) = (x^2 + 1)(x+2).
@@ -1117,12 +1117,12 @@ Es gilt nun
     = \frac{1}{b} \cdot \frac{1}{1 + {(x/b)}^2} \cdot \frac{1}{b}
     = \frac{1}{b^2 + x^2}.
   \]
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 \end{remark}
 
 

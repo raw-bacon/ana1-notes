@@ -8,11 +8,11 @@
   folgende Aussage:
   ``der Funktionsgraph einer Funktion
   $f \colon \mathbb{R} \to \mathbb{R}$
-  hat im Punkt $(p, f(p))$ eine 
+  hat im Punkt $(p, f(p))$ eine
   wohldefinierte Tangente''.
 \end{goal}
 
-Affine Funktionen 
+Affine Funktionen
 \begin{align*}
   A \colon \mathbb{R} & \to \mathbb{R} \\
   x & \mapsto ax + b
@@ -35,7 +35,7 @@ linear ist (im Gegensatz
 zu der Funktion
 $A \colon \mathbb{R} \to \mathbb{R}$,
 welche ``nur'' affin ist).
-Wir erhalten, dass für festes $p$ 
+Wir erhalten, dass für festes $p$
 gilt, dass
   $A(p+h) = A(p) + L(h)$
 die Summe einer konstanten
@@ -58,19 +58,19 @@ $x \mapsto ax + b$}%
 
 \subsection*{Dreigliedentwicklung}
 \begin{definition}
-  Seien $a, b \in \mathbb{R}$ 
+  Seien $a, b \in \mathbb{R}$
   mit $a < b$ und
-  $f \colon (a, b) \to \mathbb{R}$ 
+  $f \colon (a, b) \to \mathbb{R}$
   eine Funktion.
   Weiterhin sei $p \in (a, b)$ und
-  $d > 0$ 
+  $d > 0$
   mit $(p - d, p + d) \subset (a, b)$.
-  Die Funktion $f \colon (a, b) \to \mathbb{R}$ 
+  Die Funktion $f \colon (a, b) \to \mathbb{R}$
   heisst im Punkt
   $p \in (a, b)$ \emph{differenzierbar},
   falls eine lineare Funktion
   ${(Df)}_p \colon\mathbb{R} \to \mathbb{R}$
-  und eine Funktion ${(Rf)}_p \colon (-d, d) \to \mathbb{R}$ 
+  und eine Funktion ${(Rf)}_p \colon (-d, d) \to \mathbb{R}$
   existieren, die folgende Eigenschaften erfüllen.
   \begin{enumerate}[(i)]
     \item Für alle $h \in (-d, d)$ gilt
@@ -89,7 +89,7 @@ $x \mapsto ax + b$}%
    \[
      f(p + h) = f(p) + {(Df)}_p(h) + {(Rf)}_p(h)
    \]
-   heisst \emph{Dreigliedentwicklung} von $f$ 
+   heisst \emph{Dreigliedentwicklung} von $f$
    an der Stelle $p$.
    Die lineare Abbildung
    ${(Df)}_p \colon\mathbb{R} \to \mathbb{R}$ heisst
@@ -98,7 +98,7 @@ $x \mapsto ax + b$}%
 \end{definition}
 
 Für die Bedingung, dass für
-alle $\varepsilon > 0$ ein $\delta > 0$ 
+alle $\varepsilon > 0$ ein $\delta > 0$
 mit $\delta \leq d$ existiert,
 so dass für $h \in (-\delta, \delta)$ gilt,
 dass
@@ -115,7 +115,7 @@ in $|h|$ ist.
 \begin{examples}
   \leavevmode
   \begin{enumerate}[(1)]
-    \item Sei $L \colon \mathbb{R} \to \mathbb{R}$ 
+    \item Sei $L \colon \mathbb{R} \to \mathbb{R}$
       linear.
       Dann gilt für alle $p \in \mathbb{R}$ und alle
       $h \in \mathbb{R}$, dass
@@ -129,7 +129,7 @@ in $|h|$ ist.
         \lim_{h \to 0} \frac{|{(RL)}_p(h)|}{|h|} = 0.
       \]
       Also ist $L \colon \mathbb{R} \to \mathbb{R}$
-      an der Stelle $p \in \mathbb{R}$ 
+      an der Stelle $p \in \mathbb{R}$
       differenzierbar mit Differential
       \[
       {(DL)}_p = L \colon \mathbb{R} \to \mathbb{R}.
@@ -197,14 +197,14 @@ Dann ist die Funktion
 \]
 linear und die Funktion
 $
-  \widetilde{{(Rf)}}_p- {(Rf)}_p 
+  \widetilde{{(Rf)}}_p- {(Rf)}_p
 $
 relativ klein in $|h|$.
 Weiter gilt auf dem gemeinsamen Definitionsbereich der
 beiden Funktionen, dass
 \[
-{(Df)}_p - \widetilde{{(Df)}}_p 
-  =  \widetilde{{(Rf)}}_p-{(Rf)}_p 
+{(Df)}_p - \widetilde{{(Df)}}_p
+  =  \widetilde{{(Rf)}}_p-{(Rf)}_p
 \]
 
 
@@ -222,7 +222,7 @@ beiden Funktionen, dass
   \]
   Weiter ist $g$ relativ klein in $|h|$.
   Sei $\varepsilon > 0$. Dann existiert
-  $\delta > 0$ so dass für $|h| \leq \delta$ 
+  $\delta > 0$ so dass für $|h| \leq \delta$
   gilt, dass
   \[
    |g(1)| \cdot |h| = |h \cdot g(1) | = |g(h)| \leq \varepsilon \cdot |h|,
@@ -246,9 +246,9 @@ Seien
 zwei Dreigliedentwicklungen von $f \colon (a, b) \to \mathbb{R}$.
 Wir haben oben gesehen, dass
 \[
-  g = 
-{(Df)}_p - \widetilde{{(Df)}}_p 
-  = \widetilde{{(Rf)}}_p-{(Rf)}_p 
+  g =
+{(Df)}_p - \widetilde{{(Df)}}_p
+  = \widetilde{{(Rf)}}_p-{(Rf)}_p
 \]
 linear und relativ klein in $|h|$, also
 die Nullfunktion ist.
@@ -319,7 +319,7 @@ die Nullfunktion ist.
   \begin{enumerate}[(1)]
     \item Sei $f(x) = c$ für eine
       Konstante $c \in \mathbb{R}$.
-      Dann gilt für alle $p \in \mathbb{R}$ 
+      Dann gilt für alle $p \in \mathbb{R}$
       und $h \in \mathbb{R}$, dass
       \[
         f(p + h) = f(p) + 0 + 0,
@@ -327,7 +327,7 @@ die Nullfunktion ist.
       also ist $f$ differenzierbar und
       ${(Df)}_p = 0$ ist die Nullfunktion.
     \item Sei $f(x) = x^n$ für $n \in \mathbb{N}$
-      mit $n \geq 2$. Die Fälle $n = 0$ und $n = 1$ 
+      mit $n \geq 2$. Die Fälle $n = 0$ und $n = 1$
       haben wir mit dem konstanten und dem linearen
       Fall bereits behandelt.
       Für alle $p \in \mathbb{R}$ und
@@ -357,17 +357,17 @@ die Nullfunktion ist.
       \[
         \delta = \min \{1, \varepsilon / (M + 1)\}.
       \]
-      Dann gilt für alle $h \in \mathbb{R}$ 
+      Dann gilt für alle $h \in \mathbb{R}$
       mit $|h| \leq \delta$,
       dass
       \[
-        |{(Rf)}_p(h)| = |h|^2 \cdot \sum_{k=2}^{n} 
+        |{(Rf)}_p(h)| = |h|^2 \cdot \sum_{k=2}^{n}
         \binom{n}{k} \cdot |p|^{n-k} \cdot |h|^{k-2}
                  \leq |h|^2 \cdot M % da |h|^{k-2} <= 1
-                 \leq |h| \cdot \delta \cdot M 
+                 \leq |h| \cdot \delta \cdot M
                  \leq|h| \cdot  \varepsilon.
       \]
-      Also ist ${(Rf)}_p(h)$ relativ klein in $|h|$ 
+      Also ist ${(Rf)}_p(h)$ relativ klein in $|h|$
       und somit ist $f$ im Punkt $p$ differenzierbar und
       \[
         {(Df)}_p(h) = n p^{n-1} \cdot h.
@@ -484,7 +484,7 @@ auszuwerten. Da $f$ linear ist, folgt
 \[
   f(p + h) = f(p) + f(h).
 \]
-Daraus folgt, 
+Daraus folgt,
 dass
 \[
   \frac{f(p+h) - f(p)}{h} = \frac{f(h)}{h}
@@ -581,7 +581,7 @@ auf diese kompliziertere Situation
   Wir folgern, dass ${(Df)}_p(h) = a \cdot h$,
   also insbesondere haben wir
   \[
-    f'(p) = {(Df)}_p(1) = a = 
+    f'(p) = {(Df)}_p(1) = a =
     \lim_{h \to 0} \frac{f(p + h) - f(p)}{h}. \qedhere
   \]
 \end{proof}
@@ -592,7 +592,7 @@ auf diese kompliziertere Situation
     \frac{f(p+h) - f(p)}{h}
   \]
   ist die Steigung der Sekante
-  zwischen den Punkten $(p, f(p))$ 
+  zwischen den Punkten $(p, f(p))$
   und $(p + h, f(p+h))$ im Graphen
   der Funktion $f$, siehe Abbildung~\ref{fig:derivative}
   links.
@@ -604,7 +604,7 @@ auf diese kompliziertere Situation
   \]
 \end{geometric}
 
-\begin{figure}[htb] 
+\begin{figure}[htb]
   \centering
   \begin{minipage}{0.4\textwidth}
     \centering
@@ -631,7 +631,7 @@ auf diese kompliziertere Situation
         \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h}
         = \lim_{h \to 0} \frac{\sqrt h}{h},
       \]
-      aber dieser Grenzwert existiert nicht: 
+      aber dieser Grenzwert existiert nicht:
       die Tangente der Funktion im Nullpunkt
       ist vertikal, hat also unendliche Steigung.
       Wir folgern, dass es keine Funktion
@@ -648,7 +648,7 @@ auf diese kompliziertere Situation
       Allgemeiner würde man Differenzierbarkeit auf
       einem Randpunkt auch über eine solche
       Erweiterung $\overline f$ definieren.
-      
+
       \begin{figure}[htb]
         \centering
         \includegraphics{images/sqrt}
@@ -656,7 +656,7 @@ auf diese kompliziertere Situation
         \label{fig:sqrt}
       \end{figure}
 
-    \item Wir definieren die Sinusfunktion geometrisch 
+    \item Wir definieren die Sinusfunktion geometrisch
       und untersuchen diese auf Differenzierbarkeit.
       In einem Kreis mit Radius $1$, sei $x$ ein Winkel,
       das heisst, eine Strecke zwischen zwei Punkten auf
@@ -695,17 +695,17 @@ auf diese kompliziertere Situation
       \[
         \lim_{x \to 0} \frac{\sin(x)}{x} = 1,
       \]
-      da 
+      da
       \[
         \lim_{x \to 0} \cos(x) = 1.
       \]
       Wir folgern, dass
       \[
-        \sin'(0) = 
+        \sin'(0) =
         \lim_{x \to 0} \frac{\sin(x) - \sin(0)}{x}
         = 1.
       \]
-      Das heisst, die Funktion 
+      Das heisst, die Funktion
       $\sin \colon \mathbb{R} \to \mathbb{R}$ ist differenzierbar
       bei $p = 0$.
       Aus den Additionstheoremen folgt leicht,
@@ -720,7 +720,7 @@ auf diese kompliziertere Situation
     \item Betrachte die Funktion
       \begin{align*}
         f \colon \mathbb{R} & \to \mathbb{R} \\
-        x & \mapsto 
+        x & \mapsto
         \begin{cases}
           x^2 & \text{falls $x \in \mathbb{Q}$ }, \\
           0 & \text{falls $x \in \mathbb{R} \setminus \mathbb{Q}$ }.
@@ -732,7 +732,7 @@ auf diese kompliziertere Situation
           f(0 + h) = 0 + 0 + {(Rf)}_0(h)
         \]
       für eine Dreigliedentwicklung bei $p = 0$.
-      Zu zeigen ist, dass ${(Rf)}_0(h) = f(h)$ 
+      Zu zeigen ist, dass ${(Rf)}_0(h) = f(h)$
       relativ klein in $|h|$ ist.
       Sei dazu $\varepsilon > 0$ vorgegeben.
       Setze $\delta = \varepsilon$.
@@ -749,14 +749,14 @@ auf diese kompliziertere Situation
 \end{examples}
 
 \begin{lemma*}
-  Sei $f \colon (a, b) \to \mathbb{R}$ im Punkt $p \in \mathbb{R}$ 
+  Sei $f \colon (a, b) \to \mathbb{R}$ im Punkt $p \in \mathbb{R}$
   differenzierbar. Dann ist $f$ im Punkt $p$ stetig.
 \end{lemma*}
 
 \begin{proof}[Beweisskizze]
   Das ist eine Übung auf Serie~7.
   Sei $\varepsilon > 0$ vorgegeben. Gesucht
-  ist ein $\delta > 0$ so, dass für $h \in \mathbb{R}$ 
+  ist ein $\delta > 0$ so, dass für $h \in \mathbb{R}$
   mit $|h| \leq \delta$ gilt, dass
   $|f(p+h) - f(p)| \leq \varepsilon$.
   Nach der Dreigliedentwicklung ist aber
@@ -777,17 +777,17 @@ auf diese kompliziertere Situation
 \section{Die Kettenregel}
 
 \begin{chainrule}
-Seien 
+Seien
 $a, b, c, d \in \mathbb{R}$ mit $a < b$ und $c < d$,
-sei $g \colon (a, b) \to \mathbb{R}$ 
+sei $g \colon (a, b) \to \mathbb{R}$
 eine Funktion,
 deren Bild in $(c, d)$ liegt, das heisst,
 $g((a, b)) \subset (c, d)$,
 und sei $f \colon (c, d) \to \mathbb{R}$ eine Funktion.
-Falls $g$ im Punkt $p \in (a, b)$ und $f$ 
+Falls $g$ im Punkt $p \in (a, b)$ und $f$
 im Punkt $g(p) \in (c, d)$ differenzierbar sind,
 dann ist die Komposition
-$f \circ g \colon (a, b) \to \mathbb{R}$ 
+$f \circ g \colon (a, b) \to \mathbb{R}$
 im Punkt $p$ differenzierbar, und es gilt
 \[
   {(D(f \circ g))}_p = {(Df)}_{g(p)} \circ {(Dg)}_p.
@@ -820,13 +820,13 @@ im Punkt $p$ differenzierbar, und es gilt
   Schreibe mithilfe der Dreigliedentwicklung
   von $g$, dass
   \begin{align*}
-    f \circ g(p + h) 
+    f \circ g(p + h)
     &= f(g(p+h))  \\
     &= f(g(p) + {(Dg)}_p(h) + {(Rg)}_p(h)) \\
     &= f(g(p) + \overline h)
   \end{align*}
   für $\overline h = {(Dg)}_p(h) + {(Rg)}_p(h)$.
-  Wir können nun die Dreigliedentwicklung von $f$ 
+  Wir können nun die Dreigliedentwicklung von $f$
   anwenden um zu sehen, dass
   \[
     f \circ g(p + h) = f(g(p)) + {(Df)}_{g(p)}(\overline h)
@@ -851,7 +851,7 @@ im Punkt $p$ differenzierbar, und es gilt
   \[
     R_2(h) = {(Rf)}_{g(p)}(\overline h),
   \]
-  so bleibt zu zeigen, dass $R_1(h)$ 
+  so bleibt zu zeigen, dass $R_1(h)$
   und $R_2(h)$ relativ klein
   in $|h|$ sind.
   \begin{enumerate}[(1)]
@@ -868,7 +868,7 @@ im Punkt $p$ differenzierbar, und es gilt
       Also ist $R_1(h)$ relativ klein in $|h|$.
     \item Berechne
       \[
-        R_2(h) 
+        R_2(h)
         = {(Rf)}_{g(p)}({(Dg)}_p(h) + {(Rg)}_p(h)).
       \]
       Sei $\varepsilon > 0$ vorgegeben. Wähle
@@ -880,7 +880,7 @@ im Punkt $p$ differenzierbar, und es gilt
       \]
       Dann ist also
       \begin{align*}
-         |\overline h| 
+         |\overline h|
          & = |{(Dg)}_p(h) + {(Rg)}_p(h)|\\
          & \leq |{(Dg)}_p(h)| + |{(Rg)}_p(h)| \\
          &\leq |g'(p)| \cdot |h| + |h| \\
@@ -889,7 +889,7 @@ im Punkt $p$ differenzierbar, und es gilt
       \end{align*}
       für $\alpha = |g'(p)| + 1$.
       Wähle nun $\delta_2 > 0$ so,
-      dass für alle $\widetilde h \in \mathbb{R}$ 
+      dass für alle $\widetilde h \in \mathbb{R}$
       mit $|\widetilde h| \leq \delta_2$ gilt,
       dass
       \[
@@ -913,11 +913,11 @@ im Punkt $p$ differenzierbar, und es gilt
 
 \subsection*{Anwendungen der Kettenregel}
 \subsubsection*{Ableitungen von Umkehrfunktionen}
-Sei $f \colon (a, b) \to (c, d)$ 
+Sei $f \colon (a, b) \to (c, d)$
 differenzierbar und bijektiv.
 Dann existiert eine Umkehrfunktion
 von $f$, das heisst, eine Funktion
-$g \colon (c, d) \to (a, b)$ 
+$g \colon (c, d) \to (a, b)$
 mit $f \circ g = \text{Id}_{(c, d)}$,
 die Identität des Intervalls
 $(c, d)$. Das heisst, für alle
@@ -928,7 +928,7 @@ $x \in (c, d)$ gilt
 Falls $g$ im Punkt $p \in (c, d)$
 differenzierbar ist, dann gilt
 \[
-  {(D(\text{Id}_{(c, d)}))}_{p} = 
+  {(D(\text{Id}_{(c, d)}))}_{p} =
   {(D(f \circ g))}_p
   = {(Df)}_{g(p)} \circ {(Dg)}_p.
 \]
@@ -944,7 +944,7 @@ Wir folgern, dass
 \]
 das heisst, die beiden linearen Abbildungen
 ${(Df)}_{g(p)} \colon \mathbb{R} \to \mathbb{R}$
-und ${(Dg)}_p \colon \mathbb{R} \to \mathbb{R}$ 
+und ${(Dg)}_p \colon \mathbb{R} \to \mathbb{R}$
 sind zueinander invers.
 Für die Ableitungen gilt, dass
 \[
@@ -971,13 +971,13 @@ erfüllt also, falls $g$ im Punkt $p > 0$ differenzierbar ist,
 \[
   g'(p) = \frac{1}{f'(g(p))} = \frac{1}{p}.
 \]
-Falls $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$ 
+Falls $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$
 differenzierbar ist, dann gilt somit
 \[
   \log'(x) = \frac{1}{x}.
 \]
 \end{example}
-      
+
 \begin{warning}
   Aus $f(g(x)) = x$ und $f$ differenzierbar
   folgt nicht, dass $g$ differenzierbar ist.
@@ -997,10 +997,10 @@ differenzierbar ist, dann gilt somit
   welche aufgrund einer vertikalen Tangente im
   Nullpunkt, siehe Abbildung~\ref{fig:cube},
   nicht differenzierbar ist.
-  
+
 \end{example}
 
-\begin{figure}[htb] 
+\begin{figure}[htb]
   \centering
   \begin{minipage}{0.40\textwidth}
     \centering
@@ -1021,7 +1021,7 @@ Betrachte die Funktion
   f \colon \mathbb{R} \setminus \{0\} & \to \mathbb{R} \\
   x & \mapsto \frac{1}{x}.
 \end{align*}
-Dann gilt für 
+Dann gilt für
 $p \neq 0$ und für $h \in \mathbb{R}$ mit $p + h \neq 0$, dass
 \[
   \frac{f(p+h) - f(p)}{h} = \frac{\frac{1}{p+h} - \frac{1}{p}}{h}
@@ -1036,7 +1036,7 @@ $p \neq 0$ differenzierbar und es gilt
 \[
   f'(p) = \frac{-1}{p^2}.
 \]
-Sei nun $g \colon \mathbb{R} \to \mathbb{R} \setminus \{0\}$ 
+Sei nun $g \colon \mathbb{R} \to \mathbb{R} \setminus \{0\}$
 differenzierbar an der Stelle $p \in \mathbb{R}$.
 Dann gilt
 \[
@@ -1050,10 +1050,10 @@ Zusammengefasst erhalten wir die \emph{Quotientenregel}
 
 \subsection*{Die Produktregel}
 \begin{productrule}
-Seien $f, g \colon (a, b) \to \mathbb{R}$ 
+Seien $f, g \colon (a, b) \to \mathbb{R}$
 im Punkt $p \in (a, b)$ differenzierbar.
 Dann ist das Produkt
-$f \cdot g \colon (a, b) \to \mathbb{R}$ 
+$f \cdot g \colon (a, b) \to \mathbb{R}$
 im Punkt $p$ differenzierbar und es gilt
 \[
   {(D(f \cdot g))}_p(h) = f(p) \cdot
@@ -1072,7 +1072,7 @@ im Punkt $p$ differenzierbar und es gilt
 \end{remark}
 
 \begin{proof}[Beweisskizze]
-  Wir leiten eine Dreigliedentwicklung für $f \cdot g$ 
+  Wir leiten eine Dreigliedentwicklung für $f \cdot g$
   bei $p$ wie folgt her. Berechne
   \begin{align*}
     (f \cdot g) (p+h)
@@ -1112,7 +1112,7 @@ im Punkt $p$ differenzierbar und es gilt
 
 \section{Der Mittelwertsatz}
 \begin{question}
-  Sei $f \colon \mathbb{R} \to \mathbb{R}$ 
+  Sei $f \colon \mathbb{R} \to \mathbb{R}$
   differenzierbar mit $f' = 0$ (die Nullfunktion),
   das heisst, für alle $x \in \mathbb{R}$ gilt
   $f'(x) = 0$. Ist dann $f$ konstant?
@@ -1125,7 +1125,7 @@ Wir brauchen dafür den Mittelwertsatz
 (nicht zu verwechseln mit dem Zwischenwertsatz).
 
 \begin{meanvalue}
-  Sei $f \colon [a, b] \to \mathbb{R}$ 
+  Sei $f \colon [a, b] \to \mathbb{R}$
   stetig und differenzierbar auf $(a, b)$.
   Dann existiert $p \in (a, b)$ mit $f(b) - f(a)
   = f'(p) \cdot (b-a)$.
@@ -1153,9 +1153,9 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 
 \begin{rolle}
   Sei $h \colon [0, 1] \to \mathbb{R}$ stetig
-  und differenzierbar auf $(0, 1)$ 
+  und differenzierbar auf $(0, 1)$
   mit $h(0) = h(1)$.
-  Dann existiert $t \in (0, 1)$ 
+  Dann existiert $t \in (0, 1)$
   mit $h'(t) = 0$.
 \end{rolle}
 
@@ -1172,16 +1172,16 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
     \item $h$ ist konstant.
       Dann gilt für alle $t\in (0, 1)$,
       dass $h'(t) = 0$.
-    \item Es existiert $p \in (0, 1)$ 
+    \item Es existiert $p \in (0, 1)$
       mit $h(p) < h(0) = h(1)$.
       Das ist die Situation, die in
       Abbildung~\ref{fig:rolle} dargestellt ist.
-      Da $h \colon [0, 1] \to \mathbb{R}$ 
+      Da $h \colon [0, 1] \to \mathbb{R}$
       stetig ist, nimmt $h$ auf dem
       kompakten Intervall
       $[0, 1]$ ein Minimum an.
       Es existiert also $t \in [0, 1]$
-      so, dass für alle $q \in [0, 1]$ 
+      so, dass für alle $q \in [0, 1]$
       gilt, dass
       $h(t) \leq h(q)$.
       Wegen $h(p) < h(0) = h(1)$ folgt,
@@ -1210,11 +1210,11 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   $p \in (a, b)$ ein \emph{lokales Maximum}
   annimmt, falls $\delta > 0$ mit
   $(p - \delta, p + \delta) \subset (a, b)$
-  existiert, so dass für alle $q \in (p - \delta, p + \delta)$ 
+  existiert, so dass für alle $q \in (p - \delta, p + \delta)$
   gilt, dass $h(q) \leq h(p)$.
   Wir sagen weiterhin, dass $h$ an der
   Stelle $p \in (a, b)$ ein
-  \emph{lokales Extremum} annimmt, falls 
+  \emph{lokales Extremum} annimmt, falls
   $h$ an der Stelle $p$
   ein lokales Maximum oder ein lokales Minimum
   annimmt.
@@ -1229,7 +1229,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 \end{lemma*}
 
 \begin{remark}
-  Die Umkehrung gilt nicht: Nur weil $h'(t) = 0$ 
+  Die Umkehrung gilt nicht: Nur weil $h'(t) = 0$
   gilt, heisst das nicht, dass~$t$ ein
   lokales Extremum von $h$ ist.
 \end{remark}
@@ -1279,7 +1279,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
       was der Annahme, dass $h$ ein lokales Minimum bei $p$
       hat, widerspricht.
     \item $h'(p) < 0$.
-      Setze 
+      Setze
       \[
         \varepsilon = \frac{|h'(p)|}{2} > 0.
       \]
@@ -1294,7 +1294,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 \end{proof}
 
 \begin{proof}[Beweis des Mittelwertsatzes]
-  Betrachte die Hilfsfunktion 
+  Betrachte die Hilfsfunktion
   \begin{align*}
     h \colon [0, 1] & \to \mathbb{R} \\
     t & \mapsto f((1- t)a + tb) - (1-t) \cdot f(a) - t\cdot f(b).
@@ -1313,10 +1313,10 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
     h(1) & = f(b) - f(b) = 0.
   \end{align*}
   Nach dem Satz von Rolle folgt, dass
-  $t_0 \in (0, 1)$ mit $h'(t_0) = 0$ 
+  $t_0 \in (0, 1)$ mit $h'(t_0) = 0$
   existiert.
   Wir berechnen \[
-    h'(t)  = f'((1-t)a + tb) \cdot (b-a) 
+    h'(t)  = f'((1-t)a + tb) \cdot (b-a)
   + f(a) - f(b). \]
   Setze nun
   \[
@@ -1350,22 +1350,22 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 \end{proof}
 
 \begin{definition}
-  Eine Funktion $f \colon (a, b) \to \mathbb{R}$ 
+  Eine Funktion $f \colon (a, b) \to \mathbb{R}$
   heisst \emph{stetig differenzierbar}, falls
-  $f$ differenzierbar und $f' \colon (a, b) \to \mathbb{R}$ 
+  $f$ differenzierbar und $f' \colon (a, b) \to \mathbb{R}$
   stetig ist.
 \end{definition}
 
 
 \begin{corollary}\label{cor:strictly-monotone}
-  Sei $f \colon (a, b) \to \mathbb{R}$ 
+  Sei $f \colon (a, b) \to \mathbb{R}$
   stetig differenzierbar und sei
   $p \in (a, b)$ mit $f'(p) > 0$.
   Dann existiert $\delta > 0$,
   so dass $f|_{(p- \delta, p + \delta)}
-  \colon (p - \delta, p + \delta) \to \mathbb{R}$ 
+  \colon (p - \delta, p + \delta) \to \mathbb{R}$
   streng monoton wachsend ist,
-  das heisst, für alle $x, y \in (p - \delta, p + \delta)$ 
+  das heisst, für alle $x, y \in (p - \delta, p + \delta)$
   mit $x < y$ gilt
   $f(x) < f(y)$.
 \end{corollary}
@@ -1379,7 +1379,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   $\delta > 0$ so, dass
   \begin{enumerate}[(i)]
     \item $(p - \delta, p + \delta) \subset (a, b)$,
-    \item für alle $q \in (p - \delta, p + \delta)$ 
+    \item für alle $q \in (p - \delta, p + \delta)$
       gilt
       \[
         |f'(q) - f'(p)| \leq \varepsilon.
@@ -1393,7 +1393,7 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
   Seien nun $x, y \in (p - \delta, p + \delta)$ mit
   $x < y$.
   Nach dem Mittelwertsatz existiert $t \in (x, y)$
-  mit 
+  mit
   \[f(y)  - f(x) = f'(t) \cdot (y - x) > 0. \]
   Also gilt $f(y) > f(x)$.
 \end{proof}
@@ -1401,9 +1401,9 @@ Ein Spezialfall des Mittelwertsatzes ist folgender Satz.
 \subsection*{Konvexität}
 Mithilfe des Mittelwertsatzes können wir Folgendes zeigen.
 \begin{enumerate}[(i)]
-  \item 
+  \item
     Sei $f \colon \mathbb{R} \to \mathbb{R}$ differenzierbar
-    mit $f' \geq 0$, das heisst, für alle $x \in \mathbb{R}$ 
+    mit $f' \geq 0$, das heisst, für alle $x \in \mathbb{R}$
     gilt $f'(x) \geq 0$.
     Dann ist $f$ monoton wachsend.
     Tatsächlich, seien $x, y \in \mathbb{R}$ mit $x < y$.
@@ -1418,7 +1418,7 @@ Mithilfe des Mittelwertsatzes können wir Folgendes zeigen.
     und $f'$ ist differenzierbar mit $f'' \geq 0$.
     Dann ist $f'$ monoton wachsend.
     Wende dazu Punkt (i) auf
-    $f' \colon\mathbb{R} \to \mathbb{R}$ 
+    $f' \colon\mathbb{R} \to \mathbb{R}$
     an.
     Salopp gesagt heisst das,
     dass die Steigung der Tangenten an den
@@ -1427,8 +1427,8 @@ Mithilfe des Mittelwertsatzes können wir Folgendes zeigen.
 \end{enumerate}
 
 \begin{definition}
-  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
-  heisst \emph{konvex}, falls für alle $a, b, c \in \mathbb{R}$ 
+  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$
+  heisst \emph{konvex}, falls für alle $a, b, c \in \mathbb{R}$
   mit $a < c < b$ der Punkt
   $(c, f(c))
   \in \mathbb{R}^2$ unter
@@ -1451,8 +1451,8 @@ $
 mit $t \in (0, 1)$.
 Berechne den Schnittpunkt $(c, z)$ der
 Geraden $g$ zwischen
-$(a, f(a))$ und $(b, f(b))$ 
-mit der vertikalen Geraden durch $(c, 0)$ 
+$(a, f(a))$ und $(b, f(b))$
+mit der vertikalen Geraden durch $(c, 0)$
 folgendermassen:
 \[
   z = f(a) + t \cdot (f(b) - f(a)).
@@ -1466,8 +1466,8 @@ Wir können also die Definition oben folgendermassen
 umformulieren.
 
 \begin{definition}
-  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
-  heisst \emph{konvex}, falls für alle $a < b$ 
+  Eine Funktion $f \colon \mathbb{R} \to \mathbb{R}$
+  heisst \emph{konvex}, falls für alle $a < b$
   und $t \in [0, 1]$ gilt, dass
   \[
     f(a + t \cdot (b - a)) \leq f(a) + t\cdot (f(b) - f(a)).
@@ -1478,7 +1478,7 @@ umformulieren.
 \begin{remarks}
   \leavevmode
   \begin{enumerate}[(1)]
-    \item Falls $f \colon \mathbb{R} \to \mathbb{R}$ 
+    \item Falls $f \colon \mathbb{R} \to \mathbb{R}$
       zweimal differenzierbar ist und $f'' \geq 0$ gilt,
       so ist $f$ konvex. Siehe dazu Serie 8.
     \item Nicht jede konvexe Funktion
@@ -1500,16 +1500,16 @@ umformulieren.
 \end{example}
 
 \begin{claim}
-  Jede konvexe Funktion $f \colon \mathbb{R} \to \mathbb{R}$ 
+  Jede konvexe Funktion $f \colon \mathbb{R} \to \mathbb{R}$
   ist stetig.
 \end{claim}
 
 \begin{proof}[Beweisskizze]
   Sei $x \in \mathbb{R}$.
-  Betrachte die Geraden $g$ 
+  Betrachte die Geraden $g$
   durch $(x, f(x))$ und $(x-1, f(x-1))$
   und $h$ durch $(x, f(x))$ und $(x+  1, f(x+1))$.
-  Dann liegt der Funktionsgraph von $f$ 
+  Dann liegt der Funktionsgraph von $f$
   über dem Intervall $[x-1, x+1]$ zwischen
   $g$ und $h$, siehe Abbildung~\ref{fig:convex-continuous}.
   Das liegt daran, dass bei der Postulation
@@ -1604,7 +1604,7 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
   \colon (p - \delta, p + \delta) \to
   (f(p - \delta), f(p + \delta))$
   bijektiv und die Umkehrfunktion
-  $g = f|_{(p - \delta, p + \delta)}^{-1}$ 
+  $g = f|_{(p - \delta, p + \delta)}^{-1}$
   differenzierbar ist und fűr alle
   $q \in (f(p-\delta), f(p + \delta))$ die Bedingung
   \[
@@ -1616,9 +1616,9 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
 \begin{remark}
   Es ist wichtig, dass
   $f$ stetig differenzierbar ist.
-  Die Funktion $f(x) = x + 2 x^2 \sin(1/x)$ 
+  Die Funktion $f(x) = x + 2 x^2 \sin(1/x)$
   erfüllt $f'(0) = 1$, aber  $f$ ist in
-  keiner offenen Umgebung von $0$ 
+  keiner offenen Umgebung von $0$
   umkehrbar, siehe obiges Beispiel.
 \end{remark}
 
@@ -1633,13 +1633,13 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
   \end{enumerate}
   Insbesondere gilt für alle $q \in (p - \delta, p + \delta)$, dass
   \[
-    f'(q) \geq \frac{f'(q)}{2} > 0.
+    f'(q) \geq \frac{f'(p)}{2} > 0.
   \]
   Nach dem Mittelwertsatz ist $f$ auf dem
   Intervall $(p -\delta, p+\delta)$ streng
   monoton wachsend, also injektiv.
   Nach dem Zwischenwertsatz für stetige Funktionen
-  nimmt $f$ auf dem Intervall $(p - \delta, p + \delta)$ 
+  nimmt $f$ auf dem Intervall $(p - \delta, p + \delta)$
   jeden Wert zwischen $f(p - \delta)$ und $f(p + \delta)$ an.
   Daraus folgt, dass die Einschränkung
   $f|_{(p - \delta, p + \delta)} \colon (p - \delta, p + \delta) \to (c, d)$,
@@ -1651,7 +1651,7 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
   Umkehrfunktion.
   Zu zeigen ist, dass $g$ differenzierbar ist.
   Sei dazu $q \in (c, d)$ und $h \in \mathbb{R}$ so dass
-  $q + h \in (c, d)$. 
+  $q + h \in (c, d)$.
   Setze $\tilde q = g(q) \in (p - \delta, p +\delta)$ und
   $\tilde h = g(q + h) - g(q)$.
   Mit dieser Wahl gilt, dass
@@ -1662,7 +1662,7 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
   \[
     f(\tilde q + \tilde h) = f(g(q + h)) = q + h.
   \]
-  Nach dem Mittelwertsatz existiert $t \in (\tilde q, \tilde q + \tilde h)$ 
+  Nach dem Mittelwertsatz existiert $t \in (\tilde q, \tilde q + \tilde h)$
   mit
   \[
     h = f(\tilde q + \tilde h) - f(\tilde q) = f'(t) \cdot \tilde h.
@@ -1673,7 +1673,7 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
     \frac{\tilde h}{f(\tilde q + \tilde h) - f(\tilde q) } =
     \frac{1}{f'(t)}.
   \]
-  Bemerke, dass für $t \in (\tilde q, \tilde q + \tilde h) \subset (p - \delta, p + \delta)$ 
+  Bemerke, dass für $t \in (\tilde q, \tilde q + \tilde h) \subset (p - \delta, p + \delta)$
   gilt, dass
   $f'(t) \geq f'(p) / 2 > 0$, also ist $1/f'(t)$ definiert.
   Im Grenzűbergang $h \to 0$ erhalten wir
@@ -1699,7 +1699,7 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
     \item Betrachte $f = \exp \colon \mathbb{R} \to \mathbb{R}_{>0}$.
       Wir bemerken, dass $f$ stetig differenzierbar ist, da $f' = f$.
       Weiterhin gilt für alle $x \in \mathbb{R}$, dass
-      $f'(x) = e^x > 0$, also ist die Umkehrfunktion $g = \log$ 
+      $f'(x) = e^x > 0$, also ist die Umkehrfunktion $g = \log$
       auf $\mathbb{R}_{>0}$ differenzierbar mit
       \[
         g'(x) = \frac{1}{f'(g(x))} = \frac{1}{f(g(x))} = \frac{1}{x}.
@@ -1725,14 +1725,14 @@ $f'$ an der Stelle $p = 0$ nicht stetig ist.
       Zusammengefasst erhalten wir
       \[
         \sqrt x ' = \frac{1}{2\sqrt x}.
-      \]      
+      \]
   \end{enumerate}
 \end{examples}
 
 \subsection*{Winkelfunktionen}
 Wir erinnern uns an die geometrische Überlegung, dass
 die Sinusfunktion
-$\sin$ 
+$\sin$
 an der Stelle $x = 0$ differenzierbar ist mit
 $\sin'(0) = 1$. Weiter gilt nach dem Satz
 von Pythagoras für alle $x \in \mathbb{R}$,
@@ -1740,7 +1740,7 @@ dass
 \[
   {(\cos(x))}^2 + {(\sin(x))}^2 = 1,
 \]
-also 
+also
 \[
   \cos(x) = \sqrt{1 - \sin^2(x)}.
 \]
@@ -1749,7 +1749,7 @@ Kettenregel ist $\cos$ an der
 Stelle $x = 0$ differenzierbar
 und es gilt
 \[
-  \cos ' ( 0 ) = 
+  \cos ' ( 0 ) =
   \frac{1}{2 \sqrt{1 - \sin(0)}} \cdot (-2 \cdot \sin(0) \cdot \sin'(0)) = 0.
 \]
 
@@ -1767,7 +1767,7 @@ um zu zeigen, dass
   \frac{\sin( x + h ) - \sin(x)}{h}
   &=
   \frac{\sin(x) \cdot \cos(h) + \cos(x) \cdot \sin(h) - \sin(x)}{h}
-  \\ & 
+  \\ &
   = \sin(x) \cdot \frac{\cos(h) - \cos(0)}{h} + \cos(x) \cdot \frac{\sin(h) - \sin(0)}{h}.
 \end{align*}
 Es folgt, dass
