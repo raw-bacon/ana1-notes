@@ -102,18 +102,12 @@ Iteriere dieses Verfahren $k$ mal, bis $n/2^{k} < 1$. Dann entsteht ein Widerspr
 Wir werden nun ein weiteres Beispiel
 einer irrationalen Zahl nach Euklid untersuchen.
 Betrachte ein Rechteck mit Seitenlängen $1$ und $x$,
-so dass das Unterrechteck mit Seitenlängen $x$ und $1-x$ 
+so dass das Unterrechteck mit Seitenlängen $x$ und $1-x$
 dieselben Proportionen hat, siehe Abbildung~\ref{fig:golden-ratio} links. In Symbolen soll gelten, dass
 \[
   \frac{x}{1} = \frac{1-x}{x}.
 \]
 Ein solches $x$ heisst \emph{goldener Schnitt}.
-Die DIN-Formate Reihe A (A3, A4, etc.) von Papieren
-hat (ungefähr) dieses Verhältnis. Deshalb
-sind zwei A5-Papiere dasselbe wie ein A4-Papier,
-zwei A4-Papiere sind dasselbe wie ein A3-Papier,
-und so weiter, ohne dass dieser Prozess zu verzerrten
-Grössen führt.
 Der mathematische Grund, dass so ein Verhältnis existiert,
 liegt im sogenannten ``Zwischenwertsatz'', siehe
 Abschnitt~\ref{sec:zwischenwertsatz} im Kapitel~\ref{chp:stetig}.
@@ -125,7 +119,7 @@ die gewünschte Eigenschaft erfüllt.
 
 \begin{proposition}
   Sei $x$ ein goldener Schnitt zwischen $0$ und $1$. Dann gilt:
-  \begin{enumerate}[(1)]
+  \begin{enumerate}[\normalfont(1)]
     \item $x$ ist ein ``Kettenbruch'' der Form
       \[
         x = \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \dots}}}.
@@ -187,7 +181,7 @@ die gewünschte Eigenschaft erfüllt.
   \end{enumerate}
 \end{proof}
 
-\begin{figure}[htb] 
+\begin{figure}[htb]
   \centering
   \begin{minipage}{0.35\textwidth}
     \centering
@@ -849,8 +843,8 @@ Sei nun $B = \{n_{0}, n_{1}, \dots \} \subset \mathbb N$ beliebig.
 Dann gilt
 \[
   0
-  \leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}} 
-  \leq \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k} 
+  \leq \sum_{k=0}^{\infty}{\left(\frac{1}{3}\right)}^{n_{k}}
+  \leq \sum_{k=0}^{\infty} {\left(\frac{1}{3}\right)}^{k}
   = \frac{3}{2}.
 \]
 Also gilt $D_{0} \supset D_{B} \supset D_{3/2}$.
@@ -1000,8 +994,8 @@ Man kann leicht überprüfen, dass $D + D'$ ein Schnitt ist.
           Das heisst, $-y < x$, also $x + y > 0$.
       \end{enumerate}
       Wir schliessen, dass $x + y + z > 0$, also $x + y + z \in D_{0}$.
-      Das zeigt die Inklusion $D + (-D) \subset D_{0}$. 
-      
+      Das zeigt die Inklusion $D + (-D) \subset D_{0}$.
+
       Sei umgekehrt
       $p/q \in D_{0}$, das heisst, $p/q > 0$. Wähle $y \in \mathbb Q$
       mit $0 < y < p/q$, zum Beispiel $y = p/2q$.
@@ -1198,7 +1192,7 @@ definierte additive Inverse von $D$ (und nicht die gespiegelte Menge).
 \begin{proof}
   \leavevmode
   \begin{itemize}
-    \item Nach Lemma~\ref{lem:r-plus-gruppe} und 
+    \item Nach Lemma~\ref{lem:r-plus-gruppe} und
       Lemma~\ref{lem:r-mal-gruppe} sind $(\mathbb R, +)$ und
       $(\mathbb R \setminus \{0\}, \cdot)$ kommutative Gruppen.
     \item Das Distributivgesetz überträgt sich von $\mathbb Q$
@@ -1215,7 +1209,7 @@ ist die Vollständigkeit. Vage gesagt bedeutet das,
 dass $\mathbb{R}$ keine ``Löcher'' hat.
 
 \begin{definition}
-	Sei $X$ 
+	Sei $X$
 	eine geordnete Menge. Dann heisst $X$ \emph{vollständig},
 	falls für alle nichtleeren Teilmengen $A, B \subset X$
 	mit $A < B$ (das heisst für alle $a \in A$ und alle $b \in B$
@@ -1243,10 +1237,10 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
 	  \item Es gilt für alle $a \in A$ und $b \in B$, dass
 		  $D_a \supset D_b$.
   \end{itemize}
-  Daraus folgt, dass 
+  Daraus folgt, dass
 	\[
-	   D_a 
-	   \supset 
+	   D_a
+	   \supset
 	   \bigcup_{b \in B} D_b = D.
 	\]
   Also repräsentiert der Schnitt $D$ eine reelle Zahl $c$
@@ -1263,7 +1257,7 @@ dass $\mathbb{R}$ keine ``Löcher'' hat.
   \]
   Das heisst aber nicht, dass $\mathbb Q$ vollständig ist:
   Tatsächlich ist $\mathbb{Q}$ nicht vollständig. Betrachte
-  beispielsweise 
+  beispielsweise
   $B= D_{\sqrt 2} = \left\{x \in \mathbb{Q} \mid x > \sqrt 2 \right\}$
   und $A = \mathbb{Q} \setminus D_{\sqrt 2}
   = \left\{x \in \mathbb{Q} \mid x < \sqrt 2\right\}$.
@@ -1338,18 +1332,18 @@ notiert $\max A$.
 Analog sind die Begriffe \emph{Infimum} ($\inf A$) und
 \emph{Minimum} ($\min A$) für nach unten beschränkte
 Teilmengen von $\mathbb{R}$ definiert.
- 
+
 \begin{example}
   Sei $A = \left\{x \in \mathbb{R} \mid x < \sqrt 2\right\}$.
   Dann ist $\sup A = \sqrt 2$ kein Maximum, da $\sqrt 2 \notin A$.
-  Hingegen für 
+  Hingegen für
   $\bar A = \left\{x \in \mathbb{R} \mid x \leq \sqrt 2\right\}$
   ist $\sup \bar A = \sqrt 2$ ein Maximum.
 
   Die Menge $B = \left\{x \in \mathbb{Q} \mid x < \sqrt 2\right\}$
   hat aber kein Supremum in $\mathbb{Q}$, wenn wir das analoge
-  Konzept in diesem 
-  geordneten Körper definieren. 
+  Konzept in diesem
+  geordneten Körper definieren.
 \end{example}
 
 \begin{proof}[Beweis der Existenz von $\sup A$]
@@ -1393,9 +1387,9 @@ es aber aus der Vollständigkeit herleiten.
   \)
   Falls $A = \emptyset$, dann setze $N = 1$.
   Falls $A \neq \emptyset$, dann hat $A$ ein Supremum
-  $S = \sup A \in \mathbb{R}$, da $A$ nach oben 
+  $S = \sup A \in \mathbb{R}$, da $A$ nach oben
   durch $a$ beschränkt ist.
-  Es ist dann $S - 1/2$ keine obere Schranke für $A$. 
+  Es ist dann $S - 1/2$ keine obere Schranke für $A$.
   Also existiert eine Zahl $M \in A$ mit $M > S - 1/2$.
   Also ist $M + 1 > S$ und somit $N = M + 1 > a$. Diese Zahl ist
   natürlich, da $M$ als Element von $A$ eine natürliche Zahl ist.
